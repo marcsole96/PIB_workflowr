@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>PiB</title>
+
+<script src="site_libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/master/img/reproducible.png">
+<!-- Add a small amount of space between sections. -->
+<style type="text/css">
+div.section {
+  padding-top: 12px;
+}
+</style>
+
+
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-sm-12 col-md-4 col-lg-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-sm-12 col-md-8 col-lg-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">PIB_workflowr</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+<li>
+  <a href="license.html">License</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/marcsole96/PIB_workflowr">
+    <span class="fas fa-github"></span>
+     
+    Source code
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">PiB</h1>
+
+</div>
+
+
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+</button>
+</p>
+<div id="workflowr-report" class="collapse">
+<ul class="nav nav-tabs">
+<li class="active">
+<a data-toggle="tab" href="#summary">Summary</a>
+</li>
+<li>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
+</li>
+<li>
+<a data-toggle="tab" href="#versions">Past versions</a>
+</li>
+</ul>
+<div class="tab-content">
+<div id="summary" class="tab-pane fade in active">
+<p>
+<strong>Last updated:</strong> 2021-09-10
+</p>
+<p>
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
+</p>
+<p>
+<strong>Knit directory:</strong> <code>PIB_workflowr/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
+</p>
+<p>
+This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis was created with <a
+  href="https://github.com/jdblischak/workflowr">workflowr</a> (version 1.6.2). The <em>Checks</em> tab describes the reproducibility checks that were applied when the results were created. The <em>Past versions</em> tab lists the development history.
+</p>
+<hr>
+</div>
+<div id="checks" class="tab-pane fade">
+<div id="workflowr-checks" class="panel-group">
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
+</p>
+</div>
+<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
+</p>
+</div>
+<div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! The global environment was empty. Objects defined in the global environment can affect the analysis in your R Markdown file in unknown ways. For reproduciblity it’s best to always run the code in an empty environment.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed20210909code"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Seed:</strong> <code>set.seed(20210909)</code> </a>
+</p>
+</div>
+<div id="strongSeedstrongcodesetseed20210909code" class="panel-collapse collapse">
+<div class="panel-body">
+<p>The command <code>set.seed(20210909)</code> was run prior to running the code in the R Markdown file. Setting a seed ensures that any results that rely on randomness, e.g. subsampling or permutations, are reproducible.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Session information:</strong> recorded </a>
+</p>
+</div>
+<div id="strongSessioninformationstrongrecorded" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Recording the operating system, R version, and package versions is critical for reproducibility.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Cache:</strong> none </a>
+</p>
+</div>
+<div id="strongCachestrongnone" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Nice! There were no cached chunks for this analysis, so you can be confident that you successfully produced the results during this run.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongFilepathsstrongrelative"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>File paths:</strong> relative </a>
+</p>
+</div>
+<div id="strongFilepathsstrongrelative" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Using relative paths to the files within your workflowr project makes it easier to run your code on other machines.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtreeb2c214032e8841813f6e54a6afdcce12bdc6a267targetblankb2c2140a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/marcsole96/PIB_workflowr/tree/b2c214032e8841813f6e54a6afdcce12bdc6a267" target="_blank">b2c2140</a> </a>
+</p>
+</div>
+<div id="strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtreeb2c214032e8841813f6e54a6afdcce12bdc6a267targetblankb2c2140a" class="panel-collapse collapse">
+<div class="panel-body">
+<p>
+Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
+</p>
+<p>
+The results in this page were generated with repository version <a href="https://github.com/marcsole96/PIB_workflowr/tree/b2c214032e8841813f6e54a6afdcce12bdc6a267" target="_blank">b2c2140</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+</p>
+<p>
+Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
+</p>
+<pre><code>
+Ignored files:
+    Ignored:    .Rhistory
+    Ignored:    .Rproj.user/
+
+Untracked files:
+    Untracked:  data/CONTRACT REGION OF INTERESTED EXPORTS/
+    Untracked:  data/INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/
+    Untracked:  data/STRIKES ANALYSIS (I TEST SET)-ROI EXPORTS/
+
+</code></pre>
+<p>
+Note that any generated files, e.g. HTML, png, CSS, etc., are not included in this status report because it is ok for generated content to have uncommitted changes.
+</p>
+</div>
+</div>
+</div>
+</div>
+<hr>
+</div>
+<div id="versions" class="tab-pane fade">
+
+<p>
+These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/PiB.Rmd</code>) and HTML (<code>docs/PiB.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
+</p>
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+File
+</th>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+<th>
+Message
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/marcsole96/PIB_workflowr/blob/b2c214032e8841813f6e54a6afdcce12bdc6a267/analysis/PiB.Rmd" target="_blank">b2c2140</a>
+</td>
+<td>
+marcsole96
+</td>
+<td>
+2021-09-10
+</td>
+<td>
+wflow_publish(“../analysis/PiB.Rmd”)
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+</div>
+</div>
+</div>
+<pre class="r"><code>getwd()</code></pre>
+<pre><code>[1] &quot;C:/Users/mysit/Documents/Bioinformatica/Semestre_3/Projecte_Palle/PIB_workflowr/data&quot;</code></pre>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<pre><code>Warning: package &#39;tidyverse&#39; was built under R version 4.0.5</code></pre>
+<pre><code>-- Attaching packages --------------------------------------- tidyverse 1.3.1 --</code></pre>
+<pre><code>v ggplot2 3.3.3     v purrr   0.3.4
+v tibble  3.0.3     v dplyr   1.0.5
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   1.4.0     v forcats 0.5.1</code></pre>
+<pre><code>Warning: package &#39;tidyr&#39; was built under R version 4.0.5</code></pre>
+<pre><code>Warning: package &#39;dplyr&#39; was built under R version 4.0.5</code></pre>
+<pre><code>Warning: package &#39;forcats&#39; was built under R version 4.0.5</code></pre>
+<pre><code>-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()</code></pre>
+<pre class="r"><code>library(ggplot2)
+library(ggfortify)</code></pre>
+<pre><code>Warning: package &#39;ggfortify&#39; was built under R version 4.0.5</code></pre>
+<pre class="r"><code>library(Rtsne)</code></pre>
+<pre><code>Warning: package &#39;Rtsne&#39; was built under R version 4.0.5</code></pre>
+<pre class="r"><code>library(reshape2)</code></pre>
+<pre><code>
+Attaching package: &#39;reshape2&#39;</code></pre>
+<pre><code>The following object is masked from &#39;package:tidyr&#39;:
+
+    smiths</code></pre>
+<pre class="r"><code>theme_set(theme_minimal())</code></pre>
+<div id="contract-region-of-interested-exports" class="section level1">
+<h1>CONTRACT REGION OF INTERESTED EXPORTS</h1>
+<div id="page-1-contract-exports" class="section level2">
+<h2>Page 1 contract exports</h2>
+<pre class="r"><code>p1_initials_II &lt;- read.table(file = &quot;CONTRACT REGION OF INTERESTED EXPORTS/Page 1 contract exports/190910,21h19_II initials page 1.txt&quot;, sep = &quot;&quot;)
+
+p1_initials_III &lt;- read.table(file = &quot;CONTRACT REGION OF INTERESTED EXPORTS/Page 1 contract exports/190910,21h19_III initials page 1.txt&quot;, sep = &quot;&quot;)
+
+p1_initials_SF &lt;- read.table(file = &quot;CONTRACT REGION OF INTERESTED EXPORTS/Page 1 contract exports/190910,21h19_SF initials page 1.txt&quot;, sep = &quot;&quot;)
+
+
+colnames(p1_initials_SF) &lt;- c(&quot;spectrum&quot;, &quot;P1_SF_intensity&quot;)
+colnames(p1_initials_II) &lt;- c(&quot;spectrum&quot;, &quot;P1_II_Intensity&quot;)
+colnames(p1_initials_III) &lt;- c(&quot;spectrum&quot;, &quot;P1_III_Intensity&quot;)</code></pre>
+</div>
+<div id="page-2-contract-exports" class="section level2">
+<h2>Page 2 contract exports</h2>
+<pre class="r"><code>p2_initials_II &lt;- read.table(file = &quot;CONTRACT REGION OF INTERESTED EXPORTS/Page 2 contract exports/190910,23h44_II initials page 2.txt&quot;, sep = &quot;&quot;)
+
+p2_initials_III &lt;- read.table(file = &quot;CONTRACT REGION OF INTERESTED EXPORTS/Page 2 contract exports/190910,23h44_III initials page 2.txt&quot;, sep = &quot;&quot;)
+
+p2_initials_SF &lt;- read.table(file = &quot;CONTRACT REGION OF INTERESTED EXPORTS/Page 2 contract exports/190910,23h44_SF initials page 2.txt&quot;, sep = &quot;&quot;)
+
+colnames(p2_initials_SF) &lt;- c(&quot;spectrum&quot;, &quot;P2 SF Intensity&quot;)
+colnames(p2_initials_II) &lt;- c(&quot;spectrum&quot;, &quot;P2 II Intensity&quot;)
+colnames(p2_initials_III) &lt;- c(&quot;spectrum&quot;, &quot;P2 III Intensity&quot;)</code></pre>
+</div>
+<div id="page-3-contract-export" class="section level2">
+<h2>Page 3 contract export</h2>
+<pre class="r"><code>p3_initials_II &lt;- read.table(file = &quot;CONTRACT REGION OF INTERESTED EXPORTS/Page 3 contract export/190910,01h50_II initials signature page 3.txt&quot;, sep = &quot;&quot;)
+
+p3_initials_III &lt;- read.table(file = &quot;CONTRACT REGION OF INTERESTED EXPORTS/Page 3 contract export/190910,01h50_III initials signature page 3.txt&quot;, sep = &quot;&quot;)
+
+p3_initials_SF &lt;- read.table(file = &quot;CONTRACT REGION OF INTERESTED EXPORTS/Page 3 contract export/190910,01h50_SFsignature page 3.txt&quot;, sep = &quot;&quot;)
+
+colnames(p3_initials_SF) &lt;- c(&quot;spectrum&quot;, &quot;P3 SF Intensity&quot;)
+colnames(p3_initials_II) &lt;- c(&quot;spectrum&quot;, &quot;P3 II Intensity&quot;)
+colnames(p3_initials_III) &lt;- c(&quot;spectrum&quot;, &quot;P3 III Intensity&quot;)</code></pre>
+</div>
+</div>
+<div id="ink-square-analysis-training-set-roi-exports" class="section level1">
+<h1>INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS</h1>
+<div id="full-squares" class="section level2">
+<h2>full squares</h2>
+<pre class="r"><code>sq1_under_no1 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/full squares/Full square 1 underneat number 1.txt&quot;, sep = &quot;&quot;)
+
+sq1_under_no2 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/full squares/Full square 1 underneat number 2.txt&quot;, sep = &quot;&quot;)
+
+sq2_under_no1 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/full squares/Full square 2 underneat number 1.txt&quot;, sep = &quot;&quot;)
+
+sq_beside_no4 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/full squares/Full square beside number 4.txt&quot;, sep = &quot;&quot;)
+
+sq1_under_no3 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/full squares/Full square underneat number 3.txt&quot;, sep = &quot;&quot;)
+
+sq2_under_no2 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/full squares/II full square ink under number 2.txt&quot;, sep = &quot;&quot;)
+
+sq2_under_no3 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/full squares/II full square ink under number 3.txt&quot;, sep = &quot;&quot;)
+
+colnames(sq1_under_no1) &lt;- c(&quot;spectrum&quot;, &quot;SQ1 U1 Intensity&quot;)
+colnames(sq1_under_no2) &lt;- c(&quot;spectrum&quot;, &quot;SQ1 U2 Intensity&quot;)
+colnames(sq2_under_no1) &lt;- c(&quot;spectrum&quot;, &quot;SQ2 U1 Intensity&quot;)
+colnames(sq_beside_no4) &lt;- c(&quot;spectrum&quot;, &quot;SQ B4 Intensity&quot;)
+colnames(sq1_under_no3) &lt;- c(&quot;spectrum&quot;, &quot;SQ1 U3 Intensity&quot;)
+colnames(sq2_under_no2) &lt;- c(&quot;spectrum&quot;, &quot;SQ2 U2 Intensity&quot;)
+colnames(sq2_under_no3) &lt;- c(&quot;spectrum&quot;, &quot;SQ2 U3 Intensity&quot;)</code></pre>
+</div>
+<div id="numbers" class="section level2">
+<h2>numbers</h2>
+<pre class="r"><code>sq_no2 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/numbers/squares analysis_number 2.txt&quot;, sep = &quot;&quot;)
+
+sq_no3 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/numbers/squares analysis_number 3.txt&quot;, sep = &quot;&quot;)
+
+sq_no4 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/numbers/squares analysis_number 4.txt&quot;, sep = &quot;&quot;)
+
+sq_no1 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/numbers/squares analysis_number1.txt&quot;, sep = &quot;&quot;)
+
+sq_no2_II &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/numbers/squares_analysis_number 2.txt&quot;, sep = &quot;&quot;)
+
+sq_no5 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/numbers/squares_analysis_number 5.txt&quot;, sep = &quot;&quot;)
+
+sq_no6 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/numbers/squares_analysis_number 6.txt&quot;, sep = &quot;&quot;)
+
+colnames(sq_no2) &lt;- c(&quot;spectrum&quot;, &quot;SQ 2 Intensity&quot;)
+colnames(sq_no3) &lt;- c(&quot;spectrum&quot;, &quot;SQ 3 Intensity&quot;)
+colnames(sq_no4) &lt;- c(&quot;spectrum&quot;, &quot;SQ 4 Intensity&quot;)
+colnames(sq_no1) &lt;- c(&quot;spectrum&quot;, &quot;SQ 1 Intensity&quot;)
+colnames(sq_no2_II) &lt;- c(&quot;spectrum&quot;, &quot;SQ2 2 Intensity&quot;)  # I think this df should be sq2 from number 1
+colnames(sq_no5) &lt;- c(&quot;spectrum&quot;, &quot;SQ 5 Intensity&quot;)
+colnames(sq_no6) &lt;- c(&quot;spectrum&quot;, &quot;SQ 6 Intensity&quot;)</code></pre>
+</div>
+<div id="split-squares_each-square-3-roi" class="section level2">
+<h2>split squares_each square 3 ROI</h2>
+<pre class="r"><code># square II under no1
+sqII_no1_ROI1 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/II square ink under number 1_ROI1.txt&quot;, sep = &quot;&quot;)
+sqII_no1_ROI2 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/II square ink under number 1_ROI2.txt&quot;, sep = &quot;&quot;)
+sqII_no1_ROI3 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/II square ink under number 1_ROI3.txt&quot;, sep = &quot;&quot;)
+
+colnames(sqII_no1_ROI1) &lt;- c(&quot;spectrum&quot;, &quot;SQ2 1 ROI1 Intensity&quot;)
+colnames(sqII_no1_ROI2) &lt;- c(&quot;spectrum&quot;, &quot;SQ2 1 ROI2 Intensity&quot;)
+colnames(sqII_no1_ROI3) &lt;- c(&quot;spectrum&quot;, &quot;SQ2 1 ROI3 Intensity&quot;)
+
+# square above no5
+sq_no5_ROI1 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink above number 5_ROI1.txt&quot;, sep = &quot;&quot;)
+sq_no5_ROI2 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink above number 5_ROI2.txt&quot;, sep = &quot;&quot;)
+sq_no5_ROI3 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink above number 5_ROI3.txt&quot;, sep = &quot;&quot;)
+
+colnames(sq_no5_ROI1) &lt;- c(&quot;spectrum&quot;, &quot;SQ 5 ROI1 Intensity&quot;)
+colnames(sq_no5_ROI2) &lt;- c(&quot;spectrum&quot;, &quot;SQ 5 ROI2 Intensity&quot;)
+colnames(sq_no5_ROI3) &lt;- c(&quot;spectrum&quot;, &quot;SQ 5 ROI3 Intensity&quot;)
+
+# square above no6
+sq_no6_ROI1 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink above number 6_ROI1.txt&quot;, sep = &quot;&quot;)
+sq_no6_ROI2 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink above number 6_ROI2.txt&quot;, sep = &quot;&quot;)
+sq_no6_ROI3 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink above number 6_ROI3.txt&quot;, sep = &quot;&quot;)
+
+colnames(sq_no6_ROI1) &lt;- c(&quot;spectrum&quot;, &quot;SQ 6 ROI1 Intensity&quot;)
+colnames(sq_no6_ROI2) &lt;- c(&quot;spectrum&quot;, &quot;SQ 6 ROI2 Intensity&quot;)
+colnames(sq_no6_ROI3) &lt;- c(&quot;spectrum&quot;, &quot;SQ 6 ROI3 Intensity&quot;)
+
+# square beside no4
+sq_no4_ROI1 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink beside number 4_ROI1.txt&quot;, sep = &quot;&quot;)
+sq_no4_ROI2 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink beside number 4_ROI2.txt&quot;, sep = &quot;&quot;)
+sq_no4_ROI3 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink beside number 4_ROI3.txt&quot;, sep = &quot;&quot;)
+
+colnames(sq_no4_ROI1) &lt;- c(&quot;spectrum&quot;, &quot;SQ 4 ROI1 Intensity&quot;)
+colnames(sq_no4_ROI2) &lt;- c(&quot;spectrum&quot;, &quot;SQ 4 ROI2 Intensity&quot;)
+colnames(sq_no4_ROI3) &lt;- c(&quot;spectrum&quot;, &quot;SQ 4 ROI3 Intensity&quot;)
+
+# square I under no1
+sqI_no1_ROI1 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink under number 1_ROI1.txt&quot;, sep = &quot;&quot;)
+sqI_no1_ROI2 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink under number 1_ROI2.txt&quot;, sep = &quot;&quot;)
+sqI_no1_ROI3 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink under number 1_ROI3.txt&quot;, sep = &quot;&quot;)
+
+colnames(sqI_no1_ROI1) &lt;- c(&quot;spectrum&quot;, &quot;SQI 1 ROI1 Intensity&quot;)
+colnames(sqI_no1_ROI2) &lt;- c(&quot;spectrum&quot;, &quot;SQI 1 ROI2 Intensity&quot;)
+colnames(sqI_no1_ROI3) &lt;- c(&quot;spectrum&quot;, &quot;SQI 1 ROI3 Intensity&quot;)
+
+# square under no2
+sq_no2_ROI1 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink under number 2_ROI1.txt&quot;, sep = &quot;&quot;)
+sq_no2_ROI2 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink under number 2_ROI2.txt&quot;, sep = &quot;&quot;)
+sq_no2_ROI3 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink under number 2_ROI3.txt&quot;, sep = &quot;&quot;)
+
+colnames(sq_no2_ROI1) &lt;- c(&quot;spectrum&quot;, &quot;SQ 2 ROI1 Intensity&quot;)
+colnames(sq_no2_ROI2) &lt;- c(&quot;spectrum&quot;, &quot;SQ 2 ROI2 Intensity&quot;)
+colnames(sq_no2_ROI3) &lt;- c(&quot;spectrum&quot;, &quot;SQ 2 ROI3 Intensity&quot;)
+
+# square under no3
+sq_no3_ROI1 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink under number 3_ROI1.txt&quot;, sep = &quot;&quot;)
+sq_no3_ROI2 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink under number 3_ROI2.txt&quot;, sep = &quot;&quot;)
+sq_no3_ROI3 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink under number 3_ROI3.txt&quot;, sep = &quot;&quot;)
+
+colnames(sq_no3_ROI1) &lt;- c(&quot;spectrum&quot;, &quot;SQ 3 ROI1 Intensity&quot;)
+colnames(sq_no3_ROI2) &lt;- c(&quot;spectrum&quot;, &quot;SQ 3 ROI2 Intensity&quot;)
+colnames(sq_no3_ROI3) &lt;- c(&quot;spectrum&quot;, &quot;SQ 3 ROI3 Intensity&quot;)</code></pre>
+</div>
+</div>
+<div id="strikes-analysis-i-test-set-roi-exports" class="section level1">
+<h1>STRIKES ANALYSIS (I TEST SET)-ROI EXPORTS</h1>
+<pre class="r"><code>strike1 &lt;- read.table(file = &quot;STRIKES ANALYSIS (I TEST SET)-ROI EXPORTS/strike 1.txt&quot;, sep = &quot;&quot;)
+
+strike2 &lt;- read.table(file = &quot;STRIKES ANALYSIS (I TEST SET)-ROI EXPORTS/strike 2.txt&quot;, sep = &quot;&quot;)
+
+strike3 &lt;- read.table(file = &quot;STRIKES ANALYSIS (I TEST SET)-ROI EXPORTS/strike 3.txt&quot;, sep = &quot;&quot;)
+
+strike4 &lt;- read.table(file = &quot;STRIKES ANALYSIS (I TEST SET)-ROI EXPORTS/strike 4.txt&quot;, sep = &quot;&quot;)
+
+strike5 &lt;- read.table(file = &quot;STRIKES ANALYSIS (I TEST SET)-ROI EXPORTS/strike 5.txt&quot;, sep = &quot;&quot;)
+
+strike6 &lt;- read.table(file = &quot;STRIKES ANALYSIS (I TEST SET)-ROI EXPORTS/strike 6.txt&quot;, sep = &quot;&quot;)
+
+colnames(strike1) &lt;- c(&quot;spectrum&quot;, &quot;strike1 Intensity&quot;)
+colnames(strike2) &lt;- c(&quot;spectrum&quot;, &quot;strike2 Intensity&quot;)
+colnames(strike3) &lt;- c(&quot;spectrum&quot;, &quot;strike3 Intensity&quot;)
+colnames(strike4) &lt;- c(&quot;spectrum&quot;, &quot;strike4 Intensity&quot;)
+colnames(strike5) &lt;- c(&quot;spectrum&quot;, &quot;strike5 Intensity&quot;)
+colnames(strike6) &lt;- c(&quot;spectrum&quot;, &quot;strike6 Intensity&quot;)</code></pre>
+<pre class="r"><code>test_data &lt;- cbind(strike1, strike2[2], strike3[2], strike4[2], strike5[2], strike6[2])
+training_data1 &lt;- cbind(sq1_under_no1, sq2_under_no1[2], sq1_under_no2[2], sq2_under_no2[2], sq1_under_no3[2], sq2_under_no3[2])
+training_data2 &lt;- cbind(sq_no1, sq_no2[2], sq_no2_II[2], sq_no3[2], sq_no4[2], sq_no5[2], sq_no6[2])
+training_data3 &lt;- cbind(sqI_no1_ROI1, sqI_no1_ROI2[2], sqI_no1_ROI3[2], sqII_no1_ROI1[2], sqII_no1_ROI2[2], sqII_no1_ROI3[2], sq_no2_ROI1[2], sq_no2_ROI2[2], sq_no2_ROI3[2], sq_no3_ROI1[2], sq_no3_ROI2[2], sq_no3_ROI3[2], sq_no4_ROI1[2], sq_no4_ROI2[2], sq_no4_ROI3[2], sq_no5_ROI1[2], sq_no5_ROI2[2], sq_no5_ROI3[2], sq_no6_ROI1[2], sq_no6_ROI2[2], sq_no6_ROI3[2])</code></pre>
+<p>#Simple intensities plots:</p>
+<p>Testdata</p>
+<pre class="r"><code>test&lt;-melt(test_data, id=&quot;spectrum&quot;)
+ggplot(test, aes(spectrum,value,colour=variable)) + geom_point()</code></pre>
+<p><img src="figure/PiB.Rmd/unnamed-chunk-11-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>Training data 1</p>
+<pre class="r"><code>test&lt;-melt(training_data1, id=&quot;spectrum&quot;)
+ggplot(test, aes(spectrum,value,colour=variable)) + geom_point()</code></pre>
+<p><img src="figure/PiB.Rmd/unnamed-chunk-12-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>Training data 2</p>
+<pre class="r"><code>test&lt;-melt(training_data2, id=&quot;spectrum&quot;)
+ggplot(test, aes(spectrum,value,colour=variable)) + geom_point()</code></pre>
+<p><img src="figure/PiB.Rmd/unnamed-chunk-13-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>Training data 2</p>
+<pre class="r"><code>test&lt;-melt(training_data3, id=&quot;spectrum&quot;)
+ggplot(test, aes(spectrum,value,colour=variable)) + geom_point()</code></pre>
+<p><img src="figure/PiB.Rmd/unnamed-chunk-14-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="pcas" class="section level1">
+<h1>PCAs</h1>
+<div id="test_data" class="section level2">
+<h2>Test_data</h2>
+<p>Changing the columns so they are rows:</p>
+<pre class="r"><code>test&lt;-as.data.frame(t(test_data[-1]))
+names(test)&lt;-test_data$spectrum
+
+test$labels=row.names(test)</code></pre>
+<pre class="r"><code>#doing PCA
+pca_res &lt;- prcomp(test[0:4500], scale. = TRUE)
+autoplot(pca_res,data=test,colour=&quot;labels&quot;, label=T)</code></pre>
+<pre><code>Warning: `select_()` was deprecated in dplyr 0.7.0.
+Please use `select()` instead.</code></pre>
+<p><img src="figure/PiB.Rmd/unnamed-chunk-16-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="training_data1" class="section level2">
+<h2>training_data1</h2>
+<p>Changing the columns so they are rows:</p>
+<pre class="r"><code>test&lt;-as.data.frame(t(training_data1[-1]))
+names(test)&lt;-training_data1$spectrum
+
+test$labels=row.names(test)</code></pre>
+<pre class="r"><code>#doing PCA
+pca_res &lt;- prcomp(test[0:4500], scale. = TRUE)
+autoplot(pca_res,data=test,colour=&quot;labels&quot;, label=T)</code></pre>
+<p><img src="figure/PiB.Rmd/unnamed-chunk-18-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="training_data2" class="section level2">
+<h2>training_data2</h2>
+<p>Changing the columns so they are rows:</p>
+<pre class="r"><code>test&lt;-as.data.frame(t(training_data2[-1]))
+names(test)&lt;-training_data2$spectrum
+
+test$labels=row.names(test)</code></pre>
+<pre class="r"><code>#doing PCA
+pca_res &lt;- prcomp(test[0:4500], scale. = TRUE)
+autoplot(pca_res,data=test,colour=&quot;labels&quot;, label=T)</code></pre>
+<p><img src="figure/PiB.Rmd/unnamed-chunk-20-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="training_data3" class="section level2">
+<h2>training_data3</h2>
+<p>Changing the columns so they are rows:</p>
+<pre class="r"><code>test&lt;-as.data.frame(t(training_data3[-1]))
+names(test)&lt;-training_data3$spectrum
+
+test$labels=row.names(test)</code></pre>
+<pre class="r"><code>#doing PCA
+pca_res &lt;- prcomp(test[0:4500], scale. = TRUE)
+autoplot(pca_res,data=test,colour=&quot;labels&quot;, label=T)</code></pre>
+<p><img src="figure/PiB.Rmd/unnamed-chunk-22-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>#tSNE ## Test_data</p>
+<pre class="r"><code>#t-SNE is not deterministic. There is some inherent stochasticity with the generation of probability distributions
+
+set.seed(14)
+#doing t-SNE
+
+tsne &lt;- Rtsne(test_data[,-1], dims = 2, perplexity=30, 
+              verbose=FALSE, max_iter = 500)
+lowd_map&lt;- data.frame(tsne$Y)
+lowd_map$label &lt;- factor(test_data$spectrum)
+
+ggplot(lowd_map, aes(x= X1, y = X2)) + ggtitle(&quot;tSNE&quot;) +
+  geom_point(aes(color=label))</code></pre>
+<p><img src="figure/PiB.Rmd/unnamed-chunk-23-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>#How can I colorize each dot so it represents each strike??? </code></pre>
+<pre class="r"><code>test&lt;-melt(test_data, id=&quot;spectrum&quot;)
+test&lt;-spread(test,spectrum,value)
+tsne &lt;- Rtsne(test[,-1], dims = 2, perplexity=1, 
+              verbose=FALSE, max_iter = 500)
+lowd_map&lt;- data.frame(tsne$Y)
+lowd_map$label &lt;- factor(test$variable)
+
+ggplot(lowd_map, aes(x= X1, y = X2)) + ggtitle(&quot;tSNE&quot;) +
+  geom_text(aes(label = label, color = label)) + geom_point(aes(color = label), alpha = 0.5)</code></pre>
+<p><img src="figure/PiB.Rmd/unnamed-chunk-24-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="train-data-1" class="section level2">
+<h2>Train data 1</h2>
+<pre class="r"><code>test&lt;-melt(training_data1, id=&quot;spectrum&quot;)
+test&lt;-spread(test,spectrum,value)
+tsne &lt;- Rtsne(test[,-1], dims = 2, perplexity=1, 
+              verbose=FALSE, max_iter = 500)
+lowd_map&lt;- data.frame(tsne$Y)
+lowd_map$label &lt;- factor(test$variable)
+
+ggplot(lowd_map, aes(x= X1, y = X2)) + ggtitle(&quot;tSNE&quot;) +
+  geom_text(aes(label = label, color = label)) + geom_point(aes(color = label), alpha = 0.5)</code></pre>
+<p><img src="figure/PiB.Rmd/unnamed-chunk-25-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="train-data-2" class="section level2">
+<h2>Train data 2</h2>
+<pre class="r"><code>test&lt;-melt(training_data2, id=&quot;spectrum&quot;)
+test&lt;-spread(test,spectrum,value)
+tsne &lt;- Rtsne(test[,-1], dims = 2, perplexity=1, 
+              verbose=FALSE, max_iter = 500,check_duplicates = FALSE)
+lowd_map&lt;- data.frame(tsne$Y)
+lowd_map$label &lt;- factor(test$variable)
+
+ggplot(lowd_map, aes(x= X1, y = X2)) + ggtitle(&quot;tSNE&quot;) +
+  geom_text(aes(label = label, color = label)) + geom_point(aes(color = label), alpha = 0.5)</code></pre>
+<p><img src="figure/PiB.Rmd/unnamed-chunk-26-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="train-data-3" class="section level2">
+<h2>Train data 3</h2>
+<pre class="r"><code>test&lt;-melt(training_data3, id=&quot;spectrum&quot;)
+test&lt;-spread(test,spectrum,value)
+tsne &lt;- Rtsne(test[,-1], dims = 2, perplexity=1, 
+              verbose=FALSE, max_iter = 500)
+lowd_map&lt;- data.frame(tsne$Y)
+lowd_map$label &lt;- factor(test$variable)
+
+ggplot(lowd_map, aes(x= X1, y = X2)) + ggtitle(&quot;tSNE&quot;) +
+  geom_text(aes(label = label, color = label,vjust = -0.4,hjust = -0.1),size=4,position=position_jitter(width=15,height=15)) + geom_point(aes(color = label), alpha = 0.5)</code></pre>
+<p><img src="figure/PiB.Rmd/unnamed-chunk-27-1.png" width="672" style="display: block; margin: auto;" /></p>
+<br>
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
+<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Session information
+</button>
+</p>
+<div id="workflowr-sessioninfo" class="collapse">
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>R version 4.0.4 (2021-02-15)
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+Running under: Windows 10 x64 (build 19043)
+
+Matrix products: default
+
+locale:
+[1] LC_COLLATE=Catalan_Spain.1252  LC_CTYPE=Catalan_Spain.1252   
+[3] LC_MONETARY=Catalan_Spain.1252 LC_NUMERIC=C                  
+[5] LC_TIME=Catalan_Spain.1252    
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+ [1] reshape2_1.4.4   Rtsne_0.15       ggfortify_0.4.11 forcats_0.5.1   
+ [5] stringr_1.4.0    dplyr_1.0.5      purrr_0.3.4      readr_1.4.0     
+ [9] tidyr_1.1.3      tibble_3.0.3     ggplot2_3.3.3    tidyverse_1.3.1 
+
+loaded via a namespace (and not attached):
+ [1] Rcpp_1.0.5        lubridate_1.7.10  ps_1.6.0          assertthat_0.2.1 
+ [5] rprojroot_2.0.2   digest_0.6.25     utf8_1.2.1        plyr_1.8.6       
+ [9] R6_2.5.0          cellranger_1.1.0  backports_1.1.10  reprex_2.0.0     
+[13] evaluate_0.14     httr_1.4.2        pillar_1.6.0      rlang_0.4.10     
+[17] readxl_1.3.1      rstudioapi_0.13   whisker_0.4       jquerylib_0.1.3  
+[21] rmarkdown_2.7     labeling_0.4.2    munsell_0.5.0     broom_0.7.6      
+[25] compiler_4.0.4    httpuv_1.5.5      modelr_0.1.8      xfun_0.18        
+[29] pkgconfig_2.0.3   htmltools_0.5.1.1 tidyselect_1.1.0  gridExtra_2.3    
+[33] workflowr_1.6.2   fansi_0.4.1       crayon_1.4.1      dbplyr_2.1.1     
+[37] withr_2.4.2       later_1.1.0.1     grid_4.0.4        jsonlite_1.7.2   
+[41] gtable_0.3.0      lifecycle_1.0.0   DBI_1.1.1         git2r_0.28.0     
+[45] magrittr_2.0.1    scales_1.1.1      cli_2.4.0         stringi_1.5.3    
+[49] farver_2.0.3      fs_1.5.0          promises_1.2.0.1  xml2_1.3.2       
+[53] bslib_0.2.4       ellipsis_0.3.1    generics_0.1.0    vctrs_0.3.7      
+[57] tools_4.0.4       glue_1.4.2        hms_1.0.0         yaml_2.2.1       
+[61] colorspace_1.4-1  rvest_1.0.0       knitr_1.30        haven_2.3.1      
+[65] sass_0.3.1       </code></pre>
+</div>
+</div>
+</div>
+
+
+<!-- Adjust MathJax settings so that all math formulae are shown using
+TeX fonts only; see
+http://docs.mathjax.org/en/latest/configuration.html.  This will make
+the presentation more consistent at the cost of the webpage sometimes
+taking slightly longer to load. Note that this only works because the
+footer is added to webpages before the MathJax javascript. -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
