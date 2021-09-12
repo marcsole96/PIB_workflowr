@@ -348,10 +348,9 @@ set.seed(14)
 tsne <- Rtsne(test_data[,-1], dims = 2, perplexity=30, 
               verbose=FALSE, max_iter = 500)
 lowd_map<- data.frame(tsne$Y)
-lowd_map$label <- factor(test_data$spectrum)
 
 ggplot(lowd_map, aes(x= X1, y = X2)) + ggtitle("tSNE") +
-  geom_point(aes(color=label))
+  geom_point()
 
 #How can I colorize each dot so it represents each strike??? 
 ```
