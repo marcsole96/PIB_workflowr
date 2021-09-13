@@ -475,16 +475,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtree7df0598abcde87f96bbe47dae0b47e241056f284targetblank7df0598a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/marcsole96/PIB_workflowr/tree/7df0598abcde87f96bbe47dae0b47e241056f284" target="_blank">7df0598</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtree39a620e120634a199dcf9dabb47112789df06928targetblank39a620ea"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/marcsole96/PIB_workflowr/tree/39a620e120634a199dcf9dabb47112789df06928" target="_blank">39a620e</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtree7df0598abcde87f96bbe47dae0b47e241056f284targetblank7df0598a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtree39a620e120634a199dcf9dabb47112789df06928targetblank39a620ea" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/marcsole96/PIB_workflowr/tree/7df0598abcde87f96bbe47dae0b47e241056f284" target="_blank">7df0598</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/marcsole96/PIB_workflowr/tree/39a620e120634a199dcf9dabb47112789df06928" target="_blank">39a620e</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -537,6 +537,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/marcsole96/PIB_workflowr/blob/39a620e120634a199dcf9dabb47112789df06928/analysis/PiB.Rmd" target="_blank">39a620e</a>
+</td>
+<td>
+marcsole96
+</td>
+<td>
+2021-09-13
+</td>
+<td>
+wflow_publish(“../analysis/PiB.Rmd”)
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/marcsole96/PIB_workflowr/e44ec66fb5d5c0bcf7fb85251ec553002dc84ec6/docs/PiB.html" target="_blank">e44ec66</a>
+</td>
+<td>
+marcsole96
+</td>
+<td>
+2021-09-13
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -646,7 +680,8 @@ wflow_publish(“../analysis/PiB.Rmd”)
 </div>
 </div>
 </div>
-<pre class="r"><code>getwd()</code></pre>
+<pre class="r"><code>#setwd(&quot;../PIB_workflowr/data&quot;)
+getwd()</code></pre>
 <pre><code>[1] &quot;C:/Users/mysit/Documents/Bioinformatica/Semestre_3/Projecte_Palle/PIB_workflowr/data&quot;</code></pre>
 <pre class="r"><code>library(tidyverse)</code></pre>
 <pre><code>Warning: package &#39;tidyverse&#39; was built under R version 4.0.5</code></pre>
@@ -880,12 +915,47 @@ ggplot(test, aes(spectrum,value,colour=variable)) + geom_point()</code></pre>
 names(test)&lt;-test_data$spectrum
 
 test$labels=row.names(test)</code></pre>
-<pre class="r"><code>#doing PCA
+<pre class="r"><code>#doing PCA with transposed
 pca_res &lt;- prcomp(test[0:4500], scale. = TRUE)
-autoplot(pca_res,data=test,colour=&quot;labels&quot;, label=T)</code></pre>
+summary(pca_res)</code></pre>
+<pre><code>Importance of components:
+                           PC1     PC2     PC3     PC4      PC5       PC6
+Standard deviation     42.0322 34.8048 27.4609 24.3107 13.29690 3.618e-14
+Proportion of Variance  0.3926  0.2692  0.1676  0.1313  0.03929 0.000e+00
+Cumulative Proportion   0.3926  0.6618  0.8294  0.9607  1.00000 1.000e+00</code></pre>
+<pre class="r"><code>autoplot(pca_res,data=test,colour=&quot;labels&quot;, label=T)</code></pre>
 <pre><code>Warning: `select_()` was deprecated in dplyr 0.7.0.
 Please use `select()` instead.</code></pre>
 <p><img src="figure/PiB.Rmd/unnamed-chunk-16-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>#doing PCA with unaltered data
+pca_res &lt;- prcomp(test_data[-1], scale. = TRUE)
+summary(pca_res)</code></pre>
+<pre><code>Importance of components:
+                          PC1    PC2     PC3     PC4     PC5     PC6
+Standard deviation     1.9475 1.3914 0.45740 0.23695 0.05747 0.05038
+Proportion of Variance 0.6321 0.3227 0.03487 0.00936 0.00055 0.00042
+Cumulative Proportion  0.6321 0.9548 0.98967 0.99903 0.99958 1.00000</code></pre>
+<pre class="r"><code>print(pca_res)</code></pre>
+<pre><code>Standard deviations (1, .., p=6):
+[1] 1.94751378 1.39139843 0.45739706 0.23695448 0.05747044 0.05037980
+
+Rotation (n x k) = (6 x 6):
+                         PC1         PC2         PC3        PC4         PC5
+strike1 Intensity 0.50158388 -0.05438930 -0.41304998  0.2159102 -0.72480852
+strike2 Intensity 0.07748344  0.70159839 -0.02124203 -0.6530221 -0.19561463
+strike3 Intensity 0.49610616 -0.05832303  0.52344134  0.1610163  0.04778405
+strike4 Intensity 0.49997563 -0.03448200  0.46753097 -0.2162897  0.06895147
+strike5 Intensity 0.04553209  0.70675998  0.03361193  0.6630823  0.16943119
+strike6 Intensity 0.49420625 -0.02648115 -0.57899281 -0.1206617  0.63296365
+                          PC6
+strike1 Intensity -0.05367061
+strike2 Intensity  0.19131607
+strike3 Intensity  0.66953469
+strike4 Intensity -0.69189205
+strike5 Intensity -0.17000673
+strike6 Intensity  0.06800020</code></pre>
+<pre class="r"><code>autoplot(pca_res,data=test_data, label=T)</code></pre>
+<p><img src="figure/PiB.Rmd/unnamed-chunk-17-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="training_data1" class="section level2">
 <h2>training_data1</h2>
@@ -897,7 +967,7 @@ test$labels=row.names(test)</code></pre>
 <pre class="r"><code>#doing PCA
 pca_res &lt;- prcomp(test[0:4500], scale. = TRUE)
 autoplot(pca_res,data=test,colour=&quot;labels&quot;, label=T)</code></pre>
-<p><img src="figure/PiB.Rmd/unnamed-chunk-18-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/PiB.Rmd/unnamed-chunk-19-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="training_data2" class="section level2">
 <h2>training_data2</h2>
@@ -909,7 +979,7 @@ test$labels=row.names(test)</code></pre>
 <pre class="r"><code>#doing PCA
 pca_res &lt;- prcomp(test[0:4500], scale. = TRUE)
 autoplot(pca_res,data=test,colour=&quot;labels&quot;, label=T)</code></pre>
-<p><img src="figure/PiB.Rmd/unnamed-chunk-20-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/PiB.Rmd/unnamed-chunk-21-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="training_data3" class="section level2">
 <h2>training_data3</h2>
@@ -921,7 +991,7 @@ test$labels=row.names(test)</code></pre>
 <pre class="r"><code>#doing PCA
 pca_res &lt;- prcomp(test[0:4500], scale. = TRUE)
 autoplot(pca_res,data=test,colour=&quot;labels&quot;, label=T)</code></pre>
-<p><img src="figure/PiB.Rmd/unnamed-chunk-22-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/PiB.Rmd/unnamed-chunk-23-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>#tSNE ## Test_data</p>
 <pre class="r"><code>#t-SNE is not deterministic. There is some inherent stochasticity with the generation of probability distributions
 
@@ -934,7 +1004,7 @@ lowd_map&lt;- data.frame(tsne$Y)
 
 ggplot(lowd_map, aes(x= X1, y = X2)) + ggtitle(&quot;tSNE&quot;) +
   geom_point()</code></pre>
-<p><img src="figure/PiB.Rmd/unnamed-chunk-23-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/PiB.Rmd/unnamed-chunk-24-1.png" width="672" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>#How can I colorize each dot so it represents each strike??? </code></pre>
 <pre class="r"><code>test&lt;-melt(test_data, id=&quot;spectrum&quot;)
 test&lt;-spread(test,spectrum,value)
@@ -945,7 +1015,7 @@ lowd_map$label &lt;- factor(test$variable)
 
 ggplot(lowd_map, aes(x= X1, y = X2)) + ggtitle(&quot;tSNE&quot;) +
   geom_text(aes(label = label, color = label)) + geom_point(aes(color = label), alpha = 0.5)</code></pre>
-<p><img src="figure/PiB.Rmd/unnamed-chunk-24-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/PiB.Rmd/unnamed-chunk-25-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="train-data-1" class="section level2">
 <h2>Train data 1</h2>
@@ -958,7 +1028,7 @@ lowd_map$label &lt;- factor(test$variable)
 
 ggplot(lowd_map, aes(x= X1, y = X2)) + ggtitle(&quot;tSNE&quot;) +
   geom_text(aes(label = label, color = label)) + geom_point(aes(color = label), alpha = 0.5)</code></pre>
-<p><img src="figure/PiB.Rmd/unnamed-chunk-25-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/PiB.Rmd/unnamed-chunk-26-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="train-data-2" class="section level2">
 <h2>Train data 2</h2>
@@ -971,7 +1041,7 @@ lowd_map$label &lt;- factor(test$variable)
 
 ggplot(lowd_map, aes(x= X1, y = X2)) + ggtitle(&quot;tSNE&quot;) +
   geom_text(aes(label = label, color = label)) + geom_point(aes(color = label), alpha = 0.5)</code></pre>
-<p><img src="figure/PiB.Rmd/unnamed-chunk-26-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/PiB.Rmd/unnamed-chunk-27-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="train-data-3" class="section level2">
 <h2>Train data 3</h2>
@@ -984,7 +1054,7 @@ lowd_map$label &lt;- factor(test$variable)
 
 ggplot(lowd_map, aes(x= X1, y = X2)) + ggtitle(&quot;tSNE&quot;) +
   geom_text(aes(label = label, color = label,vjust = -0.4,hjust = -0.1),size=4,position=position_jitter(width=15,height=15)) + geom_point(aes(color = label), alpha = 0.5)</code></pre>
-<p><img src="figure/PiB.Rmd/unnamed-chunk-27-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/PiB.Rmd/unnamed-chunk-28-1.png" width="672" style="display: block; margin: auto;" /></p>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
