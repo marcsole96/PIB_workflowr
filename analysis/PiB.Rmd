@@ -519,7 +519,7 @@ head(select(test,1:5))
 ```
 
 
-#PCA of training data
+# PCA of training data
 Now we could do a PCA from the whole data
 ```{r}
 
@@ -557,7 +557,7 @@ fig <- fig %>% layout(scene = list(xaxis = list(title = 'PC1'),
 fig
 ```
 
-#Model from PCA training Data:
+# Model from PCA training Data:
 ```{r}
 #For the test data we should use the test_data
 #For the training data we should use the training_DF
