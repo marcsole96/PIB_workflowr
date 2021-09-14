@@ -461,7 +461,15 @@ ggplot(lowd_map, aes(x= X1, y = X2)) + ggtitle("tSNE") +
 
 # Merge train_data on a single DF:
 
-We have 3 DFs containging training_data, each of them (despite having different regions analyzed) contain information on the squares which in turn can be used to identify the type of pen used. 
+We have 3 DFs containging training_data
+```{r}
+head(training_data1)
+head(training_data2)
+head(training_data3)
+```
+
+
+Each of them (despite having different regions analyzed) contain information on the squares which in turn can be used to identify the type of pen used. 
 
 ```{r}
 #First step, transpose the data: 
@@ -473,6 +481,7 @@ rownames(t_training_data1)<-c()
 #moving labels to the beginning
 t_training_data1<-t_training_data1 %>% 
   select(labels, everything())
+head(t_training_data1)
 
 #Same process is repeated for the next two DFs:
 
@@ -496,6 +505,7 @@ t_training_data3<-t_training_data3 %>%
 Merging
 ```{r}
 training_DF<- rbind(t_training_data1, t_training_data2, t_training_data3)
+head(training_DF)
 ```
 
 We could now simplify the DF by simply stating which square is which
