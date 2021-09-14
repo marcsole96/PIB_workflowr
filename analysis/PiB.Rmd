@@ -481,7 +481,7 @@ rownames(t_training_data1)<-c()
 #moving labels to the beginning
 t_training_data1<-t_training_data1 %>% 
   select(labels, everything())
-head(t_training_data1)
+head(select(t_training_data1,1:5))
 
 #Same process is repeated for the next two DFs:
 
@@ -505,7 +505,7 @@ t_training_data3<-t_training_data3 %>%
 Merging
 ```{r}
 training_DF<- rbind(t_training_data1, t_training_data2, t_training_data3)
-head(training_DF)
+(select(training_DF,1:5))
 ```
 
 We could now simplify the DF by simply stating which square is which
