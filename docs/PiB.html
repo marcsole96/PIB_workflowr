@@ -384,7 +384,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2021-09-13
+<strong>Last updated:</strong> 2021-09-14
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -475,16 +475,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtree39a620e120634a199dcf9dabb47112789df06928targetblank39a620ea"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/marcsole96/PIB_workflowr/tree/39a620e120634a199dcf9dabb47112789df06928" target="_blank">39a620e</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtree46897a7dbc0d89fca119d44697c06b5a6f29c1aatargetblank46897a7a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/marcsole96/PIB_workflowr/tree/46897a7dbc0d89fca119d44697c06b5a6f29c1aa" target="_blank">46897a7</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtree39a620e120634a199dcf9dabb47112789df06928targetblank39a620ea" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtree46897a7dbc0d89fca119d44697c06b5a6f29c1aatargetblank46897a7a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/marcsole96/PIB_workflowr/tree/39a620e120634a199dcf9dabb47112789df06928" target="_blank">39a620e</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/marcsole96/PIB_workflowr/tree/46897a7dbc0d89fca119d44697c06b5a6f29c1aa" target="_blank">46897a7</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -537,6 +537,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/marcsole96/PIB_workflowr/blob/46897a7dbc0d89fca119d44697c06b5a6f29c1aa/analysis/PiB.Rmd" target="_blank">46897a7</a>
+</td>
+<td>
+marcsole96
+</td>
+<td>
+2021-09-14
+</td>
+<td>
+Created a merged DF with all the training data
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/marcsole96/PIB_workflowr/1404a14167bbc4e804f0b0ffb77d5b5d349dba3b/docs/PiB.html" target="_blank">1404a14</a>
+</td>
+<td>
+marcsole96
+</td>
+<td>
+2021-09-13
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -910,6 +944,37 @@ ggplot(test, aes(spectrum,value,colour=variable)) + geom_point()</code></pre>
 <h1>PCAs</h1>
 <div id="test_data" class="section level2">
 <h2>Test_data</h2>
+</div>
+<div id="test-by-transposing-the-data" class="section level2">
+<h2>Test by transposing the data</h2>
+<pre class="r"><code>t_test_data&lt;-as.data.frame(t(test_data[-1]))
+names(t_test_data)&lt;-test_data$spectrum
+t_test_data$labels=row.names(t_test_data)
+t_test_data &lt;- t_test_data %&gt;% mutate(labels = factor(labels))
+
+labels&lt;-t_test_data$labels
+
+data &lt;- t_test_data %&gt;%
+  select(-labels)
+
+data&lt;-as.matrix(data)
+rownames(data) &lt;- NULL
+
+pr.out &lt;- prcomp(data,scale=FALSE)
+
+pr.out$x %&gt;% 
+  as_tibble() %&gt;% 
+  ggplot() +
+  geom_point(aes(PC1, PC2, color = labels), alpha = 0.5) +
+  theme_minimal() +
+  scale_shape_manual(values = c(4, 20))</code></pre>
+<p><img src="figure/PiB.Rmd/unnamed-chunk-15-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="test-by-not-transposing-the-data" class="section level2">
+<h2>Test by NOT transposing the data</h2>
+<pre class="r"><code>data &lt;- test_data %&gt;%
+  select(-spectrum)
+names=names(test_data[-1])</code></pre>
 <p>Changing the columns so they are rows:</p>
 <pre class="r"><code>test&lt;-as.data.frame(t(test_data[-1]))
 names(test)&lt;-test_data$spectrum
@@ -926,7 +991,15 @@ Cumulative Proportion   0.3926  0.6618  0.8294  0.9607  1.00000 1.000e+00</code>
 <pre class="r"><code>autoplot(pca_res,data=test,colour=&quot;labels&quot;, label=T)</code></pre>
 <pre><code>Warning: `select_()` was deprecated in dplyr 0.7.0.
 Please use `select()` instead.</code></pre>
-<p><img src="figure/PiB.Rmd/unnamed-chunk-16-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/PiB.Rmd/unnamed-chunk-18-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>var_explained = pca_res$sdev^2 / sum(pca_res$sdev^2)
+qplot(c(1:6), var_explained) + 
+  geom_line() + 
+  xlab(&quot;Principal Component&quot;) + 
+  ylab(&quot;Variance Explained&quot;) +
+  ggtitle(&quot;Scree Plot&quot;) +
+  ylim(0, 1)</code></pre>
+<p><img src="figure/PiB.Rmd/unnamed-chunk-18-2.png" width="672" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>#doing PCA with unaltered data
 pca_res &lt;- prcomp(test_data[-1], scale. = TRUE)
 summary(pca_res)</code></pre>
@@ -955,7 +1028,7 @@ strike4 Intensity -0.69189205
 strike5 Intensity -0.17000673
 strike6 Intensity  0.06800020</code></pre>
 <pre class="r"><code>autoplot(pca_res,data=test_data, label=T)</code></pre>
-<p><img src="figure/PiB.Rmd/unnamed-chunk-17-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/PiB.Rmd/unnamed-chunk-19-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="training_data1" class="section level2">
 <h2>training_data1</h2>
@@ -967,7 +1040,7 @@ test$labels=row.names(test)</code></pre>
 <pre class="r"><code>#doing PCA
 pca_res &lt;- prcomp(test[0:4500], scale. = TRUE)
 autoplot(pca_res,data=test,colour=&quot;labels&quot;, label=T)</code></pre>
-<p><img src="figure/PiB.Rmd/unnamed-chunk-19-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/PiB.Rmd/unnamed-chunk-21-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="training_data2" class="section level2">
 <h2>training_data2</h2>
@@ -979,7 +1052,7 @@ test$labels=row.names(test)</code></pre>
 <pre class="r"><code>#doing PCA
 pca_res &lt;- prcomp(test[0:4500], scale. = TRUE)
 autoplot(pca_res,data=test,colour=&quot;labels&quot;, label=T)</code></pre>
-<p><img src="figure/PiB.Rmd/unnamed-chunk-21-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/PiB.Rmd/unnamed-chunk-23-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="training_data3" class="section level2">
 <h2>training_data3</h2>
@@ -991,7 +1064,7 @@ test$labels=row.names(test)</code></pre>
 <pre class="r"><code>#doing PCA
 pca_res &lt;- prcomp(test[0:4500], scale. = TRUE)
 autoplot(pca_res,data=test,colour=&quot;labels&quot;, label=T)</code></pre>
-<p><img src="figure/PiB.Rmd/unnamed-chunk-23-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/PiB.Rmd/unnamed-chunk-25-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>#tSNE ## Test_data</p>
 <pre class="r"><code>#t-SNE is not deterministic. There is some inherent stochasticity with the generation of probability distributions
 
@@ -1004,7 +1077,7 @@ lowd_map&lt;- data.frame(tsne$Y)
 
 ggplot(lowd_map, aes(x= X1, y = X2)) + ggtitle(&quot;tSNE&quot;) +
   geom_point()</code></pre>
-<p><img src="figure/PiB.Rmd/unnamed-chunk-24-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/PiB.Rmd/unnamed-chunk-26-1.png" width="672" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>#How can I colorize each dot so it represents each strike??? </code></pre>
 <pre class="r"><code>test&lt;-melt(test_data, id=&quot;spectrum&quot;)
 test&lt;-spread(test,spectrum,value)
@@ -1015,7 +1088,7 @@ lowd_map$label &lt;- factor(test$variable)
 
 ggplot(lowd_map, aes(x= X1, y = X2)) + ggtitle(&quot;tSNE&quot;) +
   geom_text(aes(label = label, color = label)) + geom_point(aes(color = label), alpha = 0.5)</code></pre>
-<p><img src="figure/PiB.Rmd/unnamed-chunk-25-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/PiB.Rmd/unnamed-chunk-27-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="train-data-1" class="section level2">
 <h2>Train data 1</h2>
@@ -1028,7 +1101,7 @@ lowd_map$label &lt;- factor(test$variable)
 
 ggplot(lowd_map, aes(x= X1, y = X2)) + ggtitle(&quot;tSNE&quot;) +
   geom_text(aes(label = label, color = label)) + geom_point(aes(color = label), alpha = 0.5)</code></pre>
-<p><img src="figure/PiB.Rmd/unnamed-chunk-26-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/PiB.Rmd/unnamed-chunk-28-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="train-data-2" class="section level2">
 <h2>Train data 2</h2>
@@ -1041,7 +1114,7 @@ lowd_map$label &lt;- factor(test$variable)
 
 ggplot(lowd_map, aes(x= X1, y = X2)) + ggtitle(&quot;tSNE&quot;) +
   geom_text(aes(label = label, color = label)) + geom_point(aes(color = label), alpha = 0.5)</code></pre>
-<p><img src="figure/PiB.Rmd/unnamed-chunk-27-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/PiB.Rmd/unnamed-chunk-29-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="train-data-3" class="section level2">
 <h2>Train data 3</h2>
@@ -1054,7 +1127,43 @@ lowd_map$label &lt;- factor(test$variable)
 
 ggplot(lowd_map, aes(x= X1, y = X2)) + ggtitle(&quot;tSNE&quot;) +
   geom_text(aes(label = label, color = label,vjust = -0.4,hjust = -0.1),size=4,position=position_jitter(width=15,height=15)) + geom_point(aes(color = label), alpha = 0.5)</code></pre>
-<p><img src="figure/PiB.Rmd/unnamed-chunk-28-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/PiB.Rmd/unnamed-chunk-30-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="merge-train_data-on-a-single-df" class="section level1">
+<h1>Merge train_data on a single DF:</h1>
+<p>We have 3 DFs containging training_data, each of them (despite having different regions analyzed) contain information on the squares which in turn can be used to identify the type of pen used.</p>
+<pre class="r"><code>#First step, transpose the data: 
+t_training_data1&lt;-as.data.frame(t(training_data1[-1]))
+names(t_training_data1)&lt;-training_data1$spectrum
+t_training_data1$labels=row.names(t_training_data1)
+#removing the row headers
+rownames(t_training_data1)&lt;-c()
+#moving labels to the beginning
+t_training_data1&lt;-t_training_data1 %&gt;% 
+  select(labels, everything())
+
+#Same process is repeated for the next two DFs:
+
+t_training_data2&lt;-as.data.frame(t(training_data2[-1]))
+names(t_training_data2)&lt;-training_data2$spectrum
+t_training_data2$labels=row.names(t_training_data2)
+rownames(t_training_data2)&lt;-c()
+t_training_data2&lt;-t_training_data2 %&gt;% 
+  select(labels, everything())
+
+
+
+t_training_data3&lt;-as.data.frame(t(training_data3[-1]))
+names(t_training_data3)&lt;-training_data3$spectrum
+t_training_data3$labels=row.names(t_training_data3)
+rownames(t_training_data3)&lt;-c()
+t_training_data3&lt;-t_training_data3 %&gt;% 
+  select(labels, everything())</code></pre>
+<p>Merging</p>
+<pre class="r"><code>training_DF&lt;- rbind(t_training_data1, t_training_data2, t_training_data3)</code></pre>
+<p>We could now simplify the DF by simply stating which square is which</p>
+<pre class="r"><code>#(work in progress)</code></pre>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -1100,7 +1209,6 @@ loaded via a namespace (and not attached):
 [57] tools_4.0.4       glue_1.4.2        hms_1.0.0         yaml_2.2.1       
 [61] colorspace_1.4-1  rvest_1.0.0       knitr_1.30        haven_2.3.1      
 [65] sass_0.3.1       </code></pre>
-</div>
 </div>
 </div>
 
