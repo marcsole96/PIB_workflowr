@@ -14,7 +14,7 @@
 <title>PiB</title>
 
 <script src="site_libs/header-attrs-2.7/header-attrs.js"></script>
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/jquery-3.5.1/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -35,6 +35,13 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
+<script src="site_libs/plotly-binding-4.9.3/plotly.js"></script>
+<script src="site_libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="site_libs/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet" />
+<script src="site_libs/crosstalk-1.1.1/js/crosstalk.min.js"></script>
+<link href="site_libs/plotly-htmlwidgets-css-1.57.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="site_libs/plotly-main-1.57.1/plotly-latest.min.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
@@ -475,16 +482,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtreec4c4781c771c45b0616e115fced56a9e4546a949targetblankc4c4781a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/marcsole96/PIB_workflowr/tree/c4c4781c771c45b0616e115fced56a9e4546a949" target="_blank">c4c4781</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtreed642a4877d2baa435269ec85e98ae46891c78f8atargetblankd642a48a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/marcsole96/PIB_workflowr/tree/d642a4877d2baa435269ec85e98ae46891c78f8a" target="_blank">d642a48</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtreec4c4781c771c45b0616e115fced56a9e4546a949targetblankc4c4781a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtreed642a4877d2baa435269ec85e98ae46891c78f8atargetblankd642a48a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/marcsole96/PIB_workflowr/tree/c4c4781c771c45b0616e115fced56a9e4546a949" target="_blank">c4c4781</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/marcsole96/PIB_workflowr/tree/d642a4877d2baa435269ec85e98ae46891c78f8a" target="_blank">d642a48</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -537,6 +544,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/marcsole96/PIB_workflowr/blob/d642a4877d2baa435269ec85e98ae46891c78f8a/analysis/PiB.Rmd" target="_blank">d642a48</a>
+</td>
+<td>
+marcsole96
+</td>
+<td>
+2021-09-14
+</td>
+<td>
+made a PCA for all the training data
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/marcsole96/PIB_workflowr/74d75599ff020650bca86525309f97093fa63fb8/docs/PiB.html" target="_blank">74d7559</a>
+</td>
+<td>
+marcsole96
+</td>
+<td>
+2021-09-14
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -1355,7 +1396,62 @@ t_training_data3&lt;-t_training_data3 %&gt;%
 33  SQ 6 ROI2 Intensity 0.0000000 0.0370370 0.0370370 0.0370370
 34  SQ 6 ROI3 Intensity 0.0222222 0.0000000 0.0333333 0.0111111</code></pre>
 <p>We could now simplify the DF by simply stating which square is which</p>
-<pre class="r"><code>#(work in progress)</code></pre>
+<pre class="r"><code>#I did it manually because I don&#39;t know a good way of doing it automagically
+avector &lt;- c(&quot;1&quot;,&quot;2&quot;,&quot;1&quot;,&quot;2&quot;,&quot;1&quot;,&quot;2&quot;,&quot;1&quot;,&quot;2&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;,&quot;5&quot;,&quot;6&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;2&quot;,&quot;2&quot;,&quot;2&quot;,&quot;3&quot;,&quot;3&quot;,&quot;3&quot;,&quot;4&quot;,&quot;4&quot;,&quot;4&quot;,&quot;5&quot;,&quot;5&quot;,&quot;5&quot;,&quot;6&quot;,&quot;6&quot;,&quot;6&quot;)
+
+test&lt;-training_DF %&gt;% replace(1,c(&quot;1&quot;,&quot;2&quot;,&quot;1&quot;,&quot;2&quot;,&quot;1&quot;,&quot;2&quot;,&quot;1&quot;,&quot;2&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;,&quot;5&quot;,&quot;6&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;2&quot;,&quot;2&quot;,&quot;2&quot;,&quot;3&quot;,&quot;3&quot;,&quot;3&quot;,&quot;4&quot;,&quot;4&quot;,&quot;4&quot;,&quot;5&quot;,&quot;5&quot;,&quot;5&quot;,&quot;6&quot;,&quot;6&quot;,&quot;6&quot;))
+
+head(select(test,1:5))</code></pre>
+<pre><code>  labels       100     100.2     100.4    100.6
+1      1 0.6518300 0.8714140 0.7556870 0.649852
+2      2 1.2048600 1.4409700 1.2777800 1.134260
+3      1 0.3944440 0.5319440 0.4750000 0.456944
+4      2 0.3333330 0.4535150 0.4081630 0.336735
+5      1 0.0625000 0.0312500 0.0359375 0.025000
+6      2 0.0101695 0.0576271 0.0847458 0.040678</code></pre>
+<pre class="r"><code>#Removing the labels and the last column which is 0 to make the PCA work
+test_pca&lt;-test[-1]
+test_pca&lt;-test_pca[-4501]</code></pre>
+<p>Now we could do a PCA from the whole data</p>
+<pre class="r"><code>pca_res &lt;- prcomp(test_pca, scale. = TRUE)
+autoplot(pca_res,data=test,colour=&quot;labels&quot;, label=F)</code></pre>
+<p><img src="figure/PiB.Rmd/unnamed-chunk-35-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>We can see the variance explained by the PCs:</p>
+<pre class="r"><code>var_explained = pca_res$sdev^2 / sum(pca_res$sdev^2)
+
+qplot(c(1:34), var_explained) + 
+  geom_line() + 
+  xlab(&quot;Principal Component&quot;) + 
+  ylab(&quot;Variance Explained&quot;) +
+  ggtitle(&quot;Scree Plot&quot;) +
+  ylim(0, 1)</code></pre>
+<p><img src="figure/PiB.Rmd/unnamed-chunk-36-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>We can view the 3 PCs:</p>
+<pre class="r"><code>library(plotly)</code></pre>
+<pre><code>Warning: package &#39;plotly&#39; was built under R version 4.0.5</code></pre>
+<pre><code>
+Attaching package: &#39;plotly&#39;</code></pre>
+<pre><code>The following object is masked from &#39;package:ggplot2&#39;:
+
+    last_plot</code></pre>
+<pre><code>The following object is masked from &#39;package:stats&#39;:
+
+    filter</code></pre>
+<pre><code>The following object is masked from &#39;package:graphics&#39;:
+
+    layout</code></pre>
+<pre class="r"><code>dat_3d &lt;- pca_res$x[,1:3] %&gt;% as_tibble() %&gt;% mutate(square = test$labels)
+
+fig &lt;- plot_ly(dat_3d, x = ~PC1, y = ~PC2, z = ~PC3, 
+               color = ~square, size = I(100))
+fig &lt;- fig %&gt;% add_markers()
+fig &lt;- fig %&gt;% layout(scene = list(xaxis = list(title = &#39;PC1&#39;),
+                                   yaxis = list(title = &#39;PC2&#39;),
+                                   zaxis = list(title = &#39;PC3&#39;)))
+
+fig</code></pre>
+<div id="htmlwidget-02195bd282abe5cf9c52" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-02195bd282abe5cf9c52">{"x":{"visdat":{"13301fb112d6":["function () ","plotlyVisDat"]},"cur_data":"13301fb112d6","attrs":{"13301fb112d6":{"x":{},"y":{},"z":{},"color":{},"size":[100],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter3d","mode":"markers","inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"scene":{"xaxis":{"title":"PC1"},"yaxis":{"title":"PC2"},"zaxis":{"title":"PC3"}},"hovermode":"closest","showlegend":true},"source":"A","config":{"showSendToCloud":false},"data":[{"x":[-5.91085709514072,-47.4003756236095,59.0085815904109,-37.7397655921459,-17.0874724617988,8.30624609931991,-5.68035457256526,-42.4615927207914,-15.5765126135376,-18.5270860672031],"y":[21.0760486232942,-23.8549408072979,-0.497277844936115,52.2397332324733,27.9407284741688,14.7153261226335,18.9735609137248,35.1985369216376,28.6706944703201,28.004916373688],"z":[-10.0037057124175,-26.5739236337015,21.6080351060424,-1.39934074969873,-12.561200862578,-10.4988077900667,-8.15240768844237,15.7619544692323,20.5600391025904,12.6985159443032],"type":"scatter3d","mode":"markers","name":"1","marker":{"color":"rgba(102,194,165,1)","size":[100,100,100,100,100,100,100,100,100,100],"sizemode":"area","line":{"color":"rgba(102,194,165,1)"}},"textfont":{"color":"rgba(102,194,165,1)","size":100},"error_y":{"color":"rgba(102,194,165,1)","width":100},"error_x":{"color":"rgba(102,194,165,1)","width":100},"line":{"color":"rgba(102,194,165,1)","width":100},"frame":null},{"x":[-33.5500895247457,-17.1536347963704,55.2976544246573,-11.9639683472888,-94.508489580907,-76.3526670985978,-28.0331624861554,-17.3240909872203],"y":[34.006300334894,-55.514421160879,9.82526462864402,-51.3429223696709,19.5575052714579,-9.4229988113836,-37.0608670905726,-42.3800201869887],"z":[13.5288603448267,19.0136127810464,-34.7364908141978,6.84499473469879,-19.2793988925041,-24.7708975055861,-30.5272947812169,-27.4628541147817],"type":"scatter3d","mode":"markers","name":"2","marker":{"color":"rgba(252,141,98,1)","size":[100,100,100,100,100,100,100,100],"sizemode":"area","line":{"color":"rgba(252,141,98,1)"}},"textfont":{"color":"rgba(252,141,98,1)","size":100},"error_y":{"color":"rgba(252,141,98,1)","width":100},"error_x":{"color":"rgba(252,141,98,1)","width":100},"line":{"color":"rgba(252,141,98,1)","width":100},"frame":null},{"x":[26.160769987429,49.751677019847,63.8596211338175,70.8887910068811],"y":[2.23536719947825,5.76634333731317,6.76524734143861,-8.02232228931146],"z":[9.25527917142994,27.1847686246747,27.7305487598756,17.7880207837073],"type":"scatter3d","mode":"markers","name":"3","marker":{"color":"rgba(141,160,203,1)","size":[100,100,100,100],"sizemode":"area","line":{"color":"rgba(141,160,203,1)"}},"textfont":{"color":"rgba(141,160,203,1)","size":100},"error_y":{"color":"rgba(141,160,203,1)","width":100},"error_x":{"color":"rgba(141,160,203,1)","width":100},"line":{"color":"rgba(141,160,203,1)","width":100},"frame":null},{"x":[-48.8129694570798,5.64135367186243,11.6187828884928,14.7409962779062],"y":[66.3539847622348,21.317949760278,21.1094207700892,12.8562346178638],"z":[20.2740146633777,20.9959451412688,29.0641023871964,17.2508544372044],"type":"scatter3d","mode":"markers","name":"4","marker":{"color":"rgba(231,138,195,1)","size":[100,100,100,100],"sizemode":"area","line":{"color":"rgba(231,138,195,1)"}},"textfont":{"color":"rgba(231,138,195,1)","size":100},"error_y":{"color":"rgba(231,138,195,1)","width":100},"error_x":{"color":"rgba(231,138,195,1)","width":100},"line":{"color":"rgba(231,138,195,1)","width":100},"frame":null},{"x":[-11.9639683472888,-20.9989193874026,-6.71262445422418,-14.1379416685965],"y":[-51.3429223696709,-54.992741393622,-61.4610870340041,-59.5163929134428],"z":[6.84499473469879,21.4248608195395,18.7157881302972,19.8180038033624],"type":"scatter3d","mode":"markers","name":"5","marker":{"color":"rgba(166,216,84,1)","size":[100,100,100,100],"sizemode":"area","line":{"color":"rgba(166,216,84,1)"}},"textfont":{"color":"rgba(166,216,84,1)","size":100},"error_y":{"color":"rgba(166,216,84,1)","width":100},"error_x":{"color":"rgba(166,216,84,1)","width":100},"line":{"color":"rgba(166,216,84,1)","width":100},"frame":null},{"x":[32.7352156794472,51.3414063044254,65.1472376502059,57.3982091479673],"y":[-3.16011213038423,7.35832417563226,9.09370915231866,15.5038299185815],"z":[-35.1528838008243,-32.2638627923792,-34.998250589341,-37.981874211637],"type":"scatter3d","mode":"markers","name":"6","marker":{"color":"rgba(255,217,47,1)","size":[100,100,100,100],"sizemode":"area","line":{"color":"rgba(255,217,47,1)"}},"textfont":{"color":"rgba(255,217,47,1)","size":100},"error_y":{"color":"rgba(255,217,47,1)","width":100},"error_x":{"color":"rgba(255,217,47,1)","width":100},"line":{"color":"rgba(255,217,47,1)","width":100},"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -1379,28 +1475,30 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] reshape2_1.4.4   Rtsne_0.15       ggfortify_0.4.11 forcats_0.5.1   
- [5] stringr_1.4.0    dplyr_1.0.5      purrr_0.3.4      readr_1.4.0     
- [9] tidyr_1.1.3      tibble_3.0.3     ggplot2_3.3.3    tidyverse_1.3.1 
+ [1] plotly_4.9.3     reshape2_1.4.4   Rtsne_0.15       ggfortify_0.4.11
+ [5] forcats_0.5.1    stringr_1.4.0    dplyr_1.0.5      purrr_0.3.4     
+ [9] readr_1.4.0      tidyr_1.1.3      tibble_3.0.3     ggplot2_3.3.3   
+[13] tidyverse_1.3.1 
 
 loaded via a namespace (and not attached):
- [1] Rcpp_1.0.5        lubridate_1.7.10  ps_1.6.0          assertthat_0.2.1 
- [5] rprojroot_2.0.2   digest_0.6.25     utf8_1.2.1        plyr_1.8.6       
- [9] R6_2.5.0          cellranger_1.1.0  backports_1.1.10  reprex_2.0.0     
-[13] evaluate_0.14     httr_1.4.2        pillar_1.6.0      rlang_0.4.10     
-[17] readxl_1.3.1      rstudioapi_0.13   whisker_0.4       jquerylib_0.1.3  
-[21] rmarkdown_2.7     labeling_0.4.2    munsell_0.5.0     broom_0.7.6      
-[25] compiler_4.0.4    httpuv_1.5.5      modelr_0.1.8      xfun_0.18        
-[29] pkgconfig_2.0.3   htmltools_0.5.1.1 tidyselect_1.1.0  gridExtra_2.3    
-[33] workflowr_1.6.2   fansi_0.4.1       crayon_1.4.1      dbplyr_2.1.1     
-[37] withr_2.4.2       later_1.1.0.1     grid_4.0.4        jsonlite_1.7.2   
-[41] gtable_0.3.0      lifecycle_1.0.0   DBI_1.1.1         git2r_0.28.0     
-[45] magrittr_2.0.1    scales_1.1.1      cli_2.4.0         stringi_1.5.3    
-[49] farver_2.0.3      fs_1.5.0          promises_1.2.0.1  xml2_1.3.2       
-[53] bslib_0.2.4       ellipsis_0.3.1    generics_0.1.0    vctrs_0.3.7      
-[57] tools_4.0.4       glue_1.4.2        hms_1.0.0         yaml_2.2.1       
-[61] colorspace_1.4-1  rvest_1.0.0       knitr_1.30        haven_2.3.1      
-[65] sass_0.3.1       </code></pre>
+ [1] httr_1.4.2         sass_0.3.1         jsonlite_1.7.2     viridisLite_0.4.0 
+ [5] modelr_0.1.8       bslib_0.2.4        assertthat_0.2.1   cellranger_1.1.0  
+ [9] yaml_2.2.1         pillar_1.6.0       backports_1.1.10   glue_1.4.2        
+[13] digest_0.6.25      RColorBrewer_1.1-2 promises_1.2.0.1   rvest_1.0.0       
+[17] colorspace_1.4-1   htmltools_0.5.1.1  httpuv_1.5.5       plyr_1.8.6        
+[21] pkgconfig_2.0.3    broom_0.7.6        haven_2.3.1        scales_1.1.1      
+[25] whisker_0.4        later_1.1.0.1      git2r_0.28.0       generics_0.1.0    
+[29] farver_2.0.3       ellipsis_0.3.1     withr_2.4.2        lazyeval_0.2.2    
+[33] cli_2.4.0          magrittr_2.0.1     crayon_1.4.1       readxl_1.3.1      
+[37] evaluate_0.14      ps_1.6.0           fs_1.5.0           fansi_0.4.1       
+[41] xml2_1.3.2         tools_4.0.4        data.table_1.13.0  hms_1.0.0         
+[45] lifecycle_1.0.0    munsell_0.5.0      reprex_2.0.0       compiler_4.0.4    
+[49] jquerylib_0.1.3    rlang_0.4.10       grid_4.0.4         rstudioapi_0.13   
+[53] htmlwidgets_1.5.3  crosstalk_1.1.1    labeling_0.4.2     rmarkdown_2.7     
+[57] gtable_0.3.0       DBI_1.1.1          R6_2.5.0           gridExtra_2.3     
+[61] lubridate_1.7.10   knitr_1.30         utf8_1.2.1         workflowr_1.6.2   
+[65] rprojroot_2.0.2    stringi_1.5.3      Rcpp_1.0.5         vctrs_0.3.7       
+[69] dbplyr_2.1.1       tidyselect_1.1.0   xfun_0.18         </code></pre>
 </div>
 </div>
 
