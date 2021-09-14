@@ -266,6 +266,41 @@ ggplot(test, aes(spectrum,value,colour=variable)) + geom_point()
 
 ## Test_data
 
+## Test by transposing the data
+```{r}
+t_test_data<-as.data.frame(t(test_data[-1]))
+names(t_test_data)<-test_data$spectrum
+t_test_data$labels=row.names(t_test_data)
+t_test_data <- t_test_data %>% mutate(labels = factor(labels))
+
+labels<-t_test_data$labels
+
+data <- t_test_data %>%
+  select(-labels)
+
+data<-as.matrix(data)
+rownames(data) <- NULL
+
+pr.out <- prcomp(data,scale=FALSE)
+
+pr.out$x %>% 
+  as_tibble() %>% 
+  ggplot() +
+  geom_point(aes(PC1, PC2, color = labels), alpha = 0.5) +
+  theme_minimal() +
+  scale_shape_manual(values = c(4, 20))
+```
+
+## Test by NOT transposing the data
+
+```{r}
+data <- test_data %>%
+  select(-spectrum)
+names=names(test_data[-1])
+```
+
+
+
 Changing the columns so they are rows:
 
 ```{r}
@@ -280,6 +315,14 @@ test$labels=row.names(test)
 pca_res <- prcomp(test[0:4500], scale. = TRUE)
 summary(pca_res)
 autoplot(pca_res,data=test,colour="labels", label=T)
+
+var_explained = pca_res$sdev^2 / sum(pca_res$sdev^2)
+qplot(c(1:6), var_explained) + 
+  geom_line() + 
+  xlab("Principal Component") + 
+  ylab("Variance Explained") +
+  ggtitle("Scree Plot") +
+  ylim(0, 1)
 ```
 
 ```{r}
@@ -416,4 +459,47 @@ ggplot(lowd_map, aes(x= X1, y = X2)) + ggtitle("tSNE") +
   geom_text(aes(label = label, color = label,vjust = -0.4,hjust = -0.1),size=4,position=position_jitter(width=15,height=15)) + geom_point(aes(color = label), alpha = 0.5)
 ```
 
+# Merge train_data on a single DF:
+
+We have 3 DFs containging training_data, each of them (despite having different regions analyzed) contain information on the squares which in turn can be used to identify the type of pen used. 
+
+```{r}
+#First step, transpose the data: 
+t_training_data1<-as.data.frame(t(training_data1[-1]))
+names(t_training_data1)<-training_data1$spectrum
+t_training_data1$labels=row.names(t_training_data1)
+#removing the row headers
+rownames(t_training_data1)<-c()
+#moving labels to the beginning
+t_training_data1<-t_training_data1 %>% 
+  select(labels, everything())
+
+#Same process is repeated for the next two DFs:
+
+t_training_data2<-as.data.frame(t(training_data2[-1]))
+names(t_training_data2)<-training_data2$spectrum
+t_training_data2$labels=row.names(t_training_data2)
+rownames(t_training_data2)<-c()
+t_training_data2<-t_training_data2 %>% 
+  select(labels, everything())
+
+
+
+t_training_data3<-as.data.frame(t(training_data3[-1]))
+names(t_training_data3)<-training_data3$spectrum
+t_training_data3$labels=row.names(t_training_data3)
+rownames(t_training_data3)<-c()
+t_training_data3<-t_training_data3 %>% 
+  select(labels, everything())
+```
+
+Merging
+```{r}
+training_DF<- rbind(t_training_data1, t_training_data2, t_training_data3)
+```
+
+We could now simplify the DF by simply stating which square is which
+```{r}
+#(work in progress)
+```
 
