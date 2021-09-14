@@ -482,16 +482,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtreec93712f8dae91d40b2d5d5b2dc26a4875303c3f3targetblankc93712fa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/marcsole96/PIB_workflowr/tree/c93712f8dae91d40b2d5d5b2dc26a4875303c3f3" target="_blank">c93712f</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtree2b0be5d423e17994fda90e0693cb8fe8da65d789targetblank2b0be5da"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/marcsole96/PIB_workflowr/tree/2b0be5d423e17994fda90e0693cb8fe8da65d789" target="_blank">2b0be5d</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtreec93712f8dae91d40b2d5d5b2dc26a4875303c3f3targetblankc93712fa" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtree2b0be5d423e17994fda90e0693cb8fe8da65d789targetblank2b0be5da" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/marcsole96/PIB_workflowr/tree/c93712f8dae91d40b2d5d5b2dc26a4875303c3f3" target="_blank">c93712f</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/marcsole96/PIB_workflowr/tree/2b0be5d423e17994fda90e0693cb8fe8da65d789" target="_blank">2b0be5d</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -544,6 +544,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/marcsole96/PIB_workflowr/blob/2b0be5d423e17994fda90e0693cb8fe8da65d789/analysis/PiB.Rmd" target="_blank">2b0be5d</a>
+</td>
+<td>
+marcsole96
+</td>
+<td>
+2021-09-14
+</td>
+<td>
+made a PCA for all the training data
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/marcsole96/PIB_workflowr/691fdc359e4943d088c37a036ba77c04c97490a2/docs/PiB.html" target="_blank">691fdc3</a>
+</td>
+<td>
+marcsole96
+</td>
+<td>
+2021-09-14
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -1443,7 +1477,10 @@ head(select(test,1:5))</code></pre>
 4      2 0.3333330 0.4535150 0.4081630 0.336735
 5      1 0.0625000 0.0312500 0.0359375 0.025000
 6      2 0.0101695 0.0576271 0.0847458 0.040678</code></pre>
-<p>#PCA of training data Now we could do a PCA from the whole data</p>
+</div>
+<div id="pca-of-training-data" class="section level1">
+<h1>PCA of training data</h1>
+<p>Now we could do a PCA from the whole data</p>
 <pre class="r"><code>#Removing the labels and the last column which is 0 to make the PCA work
 test_pca&lt;-test[-1]
 test_pca&lt;-test_pca[-4501]
@@ -1485,8 +1522,10 @@ fig &lt;- fig %&gt;% layout(scene = list(xaxis = list(title = &#39;PC1&#39;),
 
 fig</code></pre>
 <div id="htmlwidget-02195bd282abe5cf9c52" style="width:672px;height:480px;" class="plotly html-widget"></div>
-<script type="application/json" data-for="htmlwidget-02195bd282abe5cf9c52">{"x":{"visdat":{"4fe475f12f5d":["function () ","plotlyVisDat"]},"cur_data":"4fe475f12f5d","attrs":{"4fe475f12f5d":{"x":{},"y":{},"z":{},"color":{},"size":[100],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter3d","mode":"markers","inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"scene":{"xaxis":{"title":"PC1"},"yaxis":{"title":"PC2"},"zaxis":{"title":"PC3"}},"hovermode":"closest","showlegend":true},"source":"A","config":{"showSendToCloud":false},"data":[{"x":[-5.91085709514072,-47.4003756236095,59.0085815904109,-37.7397655921459,-17.0874724617988,8.30624609931991,-5.68035457256526,-42.4615927207914,-15.5765126135376,-18.5270860672031],"y":[21.0760486232942,-23.8549408072979,-0.497277844936115,52.2397332324733,27.9407284741688,14.7153261226335,18.9735609137248,35.1985369216376,28.6706944703201,28.004916373688],"z":[-10.0037057124175,-26.5739236337015,21.6080351060424,-1.39934074969873,-12.561200862578,-10.4988077900667,-8.15240768844237,15.7619544692323,20.5600391025904,12.6985159443032],"type":"scatter3d","mode":"markers","name":"1","marker":{"color":"rgba(102,194,165,1)","size":[100,100,100,100,100,100,100,100,100,100],"sizemode":"area","line":{"color":"rgba(102,194,165,1)"}},"textfont":{"color":"rgba(102,194,165,1)","size":100},"error_y":{"color":"rgba(102,194,165,1)","width":100},"error_x":{"color":"rgba(102,194,165,1)","width":100},"line":{"color":"rgba(102,194,165,1)","width":100},"frame":null},{"x":[-33.5500895247457,-17.1536347963704,55.2976544246573,-11.9639683472888,-94.508489580907,-76.3526670985978,-28.0331624861554,-17.3240909872203],"y":[34.006300334894,-55.514421160879,9.82526462864402,-51.3429223696709,19.5575052714579,-9.4229988113836,-37.0608670905726,-42.3800201869887],"z":[13.5288603448267,19.0136127810464,-34.7364908141978,6.84499473469879,-19.2793988925041,-24.7708975055861,-30.5272947812169,-27.4628541147817],"type":"scatter3d","mode":"markers","name":"2","marker":{"color":"rgba(252,141,98,1)","size":[100,100,100,100,100,100,100,100],"sizemode":"area","line":{"color":"rgba(252,141,98,1)"}},"textfont":{"color":"rgba(252,141,98,1)","size":100},"error_y":{"color":"rgba(252,141,98,1)","width":100},"error_x":{"color":"rgba(252,141,98,1)","width":100},"line":{"color":"rgba(252,141,98,1)","width":100},"frame":null},{"x":[26.160769987429,49.751677019847,63.8596211338175,70.8887910068811],"y":[2.23536719947825,5.76634333731317,6.76524734143861,-8.02232228931146],"z":[9.25527917142994,27.1847686246747,27.7305487598756,17.7880207837073],"type":"scatter3d","mode":"markers","name":"3","marker":{"color":"rgba(141,160,203,1)","size":[100,100,100,100],"sizemode":"area","line":{"color":"rgba(141,160,203,1)"}},"textfont":{"color":"rgba(141,160,203,1)","size":100},"error_y":{"color":"rgba(141,160,203,1)","width":100},"error_x":{"color":"rgba(141,160,203,1)","width":100},"line":{"color":"rgba(141,160,203,1)","width":100},"frame":null},{"x":[-48.8129694570798,5.64135367186243,11.6187828884928,14.7409962779062],"y":[66.3539847622348,21.317949760278,21.1094207700892,12.8562346178638],"z":[20.2740146633777,20.9959451412688,29.0641023871964,17.2508544372044],"type":"scatter3d","mode":"markers","name":"4","marker":{"color":"rgba(231,138,195,1)","size":[100,100,100,100],"sizemode":"area","line":{"color":"rgba(231,138,195,1)"}},"textfont":{"color":"rgba(231,138,195,1)","size":100},"error_y":{"color":"rgba(231,138,195,1)","width":100},"error_x":{"color":"rgba(231,138,195,1)","width":100},"line":{"color":"rgba(231,138,195,1)","width":100},"frame":null},{"x":[-11.9639683472888,-20.9989193874026,-6.71262445422418,-14.1379416685965],"y":[-51.3429223696709,-54.992741393622,-61.4610870340041,-59.5163929134428],"z":[6.84499473469879,21.4248608195395,18.7157881302972,19.8180038033624],"type":"scatter3d","mode":"markers","name":"5","marker":{"color":"rgba(166,216,84,1)","size":[100,100,100,100],"sizemode":"area","line":{"color":"rgba(166,216,84,1)"}},"textfont":{"color":"rgba(166,216,84,1)","size":100},"error_y":{"color":"rgba(166,216,84,1)","width":100},"error_x":{"color":"rgba(166,216,84,1)","width":100},"line":{"color":"rgba(166,216,84,1)","width":100},"frame":null},{"x":[32.7352156794472,51.3414063044254,65.1472376502059,57.3982091479673],"y":[-3.16011213038423,7.35832417563226,9.09370915231866,15.5038299185815],"z":[-35.1528838008243,-32.2638627923792,-34.998250589341,-37.981874211637],"type":"scatter3d","mode":"markers","name":"6","marker":{"color":"rgba(255,217,47,1)","size":[100,100,100,100],"sizemode":"area","line":{"color":"rgba(255,217,47,1)"}},"textfont":{"color":"rgba(255,217,47,1)","size":100},"error_y":{"color":"rgba(255,217,47,1)","width":100},"error_x":{"color":"rgba(255,217,47,1)","width":100},"line":{"color":"rgba(255,217,47,1)","width":100},"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
-<p>#Model from PCA training Data:</p>
+<script type="application/json" data-for="htmlwidget-02195bd282abe5cf9c52">{"x":{"visdat":{"5864315716ba":["function () ","plotlyVisDat"]},"cur_data":"5864315716ba","attrs":{"5864315716ba":{"x":{},"y":{},"z":{},"color":{},"size":[100],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter3d","mode":"markers","inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"scene":{"xaxis":{"title":"PC1"},"yaxis":{"title":"PC2"},"zaxis":{"title":"PC3"}},"hovermode":"closest","showlegend":true},"source":"A","config":{"showSendToCloud":false},"data":[{"x":[-5.91085709514072,-47.4003756236095,59.0085815904109,-37.7397655921459,-17.0874724617988,8.30624609931991,-5.68035457256526,-42.4615927207914,-15.5765126135376,-18.5270860672031],"y":[21.0760486232942,-23.8549408072979,-0.497277844936115,52.2397332324733,27.9407284741688,14.7153261226335,18.9735609137248,35.1985369216376,28.6706944703201,28.004916373688],"z":[-10.0037057124175,-26.5739236337015,21.6080351060424,-1.39934074969873,-12.561200862578,-10.4988077900667,-8.15240768844237,15.7619544692323,20.5600391025904,12.6985159443032],"type":"scatter3d","mode":"markers","name":"1","marker":{"color":"rgba(102,194,165,1)","size":[100,100,100,100,100,100,100,100,100,100],"sizemode":"area","line":{"color":"rgba(102,194,165,1)"}},"textfont":{"color":"rgba(102,194,165,1)","size":100},"error_y":{"color":"rgba(102,194,165,1)","width":100},"error_x":{"color":"rgba(102,194,165,1)","width":100},"line":{"color":"rgba(102,194,165,1)","width":100},"frame":null},{"x":[-33.5500895247457,-17.1536347963704,55.2976544246573,-11.9639683472888,-94.508489580907,-76.3526670985978,-28.0331624861554,-17.3240909872203],"y":[34.006300334894,-55.514421160879,9.82526462864402,-51.3429223696709,19.5575052714579,-9.4229988113836,-37.0608670905726,-42.3800201869887],"z":[13.5288603448267,19.0136127810464,-34.7364908141978,6.84499473469879,-19.2793988925041,-24.7708975055861,-30.5272947812169,-27.4628541147817],"type":"scatter3d","mode":"markers","name":"2","marker":{"color":"rgba(252,141,98,1)","size":[100,100,100,100,100,100,100,100],"sizemode":"area","line":{"color":"rgba(252,141,98,1)"}},"textfont":{"color":"rgba(252,141,98,1)","size":100},"error_y":{"color":"rgba(252,141,98,1)","width":100},"error_x":{"color":"rgba(252,141,98,1)","width":100},"line":{"color":"rgba(252,141,98,1)","width":100},"frame":null},{"x":[26.160769987429,49.751677019847,63.8596211338175,70.8887910068811],"y":[2.23536719947825,5.76634333731317,6.76524734143861,-8.02232228931146],"z":[9.25527917142994,27.1847686246747,27.7305487598756,17.7880207837073],"type":"scatter3d","mode":"markers","name":"3","marker":{"color":"rgba(141,160,203,1)","size":[100,100,100,100],"sizemode":"area","line":{"color":"rgba(141,160,203,1)"}},"textfont":{"color":"rgba(141,160,203,1)","size":100},"error_y":{"color":"rgba(141,160,203,1)","width":100},"error_x":{"color":"rgba(141,160,203,1)","width":100},"line":{"color":"rgba(141,160,203,1)","width":100},"frame":null},{"x":[-48.8129694570798,5.64135367186243,11.6187828884928,14.7409962779062],"y":[66.3539847622348,21.317949760278,21.1094207700892,12.8562346178638],"z":[20.2740146633777,20.9959451412688,29.0641023871964,17.2508544372044],"type":"scatter3d","mode":"markers","name":"4","marker":{"color":"rgba(231,138,195,1)","size":[100,100,100,100],"sizemode":"area","line":{"color":"rgba(231,138,195,1)"}},"textfont":{"color":"rgba(231,138,195,1)","size":100},"error_y":{"color":"rgba(231,138,195,1)","width":100},"error_x":{"color":"rgba(231,138,195,1)","width":100},"line":{"color":"rgba(231,138,195,1)","width":100},"frame":null},{"x":[-11.9639683472888,-20.9989193874026,-6.71262445422418,-14.1379416685965],"y":[-51.3429223696709,-54.992741393622,-61.4610870340041,-59.5163929134428],"z":[6.84499473469879,21.4248608195395,18.7157881302972,19.8180038033624],"type":"scatter3d","mode":"markers","name":"5","marker":{"color":"rgba(166,216,84,1)","size":[100,100,100,100],"sizemode":"area","line":{"color":"rgba(166,216,84,1)"}},"textfont":{"color":"rgba(166,216,84,1)","size":100},"error_y":{"color":"rgba(166,216,84,1)","width":100},"error_x":{"color":"rgba(166,216,84,1)","width":100},"line":{"color":"rgba(166,216,84,1)","width":100},"frame":null},{"x":[32.7352156794472,51.3414063044254,65.1472376502059,57.3982091479673],"y":[-3.16011213038423,7.35832417563226,9.09370915231866,15.5038299185815],"z":[-35.1528838008243,-32.2638627923792,-34.998250589341,-37.981874211637],"type":"scatter3d","mode":"markers","name":"6","marker":{"color":"rgba(255,217,47,1)","size":[100,100,100,100],"sizemode":"area","line":{"color":"rgba(255,217,47,1)"}},"textfont":{"color":"rgba(255,217,47,1)","size":100},"error_y":{"color":"rgba(255,217,47,1)","width":100},"error_x":{"color":"rgba(255,217,47,1)","width":100},"line":{"color":"rgba(255,217,47,1)","width":100},"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="model-from-pca-training-data" class="section level1">
+<h1>Model from PCA training Data:</h1>
 <pre class="r"><code>#For the test data we should use the test_data
 #For the training data we should use the training_DF
 
