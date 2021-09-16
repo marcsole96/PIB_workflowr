@@ -516,6 +516,8 @@ avector <- c("1","2","1","2","1","2","1","2","2","3","4","5","6","1","1","1","1"
 test<-training_DF %>% replace(1,c("1","2","1","2","1","2","1","2","2","3","4","5","6","1","1","1","1","1","1","2","2","2","3","3","3","4","4","4","5","5","5","6","6","6"))
 
 head(select(test,1:5))
+
+simple_train_DF<-test
 ```
 
 
@@ -558,11 +560,50 @@ fig
 ```
 
 # Model from PCA training Data:
+
+I used this as a guide: https://rstudio-pubs-static.s3.amazonaws.com/285614_7921f4f9f340428f8f5ed8dc3c7f7943.html
 ```{r}
 #For the test data we should use the test_data
 #For the training data we should use the training_DF
 
 #(work in progress, I have to remember how this was done :/ )
+
+#Get a dataframe with the values that will be used to predict
+#First step, transpose the data: 
+t_test_data<-as.data.frame(t(test_data[-1]))
+names(t_test_data)<-test_data$spectrum
+t_test_data$labels=row.names(t_test_data)
+#removing the row headers
+rownames(t_test_data)<-c()
+#moving labels to the beginning
+t_test_data<-t_test_data %>% 
+  select(labels, everything())
+head(select(t_test_data,1:5))
+t_test_data<-t_test_data %>% replace(1,c("1","2","3","4","5","6"))
+
+test<-t_test_data[-1]
+
+
+library(caret)
+library(e1071)
+pca = preProcess(x = simple_train_DF[-4502], method = "pca", pcaComp = 2)
+training_set <- predict(pca, simple_train_DF)
+# put customer segment in to the last postion or column
+training_set <- simple_train_DF[c(2,3,1)]
+
+
+test_set <- predict(pca, test)
+test_set <- test[c(2,3,1)]
+
+classifier <- svm(formula = labels ~ .,
+                  data = training_set,
+                  type = "C-classification",
+                  kernel = "linear")
+summary(classifier)
+
+y_pred <-  predict(classifier, newdata = test[-3]
+                      )
+y_pred
 ```
 
 
