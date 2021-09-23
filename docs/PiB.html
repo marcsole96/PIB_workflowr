@@ -391,7 +391,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2021-09-16
+<strong>Last updated:</strong> 2021-09-23
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -482,16 +482,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtreea532404bae91336e930f5e83daf0ac780f94e730targetblanka532404a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/marcsole96/PIB_workflowr/tree/a532404bae91336e930f5e83daf0ac780f94e730" target="_blank">a532404</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtreee39c13dc4c9e35f156256bf8ee2d4917e811bbd4targetblanke39c13da"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/marcsole96/PIB_workflowr/tree/e39c13dc4c9e35f156256bf8ee2d4917e811bbd4" target="_blank">e39c13d</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtreea532404bae91336e930f5e83daf0ac780f94e730targetblanka532404a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtreee39c13dc4c9e35f156256bf8ee2d4917e811bbd4targetblanke39c13da" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/marcsole96/PIB_workflowr/tree/a532404bae91336e930f5e83daf0ac780f94e730" target="_blank">a532404</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/marcsole96/PIB_workflowr/tree/e39c13dc4c9e35f156256bf8ee2d4917e811bbd4" target="_blank">e39c13d</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -501,6 +501,7 @@ Ignored files:
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
     Ignored:    analysis/.Rhistory
+    Ignored:    analysis/figure/
 
 Untracked files:
     Untracked:  data/CONTRACT REGION OF INTERESTED EXPORTS/
@@ -544,6 +545,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/marcsole96/PIB_workflowr/blob/e39c13dc4c9e35f156256bf8ee2d4917e811bbd4/analysis/PiB.Rmd" target="_blank">e39c13d</a>
+</td>
+<td>
+marcsole96
+</td>
+<td>
+2021-09-23
+</td>
+<td>
+clened things
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/marcsole96/PIB_workflowr/91d3e038ee657ca6c1a13375b382f2177aaef0da/docs/PiB.html" target="_blank">91d3e03</a>
+</td>
+<td>
+marcsole96
+</td>
+<td>
+2021-09-16
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -1130,9 +1165,13 @@ colnames(strike4) &lt;- c(&quot;spectrum&quot;, &quot;strike4 Intensity&quot;)
 colnames(strike5) &lt;- c(&quot;spectrum&quot;, &quot;strike5 Intensity&quot;)
 colnames(strike6) &lt;- c(&quot;spectrum&quot;, &quot;strike6 Intensity&quot;)</code></pre>
 <pre class="r"><code>test_data &lt;- cbind(strike1, strike2[2], strike3[2], strike4[2], strike5[2], strike6[2])
-training_data1 &lt;- cbind(sq1_under_no1, sq2_under_no1[2], sq1_under_no2[2], sq2_under_no2[2], sq1_under_no3[2], sq2_under_no3[2])
+training_data1 &lt;- cbind(sq1_under_no1, sq2_under_no1[2], sq1_under_no2[2], sq2_under_no2[2], sq1_under_no3[2], sq2_under_no3[2],sq_beside_no4[2])
 training_data2 &lt;- cbind(sq_no1, sq_no2[2], sq_no2_II[2], sq_no3[2], sq_no4[2], sq_no5[2], sq_no6[2])
-training_data3 &lt;- cbind(sqI_no1_ROI1, sqI_no1_ROI2[2], sqI_no1_ROI3[2], sqII_no1_ROI1[2], sqII_no1_ROI2[2], sqII_no1_ROI3[2], sq_no2_ROI1[2], sq_no2_ROI2[2], sq_no2_ROI3[2], sq_no3_ROI1[2], sq_no3_ROI2[2], sq_no3_ROI3[2], sq_no4_ROI1[2], sq_no4_ROI2[2], sq_no4_ROI3[2], sq_no5_ROI1[2], sq_no5_ROI2[2], sq_no5_ROI3[2], sq_no6_ROI1[2], sq_no6_ROI2[2], sq_no6_ROI3[2])</code></pre>
+training_data3 &lt;- cbind(sqI_no1_ROI1, sqI_no1_ROI2[2], sqI_no1_ROI3[2], sqII_no1_ROI1[2], sqII_no1_ROI2[2], sqII_no1_ROI3[2], sq_no2_ROI1[2], sq_no2_ROI2[2], sq_no2_ROI3[2], sq_no3_ROI1[2], sq_no3_ROI2[2], sq_no3_ROI3[2], sq_no4_ROI1[2], sq_no4_ROI2[2], sq_no4_ROI3[2], sq_no5_ROI1[2], sq_no5_ROI2[2], sq_no5_ROI3[2], sq_no6_ROI1[2], sq_no6_ROI2[2], sq_no6_ROI3[2])
+contract&lt;-cbind(p1_initials_II,p1_initials_III[2],p1_initials_SF[2],p2_initials_II[2],p2_initials_III[2],p2_initials_SF[2],p3_initials_II[2],p3_initials_III[2],p3_initials_SF[2])
+
+
+rm(strike1,strike2,strike3,strike4,strike5,strike6,sq1_under_no1,sq2_under_no1,sq1_under_no2,sq2_under_no2,sq1_under_no3,sq2_under_no3,sq_no1,sq_no2,sq_no2_II,sq_no3,sq_no4,sq_no5,sq_no6,sqI_no1_ROI1,sqI_no1_ROI2,sqI_no1_ROI3,sqII_no1_ROI1,sqII_no1_ROI2,sqII_no1_ROI3,sq_no2_ROI1,sq_no2_ROI2,sq_no2_ROI3,sq_no3_ROI1, sq_no3_ROI2, sq_no3_ROI3, sq_no4_ROI1, sq_no4_ROI2, sq_no4_ROI3, sq_no5_ROI1, sq_no5_ROI2, sq_no5_ROI3, sq_no6_ROI1, sq_no6_ROI2, sq_no6_ROI3,p1_initials_II,p1_initials_III,p1_initials_SF,p2_initials_II,p2_initials_III,p2_initials_SF,p3_initials_II,p3_initials_III,p3_initials_SF,sq_beside_no4)</code></pre>
 <p>#Simple intensities plots:</p>
 <p>Testdata</p>
 <pre class="r"><code>test&lt;-melt(test_data, id=&quot;spectrum&quot;)
@@ -1352,13 +1391,13 @@ ggplot(lowd_map, aes(x= X1, y = X2)) + ggtitle(&quot;tSNE&quot;) +
 4    100.6         0.649852          1.13426         0.456944         0.336735
 5    100.8         0.597428          1.08449         0.516667         1.075960
 6    101.0         1.251240          1.20486         1.886110         0.961451
-  SQ1 U3 Intensity SQ2 U3 Intensity
-1        0.0625000        0.0101695
-2        0.0312500        0.0576271
-3        0.0359375        0.0847458
-4        0.0250000        0.0406780
-5        0.0593750        0.0779661
-6        0.5812500        0.2542370</code></pre>
+  SQ1 U3 Intensity SQ2 U3 Intensity SQ B4 Intensity
+1        0.0625000        0.0101695        0.667227
+2        0.0312500        0.0576271        0.833613
+3        0.0359375        0.0847458        0.638655
+4        0.0250000        0.0406780        0.494118
+5        0.0593750        0.0779661        0.608403
+6        0.5812500        0.2542370        0.640336</code></pre>
 <pre class="r"><code>head(training_data2)</code></pre>
 <pre><code>  spectrum SQ 1 Intensity SQ 2 Intensity SQ2 2 Intensity SQ 3 Intensity
 1    100.0        1.39799       0.254967         1.14679       0.447950
@@ -1469,39 +1508,40 @@ t_training_data3&lt;-t_training_data3 %&gt;%
 4      SQ2 U2 Intensity 0.3333330 0.4535150 0.4081630 0.3367350
 5      SQ1 U3 Intensity 0.0625000 0.0312500 0.0359375 0.0250000
 6      SQ2 U3 Intensity 0.0101695 0.0576271 0.0847458 0.0406780
-7        SQ 1 Intensity 1.3979900 1.5284300 1.4214000 1.2842800
-8        SQ 2 Intensity 0.2549670 0.2748340 0.2980130 0.2251660
-9       SQ2 2 Intensity 1.1467900 1.4220200 1.1422000 1.1100900
-10       SQ 3 Intensity 0.4479500 0.3785490 0.3028390 0.3217670
-11       SQ 4 Intensity 1.9678600 2.2000000 1.7678600 1.4428600
-12       SQ 5 Intensity 0.2549670 0.2748340 0.2980130 0.2251660
-13       SQ 6 Intensity 0.0349345 0.0262009 0.1222710 0.0436681
-14 SQI 1 ROI1 Intensity 0.6742420 1.1098500 0.8522730 0.7916670
-15 SQI 1 ROI2 Intensity 0.2500000 0.5422080 0.5129870 0.3051950
-16 SQI 1 ROI3 Intensity 0.9266670 0.9566670 0.7500000 0.8066670
-17 SQ2 1 ROI1 Intensity 1.0848200 1.2991100 1.2276800 1.0892900
-18 SQ2 1 ROI2 Intensity 0.8136650 0.9813660 0.9254660 0.6211180
-19 SQ2 1 ROI3 Intensity 1.1954500 1.5590900 1.1727300 1.0636400
-20  SQ 2 ROI1 Intensity 0.6875000 0.9204550 0.6988640 0.6363640
-21  SQ 2 ROI2 Intensity 0.1520470 0.1871350 0.1988300 0.1637430
-22  SQ 2 ROI3 Intensity 0.0964912 0.0877193 0.1403510 0.1052630
-23  SQ 3 ROI1 Intensity 0.0944444 0.0666667 0.0944444 0.0444444
-24  SQ 3 ROI2 Intensity 0.0500000 0.0250000 0.0000000 0.0250000
-25  SQ 3 ROI3 Intensity 0.0116959 0.0000000 0.0000000 0.0116959
-26  SQ 4 ROI1 Intensity 0.6319440 0.7222220 0.5277780 0.5416670
-27  SQ 4 ROI2 Intensity 0.4909090 0.6818180 0.4636360 0.3818180
-28  SQ 4 ROI3 Intensity 0.4802630 0.7894740 0.5657890 0.5065790
-29  SQ 5 ROI1 Intensity 0.3250000 0.3937500 0.3625000 0.3562500
-30  SQ 5 ROI2 Intensity 0.2760420 0.2500000 0.2708330 0.3072920
-31  SQ 5 ROI3 Intensity 0.2415460 0.3864730 0.4202900 0.1835750
-32  SQ 6 ROI1 Intensity 0.0222222 0.1000000 0.1333330 0.0666667
-33  SQ 6 ROI2 Intensity 0.0000000 0.0370370 0.0370370 0.0370370
-34  SQ 6 ROI3 Intensity 0.0222222 0.0000000 0.0333333 0.0111111</code></pre>
+7       SQ B4 Intensity 0.6672270 0.8336130 0.6386550 0.4941180
+8        SQ 1 Intensity 1.3979900 1.5284300 1.4214000 1.2842800
+9        SQ 2 Intensity 0.2549670 0.2748340 0.2980130 0.2251660
+10      SQ2 2 Intensity 1.1467900 1.4220200 1.1422000 1.1100900
+11       SQ 3 Intensity 0.4479500 0.3785490 0.3028390 0.3217670
+12       SQ 4 Intensity 1.9678600 2.2000000 1.7678600 1.4428600
+13       SQ 5 Intensity 0.2549670 0.2748340 0.2980130 0.2251660
+14       SQ 6 Intensity 0.0349345 0.0262009 0.1222710 0.0436681
+15 SQI 1 ROI1 Intensity 0.6742420 1.1098500 0.8522730 0.7916670
+16 SQI 1 ROI2 Intensity 0.2500000 0.5422080 0.5129870 0.3051950
+17 SQI 1 ROI3 Intensity 0.9266670 0.9566670 0.7500000 0.8066670
+18 SQ2 1 ROI1 Intensity 1.0848200 1.2991100 1.2276800 1.0892900
+19 SQ2 1 ROI2 Intensity 0.8136650 0.9813660 0.9254660 0.6211180
+20 SQ2 1 ROI3 Intensity 1.1954500 1.5590900 1.1727300 1.0636400
+21  SQ 2 ROI1 Intensity 0.6875000 0.9204550 0.6988640 0.6363640
+22  SQ 2 ROI2 Intensity 0.1520470 0.1871350 0.1988300 0.1637430
+23  SQ 2 ROI3 Intensity 0.0964912 0.0877193 0.1403510 0.1052630
+24  SQ 3 ROI1 Intensity 0.0944444 0.0666667 0.0944444 0.0444444
+25  SQ 3 ROI2 Intensity 0.0500000 0.0250000 0.0000000 0.0250000
+26  SQ 3 ROI3 Intensity 0.0116959 0.0000000 0.0000000 0.0116959
+27  SQ 4 ROI1 Intensity 0.6319440 0.7222220 0.5277780 0.5416670
+28  SQ 4 ROI2 Intensity 0.4909090 0.6818180 0.4636360 0.3818180
+29  SQ 4 ROI3 Intensity 0.4802630 0.7894740 0.5657890 0.5065790
+30  SQ 5 ROI1 Intensity 0.3250000 0.3937500 0.3625000 0.3562500
+31  SQ 5 ROI2 Intensity 0.2760420 0.2500000 0.2708330 0.3072920
+32  SQ 5 ROI3 Intensity 0.2415460 0.3864730 0.4202900 0.1835750
+33  SQ 6 ROI1 Intensity 0.0222222 0.1000000 0.1333330 0.0666667
+34  SQ 6 ROI2 Intensity 0.0000000 0.0370370 0.0370370 0.0370370
+35  SQ 6 ROI3 Intensity 0.0222222 0.0000000 0.0333333 0.0111111</code></pre>
 <p>We could now simplify the DF by simply stating which square is which</p>
 <pre class="r"><code>#I did it manually because I don&#39;t know a good way of doing it automagically
-avector &lt;- c(&quot;1&quot;,&quot;2&quot;,&quot;1&quot;,&quot;2&quot;,&quot;1&quot;,&quot;2&quot;,&quot;1&quot;,&quot;2&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;,&quot;5&quot;,&quot;6&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;2&quot;,&quot;2&quot;,&quot;2&quot;,&quot;3&quot;,&quot;3&quot;,&quot;3&quot;,&quot;4&quot;,&quot;4&quot;,&quot;4&quot;,&quot;5&quot;,&quot;5&quot;,&quot;5&quot;,&quot;6&quot;,&quot;6&quot;,&quot;6&quot;)
+avector &lt;- c(&quot;1&quot;,&quot;2&quot;,&quot;1&quot;,&quot;2&quot;,&quot;1&quot;,&quot;2&quot;,&quot;SQ B4 &quot;, &quot;1&quot;,&quot;2&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;,&quot;5&quot;,&quot;6&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;2&quot;,&quot;2&quot;,&quot;2&quot;,&quot;3&quot;,&quot;3&quot;,&quot;3&quot;,&quot;4&quot;,&quot;4&quot;,&quot;4&quot;,&quot;5&quot;,&quot;5&quot;,&quot;5&quot;,&quot;6&quot;,&quot;6&quot;,&quot;6&quot;)
 
-test&lt;-training_DF %&gt;% replace(1,c(&quot;1&quot;,&quot;2&quot;,&quot;1&quot;,&quot;2&quot;,&quot;1&quot;,&quot;2&quot;,&quot;1&quot;,&quot;2&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;,&quot;5&quot;,&quot;6&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;2&quot;,&quot;2&quot;,&quot;2&quot;,&quot;3&quot;,&quot;3&quot;,&quot;3&quot;,&quot;4&quot;,&quot;4&quot;,&quot;4&quot;,&quot;5&quot;,&quot;5&quot;,&quot;5&quot;,&quot;6&quot;,&quot;6&quot;,&quot;6&quot;))
+test&lt;-training_DF %&gt;% replace(1,c(&quot;1&quot;,&quot;2&quot;,&quot;1&quot;,&quot;2&quot;,&quot;1&quot;,&quot;2&quot;,&quot;SQ B4 &quot;, &quot;1&quot;,&quot;2&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;,&quot;5&quot;,&quot;6&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;2&quot;,&quot;2&quot;,&quot;2&quot;,&quot;3&quot;,&quot;3&quot;,&quot;3&quot;,&quot;4&quot;,&quot;4&quot;,&quot;4&quot;,&quot;5&quot;,&quot;5&quot;,&quot;5&quot;,&quot;6&quot;,&quot;6&quot;,&quot;6&quot;))
 
 head(select(test,1:5))</code></pre>
 <pre><code>  labels       100     100.2     100.4    100.6
@@ -1525,7 +1565,7 @@ autoplot(pca_res,data=test,colour=&quot;labels&quot;, label=F)</code></pre>
 <p>We can see the variance explained by the PCs:</p>
 <pre class="r"><code>var_explained = pca_res$sdev^2 / sum(pca_res$sdev^2)
 
-qplot(c(1:34), var_explained) + 
+qplot(c(1:35), var_explained) + 
   geom_line() + 
   xlab(&quot;Principal Component&quot;) + 
   ylab(&quot;Variance Explained&quot;) +
@@ -1556,89 +1596,12 @@ fig &lt;- fig %&gt;% layout(scene = list(xaxis = list(title = &#39;PC1&#39;),
                                    zaxis = list(title = &#39;PC3&#39;)))
 
 fig</code></pre>
-<div id="htmlwidget-02195bd282abe5cf9c52" style="width:672px;height:480px;" class="plotly html-widget"></div>
-<script type="application/json" data-for="htmlwidget-02195bd282abe5cf9c52">{"x":{"visdat":{"13ac4a4b6b8a":["function () ","plotlyVisDat"]},"cur_data":"13ac4a4b6b8a","attrs":{"13ac4a4b6b8a":{"x":{},"y":{},"z":{},"color":{},"size":[100],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter3d","mode":"markers","inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"scene":{"xaxis":{"title":"PC1"},"yaxis":{"title":"PC2"},"zaxis":{"title":"PC3"}},"hovermode":"closest","showlegend":true},"source":"A","config":{"showSendToCloud":false},"data":[{"x":[-5.91085709514072,-47.4003756236095,59.0085815904109,-37.7397655921459,-17.0874724617988,8.30624609931991,-5.68035457256526,-42.4615927207914,-15.5765126135376,-18.5270860672031],"y":[21.0760486232942,-23.8549408072979,-0.497277844936115,52.2397332324733,27.9407284741688,14.7153261226335,18.9735609137248,35.1985369216376,28.6706944703201,28.004916373688],"z":[-10.0037057124175,-26.5739236337015,21.6080351060424,-1.39934074969873,-12.561200862578,-10.4988077900667,-8.15240768844237,15.7619544692323,20.5600391025904,12.6985159443032],"type":"scatter3d","mode":"markers","name":"1","marker":{"color":"rgba(102,194,165,1)","size":[100,100,100,100,100,100,100,100,100,100],"sizemode":"area","line":{"color":"rgba(102,194,165,1)"}},"textfont":{"color":"rgba(102,194,165,1)","size":100},"error_y":{"color":"rgba(102,194,165,1)","width":100},"error_x":{"color":"rgba(102,194,165,1)","width":100},"line":{"color":"rgba(102,194,165,1)","width":100},"frame":null},{"x":[-33.5500895247457,-17.1536347963704,55.2976544246573,-11.9639683472888,-94.508489580907,-76.3526670985978,-28.0331624861554,-17.3240909872203],"y":[34.006300334894,-55.514421160879,9.82526462864402,-51.3429223696709,19.5575052714579,-9.4229988113836,-37.0608670905726,-42.3800201869887],"z":[13.5288603448267,19.0136127810464,-34.7364908141978,6.84499473469879,-19.2793988925041,-24.7708975055861,-30.5272947812169,-27.4628541147817],"type":"scatter3d","mode":"markers","name":"2","marker":{"color":"rgba(252,141,98,1)","size":[100,100,100,100,100,100,100,100],"sizemode":"area","line":{"color":"rgba(252,141,98,1)"}},"textfont":{"color":"rgba(252,141,98,1)","size":100},"error_y":{"color":"rgba(252,141,98,1)","width":100},"error_x":{"color":"rgba(252,141,98,1)","width":100},"line":{"color":"rgba(252,141,98,1)","width":100},"frame":null},{"x":[26.160769987429,49.751677019847,63.8596211338175,70.8887910068811],"y":[2.23536719947825,5.76634333731317,6.76524734143861,-8.02232228931146],"z":[9.25527917142994,27.1847686246747,27.7305487598756,17.7880207837073],"type":"scatter3d","mode":"markers","name":"3","marker":{"color":"rgba(141,160,203,1)","size":[100,100,100,100],"sizemode":"area","line":{"color":"rgba(141,160,203,1)"}},"textfont":{"color":"rgba(141,160,203,1)","size":100},"error_y":{"color":"rgba(141,160,203,1)","width":100},"error_x":{"color":"rgba(141,160,203,1)","width":100},"line":{"color":"rgba(141,160,203,1)","width":100},"frame":null},{"x":[-48.8129694570798,5.64135367186243,11.6187828884928,14.7409962779062],"y":[66.3539847622348,21.317949760278,21.1094207700892,12.8562346178638],"z":[20.2740146633777,20.9959451412688,29.0641023871964,17.2508544372044],"type":"scatter3d","mode":"markers","name":"4","marker":{"color":"rgba(231,138,195,1)","size":[100,100,100,100],"sizemode":"area","line":{"color":"rgba(231,138,195,1)"}},"textfont":{"color":"rgba(231,138,195,1)","size":100},"error_y":{"color":"rgba(231,138,195,1)","width":100},"error_x":{"color":"rgba(231,138,195,1)","width":100},"line":{"color":"rgba(231,138,195,1)","width":100},"frame":null},{"x":[-11.9639683472888,-20.9989193874026,-6.71262445422418,-14.1379416685965],"y":[-51.3429223696709,-54.992741393622,-61.4610870340041,-59.5163929134428],"z":[6.84499473469879,21.4248608195395,18.7157881302972,19.8180038033624],"type":"scatter3d","mode":"markers","name":"5","marker":{"color":"rgba(166,216,84,1)","size":[100,100,100,100],"sizemode":"area","line":{"color":"rgba(166,216,84,1)"}},"textfont":{"color":"rgba(166,216,84,1)","size":100},"error_y":{"color":"rgba(166,216,84,1)","width":100},"error_x":{"color":"rgba(166,216,84,1)","width":100},"line":{"color":"rgba(166,216,84,1)","width":100},"frame":null},{"x":[32.7352156794472,51.3414063044254,65.1472376502059,57.3982091479673],"y":[-3.16011213038423,7.35832417563226,9.09370915231866,15.5038299185815],"z":[-35.1528838008243,-32.2638627923792,-34.998250589341,-37.981874211637],"type":"scatter3d","mode":"markers","name":"6","marker":{"color":"rgba(255,217,47,1)","size":[100,100,100,100],"sizemode":"area","line":{"color":"rgba(255,217,47,1)"}},"textfont":{"color":"rgba(255,217,47,1)","size":100},"error_y":{"color":"rgba(255,217,47,1)","width":100},"error_x":{"color":"rgba(255,217,47,1)","width":100},"line":{"color":"rgba(255,217,47,1)","width":100},"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-e5cf9c52725cc6b26d5a" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-e5cf9c52725cc6b26d5a">{"x":{"visdat":{"1c3c34c414d4":["function () ","plotlyVisDat"]},"cur_data":"1c3c34c414d4","attrs":{"1c3c34c414d4":{"x":{},"y":{},"z":{},"color":{},"size":[100],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter3d","mode":"markers","inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"scene":{"xaxis":{"title":"PC1"},"yaxis":{"title":"PC2"},"zaxis":{"title":"PC3"}},"hovermode":"closest","showlegend":true},"source":"A","config":{"showSendToCloud":false},"data":[{"x":[-6.15601838795165,-48.0496778462055,59.4027785885946,-38.4013362385967,-17.4402885668854,8.20966144393234,-5.92416894817599,-43.2233131703944,-16.0504694858388,-18.9786051117118],"y":[20.4938581835815,-25.0737843052013,-1.08227471755788,52.1314565444291,27.3654105633945,14.0575228239196,18.3956271185292,35.3233785307098,28.7358830508391,27.8425233115453],"z":[-11.3462541595334,-27.2358234111488,19.943948486536,-3.32441841257674,-14.2663710265944,-11.647285817616,-9.41827366610191,15.0461911282281,19.8676167311071,11.5042382091103],"type":"scatter3d","mode":"markers","name":"1","marker":{"color":"rgba(102,194,165,1)","size":[100,100,100,100,100,100,100,100,100,100],"sizemode":"area","line":{"color":"rgba(102,194,165,1)"}},"textfont":{"color":"rgba(102,194,165,1)","size":100},"error_y":{"color":"rgba(102,194,165,1)","width":100},"error_x":{"color":"rgba(102,194,165,1)","width":100},"line":{"color":"rgba(102,194,165,1)","width":100},"frame":null},{"x":[-34.1812485736255,-17.53152685455,55.8244969563353,-12.2331837267541,-95.8418514767856,-77.3988470907677,-28.4215122575707,-17.5786530285432],"y":[34.0017415833266,-56.2743494303628,8.81413452819401,-52.3177518098883,18.8669416698851,-10.3396201866257,-38.5467126283404,-43.914820814336],"z":[12.4999977213479,20.0615494991598,-35.1806576707663,7.38139523448614,-21.0487610319824,-25.2599746642964,-31.2238178592657,-28.1195643939345],"type":"scatter3d","mode":"markers","name":"2","marker":{"color":"rgba(252,141,98,1)","size":[100,100,100,100,100,100,100,100],"sizemode":"area","line":{"color":"rgba(252,141,98,1)"}},"textfont":{"color":"rgba(252,141,98,1)","size":100},"error_y":{"color":"rgba(252,141,98,1)","width":100},"error_x":{"color":"rgba(252,141,98,1)","width":100},"line":{"color":"rgba(252,141,98,1)","width":100},"frame":null},{"x":[26.2012026187377,50.0111618744439,64.2743386387864,71.4398198086693],"y":[1.44832660165765,5.42334013335048,6.35884737508371,-8.84330819615424],"z":[6.9962254608075,25.7754624865023,26.0974761188231,15.8277716389815],"type":"scatter3d","mode":"markers","name":"3","marker":{"color":"rgba(141,160,203,1)","size":[100,100,100,100],"sizemode":"area","line":{"color":"rgba(141,160,203,1)"}},"textfont":{"color":"rgba(141,160,203,1)","size":100},"error_y":{"color":"rgba(141,160,203,1)","width":100},"error_x":{"color":"rgba(141,160,203,1)","width":100},"line":{"color":"rgba(141,160,203,1)","width":100},"frame":null},{"x":[-49.6232464944241,5.44728385870321,11.4504695905994,14.6503196549475],"y":[66.7232988316756,21.3118267719501,21.318222091029,12.6265120127863],"z":[18.361321010512,20.6944791618546,29.1646163748986,16.6779388087246],"type":"scatter3d","mode":"markers","name":"4","marker":{"color":"rgba(231,138,195,1)","size":[100,100,100,100],"sizemode":"area","line":{"color":"rgba(231,138,195,1)"}},"textfont":{"color":"rgba(231,138,195,1)","size":100},"error_y":{"color":"rgba(231,138,195,1)","width":100},"error_x":{"color":"rgba(231,138,195,1)","width":100},"line":{"color":"rgba(231,138,195,1)","width":100},"frame":null},{"x":[-12.2331837267541,-21.4386387400424,-6.97031129002063,-14.470392649925],"y":[-52.3177518098883,-55.6758828727727,-62.3680624668049,-60.2812066880429],"z":[7.38139523448614,22.6066700843445,19.5961925917192,21.0806937516118],"type":"scatter3d","mode":"markers","name":"5","marker":{"color":"rgba(166,216,84,1)","size":[100,100,100,100],"sizemode":"area","line":{"color":"rgba(166,216,84,1)"}},"textfont":{"color":"rgba(166,216,84,1)","size":100},"error_y":{"color":"rgba(166,216,84,1)","width":100},"error_x":{"color":"rgba(166,216,84,1)","width":100},"line":{"color":"rgba(166,216,84,1)","width":100},"frame":null},{"x":[33.0235245796322,51.8126309287714,65.7845200590682,57.9620503706003],"y":[-4.34030131221448,6.35527791803778,8.0292432661731,14.5387046699526],"z":[-35.7363567336954,-32.7214788091909,-35.5584221167959,-38.3169530028157],"type":"scatter3d","mode":"markers","name":"6","marker":{"color":"rgba(255,217,47,1)","size":[100,100,100,100],"sizemode":"area","line":{"color":"rgba(255,217,47,1)"}},"textfont":{"color":"rgba(255,217,47,1)","size":100},"error_y":{"color":"rgba(255,217,47,1)","width":100},"error_x":{"color":"rgba(255,217,47,1)","width":100},"line":{"color":"rgba(255,217,47,1)","width":100},"frame":null},{"x":[6.65221469370127],"y":[21.2137496581393],"z":[23.839233043073],"type":"scatter3d","mode":"markers","name":"SQ B4 ","marker":{"color":"rgba(229,196,148,1)","size":[100],"sizemode":"area","line":{"color":"rgba(229,196,148,1)"}},"textfont":{"color":"rgba(229,196,148,1)","size":100},"error_y":{"color":"rgba(229,196,148,1)","width":100},"error_x":{"color":"rgba(229,196,148,1)","width":100},"line":{"color":"rgba(229,196,148,1)","width":100},"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="model-from-pca-training-data" class="section level1">
 <h1>Model from PCA training Data:</h1>
 <p>I used this as a guide: <a href="https://rstudio-pubs-static.s3.amazonaws.com/285614_7921f4f9f340428f8f5ed8dc3c7f7943.html" class="uri">https://rstudio-pubs-static.s3.amazonaws.com/285614_7921f4f9f340428f8f5ed8dc3c7f7943.html</a></p>
-<pre class="r"><code>#For the test data we should use the test_data
-#For the training data we should use the training_DF
-
-#(work in progress, I have to remember how this was done :/ )
-
-#Get a dataframe with the values that will be used to predict
-#First step, transpose the data: 
-t_test_data&lt;-as.data.frame(t(test_data[-1]))
-names(t_test_data)&lt;-test_data$spectrum
-t_test_data$labels=row.names(t_test_data)
-#removing the row headers
-rownames(t_test_data)&lt;-c()
-#moving labels to the beginning
-t_test_data&lt;-t_test_data %&gt;% 
-  select(labels, everything())
-head(select(t_test_data,1:5))</code></pre>
-<pre><code>             labels      100    100.2    100.4    100.6
-1 strike1 Intensity 1.220990 1.243090 1.176800 0.955801
-2 strike2 Intensity 1.804470 2.251400 1.810060 1.703910
-3 strike3 Intensity 0.572254 0.953757 0.849711 0.699422
-4 strike4 Intensity 0.722826 0.956522 0.880435 0.728261
-5 strike5 Intensity 0.500000 0.540816 0.607143 0.612245
-6 strike6 Intensity 0.294737 0.652632 0.436842 0.368421</code></pre>
-<pre class="r"><code>t_test_data&lt;-t_test_data %&gt;% replace(1,c(&quot;1&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;,&quot;5&quot;,&quot;6&quot;))
-
-test&lt;-t_test_data[-1]
-
-
-library(caret)</code></pre>
-<pre><code>Loading required package: lattice</code></pre>
-<pre><code>
-Attaching package: &#39;caret&#39;</code></pre>
-<pre><code>The following object is masked from &#39;package:purrr&#39;:
-
-    lift</code></pre>
-<pre class="r"><code>library(e1071)</code></pre>
-<pre><code>Warning: package &#39;e1071&#39; was built under R version 4.0.5</code></pre>
-<pre class="r"><code>pca = preProcess(x = simple_train_DF[-4502], method = &quot;pca&quot;, pcaComp = 2)
-training_set &lt;- predict(pca, simple_train_DF)
-# put customer segment in to the last postion or column
-training_set &lt;- simple_train_DF[c(2,3,1)]
-
-
-test_set &lt;- predict(pca, test)
-test_set &lt;- test[c(2,3,1)]
-
-classifier &lt;- svm(formula = labels ~ .,
-                  data = training_set,
-                  type = &quot;C-classification&quot;,
-                  kernel = &quot;linear&quot;)
-summary(classifier)</code></pre>
-<pre><code>
-Call:
-svm(formula = labels ~ ., data = training_set, type = &quot;C-classification&quot;, 
-    kernel = &quot;linear&quot;)
-
-
-Parameters:
-   SVM-Type:  C-classification 
- SVM-Kernel:  linear 
-       cost:  1 
-
-Number of Support Vectors:  34
-
- ( 10 8 4 4 4 4 )
-
-
-Number of Classes:  6 
-
-Levels: 
- 1 2 3 4 5 6</code></pre>
-<pre class="r"><code>y_pred &lt;-  predict(classifier, newdata = test[-3]
-                      )
-y_pred</code></pre>
-<pre><code>1 2 3 4 5 6 
-1 1 1 1 2 2 
-Levels: 1 2 3 4 5 6</code></pre>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -1662,43 +1625,30 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] e1071_1.7-6      caret_6.0-86     lattice_0.20-41  plotly_4.9.3    
- [5] reshape2_1.4.4   Rtsne_0.15       ggfortify_0.4.11 forcats_0.5.1   
- [9] stringr_1.4.0    dplyr_1.0.5      purrr_0.3.4      readr_1.4.0     
-[13] tidyr_1.1.3      tibble_3.0.3     ggplot2_3.3.3    tidyverse_1.3.1 
+ [1] plotly_4.9.3     reshape2_1.4.4   Rtsne_0.15       ggfortify_0.4.11
+ [5] forcats_0.5.1    stringr_1.4.0    dplyr_1.0.5      purrr_0.3.4     
+ [9] readr_1.4.0      tidyr_1.1.3      tibble_3.0.3     ggplot2_3.3.3   
+[13] tidyverse_1.3.1 
 
 loaded via a namespace (and not attached):
- [1] nlme_3.1-149         fs_1.5.0             lubridate_1.7.10    
- [4] RColorBrewer_1.1-2   httr_1.4.2           rprojroot_2.0.2     
- [7] tools_4.0.4          backports_1.1.10     bslib_0.2.4         
-[10] utf8_1.2.1           R6_2.5.0             rpart_4.1-15        
-[13] DBI_1.1.1            lazyeval_0.2.2       colorspace_1.4-1    
-[16] nnet_7.3-14          withr_2.4.2          tidyselect_1.1.0    
-[19] gridExtra_2.3        compiler_4.0.4       git2r_0.28.0        
-[22] cli_2.4.0            rvest_1.0.0          xml2_1.3.2          
-[25] labeling_0.4.2       sass_0.3.1           scales_1.1.1        
-[28] proxy_0.4-25         digest_0.6.25        rmarkdown_2.7       
-[31] pkgconfig_2.0.3      htmltools_0.5.1.1    dbplyr_2.1.1        
-[34] htmlwidgets_1.5.3    rlang_0.4.10         readxl_1.3.1        
-[37] rstudioapi_0.13      jquerylib_0.1.3      farver_2.0.3        
-[40] generics_0.1.0       jsonlite_1.7.2       crosstalk_1.1.1     
-[43] ModelMetrics_1.2.2.2 magrittr_2.0.1       Matrix_1.2-18       
-[46] Rcpp_1.0.5           munsell_0.5.0        fansi_0.4.1         
-[49] lifecycle_1.0.0      pROC_1.17.0.1        stringi_1.5.3       
-[52] whisker_0.4          yaml_2.2.1           MASS_7.3-53         
-[55] plyr_1.8.6           recipes_0.1.16       grid_4.0.4          
-[58] promises_1.2.0.1     crayon_1.4.1         splines_4.0.4       
-[61] haven_2.3.1          hms_1.0.0            knitr_1.30          
-[64] ps_1.6.0             pillar_1.6.0         stats4_4.0.4        
-[67] codetools_0.2-18     reprex_2.0.0         glue_1.4.2          
-[70] evaluate_0.14        data.table_1.13.0    modelr_0.1.8        
-[73] vctrs_0.3.7          httpuv_1.5.5         foreach_1.5.1       
-[76] cellranger_1.1.0     gtable_0.3.0         assertthat_0.2.1    
-[79] gower_0.2.2          xfun_0.18            prodlim_2019.11.13  
-[82] broom_0.7.6          later_1.1.0.1        survival_3.2-7      
-[85] class_7.3-17         viridisLite_0.4.0    timeDate_3043.102   
-[88] iterators_1.0.13     lava_1.6.9           workflowr_1.6.2     
-[91] ellipsis_0.3.1       ipred_0.9-10        </code></pre>
+ [1] httr_1.4.2         sass_0.3.1         jsonlite_1.7.2     viridisLite_0.4.0 
+ [5] modelr_0.1.8       bslib_0.2.4        assertthat_0.2.1   cellranger_1.1.0  
+ [9] yaml_2.2.1         pillar_1.6.0       backports_1.1.10   glue_1.4.2        
+[13] digest_0.6.25      RColorBrewer_1.1-2 promises_1.2.0.1   rvest_1.0.0       
+[17] colorspace_1.4-1   htmltools_0.5.1.1  httpuv_1.5.5       plyr_1.8.6        
+[21] pkgconfig_2.0.3    broom_0.7.6        haven_2.3.1        scales_1.1.1      
+[25] whisker_0.4        later_1.1.0.1      git2r_0.28.0       generics_0.1.0    
+[29] farver_2.0.3       ellipsis_0.3.1     withr_2.4.2        lazyeval_0.2.2    
+[33] cli_2.4.0          magrittr_2.0.1     crayon_1.4.1       readxl_1.3.1      
+[37] evaluate_0.14      ps_1.6.0           fs_1.5.0           fansi_0.4.1       
+[41] xml2_1.3.2         tools_4.0.4        data.table_1.13.0  hms_1.0.0         
+[45] lifecycle_1.0.0    munsell_0.5.0      reprex_2.0.0       compiler_4.0.4    
+[49] jquerylib_0.1.3    rlang_0.4.10       grid_4.0.4         rstudioapi_0.13   
+[53] htmlwidgets_1.5.3  crosstalk_1.1.1    labeling_0.4.2     rmarkdown_2.7     
+[57] gtable_0.3.0       DBI_1.1.1          R6_2.5.0           gridExtra_2.3     
+[61] lubridate_1.7.10   knitr_1.30         utf8_1.2.1         workflowr_1.6.2   
+[65] rprojroot_2.0.2    stringi_1.5.3      Rcpp_1.0.5         vctrs_0.3.7       
+[69] dbplyr_2.1.1       tidyselect_1.1.0   xfun_0.18         </code></pre>
 </div>
 </div>
 
