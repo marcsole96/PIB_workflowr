@@ -566,7 +566,7 @@ fig
 # Model from PCA training Data:
 
 I used this as a guide: https://rstudio-pubs-static.s3.amazonaws.com/285614_7921f4f9f340428f8f5ed8dc3c7f7943.html
-```{r eval=FALSE, include=FALSE}
+```{r echo=TRUE}
 #For the test data we should use the test_data
 #For the training data we should use the training_DF
 
