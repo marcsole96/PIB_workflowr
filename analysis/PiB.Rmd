@@ -583,31 +583,40 @@ rownames(t_test_data)<-c()
 t_test_data<-t_test_data %>% 
   select(labels, everything())
 head(select(t_test_data,1:5))
-t_test_data<-t_test_data %>% replace(1,c("1","2","3","4","5","6"))
+t_test_data<-t_test_data %>% replace(1,c("strike1","strike2","strike3","strike4","strike5","strike6"))
 
 test<-t_test_data[-1]
 
 
 library(caret)
 library(e1071)
-pca = preProcess(x = simple_train_DF[-4502], method = "pca", pcaComp = 2)
-training_set <- predict(pca, simple_train_DF)
+pca = preProcess(x = simple_train_DF[,c(-1,-4502)], method = "pca", pcaComp = 35)
+training_set <- predict(pca, simple_train_DF[-4502])
 # put customer segment in to the last postion or column
-training_set <- simple_train_DF[c(2,3,1)]
+#training_set <- simple_train_DF[c(2,3,1)]
 
 
 test_set <- predict(pca, test)
-test_set <- test[c(2,3,1)]
+#test_set <- test[c(2,3,1)]
 
-classifier <- rf(formula = labels ~ .,
-                  data = training_set,
-                  type = "C-classification",
-                  kernel = "linear")
-summary(classifier)
+trControl <- trainControl(method = "repeatedcv", 
+                          number = 10, 
+                         repeats = 3, 
+                     verboseIter = ifelse(is.null(getOption('knitr.in.progress')), TRUE, FALSE) # This crazy line is to show progress when you run the code but hide it when knitting.
+    )
 
-y_pred <-  predict(classifier, newdata = test[-3]
-                      )
-y_pred
+training_x <- training_set %>% select(-labels) %>% as.data.frame()
+training_y <- training_set$labels
+
+car_ranger <- train(x = training_x, 
+             y = training_y, 
+        method = "ranger",
+     trControl = trControl
+    )
+
+predicted<- predict(car_ranger, newdata = test_set[,-1])
+
+predicted
 ```
 
 
