@@ -517,7 +517,9 @@ We could now simplify the DF by simply stating which square is which
 #I did it manually because I don't know a good way of doing it automagically
 avector <- c("1","2","1","2","1","2","SQ B4 ", "1","2","2","3","4","5","6","1","1","1","1","1","1","2","2","2","3","3","3","4","4","4","5","5","5","6","6","6")
 
-test<-training_DF %>% replace(1,c("1","2","1","2","1","2","SQ B4 ", "1","2","2","3","4","5","6","1","1","1","1","1","1","2","2","2","3","3","3","4","4","4","5","5","5","6","6","6"))
+# test<-training_DF %>% replace(1,c("1","2","1","2","1","2","SQ B4 ", "1","2","2","3","4","5","6","1","1","1","1","1","1","2","2","2","3","3","3","4","4","4","5","5","5","6","6","6"))
+test<-training_DF 
+
 
 head(select(test,1:5))
 
@@ -582,8 +584,8 @@ rownames(t_test_data)<-c()
 #moving labels to the beginning
 t_test_data<-t_test_data %>% 
   select(labels, everything())
-head(select(t_test_data,1:5))
 t_test_data<-t_test_data %>% replace(1,c("strike1","strike2","strike3","strike4","strike5","strike6"))
+head(select(t_test_data,1:5))
 
 test<-t_test_data[-1]
 
