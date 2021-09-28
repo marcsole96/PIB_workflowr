@@ -123,7 +123,7 @@ colnames(sq_no2) <- c("spectrum", "SQ 2 Intensity")
 colnames(sq_no3) <- c("spectrum", "SQ 3 Intensity")
 colnames(sq_no4) <- c("spectrum", "SQ 4 Intensity")
 colnames(sq_no1) <- c("spectrum", "SQ 1 Intensity")
-colnames(sq_no2_II) <- c("spectrum", "SQ2 2 Intensity")  # I think this df should be sq2 from number 1
+colnames(sq_no2_II) <- c("spectrum", "SQ2 2 Intensity")  # Which one is this? There are 2 data collected from number 2. -- shouldnt it be from square 1?
 colnames(sq_no5) <- c("spectrum", "SQ 5 Intensity")
 colnames(sq_no6) <- c("spectrum", "SQ 6 Intensity")
 
@@ -223,17 +223,16 @@ colnames(strike6) <- c("spectrum", "strike6 Intensity")
 
 ```
 
+# Datasets compilation
+
 ```{r}
 
 test_data <- cbind(strike1, strike2[2], strike3[2], strike4[2], strike5[2], strike6[2])
-training_data1 <- cbind(sq1_under_no1, sq2_under_no1[2], sq1_under_no2[2], sq2_under_no2[2], sq1_under_no3[2], sq2_under_no3[2],sq_beside_no4[2])
+training_data1 <- cbind(sq1_under_no1, sq2_under_no1[2], sq1_under_no2[2], sq2_under_no2[2], sq1_under_no3[2], sq2_under_no3[2], sq_beside_no4[2])
 training_data2 <- cbind(sq_no1, sq_no2[2], sq_no2_II[2], sq_no3[2], sq_no4[2], sq_no5[2], sq_no6[2])
 training_data3 <- cbind(sqI_no1_ROI1, sqI_no1_ROI2[2], sqI_no1_ROI3[2], sqII_no1_ROI1[2], sqII_no1_ROI2[2], sqII_no1_ROI3[2], sq_no2_ROI1[2], sq_no2_ROI2[2], sq_no2_ROI3[2], sq_no3_ROI1[2], sq_no3_ROI2[2], sq_no3_ROI3[2], sq_no4_ROI1[2], sq_no4_ROI2[2], sq_no4_ROI3[2], sq_no5_ROI1[2], sq_no5_ROI2[2], sq_no5_ROI3[2], sq_no6_ROI1[2], sq_no6_ROI2[2], sq_no6_ROI3[2])
-contract<-cbind(p1_initials_II,p1_initials_III[2],p1_initials_SF[2],p2_initials_II[2],p2_initials_III[2],p2_initials_SF[2],p3_initials_II[2],p3_initials_III[2],p3_initials_SF[2])
-
 
 rm(strike1,strike2,strike3,strike4,strike5,strike6,sq1_under_no1,sq2_under_no1,sq1_under_no2,sq2_under_no2,sq1_under_no3,sq2_under_no3,sq_no1,sq_no2,sq_no2_II,sq_no3,sq_no4,sq_no5,sq_no6,sqI_no1_ROI1,sqI_no1_ROI2,sqI_no1_ROI3,sqII_no1_ROI1,sqII_no1_ROI2,sqII_no1_ROI3,sq_no2_ROI1,sq_no2_ROI2,sq_no2_ROI3,sq_no3_ROI1, sq_no3_ROI2, sq_no3_ROI3, sq_no4_ROI1, sq_no4_ROI2, sq_no4_ROI3, sq_no5_ROI1, sq_no5_ROI2, sq_no5_ROI3, sq_no6_ROI1, sq_no6_ROI2, sq_no6_ROI3,p1_initials_II,p1_initials_III,p1_initials_SF,p2_initials_II,p2_initials_III,p2_initials_SF,p3_initials_II,p3_initials_III,p3_initials_SF,sq_beside_no4)
-
 ```
 
 \#Simple intensities plots:
@@ -515,15 +514,14 @@ training_DF<- rbind(t_training_data1, t_training_data2, t_training_data3)
 We could now simplify the DF by simply stating which square is which
 ```{r}
 #I did it manually because I don't know a good way of doing it automagically
-avector <- c("1","2","1","2","1","2","SQ B4 ", "1","2","2","3","4","5","6","1","1","1","1","1","1","2","2","2","3","3","3","4","4","4","5","5","5","6","6","6")
+avector <- c("pen1","pen1","pen2","pen5","pen3","pen6","pen4", "pen1","pen2","pen2","pen3","pen4","pen5","pen6","pen1","pen1","pen1","pen1","pen1","pen1","pen2","pen2","pen2","pen3","pen3","pen3","pen4","pen4","pen4","pen5","pen5","pen5","pen6","pen6","pen6") #the position 10 should be pen 1 i think, but we keep the label as 2 as it was  given. But there is evidence in all the other datasets that 2 squares were painted with pen number 1 and for the remaining pen only one square was painted with each.
 
-# test<-training_DF %>% replace(1,c("1","2","1","2","1","2","SQ B4 ", "1","2","2","3","4","5","6","1","1","1","1","1","1","2","2","2","3","3","3","4","4","4","5","5","5","6","6","6"))
-test<-training_DF 
+training_DF <- training_DF %>% replace(1, avector)
 
+(select(training_DF,1:5))
 
-head(select(test,1:5))
-
-simple_train_DF<-test
+# simple_train_DF<-test
+test<-training_DF
 ```
 
 
@@ -592,8 +590,8 @@ test<-t_test_data[-1]
 
 library(caret)
 library(e1071)
-pca = preProcess(x = simple_train_DF[,c(-1,-4502)], method = "pca", pcaComp = 35)
-training_set <- predict(pca, simple_train_DF[-4502])
+pca = preProcess(x = training_DF[,c(-1,-4502)], method = "pca", pcaComp = 35)
+training_set <- predict(pca, training_DF[-4502])
 # put customer segment in to the last postion or column
 #training_set <- simple_train_DF[c(2,3,1)]
 
