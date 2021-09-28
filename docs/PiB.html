@@ -391,7 +391,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2021-09-27
+<strong>Last updated:</strong> 2021-09-28
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -482,16 +482,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtreec29bb1c7041774dcb5f6d8bde3d310c6657b6924targetblankc29bb1ca"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/marcsole96/PIB_workflowr/tree/c29bb1c7041774dcb5f6d8bde3d310c6657b6924" target="_blank">c29bb1c</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtree3722b1422ba04e90e08e4196a35d44722fe3b353targetblank3722b14a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/marcsole96/PIB_workflowr/tree/3722b1422ba04e90e08e4196a35d44722fe3b353" target="_blank">3722b14</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtreec29bb1c7041774dcb5f6d8bde3d310c6657b6924targetblankc29bb1ca" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtree3722b1422ba04e90e08e4196a35d44722fe3b353targetblank3722b14a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/marcsole96/PIB_workflowr/tree/c29bb1c7041774dcb5f6d8bde3d310c6657b6924" target="_blank">c29bb1c</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/marcsole96/PIB_workflowr/tree/3722b1422ba04e90e08e4196a35d44722fe3b353" target="_blank">3722b14</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -544,6 +544,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/marcsole96/PIB_workflowr/blob/3722b1422ba04e90e08e4196a35d44722fe3b353/analysis/PiB.Rmd" target="_blank">3722b14</a>
+</td>
+<td>
+marcsole96
+</td>
+<td>
+2021-09-28
+</td>
+<td>
+changed dataframes labels
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/marcsole96/PIB_workflowr/35602fa41a9c7d01bb8fe297cc6bc8483e3b0418/docs/PiB.html" target="_blank">35602fa</a>
+</td>
+<td>
+marcsole96
+</td>
+<td>
+2021-09-27
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -1175,7 +1209,7 @@ colnames(sq_no2) &lt;- c(&quot;spectrum&quot;, &quot;SQ 2 Intensity&quot;)
 colnames(sq_no3) &lt;- c(&quot;spectrum&quot;, &quot;SQ 3 Intensity&quot;)
 colnames(sq_no4) &lt;- c(&quot;spectrum&quot;, &quot;SQ 4 Intensity&quot;)
 colnames(sq_no1) &lt;- c(&quot;spectrum&quot;, &quot;SQ 1 Intensity&quot;)
-colnames(sq_no2_II) &lt;- c(&quot;spectrum&quot;, &quot;SQ2 2 Intensity&quot;)  # I think this df should be sq2 from number 1
+colnames(sq_no2_II) &lt;- c(&quot;spectrum&quot;, &quot;SQ2 2 Intensity&quot;)  # Which one is this? There are 2 data collected from number 2. -- shouldnt it be from square 1?
 colnames(sq_no5) &lt;- c(&quot;spectrum&quot;, &quot;SQ 5 Intensity&quot;)
 colnames(sq_no6) &lt;- c(&quot;spectrum&quot;, &quot;SQ 6 Intensity&quot;)</code></pre>
 </div>
@@ -1265,12 +1299,13 @@ colnames(strike3) &lt;- c(&quot;spectrum&quot;, &quot;strike3 Intensity&quot;)
 colnames(strike4) &lt;- c(&quot;spectrum&quot;, &quot;strike4 Intensity&quot;)
 colnames(strike5) &lt;- c(&quot;spectrum&quot;, &quot;strike5 Intensity&quot;)
 colnames(strike6) &lt;- c(&quot;spectrum&quot;, &quot;strike6 Intensity&quot;)</code></pre>
+</div>
+<div id="datasets-compilation" class="section level1">
+<h1>Datasets compilation</h1>
 <pre class="r"><code>test_data &lt;- cbind(strike1, strike2[2], strike3[2], strike4[2], strike5[2], strike6[2])
-training_data1 &lt;- cbind(sq1_under_no1, sq2_under_no1[2], sq1_under_no2[2], sq2_under_no2[2], sq1_under_no3[2], sq2_under_no3[2],sq_beside_no4[2])
+training_data1 &lt;- cbind(sq1_under_no1, sq2_under_no1[2], sq1_under_no2[2], sq2_under_no2[2], sq1_under_no3[2], sq2_under_no3[2], sq_beside_no4[2])
 training_data2 &lt;- cbind(sq_no1, sq_no2[2], sq_no2_II[2], sq_no3[2], sq_no4[2], sq_no5[2], sq_no6[2])
 training_data3 &lt;- cbind(sqI_no1_ROI1, sqI_no1_ROI2[2], sqI_no1_ROI3[2], sqII_no1_ROI1[2], sqII_no1_ROI2[2], sqII_no1_ROI3[2], sq_no2_ROI1[2], sq_no2_ROI2[2], sq_no2_ROI3[2], sq_no3_ROI1[2], sq_no3_ROI2[2], sq_no3_ROI3[2], sq_no4_ROI1[2], sq_no4_ROI2[2], sq_no4_ROI3[2], sq_no5_ROI1[2], sq_no5_ROI2[2], sq_no5_ROI3[2], sq_no6_ROI1[2], sq_no6_ROI2[2], sq_no6_ROI3[2])
-contract&lt;-cbind(p1_initials_II,p1_initials_III[2],p1_initials_SF[2],p2_initials_II[2],p2_initials_III[2],p2_initials_SF[2],p3_initials_II[2],p3_initials_III[2],p3_initials_SF[2])
-
 
 rm(strike1,strike2,strike3,strike4,strike5,strike6,sq1_under_no1,sq2_under_no1,sq1_under_no2,sq2_under_no2,sq1_under_no3,sq2_under_no3,sq_no1,sq_no2,sq_no2_II,sq_no3,sq_no4,sq_no5,sq_no6,sqI_no1_ROI1,sqI_no1_ROI2,sqI_no1_ROI3,sqII_no1_ROI1,sqII_no1_ROI2,sqII_no1_ROI3,sq_no2_ROI1,sq_no2_ROI2,sq_no2_ROI3,sq_no3_ROI1, sq_no3_ROI2, sq_no3_ROI3, sq_no4_ROI1, sq_no4_ROI2, sq_no4_ROI3, sq_no5_ROI1, sq_no5_ROI2, sq_no5_ROI3, sq_no6_ROI1, sq_no6_ROI2, sq_no6_ROI3,p1_initials_II,p1_initials_III,p1_initials_SF,p2_initials_II,p2_initials_III,p2_initials_SF,p3_initials_II,p3_initials_III,p3_initials_SF,sq_beside_no4)</code></pre>
 <p>#Simple intensities plots:</p>
@@ -1640,21 +1675,49 @@ t_training_data3&lt;-t_training_data3 %&gt;%
 35  SQ 6 ROI3 Intensity 0.0222222 0.0000000 0.0333333 0.0111111</code></pre>
 <p>We could now simplify the DF by simply stating which square is which</p>
 <pre class="r"><code>#I did it manually because I don&#39;t know a good way of doing it automagically
-avector &lt;- c(&quot;1&quot;,&quot;2&quot;,&quot;1&quot;,&quot;2&quot;,&quot;1&quot;,&quot;2&quot;,&quot;SQ B4 &quot;, &quot;1&quot;,&quot;2&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;,&quot;5&quot;,&quot;6&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;2&quot;,&quot;2&quot;,&quot;2&quot;,&quot;3&quot;,&quot;3&quot;,&quot;3&quot;,&quot;4&quot;,&quot;4&quot;,&quot;4&quot;,&quot;5&quot;,&quot;5&quot;,&quot;5&quot;,&quot;6&quot;,&quot;6&quot;,&quot;6&quot;)
+avector &lt;- c(&quot;pen1&quot;,&quot;pen1&quot;,&quot;pen2&quot;,&quot;pen5&quot;,&quot;pen3&quot;,&quot;pen6&quot;,&quot;pen4&quot;, &quot;pen1&quot;,&quot;pen2&quot;,&quot;pen2&quot;,&quot;pen3&quot;,&quot;pen4&quot;,&quot;pen5&quot;,&quot;pen6&quot;,&quot;pen1&quot;,&quot;pen1&quot;,&quot;pen1&quot;,&quot;pen1&quot;,&quot;pen1&quot;,&quot;pen1&quot;,&quot;pen2&quot;,&quot;pen2&quot;,&quot;pen2&quot;,&quot;pen3&quot;,&quot;pen3&quot;,&quot;pen3&quot;,&quot;pen4&quot;,&quot;pen4&quot;,&quot;pen4&quot;,&quot;pen5&quot;,&quot;pen5&quot;,&quot;pen5&quot;,&quot;pen6&quot;,&quot;pen6&quot;,&quot;pen6&quot;) #the position 10 should be pen 1 i think, but we keep the label as 2 as it was  given. But there is evidence in all the other datasets that 2 squares were painted with pen number 1 and for the remaining pen only one square was painted with each.
 
-# test&lt;-training_DF %&gt;% replace(1,c(&quot;1&quot;,&quot;2&quot;,&quot;1&quot;,&quot;2&quot;,&quot;1&quot;,&quot;2&quot;,&quot;SQ B4 &quot;, &quot;1&quot;,&quot;2&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;,&quot;5&quot;,&quot;6&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;2&quot;,&quot;2&quot;,&quot;2&quot;,&quot;3&quot;,&quot;3&quot;,&quot;3&quot;,&quot;4&quot;,&quot;4&quot;,&quot;4&quot;,&quot;5&quot;,&quot;5&quot;,&quot;5&quot;,&quot;6&quot;,&quot;6&quot;,&quot;6&quot;))
-test&lt;-training_DF 
+training_DF &lt;- training_DF %&gt;% replace(1, avector)
 
-
-head(select(test,1:5))</code></pre>
-<pre><code>            labels       100     100.2     100.4    100.6
-1 SQ1 U1 Intensity 0.6518300 0.8714140 0.7556870 0.649852
-2 SQ2 U1 Intensity 1.2048600 1.4409700 1.2777800 1.134260
-3 SQ1 U2 Intensity 0.3944440 0.5319440 0.4750000 0.456944
-4 SQ2 U2 Intensity 0.3333330 0.4535150 0.4081630 0.336735
-5 SQ1 U3 Intensity 0.0625000 0.0312500 0.0359375 0.025000
-6 SQ2 U3 Intensity 0.0101695 0.0576271 0.0847458 0.040678</code></pre>
-<pre class="r"><code>simple_train_DF&lt;-test</code></pre>
+(select(training_DF,1:5))</code></pre>
+<pre><code>   labels       100     100.2     100.4     100.6
+1    pen1 0.6518300 0.8714140 0.7556870 0.6498520
+2    pen1 1.2048600 1.4409700 1.2777800 1.1342600
+3    pen2 0.3944440 0.5319440 0.4750000 0.4569440
+4    pen5 0.3333330 0.4535150 0.4081630 0.3367350
+5    pen3 0.0625000 0.0312500 0.0359375 0.0250000
+6    pen6 0.0101695 0.0576271 0.0847458 0.0406780
+7    pen4 0.6672270 0.8336130 0.6386550 0.4941180
+8    pen1 1.3979900 1.5284300 1.4214000 1.2842800
+9    pen2 0.2549670 0.2748340 0.2980130 0.2251660
+10   pen2 1.1467900 1.4220200 1.1422000 1.1100900
+11   pen3 0.4479500 0.3785490 0.3028390 0.3217670
+12   pen4 1.9678600 2.2000000 1.7678600 1.4428600
+13   pen5 0.2549670 0.2748340 0.2980130 0.2251660
+14   pen6 0.0349345 0.0262009 0.1222710 0.0436681
+15   pen1 0.6742420 1.1098500 0.8522730 0.7916670
+16   pen1 0.2500000 0.5422080 0.5129870 0.3051950
+17   pen1 0.9266670 0.9566670 0.7500000 0.8066670
+18   pen1 1.0848200 1.2991100 1.2276800 1.0892900
+19   pen1 0.8136650 0.9813660 0.9254660 0.6211180
+20   pen1 1.1954500 1.5590900 1.1727300 1.0636400
+21   pen2 0.6875000 0.9204550 0.6988640 0.6363640
+22   pen2 0.1520470 0.1871350 0.1988300 0.1637430
+23   pen2 0.0964912 0.0877193 0.1403510 0.1052630
+24   pen3 0.0944444 0.0666667 0.0944444 0.0444444
+25   pen3 0.0500000 0.0250000 0.0000000 0.0250000
+26   pen3 0.0116959 0.0000000 0.0000000 0.0116959
+27   pen4 0.6319440 0.7222220 0.5277780 0.5416670
+28   pen4 0.4909090 0.6818180 0.4636360 0.3818180
+29   pen4 0.4802630 0.7894740 0.5657890 0.5065790
+30   pen5 0.3250000 0.3937500 0.3625000 0.3562500
+31   pen5 0.2760420 0.2500000 0.2708330 0.3072920
+32   pen5 0.2415460 0.3864730 0.4202900 0.1835750
+33   pen6 0.0222222 0.1000000 0.1333330 0.0666667
+34   pen6 0.0000000 0.0370370 0.0370370 0.0370370
+35   pen6 0.0222222 0.0000000 0.0333333 0.0111111</code></pre>
+<pre class="r"><code># simple_train_DF&lt;-test
+test&lt;-training_DF</code></pre>
 </div>
 <div id="pca-of-training-data" class="section level1">
 <h1>PCA of training data</h1>
@@ -1699,12 +1762,8 @@ fig &lt;- fig %&gt;% layout(scene = list(xaxis = list(title = &#39;PC1&#39;),
                                    zaxis = list(title = &#39;PC3&#39;)))
 
 fig</code></pre>
-<pre><code>Warning in RColorBrewer::brewer.pal(N, &quot;Set2&quot;): n too large, allowed maximum for palette Set2 is 8
-Returning the palette you asked for with that many colors</code></pre>
-<pre><code>Warning in RColorBrewer::brewer.pal(N, &quot;Set2&quot;): n too large, allowed maximum for palette Set2 is 8
-Returning the palette you asked for with that many colors</code></pre>
 <div id="htmlwidget-e5cf9c52725cc6b26d5a" style="width:672px;height:480px;" class="plotly html-widget"></div>
-<script type="application/json" data-for="htmlwidget-e5cf9c52725cc6b26d5a">{"x":{"visdat":{"11e0105d6e7":["function () ","plotlyVisDat"]},"cur_data":"11e0105d6e7","attrs":{"11e0105d6e7":{"x":{},"y":{},"z":{},"color":{},"size":[100],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter3d","mode":"markers","inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"scene":{"xaxis":{"title":"PC1"},"yaxis":{"title":"PC2"},"zaxis":{"title":"PC3"}},"hovermode":"closest","showlegend":true},"source":"A","config":{"showSendToCloud":false},"data":[{"x":[-38.4013362385967],"y":[52.1314565444291],"z":[-3.32441841257674],"type":"scatter3d","mode":"markers","name":"SQ 1 Intensity","marker":{"color":"rgba(102,194,165,1)","size":[100],"sizemode":"area","line":{"color":"rgba(102,194,165,1)"}},"textfont":{"color":"rgba(102,194,165,1)","size":100},"error_y":{"color":"rgba(102,194,165,1)","width":100},"error_x":{"color":"rgba(102,194,165,1)","width":100},"line":{"color":"rgba(102,194,165,1)","width":100},"frame":null},{"x":[-12.2331837267541],"y":[-52.3177518098883],"z":[7.38139523448614],"type":"scatter3d","mode":"markers","name":"SQ 2 Intensity","marker":{"color":"rgba(148,185,151,1)","size":[100],"sizemode":"area","line":{"color":"rgba(148,185,151,1)"}},"textfont":{"color":"rgba(148,185,151,1)","size":100},"error_y":{"color":"rgba(148,185,151,1)","width":100},"error_x":{"color":"rgba(148,185,151,1)","width":100},"line":{"color":"rgba(148,185,151,1)","width":100},"frame":null},{"x":[-77.3988470907677],"y":[-10.3396201866257],"z":[-25.2599746642964],"type":"scatter3d","mode":"markers","name":"SQ 2 ROI1 Intensity","marker":{"color":"rgba(181,176,137,1)","size":[100],"sizemode":"area","line":{"color":"rgba(181,176,137,1)"}},"textfont":{"color":"rgba(181,176,137,1)","size":100},"error_y":{"color":"rgba(181,176,137,1)","width":100},"error_x":{"color":"rgba(181,176,137,1)","width":100},"line":{"color":"rgba(181,176,137,1)","width":100},"frame":null},{"x":[-28.4215122575707],"y":[-38.5467126283404],"z":[-31.2238178592657],"type":"scatter3d","mode":"markers","name":"SQ 2 ROI2 Intensity","marker":{"color":"rgba(209,165,123,1)","size":[100],"sizemode":"area","line":{"color":"rgba(209,165,123,1)"}},"textfont":{"color":"rgba(209,165,123,1)","size":100},"error_y":{"color":"rgba(209,165,123,1)","width":100},"error_x":{"color":"rgba(209,165,123,1)","width":100},"line":{"color":"rgba(209,165,123,1)","width":100},"frame":null},{"x":[-17.5786530285432],"y":[-43.914820814336],"z":[-28.1195643939345],"type":"scatter3d","mode":"markers","name":"SQ 2 ROI3 Intensity","marker":{"color":"rgba(233,153,110,1)","size":[100],"sizemode":"area","line":{"color":"rgba(233,153,110,1)"}},"textfont":{"color":"rgba(233,153,110,1)","size":100},"error_y":{"color":"rgba(233,153,110,1)","width":100},"error_x":{"color":"rgba(233,153,110,1)","width":100},"line":{"color":"rgba(233,153,110,1)","width":100},"frame":null},{"x":[26.2012026187377],"y":[1.44832660165765],"z":[6.9962254608075],"type":"scatter3d","mode":"markers","name":"SQ 3 Intensity","marker":{"color":"rgba(250,142,101,1)","size":[100],"sizemode":"area","line":{"color":"rgba(250,142,101,1)"}},"textfont":{"color":"rgba(250,142,101,1)","size":100},"error_y":{"color":"rgba(250,142,101,1)","width":100},"error_x":{"color":"rgba(250,142,101,1)","width":100},"line":{"color":"rgba(250,142,101,1)","width":100},"frame":null},{"x":[50.0111618744439],"y":[5.42334013335048],"z":[25.7754624865023],"type":"scatter3d","mode":"markers","name":"SQ 3 ROI1 Intensity","marker":{"color":"rgba(232,146,123,1)","size":[100],"sizemode":"area","line":{"color":"rgba(232,146,123,1)"}},"textfont":{"color":"rgba(232,146,123,1)","size":100},"error_y":{"color":"rgba(232,146,123,1)","width":100},"error_x":{"color":"rgba(232,146,123,1)","width":100},"line":{"color":"rgba(232,146,123,1)","width":100},"frame":null},{"x":[64.2743386387864],"y":[6.35884737508371],"z":[26.0974761188231],"type":"scatter3d","mode":"markers","name":"SQ 3 ROI2 Intensity","marker":{"color":"rgba(213,150,145,1)","size":[100],"sizemode":"area","line":{"color":"rgba(213,150,145,1)"}},"textfont":{"color":"rgba(213,150,145,1)","size":100},"error_y":{"color":"rgba(213,150,145,1)","width":100},"error_x":{"color":"rgba(213,150,145,1)","width":100},"line":{"color":"rgba(213,150,145,1)","width":100},"frame":null},{"x":[71.4398198086693],"y":[-8.84330819615424],"z":[15.8277716389815],"type":"scatter3d","mode":"markers","name":"SQ 3 ROI3 Intensity","marker":{"color":"rgba(191,154,166,1)","size":[100],"sizemode":"area","line":{"color":"rgba(191,154,166,1)"}},"textfont":{"color":"rgba(191,154,166,1)","size":100},"error_y":{"color":"rgba(191,154,166,1)","width":100},"error_x":{"color":"rgba(191,154,166,1)","width":100},"line":{"color":"rgba(191,154,166,1)","width":100},"frame":null},{"x":[-49.6232464944241],"y":[66.7232988316756],"z":[18.361321010512],"type":"scatter3d","mode":"markers","name":"SQ 4 Intensity","marker":{"color":"rgba(164,158,188,1)","size":[100],"sizemode":"area","line":{"color":"rgba(164,158,188,1)"}},"textfont":{"color":"rgba(164,158,188,1)","size":100},"error_y":{"color":"rgba(164,158,188,1)","width":100},"error_x":{"color":"rgba(164,158,188,1)","width":100},"line":{"color":"rgba(164,158,188,1)","width":100},"frame":null},{"x":[5.44728385870321],"y":[21.3118267719501],"z":[20.6944791618546],"type":"scatter3d","mode":"markers","name":"SQ 4 ROI1 Intensity","marker":{"color":"rgba(147,159,203,1)","size":[100],"sizemode":"area","line":{"color":"rgba(147,159,203,1)"}},"textfont":{"color":"rgba(147,159,203,1)","size":100},"error_y":{"color":"rgba(147,159,203,1)","width":100},"error_x":{"color":"rgba(147,159,203,1)","width":100},"line":{"color":"rgba(147,159,203,1)","width":100},"frame":null},{"x":[11.4504695905994],"y":[21.318222091029],"z":[29.1646163748986],"type":"scatter3d","mode":"markers","name":"SQ 4 ROI2 Intensity","marker":{"color":"rgba(168,155,201,1)","size":[100],"sizemode":"area","line":{"color":"rgba(168,155,201,1)"}},"textfont":{"color":"rgba(168,155,201,1)","size":100},"error_y":{"color":"rgba(168,155,201,1)","width":100},"error_x":{"color":"rgba(168,155,201,1)","width":100},"line":{"color":"rgba(168,155,201,1)","width":100},"frame":null},{"x":[14.6503196549475],"y":[12.6265120127863],"z":[16.6779388087246],"type":"scatter3d","mode":"markers","name":"SQ 4 ROI3 Intensity","marker":{"color":"rgba(187,151,199,1)","size":[100],"sizemode":"area","line":{"color":"rgba(187,151,199,1)"}},"textfont":{"color":"rgba(187,151,199,1)","size":100},"error_y":{"color":"rgba(187,151,199,1)","width":100},"error_x":{"color":"rgba(187,151,199,1)","width":100},"line":{"color":"rgba(187,151,199,1)","width":100},"frame":null},{"x":[-12.2331837267541],"y":[-52.3177518098883],"z":[7.38139523448614],"type":"scatter3d","mode":"markers","name":"SQ 5 Intensity","marker":{"color":"rgba(205,147,198,1)","size":[100],"sizemode":"area","line":{"color":"rgba(205,147,198,1)"}},"textfont":{"color":"rgba(205,147,198,1)","size":100},"error_y":{"color":"rgba(205,147,198,1)","width":100},"error_x":{"color":"rgba(205,147,198,1)","width":100},"line":{"color":"rgba(205,147,198,1)","width":100},"frame":null},{"x":[-21.4386387400424],"y":[-55.6758828727727],"z":[22.6066700843445],"type":"scatter3d","mode":"markers","name":"SQ 5 ROI1 Intensity","marker":{"color":"rgba(222,141,196,1)","size":[100],"sizemode":"area","line":{"color":"rgba(222,141,196,1)"}},"textfont":{"color":"rgba(222,141,196,1)","size":100},"error_y":{"color":"rgba(222,141,196,1)","width":100},"error_x":{"color":"rgba(222,141,196,1)","width":100},"line":{"color":"rgba(222,141,196,1)","width":100},"frame":null},{"x":[-6.97031129002063],"y":[-62.3680624668049],"z":[19.5961925917192],"type":"scatter3d","mode":"markers","name":"SQ 5 ROI2 Intensity","marker":{"color":"rgba(227,146,186,1)","size":[100],"sizemode":"area","line":{"color":"rgba(227,146,186,1)"}},"textfont":{"color":"rgba(227,146,186,1)","size":100},"error_y":{"color":"rgba(227,146,186,1)","width":100},"error_x":{"color":"rgba(227,146,186,1)","width":100},"line":{"color":"rgba(227,146,186,1)","width":100},"frame":null},{"x":[-14.470392649925],"y":[-60.2812066880429],"z":[21.0806937516118],"type":"scatter3d","mode":"markers","name":"SQ 5 ROI3 Intensity","marker":{"color":"rgba(217,164,165,1)","size":[100],"sizemode":"area","line":{"color":"rgba(217,164,165,1)"}},"textfont":{"color":"rgba(217,164,165,1)","size":100},"error_y":{"color":"rgba(217,164,165,1)","width":100},"error_x":{"color":"rgba(217,164,165,1)","width":100},"line":{"color":"rgba(217,164,165,1)","width":100},"frame":null},{"x":[33.0235245796322],"y":[-4.34030131221448],"z":[-35.7363567336954],"type":"scatter3d","mode":"markers","name":"SQ 6 Intensity","marker":{"color":"rgba(205,180,144,1)","size":[100],"sizemode":"area","line":{"color":"rgba(205,180,144,1)"}},"textfont":{"color":"rgba(205,180,144,1)","size":100},"error_y":{"color":"rgba(205,180,144,1)","width":100},"error_x":{"color":"rgba(205,180,144,1)","width":100},"line":{"color":"rgba(205,180,144,1)","width":100},"frame":null},{"x":[51.8126309287714],"y":[6.35527791803778],"z":[-32.7214788091909],"type":"scatter3d","mode":"markers","name":"SQ 6 ROI1 Intensity","marker":{"color":"rgba(191,196,121,1)","size":[100],"sizemode":"area","line":{"color":"rgba(191,196,121,1)"}},"textfont":{"color":"rgba(191,196,121,1)","size":100},"error_y":{"color":"rgba(191,196,121,1)","width":100},"error_x":{"color":"rgba(191,196,121,1)","width":100},"line":{"color":"rgba(191,196,121,1)","width":100},"frame":null},{"x":[65.7845200590682],"y":[8.0292432661731],"z":[-35.5584221167959],"type":"scatter3d","mode":"markers","name":"SQ 6 ROI2 Intensity","marker":{"color":"rgba(174,210,96,1)","size":[100],"sizemode":"area","line":{"color":"rgba(174,210,96,1)"}},"textfont":{"color":"rgba(174,210,96,1)","size":100},"error_y":{"color":"rgba(174,210,96,1)","width":100},"error_x":{"color":"rgba(174,210,96,1)","width":100},"line":{"color":"rgba(174,210,96,1)","width":100},"frame":null},{"x":[57.9620503706003],"y":[14.5387046699526],"z":[-38.3169530028157],"type":"scatter3d","mode":"markers","name":"SQ 6 ROI3 Intensity","marker":{"color":"rgba(178,216,80,1)","size":[100],"sizemode":"area","line":{"color":"rgba(178,216,80,1)"}},"textfont":{"color":"rgba(178,216,80,1)","size":100},"error_y":{"color":"rgba(178,216,80,1)","width":100},"error_x":{"color":"rgba(178,216,80,1)","width":100},"line":{"color":"rgba(178,216,80,1)","width":100},"frame":null},{"x":[6.65221469370127],"y":[21.2137496581393],"z":[23.839233043073],"type":"scatter3d","mode":"markers","name":"SQ B4 Intensity","marker":{"color":"rgba(197,217,74,1)","size":[100],"sizemode":"area","line":{"color":"rgba(197,217,74,1)"}},"textfont":{"color":"rgba(197,217,74,1)","size":100},"error_y":{"color":"rgba(197,217,74,1)","width":100},"error_x":{"color":"rgba(197,217,74,1)","width":100},"line":{"color":"rgba(197,217,74,1)","width":100},"frame":null},{"x":[-6.15601838795165],"y":[20.4938581835815],"z":[-11.3462541595334],"type":"scatter3d","mode":"markers","name":"SQ1 U1 Intensity","marker":{"color":"rgba(215,217,67,1)","size":[100],"sizemode":"area","line":{"color":"rgba(215,217,67,1)"}},"textfont":{"color":"rgba(215,217,67,1)","size":100},"error_y":{"color":"rgba(215,217,67,1)","width":100},"error_x":{"color":"rgba(215,217,67,1)","width":100},"line":{"color":"rgba(215,217,67,1)","width":100},"frame":null},{"x":[-48.0496778462055],"y":[-25.0737843052013],"z":[-27.2358234111488],"type":"scatter3d","mode":"markers","name":"SQ1 U2 Intensity","marker":{"color":"rgba(233,217,59,1)","size":[100],"sizemode":"area","line":{"color":"rgba(233,217,59,1)"}},"textfont":{"color":"rgba(233,217,59,1)","size":100},"error_y":{"color":"rgba(233,217,59,1)","width":100},"error_x":{"color":"rgba(233,217,59,1)","width":100},"line":{"color":"rgba(233,217,59,1)","width":100},"frame":null},{"x":[59.4027785885946],"y":[-1.08227471755788],"z":[19.943948486536],"type":"scatter3d","mode":"markers","name":"SQ1 U3 Intensity","marker":{"color":"rgba(250,217,50,1)","size":[100],"sizemode":"area","line":{"color":"rgba(250,217,50,1)"}},"textfont":{"color":"rgba(250,217,50,1)","size":100},"error_y":{"color":"rgba(250,217,50,1)","width":100},"error_x":{"color":"rgba(250,217,50,1)","width":100},"line":{"color":"rgba(250,217,50,1)","width":100},"frame":null},{"x":[-43.2233131703944],"y":[35.3233785307098],"z":[15.0461911282281],"type":"scatter3d","mode":"markers","name":"SQ2 1 ROI1 Intensity","marker":{"color":"rgba(252,214,68,1)","size":[100],"sizemode":"area","line":{"color":"rgba(252,214,68,1)"}},"textfont":{"color":"rgba(252,214,68,1)","size":100},"error_y":{"color":"rgba(252,214,68,1)","width":100},"error_x":{"color":"rgba(252,214,68,1)","width":100},"line":{"color":"rgba(252,214,68,1)","width":100},"frame":null},{"x":[-16.0504694858388],"y":[28.7358830508391],"z":[19.8676167311071],"type":"scatter3d","mode":"markers","name":"SQ2 1 ROI2 Intensity","marker":{"color":"rgba(247,209,91,1)","size":[100],"sizemode":"area","line":{"color":"rgba(247,209,91,1)"}},"textfont":{"color":"rgba(247,209,91,1)","size":100},"error_y":{"color":"rgba(247,209,91,1)","width":100},"error_x":{"color":"rgba(247,209,91,1)","width":100},"line":{"color":"rgba(247,209,91,1)","width":100},"frame":null},{"x":[-18.9786051117118],"y":[27.8425233115453],"z":[11.5042382091103],"type":"scatter3d","mode":"markers","name":"SQ2 1 ROI3 Intensity","marker":{"color":"rgba(242,205,111,1)","size":[100],"sizemode":"area","line":{"color":"rgba(242,205,111,1)"}},"textfont":{"color":"rgba(242,205,111,1)","size":100},"error_y":{"color":"rgba(242,205,111,1)","width":100},"error_x":{"color":"rgba(242,205,111,1)","width":100},"line":{"color":"rgba(242,205,111,1)","width":100},"frame":null},{"x":[-95.8418514767856],"y":[18.8669416698851],"z":[-21.0487610319824],"type":"scatter3d","mode":"markers","name":"SQ2 2 Intensity","marker":{"color":"rgba(236,201,129,1)","size":[100],"sizemode":"area","line":{"color":"rgba(236,201,129,1)"}},"textfont":{"color":"rgba(236,201,129,1)","size":100},"error_y":{"color":"rgba(236,201,129,1)","width":100},"error_x":{"color":"rgba(236,201,129,1)","width":100},"line":{"color":"rgba(236,201,129,1)","width":100},"frame":null},{"x":[-34.1812485736255],"y":[34.0017415833266],"z":[12.4999977213479],"type":"scatter3d","mode":"markers","name":"SQ2 U1 Intensity","marker":{"color":"rgba(230,197,146,1)","size":[100],"sizemode":"area","line":{"color":"rgba(230,197,146,1)"}},"textfont":{"color":"rgba(230,197,146,1)","size":100},"error_y":{"color":"rgba(230,197,146,1)","width":100},"error_x":{"color":"rgba(230,197,146,1)","width":100},"line":{"color":"rgba(230,197,146,1)","width":100},"frame":null},{"x":[-17.53152685455],"y":[-56.2743494303628],"z":[20.0615494991598],"type":"scatter3d","mode":"markers","name":"SQ2 U2 Intensity","marker":{"color":"rgba(221,193,154,1)","size":[100],"sizemode":"area","line":{"color":"rgba(221,193,154,1)"}},"textfont":{"color":"rgba(221,193,154,1)","size":100},"error_y":{"color":"rgba(221,193,154,1)","width":100},"error_x":{"color":"rgba(221,193,154,1)","width":100},"line":{"color":"rgba(221,193,154,1)","width":100},"frame":null},{"x":[55.8244969563353],"y":[8.81413452819401],"z":[-35.1806576707663],"type":"scatter3d","mode":"markers","name":"SQ2 U3 Intensity","marker":{"color":"rgba(211,189,160,1)","size":[100],"sizemode":"area","line":{"color":"rgba(211,189,160,1)"}},"textfont":{"color":"rgba(211,189,160,1)","size":100},"error_y":{"color":"rgba(211,189,160,1)","width":100},"error_x":{"color":"rgba(211,189,160,1)","width":100},"line":{"color":"rgba(211,189,160,1)","width":100},"frame":null},{"x":[-17.4402885668854],"y":[27.3654105633945],"z":[-14.2663710265944],"type":"scatter3d","mode":"markers","name":"SQI 1 ROI1 Intensity","marker":{"color":"rgba(201,186,167,1)","size":[100],"sizemode":"area","line":{"color":"rgba(201,186,167,1)"}},"textfont":{"color":"rgba(201,186,167,1)","size":100},"error_y":{"color":"rgba(201,186,167,1)","width":100},"error_x":{"color":"rgba(201,186,167,1)","width":100},"line":{"color":"rgba(201,186,167,1)","width":100},"frame":null},{"x":[8.20966144393234],"y":[14.0575228239196],"z":[-11.647285817616],"type":"scatter3d","mode":"markers","name":"SQI 1 ROI2 Intensity","marker":{"color":"rgba(190,182,173,1)","size":[100],"sizemode":"area","line":{"color":"rgba(190,182,173,1)"}},"textfont":{"color":"rgba(190,182,173,1)","size":100},"error_y":{"color":"rgba(190,182,173,1)","width":100},"error_x":{"color":"rgba(190,182,173,1)","width":100},"line":{"color":"rgba(190,182,173,1)","width":100},"frame":null},{"x":[-5.92416894817599],"y":[18.3956271185292],"z":[-9.41827366610191],"type":"scatter3d","mode":"markers","name":"SQI 1 ROI3 Intensity","marker":{"color":"rgba(179,179,179,1)","size":[100],"sizemode":"area","line":{"color":"rgba(179,179,179,1)"}},"textfont":{"color":"rgba(179,179,179,1)","size":100},"error_y":{"color":"rgba(179,179,179,1)","width":100},"error_x":{"color":"rgba(179,179,179,1)","width":100},"line":{"color":"rgba(179,179,179,1)","width":100},"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-e5cf9c52725cc6b26d5a">{"x":{"visdat":{"12c2cdb691a":["function () ","plotlyVisDat"]},"cur_data":"12c2cdb691a","attrs":{"12c2cdb691a":{"x":{},"y":{},"z":{},"color":{},"size":[100],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter3d","mode":"markers","inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"scene":{"xaxis":{"title":"PC1"},"yaxis":{"title":"PC2"},"zaxis":{"title":"PC3"}},"hovermode":"closest","showlegend":true},"source":"A","config":{"showSendToCloud":false},"data":[{"x":[-6.15601838795165,-34.1812485736255,-38.4013362385967,-17.4402885668854,8.20966144393234,-5.92416894817599,-43.2233131703944,-16.0504694858388,-18.9786051117118],"y":[20.4938581835815,34.0017415833266,52.1314565444291,27.3654105633945,14.0575228239196,18.3956271185292,35.3233785307098,28.7358830508391,27.8425233115453],"z":[-11.3462541595334,12.4999977213479,-3.32441841257674,-14.2663710265944,-11.647285817616,-9.41827366610191,15.0461911282281,19.8676167311071,11.5042382091103],"type":"scatter3d","mode":"markers","name":"pen1","marker":{"color":"rgba(102,194,165,1)","size":[100,100,100,100,100,100,100,100,100],"sizemode":"area","line":{"color":"rgba(102,194,165,1)"}},"textfont":{"color":"rgba(102,194,165,1)","size":100},"error_y":{"color":"rgba(102,194,165,1)","width":100},"error_x":{"color":"rgba(102,194,165,1)","width":100},"line":{"color":"rgba(102,194,165,1)","width":100},"frame":null},{"x":[-48.0496778462055,-12.2331837267541,-95.8418514767856,-77.3988470907677,-28.4215122575707,-17.5786530285432],"y":[-25.0737843052013,-52.3177518098883,18.8669416698851,-10.3396201866257,-38.5467126283404,-43.914820814336],"z":[-27.2358234111488,7.38139523448614,-21.0487610319824,-25.2599746642964,-31.2238178592657,-28.1195643939345],"type":"scatter3d","mode":"markers","name":"pen2","marker":{"color":"rgba(252,141,98,1)","size":[100,100,100,100,100,100],"sizemode":"area","line":{"color":"rgba(252,141,98,1)"}},"textfont":{"color":"rgba(252,141,98,1)","size":100},"error_y":{"color":"rgba(252,141,98,1)","width":100},"error_x":{"color":"rgba(252,141,98,1)","width":100},"line":{"color":"rgba(252,141,98,1)","width":100},"frame":null},{"x":[59.4027785885946,26.2012026187377,50.0111618744439,64.2743386387864,71.4398198086693],"y":[-1.08227471755788,1.44832660165765,5.42334013335048,6.35884737508371,-8.84330819615424],"z":[19.943948486536,6.9962254608075,25.7754624865023,26.0974761188231,15.8277716389815],"type":"scatter3d","mode":"markers","name":"pen3","marker":{"color":"rgba(141,160,203,1)","size":[100,100,100,100,100],"sizemode":"area","line":{"color":"rgba(141,160,203,1)"}},"textfont":{"color":"rgba(141,160,203,1)","size":100},"error_y":{"color":"rgba(141,160,203,1)","width":100},"error_x":{"color":"rgba(141,160,203,1)","width":100},"line":{"color":"rgba(141,160,203,1)","width":100},"frame":null},{"x":[6.65221469370127,-49.6232464944241,5.44728385870321,11.4504695905994,14.6503196549475],"y":[21.2137496581393,66.7232988316756,21.3118267719501,21.318222091029,12.6265120127863],"z":[23.839233043073,18.361321010512,20.6944791618546,29.1646163748986,16.6779388087246],"type":"scatter3d","mode":"markers","name":"pen4","marker":{"color":"rgba(231,138,195,1)","size":[100,100,100,100,100],"sizemode":"area","line":{"color":"rgba(231,138,195,1)"}},"textfont":{"color":"rgba(231,138,195,1)","size":100},"error_y":{"color":"rgba(231,138,195,1)","width":100},"error_x":{"color":"rgba(231,138,195,1)","width":100},"line":{"color":"rgba(231,138,195,1)","width":100},"frame":null},{"x":[-17.53152685455,-12.2331837267541,-21.4386387400424,-6.97031129002063,-14.470392649925],"y":[-56.2743494303628,-52.3177518098883,-55.6758828727727,-62.3680624668049,-60.2812066880429],"z":[20.0615494991598,7.38139523448614,22.6066700843445,19.5961925917192,21.0806937516118],"type":"scatter3d","mode":"markers","name":"pen5","marker":{"color":"rgba(166,216,84,1)","size":[100,100,100,100,100],"sizemode":"area","line":{"color":"rgba(166,216,84,1)"}},"textfont":{"color":"rgba(166,216,84,1)","size":100},"error_y":{"color":"rgba(166,216,84,1)","width":100},"error_x":{"color":"rgba(166,216,84,1)","width":100},"line":{"color":"rgba(166,216,84,1)","width":100},"frame":null},{"x":[55.8244969563353,33.0235245796322,51.8126309287714,65.7845200590682,57.9620503706003],"y":[8.81413452819401,-4.34030131221448,6.35527791803778,8.0292432661731,14.5387046699526],"z":[-35.1806576707663,-35.7363567336954,-32.7214788091909,-35.5584221167959,-38.3169530028157],"type":"scatter3d","mode":"markers","name":"pen6","marker":{"color":"rgba(255,217,47,1)","size":[100,100,100,100,100],"sizemode":"area","line":{"color":"rgba(255,217,47,1)"}},"textfont":{"color":"rgba(255,217,47,1)","size":100},"error_y":{"color":"rgba(255,217,47,1)","width":100},"error_x":{"color":"rgba(255,217,47,1)","width":100},"line":{"color":"rgba(255,217,47,1)","width":100},"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="model-from-pca-training-data" class="section level1">
 <h1>Model from PCA training Data:</h1>
@@ -1745,8 +1804,8 @@ Attaching package: &#39;caret&#39;</code></pre>
     lift</code></pre>
 <pre class="r"><code>library(e1071)</code></pre>
 <pre><code>Warning: package &#39;e1071&#39; was built under R version 4.0.5</code></pre>
-<pre class="r"><code>pca = preProcess(x = simple_train_DF[,c(-1,-4502)], method = &quot;pca&quot;, pcaComp = 35)
-training_set &lt;- predict(pca, simple_train_DF[-4502])
+<pre class="r"><code>pca = preProcess(x = training_DF[,c(-1,-4502)], method = &quot;pca&quot;, pcaComp = 35)
+training_set &lt;- predict(pca, training_DF[-4502])
 # put customer segment in to the last postion or column
 #training_set &lt;- simple_train_DF[c(2,3,1)]
 
@@ -1768,551 +1827,13 @@ car_ranger &lt;- train(x = training_x,
         method = &quot;ranger&quot;,
      trControl = trControl
     )</code></pre>
-<pre><code>Warning: Dropped unused factor level(s) in dependent variable: SQ 5 Intensity.</code></pre>
-<pre><code>Warning: Dropped unused factor level(s) in dependent variable: SQ 5 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 5 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 5 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 5 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 5 Intensity.</code></pre>
-<pre><code>Warning: Dropped unused factor level(s) in dependent variable: SQ 6 ROI1
-Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 6 ROI1
-Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 6 ROI1
-Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 6 ROI1
-Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 6 ROI1
-Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 6 ROI1
-Intensity.</code></pre>
-<pre><code>Warning: Dropped unused factor level(s) in dependent variable: SQ 3 ROI1
-Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 3 ROI1
-Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 3 ROI1
-Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 3 ROI1
-Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 3 ROI1
-Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 3 ROI1
-Intensity.</code></pre>
-<pre><code>Warning: Dropped unused factor level(s) in dependent variable: SQ 2 ROI1
-Intensity, SQ 5 ROI1 Intensity, SQ B4 Intensity, SQ1 U1 Intensity, SQ1 U2
-Intensity, SQI 1 ROI3 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 2 ROI1
-Intensity, SQ 5 ROI1 Intensity, SQ B4 Intensity, SQ1 U1 Intensity, SQ1 U2
-Intensity, SQI 1 ROI3 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 2 ROI1
-Intensity, SQ 5 ROI1 Intensity, SQ B4 Intensity, SQ1 U1 Intensity, SQ1 U2
-Intensity, SQI 1 ROI3 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 2 ROI1
-Intensity, SQ 5 ROI1 Intensity, SQ B4 Intensity, SQ1 U1 Intensity, SQ1 U2
-Intensity, SQI 1 ROI3 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 2 ROI1
-Intensity, SQ 5 ROI1 Intensity, SQ B4 Intensity, SQ1 U1 Intensity, SQ1 U2
-Intensity, SQI 1 ROI3 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 2 ROI1
-Intensity, SQ 5 ROI1 Intensity, SQ B4 Intensity, SQ1 U1 Intensity, SQ1 U2
-Intensity, SQI 1 ROI3 Intensity.</code></pre>
-<pre><code>Warning: Dropped unused factor level(s) in dependent variable: SQ 2 Intensity,
-SQ 2 ROI3 Intensity, SQ 3 ROI2 Intensity, SQ 4 Intensity, SQ 4 ROI3 Intensity,
-SQ1 U3 Intensity, SQ2 1 ROI2 Intensity, SQ2 U1 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 2 Intensity,
-SQ 2 ROI3 Intensity, SQ 3 ROI2 Intensity, SQ 4 Intensity, SQ 4 ROI3 Intensity,
-SQ1 U3 Intensity, SQ2 1 ROI2 Intensity, SQ2 U1 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 2 Intensity,
-SQ 2 ROI3 Intensity, SQ 3 ROI2 Intensity, SQ 4 Intensity, SQ 4 ROI3 Intensity,
-SQ1 U3 Intensity, SQ2 1 ROI2 Intensity, SQ2 U1 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 2 Intensity,
-SQ 2 ROI3 Intensity, SQ 3 ROI2 Intensity, SQ 4 Intensity, SQ 4 ROI3 Intensity,
-SQ1 U3 Intensity, SQ2 1 ROI2 Intensity, SQ2 U1 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 2 Intensity,
-SQ 2 ROI3 Intensity, SQ 3 ROI2 Intensity, SQ 4 Intensity, SQ 4 ROI3 Intensity,
-SQ1 U3 Intensity, SQ2 1 ROI2 Intensity, SQ2 U1 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 2 Intensity,
-SQ 2 ROI3 Intensity, SQ 3 ROI2 Intensity, SQ 4 Intensity, SQ 4 ROI3 Intensity,
-SQ1 U3 Intensity, SQ2 1 ROI2 Intensity, SQ2 U1 Intensity.</code></pre>
-<pre><code>Warning: Dropped unused factor level(s) in dependent variable: SQ 4 ROI1
-Intensity, SQ 4 ROI2 Intensity, SQ 5 ROI2 Intensity, SQ 6 Intensity, SQI 1 ROI1
-Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 4 ROI1
-Intensity, SQ 4 ROI2 Intensity, SQ 5 ROI2 Intensity, SQ 6 Intensity, SQI 1 ROI1
-Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 4 ROI1
-Intensity, SQ 4 ROI2 Intensity, SQ 5 ROI2 Intensity, SQ 6 Intensity, SQI 1 ROI1
-Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 4 ROI1
-Intensity, SQ 4 ROI2 Intensity, SQ 5 ROI2 Intensity, SQ 6 Intensity, SQI 1 ROI1
-Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 4 ROI1
-Intensity, SQ 4 ROI2 Intensity, SQ 5 ROI2 Intensity, SQ 6 Intensity, SQI 1 ROI1
-Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 4 ROI1
-Intensity, SQ 4 ROI2 Intensity, SQ 5 ROI2 Intensity, SQ 6 Intensity, SQI 1 ROI1
-Intensity.</code></pre>
-<pre><code>Warning: Dropped unused factor level(s) in dependent variable: SQ 1 Intensity,
-SQ 6 ROI3 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 1 Intensity,
-SQ 6 ROI3 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 1 Intensity,
-SQ 6 ROI3 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 1 Intensity,
-SQ 6 ROI3 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 1 Intensity,
-SQ 6 ROI3 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 1 Intensity,
-SQ 6 ROI3 Intensity.</code></pre>
-<pre><code>Warning: Dropped unused factor level(s) in dependent variable: SQ 3 ROI3
-Intensity, SQ2 1 ROI3 Intensity, SQ2 U3 Intensity, SQI 1 ROI2 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 3 ROI3
-Intensity, SQ2 1 ROI3 Intensity, SQ2 U3 Intensity, SQI 1 ROI2 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 3 ROI3
-Intensity, SQ2 1 ROI3 Intensity, SQ2 U3 Intensity, SQI 1 ROI2 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 3 ROI3
-Intensity, SQ2 1 ROI3 Intensity, SQ2 U3 Intensity, SQI 1 ROI2 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 3 ROI3
-Intensity, SQ2 1 ROI3 Intensity, SQ2 U3 Intensity, SQI 1 ROI2 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 3 ROI3
-Intensity, SQ2 1 ROI3 Intensity, SQ2 U3 Intensity, SQI 1 ROI2 Intensity.</code></pre>
-<pre><code>Warning: Dropped unused factor level(s) in dependent variable: SQ 2 ROI2
-Intensity, SQ 3 Intensity, SQ2 1 ROI1 Intensity, SQ2 2 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 2 ROI2
-Intensity, SQ 3 Intensity, SQ2 1 ROI1 Intensity, SQ2 2 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 2 ROI2
-Intensity, SQ 3 Intensity, SQ2 1 ROI1 Intensity, SQ2 2 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 2 ROI2
-Intensity, SQ 3 Intensity, SQ2 1 ROI1 Intensity, SQ2 2 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 2 ROI2
-Intensity, SQ 3 Intensity, SQ2 1 ROI1 Intensity, SQ2 2 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 2 ROI2
-Intensity, SQ 3 Intensity, SQ2 1 ROI1 Intensity, SQ2 2 Intensity.</code></pre>
-<pre><code>Warning: Dropped unused factor level(s) in dependent variable: SQ 5 ROI3
-Intensity, SQ 6 ROI2 Intensity, SQ2 U2 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 5 ROI3
-Intensity, SQ 6 ROI2 Intensity, SQ2 U2 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 5 ROI3
-Intensity, SQ 6 ROI2 Intensity, SQ2 U2 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 5 ROI3
-Intensity, SQ 6 ROI2 Intensity, SQ2 U2 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 5 ROI3
-Intensity, SQ 6 ROI2 Intensity, SQ2 U2 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 5 ROI3
-Intensity, SQ 6 ROI2 Intensity, SQ2 U2 Intensity.</code></pre>
-<pre><code>Warning: Dropped unused factor level(s) in dependent variable: SQ 3 ROI1
-Intensity, SQ2 1 ROI1 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 3 ROI1
-Intensity, SQ2 1 ROI1 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 3 ROI1
-Intensity, SQ2 1 ROI1 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 3 ROI1
-Intensity, SQ2 1 ROI1 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 3 ROI1
-Intensity, SQ2 1 ROI1 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 3 ROI1
-Intensity, SQ2 1 ROI1 Intensity.</code></pre>
-<pre><code>Warning: Dropped unused factor level(s) in dependent variable: SQ 2 ROI1
-Intensity, SQ 3 ROI3 Intensity, SQ 6 ROI2 Intensity, SQ2 U3 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 2 ROI1
-Intensity, SQ 3 ROI3 Intensity, SQ 6 ROI2 Intensity, SQ2 U3 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 2 ROI1
-Intensity, SQ 3 ROI3 Intensity, SQ 6 ROI2 Intensity, SQ2 U3 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 2 ROI1
-Intensity, SQ 3 ROI3 Intensity, SQ 6 ROI2 Intensity, SQ2 U3 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 2 ROI1
-Intensity, SQ 3 ROI3 Intensity, SQ 6 ROI2 Intensity, SQ2 U3 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 2 ROI1
-Intensity, SQ 3 ROI3 Intensity, SQ 6 ROI2 Intensity, SQ2 U3 Intensity.</code></pre>
-<pre><code>Warning: Dropped unused factor level(s) in dependent variable: SQ 6 ROI3
-Intensity, SQ1 U1 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 6 ROI3
-Intensity, SQ1 U1 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 6 ROI3
-Intensity, SQ1 U1 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 6 ROI3
-Intensity, SQ1 U1 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 6 ROI3
-Intensity, SQ1 U1 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 6 ROI3
-Intensity, SQ1 U1 Intensity.</code></pre>
-<pre><code>Warning: Dropped unused factor level(s) in dependent variable: SQ 4 Intensity,
-SQ 4 ROI3 Intensity, SQ2 U1 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 4 Intensity,
-SQ 4 ROI3 Intensity, SQ2 U1 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 4 Intensity,
-SQ 4 ROI3 Intensity, SQ2 U1 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 4 Intensity,
-SQ 4 ROI3 Intensity, SQ2 U1 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 4 Intensity,
-SQ 4 ROI3 Intensity, SQ2 U1 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 4 Intensity,
-SQ 4 ROI3 Intensity, SQ2 U1 Intensity.</code></pre>
-<pre><code>Warning: Dropped unused factor level(s) in dependent variable: SQ 2 ROI3
-Intensity, SQ 5 ROI3 Intensity, SQ 6 Intensity, SQI 1 ROI1 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 2 ROI3
-Intensity, SQ 5 ROI3 Intensity, SQ 6 Intensity, SQI 1 ROI1 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 2 ROI3
-Intensity, SQ 5 ROI3 Intensity, SQ 6 Intensity, SQI 1 ROI1 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 2 ROI3
-Intensity, SQ 5 ROI3 Intensity, SQ 6 Intensity, SQI 1 ROI1 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 2 ROI3
-Intensity, SQ 5 ROI3 Intensity, SQ 6 Intensity, SQI 1 ROI1 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 2 ROI3
-Intensity, SQ 5 ROI3 Intensity, SQ 6 Intensity, SQI 1 ROI1 Intensity.</code></pre>
-<pre><code>Warning: Dropped unused factor level(s) in dependent variable: SQ 2 Intensity,
-SQ 4 ROI1 Intensity, SQ B4 Intensity, SQ1 U3 Intensity, SQI 1 ROI3 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 2 Intensity,
-SQ 4 ROI1 Intensity, SQ B4 Intensity, SQ1 U3 Intensity, SQI 1 ROI3 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 2 Intensity,
-SQ 4 ROI1 Intensity, SQ B4 Intensity, SQ1 U3 Intensity, SQI 1 ROI3 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 2 Intensity,
-SQ 4 ROI1 Intensity, SQ B4 Intensity, SQ1 U3 Intensity, SQI 1 ROI3 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 2 Intensity,
-SQ 4 ROI1 Intensity, SQ B4 Intensity, SQ1 U3 Intensity, SQI 1 ROI3 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 2 Intensity,
-SQ 4 ROI1 Intensity, SQ B4 Intensity, SQ1 U3 Intensity, SQI 1 ROI3 Intensity.</code></pre>
-<pre><code>Warning: Dropped unused factor level(s) in dependent variable: SQ 4 ROI2
-Intensity, SQ2 U2 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 4 ROI2
-Intensity, SQ2 U2 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 4 ROI2
-Intensity, SQ2 U2 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 4 ROI2
-Intensity, SQ2 U2 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 4 ROI2
-Intensity, SQ2 U2 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 4 ROI2
-Intensity, SQ2 U2 Intensity.</code></pre>
-<pre><code>Warning: Dropped unused factor level(s) in dependent variable: SQ 3 Intensity,
-SQ 3 ROI2 Intensity, SQ 6 ROI1 Intensity, SQ2 1 ROI3 Intensity, SQ2 2 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 3 Intensity,
-SQ 3 ROI2 Intensity, SQ 6 ROI1 Intensity, SQ2 1 ROI3 Intensity, SQ2 2 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 3 Intensity,
-SQ 3 ROI2 Intensity, SQ 6 ROI1 Intensity, SQ2 1 ROI3 Intensity, SQ2 2 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 3 Intensity,
-SQ 3 ROI2 Intensity, SQ 6 ROI1 Intensity, SQ2 1 ROI3 Intensity, SQ2 2 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 3 Intensity,
-SQ 3 ROI2 Intensity, SQ 6 ROI1 Intensity, SQ2 1 ROI3 Intensity, SQ2 2 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 3 Intensity,
-SQ 3 ROI2 Intensity, SQ 6 ROI1 Intensity, SQ2 1 ROI3 Intensity, SQ2 2 Intensity.</code></pre>
-<pre><code>Warning: Dropped unused factor level(s) in dependent variable: SQ 5 Intensity,
-SQI 1 ROI2 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 5 Intensity,
-SQI 1 ROI2 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 5 Intensity,
-SQI 1 ROI2 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 5 Intensity,
-SQI 1 ROI2 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 5 Intensity,
-SQI 1 ROI2 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 5 Intensity,
-SQI 1 ROI2 Intensity.</code></pre>
-<pre><code>Warning: Dropped unused factor level(s) in dependent variable: SQ 1 Intensity,
-SQ 2 ROI2 Intensity, SQ 5 ROI1 Intensity, SQ 5 ROI2 Intensity, SQ1 U2 Intensity,
-SQ2 1 ROI2 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 1 Intensity,
-SQ 2 ROI2 Intensity, SQ 5 ROI1 Intensity, SQ 5 ROI2 Intensity, SQ1 U2 Intensity,
-SQ2 1 ROI2 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 1 Intensity,
-SQ 2 ROI2 Intensity, SQ 5 ROI1 Intensity, SQ 5 ROI2 Intensity, SQ1 U2 Intensity,
-SQ2 1 ROI2 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 1 Intensity,
-SQ 2 ROI2 Intensity, SQ 5 ROI1 Intensity, SQ 5 ROI2 Intensity, SQ1 U2 Intensity,
-SQ2 1 ROI2 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 1 Intensity,
-SQ 2 ROI2 Intensity, SQ 5 ROI1 Intensity, SQ 5 ROI2 Intensity, SQ1 U2 Intensity,
-SQ2 1 ROI2 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 1 Intensity,
-SQ 2 ROI2 Intensity, SQ 5 ROI1 Intensity, SQ 5 ROI2 Intensity, SQ1 U2 Intensity,
-SQ2 1 ROI2 Intensity.</code></pre>
-<pre><code>Warning: Dropped unused factor level(s) in dependent variable: SQ 2 Intensity,
-SQ2 2 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 2 Intensity,
-SQ2 2 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 2 Intensity,
-SQ2 2 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 2 Intensity,
-SQ2 2 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 2 Intensity,
-SQ2 2 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 2 Intensity,
-SQ2 2 Intensity.</code></pre>
-<pre><code>Warning: Dropped unused factor level(s) in dependent variable: SQ 2 ROI1
-Intensity, SQ 3 ROI1 Intensity, SQ 4 Intensity, SQ 4 ROI1 Intensity, SQ 6
-Intensity, SQ1 U3 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 2 ROI1
-Intensity, SQ 3 ROI1 Intensity, SQ 4 Intensity, SQ 4 ROI1 Intensity, SQ 6
-Intensity, SQ1 U3 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 2 ROI1
-Intensity, SQ 3 ROI1 Intensity, SQ 4 Intensity, SQ 4 ROI1 Intensity, SQ 6
-Intensity, SQ1 U3 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 2 ROI1
-Intensity, SQ 3 ROI1 Intensity, SQ 4 Intensity, SQ 4 ROI1 Intensity, SQ 6
-Intensity, SQ1 U3 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 2 ROI1
-Intensity, SQ 3 ROI1 Intensity, SQ 4 Intensity, SQ 4 ROI1 Intensity, SQ 6
-Intensity, SQ1 U3 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 2 ROI1
-Intensity, SQ 3 ROI1 Intensity, SQ 4 Intensity, SQ 4 ROI1 Intensity, SQ 6
-Intensity, SQ1 U3 Intensity.</code></pre>
-<pre><code>Warning: Dropped unused factor level(s) in dependent variable: SQ 2 ROI2
-Intensity, SQ 3 ROI3 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 2 ROI2
-Intensity, SQ 3 ROI3 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 2 ROI2
-Intensity, SQ 3 ROI3 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 2 ROI2
-Intensity, SQ 3 ROI3 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 2 ROI2
-Intensity, SQ 3 ROI3 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 2 ROI2
-Intensity, SQ 3 ROI3 Intensity.</code></pre>
-<pre><code>Warning: Dropped unused factor level(s) in dependent variable: SQ B4 Intensity,
-SQ1 U2 Intensity, SQ2 1 ROI3 Intensity, SQ2 U2 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ B4 Intensity,
-SQ1 U2 Intensity, SQ2 1 ROI3 Intensity, SQ2 U2 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ B4 Intensity,
-SQ1 U2 Intensity, SQ2 1 ROI3 Intensity, SQ2 U2 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ B4 Intensity,
-SQ1 U2 Intensity, SQ2 1 ROI3 Intensity, SQ2 U2 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ B4 Intensity,
-SQ1 U2 Intensity, SQ2 1 ROI3 Intensity, SQ2 U2 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ B4 Intensity,
-SQ1 U2 Intensity, SQ2 1 ROI3 Intensity, SQ2 U2 Intensity.</code></pre>
-<pre><code>Warning: Dropped unused factor level(s) in dependent variable: SQ 2 ROI3
-Intensity, SQ 5 ROI3 Intensity, SQ2 1 ROI1 Intensity, SQ2 1 ROI2 Intensity, SQI
-1 ROI2 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 2 ROI3
-Intensity, SQ 5 ROI3 Intensity, SQ2 1 ROI1 Intensity, SQ2 1 ROI2 Intensity, SQI
-1 ROI2 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 2 ROI3
-Intensity, SQ 5 ROI3 Intensity, SQ2 1 ROI1 Intensity, SQ2 1 ROI2 Intensity, SQI
-1 ROI2 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 2 ROI3
-Intensity, SQ 5 ROI3 Intensity, SQ2 1 ROI1 Intensity, SQ2 1 ROI2 Intensity, SQI
-1 ROI2 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 2 ROI3
-Intensity, SQ 5 ROI3 Intensity, SQ2 1 ROI1 Intensity, SQ2 1 ROI2 Intensity, SQI
-1 ROI2 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 2 ROI3
-Intensity, SQ 5 ROI3 Intensity, SQ2 1 ROI1 Intensity, SQ2 1 ROI2 Intensity, SQI
-1 ROI2 Intensity.</code></pre>
-<pre><code>Warning: Dropped unused factor level(s) in dependent variable: SQ 3 Intensity,
-SQ 3 ROI2 Intensity, SQ 4 ROI3 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 3 Intensity,
-SQ 3 ROI2 Intensity, SQ 4 ROI3 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 3 Intensity,
-SQ 3 ROI2 Intensity, SQ 4 ROI3 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 3 Intensity,
-SQ 3 ROI2 Intensity, SQ 4 ROI3 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 3 Intensity,
-SQ 3 ROI2 Intensity, SQ 4 ROI3 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 3 Intensity,
-SQ 3 ROI2 Intensity, SQ 4 ROI3 Intensity.</code></pre>
-<pre><code>Warning: Dropped unused factor level(s) in dependent variable: SQ 1 Intensity,
-SQ1 U1 Intensity, SQ2 U1 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 1 Intensity,
-SQ1 U1 Intensity, SQ2 U1 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 1 Intensity,
-SQ1 U1 Intensity, SQ2 U1 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 1 Intensity,
-SQ1 U1 Intensity, SQ2 U1 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 1 Intensity,
-SQ1 U1 Intensity, SQ2 U1 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 1 Intensity,
-SQ1 U1 Intensity, SQ2 U1 Intensity.</code></pre>
-<pre><code>Warning: Dropped unused factor level(s) in dependent variable: SQ 5 ROI2
-Intensity, SQ2 U3 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 5 ROI2
-Intensity, SQ2 U3 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 5 ROI2
-Intensity, SQ2 U3 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 5 ROI2
-Intensity, SQ2 U3 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 5 ROI2
-Intensity, SQ2 U3 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 5 ROI2
-Intensity, SQ2 U3 Intensity.</code></pre>
-<pre><code>Warning: Dropped unused factor level(s) in dependent variable: SQ 4 ROI2
-Intensity, SQ 6 ROI1 Intensity, SQ 6 ROI2 Intensity, SQI 1 ROI3 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 4 ROI2
-Intensity, SQ 6 ROI1 Intensity, SQ 6 ROI2 Intensity, SQI 1 ROI3 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 4 ROI2
-Intensity, SQ 6 ROI1 Intensity, SQ 6 ROI2 Intensity, SQI 1 ROI3 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 4 ROI2
-Intensity, SQ 6 ROI1 Intensity, SQ 6 ROI2 Intensity, SQI 1 ROI3 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 4 ROI2
-Intensity, SQ 6 ROI1 Intensity, SQ 6 ROI2 Intensity, SQI 1 ROI3 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 4 ROI2
-Intensity, SQ 6 ROI1 Intensity, SQ 6 ROI2 Intensity, SQI 1 ROI3 Intensity.</code></pre>
-<pre><code>Warning: Dropped unused factor level(s) in dependent variable: SQ 5 Intensity,
-SQ 5 ROI1 Intensity, SQ 6 ROI3 Intensity, SQI 1 ROI1 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 5 Intensity,
-SQ 5 ROI1 Intensity, SQ 6 ROI3 Intensity, SQI 1 ROI1 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 5 Intensity,
-SQ 5 ROI1 Intensity, SQ 6 ROI3 Intensity, SQI 1 ROI1 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 5 Intensity,
-SQ 5 ROI1 Intensity, SQ 6 ROI3 Intensity, SQI 1 ROI1 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 5 Intensity,
-SQ 5 ROI1 Intensity, SQ 6 ROI3 Intensity, SQI 1 ROI1 Intensity.
-
-Warning: Dropped unused factor level(s) in dependent variable: SQ 5 Intensity,
-SQ 5 ROI1 Intensity, SQ 6 ROI3 Intensity, SQI 1 ROI1 Intensity.</code></pre>
+<pre><code>Warning in nominalTrainWorkflow(x = x, y = y, wts = weights, info = trainInfo, :
+There were missing values in resampled performance measures.</code></pre>
 <pre class="r"><code>predicted&lt;- predict(car_ranger, newdata = test_set[,-1])
 
 predicted</code></pre>
-<pre><code>[1] SQ 2 ROI3 Intensity SQ 4 Intensity      SQ 2 ROI3 Intensity
-[4] SQ B4 Intensity     SQ 2 ROI3 Intensity SQ 6 Intensity     
-35 Levels: SQ 1 Intensity SQ 2 Intensity ... SQI 1 ROI3 Intensity</code></pre>
+<pre><code>[1] pen1 pen1 pen4 pen1 pen5 pen6
+Levels: pen1 pen2 pen3 pen4 pen5 pen6</code></pre>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
