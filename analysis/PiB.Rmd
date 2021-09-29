@@ -614,6 +614,7 @@ car_ranger <- train(x = training_x,
      trControl = trControl
     )
 
+print(car_ranger)
 predicted<- predict(car_ranger, newdata = test_set[,-1])
 
 predicted
