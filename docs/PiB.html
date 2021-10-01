@@ -391,7 +391,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2021-09-29
+<strong>Last updated:</strong> 2021-10-01
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -482,16 +482,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtree2197b1412502ee893aef9390447becff144fae7etargetblank2197b14a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/marcsole96/PIB_workflowr/tree/2197b1412502ee893aef9390447becff144fae7e" target="_blank">2197b14</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtree58c6a8b5777ede490051114e013a741968a07651targetblank58c6a8ba"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/marcsole96/PIB_workflowr/tree/58c6a8b5777ede490051114e013a741968a07651" target="_blank">58c6a8b</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtree2197b1412502ee893aef9390447becff144fae7etargetblank2197b14a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtree58c6a8b5777ede490051114e013a741968a07651targetblank58c6a8ba" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/marcsole96/PIB_workflowr/tree/2197b1412502ee893aef9390447becff144fae7e" target="_blank">2197b14</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/marcsole96/PIB_workflowr/tree/58c6a8b5777ede490051114e013a741968a07651" target="_blank">58c6a8b</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -501,6 +501,7 @@ Ignored files:
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
     Ignored:    analysis/.Rhistory
+    Ignored:    analysis/figure/
 
 Untracked files:
     Untracked:  data/CONTRACT REGION OF INTERESTED EXPORTS/
@@ -544,6 +545,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/marcsole96/PIB_workflowr/blob/58c6a8b5777ede490051114e013a741968a07651/analysis/PiB.Rmd" target="_blank">58c6a8b</a>
+</td>
+<td>
+marcsole96
+</td>
+<td>
+2021-10-01
+</td>
+<td>
+caret model with whole train data
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/marcsole96/PIB_workflowr/b08984e33218ad6e9eb2f3fd031134b8df9c9c07/docs/PiB.html" target="_blank">b08984e</a>
+</td>
+<td>
+marcsole96
+</td>
+<td>
+2021-09-29
+</td>
+<td>
+wflow_git_commit(all = T)
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -1146,6 +1181,8 @@ wflow_publish(“../analysis/PiB.Rmd”)
 </div>
 </div>
 </div>
+<div id="setup" class="section level1">
+<h1>Setup</h1>
 <pre class="r"><code>#setwd(&quot;../PIB_workflowr/data&quot;)
 getwd()</code></pre>
 <pre><code>[1] &quot;C:/Users/mysit/Documents/Bioinformatica/Semestre_3/Projecte_Palle/PIB_workflowr/data&quot;</code></pre>
@@ -1174,6 +1211,7 @@ Attaching package: &#39;reshape2&#39;</code></pre>
 
     smiths</code></pre>
 <pre class="r"><code>theme_set(theme_minimal())</code></pre>
+</div>
 <div id="contract-region-of-interested-exports" class="section level1">
 <h1>CONTRACT REGION OF INTERESTED EXPORTS</h1>
 <div id="page-1-contract-exports" class="section level2">
@@ -1814,7 +1852,7 @@ fig &lt;- fig %&gt;% layout(scene = list(xaxis = list(title = &#39;PC1&#39;),
 
 fig</code></pre>
 <div id="htmlwidget-e5cf9c52725cc6b26d5a" style="width:672px;height:480px;" class="plotly html-widget"></div>
-<script type="application/json" data-for="htmlwidget-e5cf9c52725cc6b26d5a">{"x":{"visdat":{"2ca460461678":["function () ","plotlyVisDat"]},"cur_data":"2ca460461678","attrs":{"2ca460461678":{"x":{},"y":{},"z":{},"color":{},"size":[100],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter3d","mode":"markers","inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"scene":{"xaxis":{"title":"PC1"},"yaxis":{"title":"PC2"},"zaxis":{"title":"PC3"}},"hovermode":"closest","showlegend":true},"source":"A","config":{"showSendToCloud":false},"data":[{"x":[-6.15601838795165,-34.1812485736255,-38.4013362385967,-17.4402885668854,8.20966144393234,-5.92416894817599,-43.2233131703944,-16.0504694858388,-18.9786051117118],"y":[20.4938581835815,34.0017415833266,52.1314565444291,27.3654105633945,14.0575228239196,18.3956271185292,35.3233785307098,28.7358830508391,27.8425233115453],"z":[-11.3462541595334,12.4999977213479,-3.32441841257674,-14.2663710265944,-11.647285817616,-9.41827366610191,15.0461911282281,19.8676167311071,11.5042382091103],"type":"scatter3d","mode":"markers","name":"pen1","marker":{"color":"rgba(102,194,165,1)","size":[100,100,100,100,100,100,100,100,100],"sizemode":"area","line":{"color":"rgba(102,194,165,1)"}},"textfont":{"color":"rgba(102,194,165,1)","size":100},"error_y":{"color":"rgba(102,194,165,1)","width":100},"error_x":{"color":"rgba(102,194,165,1)","width":100},"line":{"color":"rgba(102,194,165,1)","width":100},"frame":null},{"x":[-48.0496778462055,-12.2331837267541,-95.8418514767856,-77.3988470907677,-28.4215122575707,-17.5786530285432],"y":[-25.0737843052013,-52.3177518098883,18.8669416698851,-10.3396201866257,-38.5467126283404,-43.914820814336],"z":[-27.2358234111488,7.38139523448614,-21.0487610319824,-25.2599746642964,-31.2238178592657,-28.1195643939345],"type":"scatter3d","mode":"markers","name":"pen2","marker":{"color":"rgba(252,141,98,1)","size":[100,100,100,100,100,100],"sizemode":"area","line":{"color":"rgba(252,141,98,1)"}},"textfont":{"color":"rgba(252,141,98,1)","size":100},"error_y":{"color":"rgba(252,141,98,1)","width":100},"error_x":{"color":"rgba(252,141,98,1)","width":100},"line":{"color":"rgba(252,141,98,1)","width":100},"frame":null},{"x":[59.4027785885946,26.2012026187377,50.0111618744439,64.2743386387864,71.4398198086693],"y":[-1.08227471755788,1.44832660165765,5.42334013335048,6.35884737508371,-8.84330819615424],"z":[19.943948486536,6.9962254608075,25.7754624865023,26.0974761188231,15.8277716389815],"type":"scatter3d","mode":"markers","name":"pen3","marker":{"color":"rgba(141,160,203,1)","size":[100,100,100,100,100],"sizemode":"area","line":{"color":"rgba(141,160,203,1)"}},"textfont":{"color":"rgba(141,160,203,1)","size":100},"error_y":{"color":"rgba(141,160,203,1)","width":100},"error_x":{"color":"rgba(141,160,203,1)","width":100},"line":{"color":"rgba(141,160,203,1)","width":100},"frame":null},{"x":[6.65221469370127,-49.6232464944241,5.44728385870321,11.4504695905994,14.6503196549475],"y":[21.2137496581393,66.7232988316756,21.3118267719501,21.318222091029,12.6265120127863],"z":[23.839233043073,18.361321010512,20.6944791618546,29.1646163748986,16.6779388087246],"type":"scatter3d","mode":"markers","name":"pen4","marker":{"color":"rgba(231,138,195,1)","size":[100,100,100,100,100],"sizemode":"area","line":{"color":"rgba(231,138,195,1)"}},"textfont":{"color":"rgba(231,138,195,1)","size":100},"error_y":{"color":"rgba(231,138,195,1)","width":100},"error_x":{"color":"rgba(231,138,195,1)","width":100},"line":{"color":"rgba(231,138,195,1)","width":100},"frame":null},{"x":[-17.53152685455,-12.2331837267541,-21.4386387400424,-6.97031129002063,-14.470392649925],"y":[-56.2743494303628,-52.3177518098883,-55.6758828727727,-62.3680624668049,-60.2812066880429],"z":[20.0615494991598,7.38139523448614,22.6066700843445,19.5961925917192,21.0806937516118],"type":"scatter3d","mode":"markers","name":"pen5","marker":{"color":"rgba(166,216,84,1)","size":[100,100,100,100,100],"sizemode":"area","line":{"color":"rgba(166,216,84,1)"}},"textfont":{"color":"rgba(166,216,84,1)","size":100},"error_y":{"color":"rgba(166,216,84,1)","width":100},"error_x":{"color":"rgba(166,216,84,1)","width":100},"line":{"color":"rgba(166,216,84,1)","width":100},"frame":null},{"x":[55.8244969563353,33.0235245796322,51.8126309287714,65.7845200590682,57.9620503706003],"y":[8.81413452819401,-4.34030131221448,6.35527791803778,8.0292432661731,14.5387046699526],"z":[-35.1806576707663,-35.7363567336954,-32.7214788091909,-35.5584221167959,-38.3169530028157],"type":"scatter3d","mode":"markers","name":"pen6","marker":{"color":"rgba(255,217,47,1)","size":[100,100,100,100,100],"sizemode":"area","line":{"color":"rgba(255,217,47,1)"}},"textfont":{"color":"rgba(255,217,47,1)","size":100},"error_y":{"color":"rgba(255,217,47,1)","width":100},"error_x":{"color":"rgba(255,217,47,1)","width":100},"line":{"color":"rgba(255,217,47,1)","width":100},"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-e5cf9c52725cc6b26d5a">{"x":{"visdat":{"3db4382dd4f":["function () ","plotlyVisDat"]},"cur_data":"3db4382dd4f","attrs":{"3db4382dd4f":{"x":{},"y":{},"z":{},"color":{},"size":[100],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter3d","mode":"markers","inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"scene":{"xaxis":{"title":"PC1"},"yaxis":{"title":"PC2"},"zaxis":{"title":"PC3"}},"hovermode":"closest","showlegend":true},"source":"A","config":{"showSendToCloud":false},"data":[{"x":[-6.15601838795165,-34.1812485736255,-38.4013362385967,-17.4402885668854,8.20966144393234,-5.92416894817599,-43.2233131703944,-16.0504694858388,-18.9786051117118],"y":[20.4938581835815,34.0017415833266,52.1314565444291,27.3654105633945,14.0575228239196,18.3956271185292,35.3233785307098,28.7358830508391,27.8425233115453],"z":[-11.3462541595334,12.4999977213479,-3.32441841257674,-14.2663710265944,-11.647285817616,-9.41827366610191,15.0461911282281,19.8676167311071,11.5042382091103],"type":"scatter3d","mode":"markers","name":"pen1","marker":{"color":"rgba(102,194,165,1)","size":[100,100,100,100,100,100,100,100,100],"sizemode":"area","line":{"color":"rgba(102,194,165,1)"}},"textfont":{"color":"rgba(102,194,165,1)","size":100},"error_y":{"color":"rgba(102,194,165,1)","width":100},"error_x":{"color":"rgba(102,194,165,1)","width":100},"line":{"color":"rgba(102,194,165,1)","width":100},"frame":null},{"x":[-48.0496778462055,-12.2331837267541,-95.8418514767856,-77.3988470907677,-28.4215122575707,-17.5786530285432],"y":[-25.0737843052013,-52.3177518098883,18.8669416698851,-10.3396201866257,-38.5467126283404,-43.914820814336],"z":[-27.2358234111488,7.38139523448614,-21.0487610319824,-25.2599746642964,-31.2238178592657,-28.1195643939345],"type":"scatter3d","mode":"markers","name":"pen2","marker":{"color":"rgba(252,141,98,1)","size":[100,100,100,100,100,100],"sizemode":"area","line":{"color":"rgba(252,141,98,1)"}},"textfont":{"color":"rgba(252,141,98,1)","size":100},"error_y":{"color":"rgba(252,141,98,1)","width":100},"error_x":{"color":"rgba(252,141,98,1)","width":100},"line":{"color":"rgba(252,141,98,1)","width":100},"frame":null},{"x":[59.4027785885946,26.2012026187377,50.0111618744439,64.2743386387864,71.4398198086693],"y":[-1.08227471755788,1.44832660165765,5.42334013335048,6.35884737508371,-8.84330819615424],"z":[19.943948486536,6.9962254608075,25.7754624865023,26.0974761188231,15.8277716389815],"type":"scatter3d","mode":"markers","name":"pen3","marker":{"color":"rgba(141,160,203,1)","size":[100,100,100,100,100],"sizemode":"area","line":{"color":"rgba(141,160,203,1)"}},"textfont":{"color":"rgba(141,160,203,1)","size":100},"error_y":{"color":"rgba(141,160,203,1)","width":100},"error_x":{"color":"rgba(141,160,203,1)","width":100},"line":{"color":"rgba(141,160,203,1)","width":100},"frame":null},{"x":[6.65221469370127,-49.6232464944241,5.44728385870321,11.4504695905994,14.6503196549475],"y":[21.2137496581393,66.7232988316756,21.3118267719501,21.318222091029,12.6265120127863],"z":[23.839233043073,18.361321010512,20.6944791618546,29.1646163748986,16.6779388087246],"type":"scatter3d","mode":"markers","name":"pen4","marker":{"color":"rgba(231,138,195,1)","size":[100,100,100,100,100],"sizemode":"area","line":{"color":"rgba(231,138,195,1)"}},"textfont":{"color":"rgba(231,138,195,1)","size":100},"error_y":{"color":"rgba(231,138,195,1)","width":100},"error_x":{"color":"rgba(231,138,195,1)","width":100},"line":{"color":"rgba(231,138,195,1)","width":100},"frame":null},{"x":[-17.53152685455,-12.2331837267541,-21.4386387400424,-6.97031129002063,-14.470392649925],"y":[-56.2743494303628,-52.3177518098883,-55.6758828727727,-62.3680624668049,-60.2812066880429],"z":[20.0615494991598,7.38139523448614,22.6066700843445,19.5961925917192,21.0806937516118],"type":"scatter3d","mode":"markers","name":"pen5","marker":{"color":"rgba(166,216,84,1)","size":[100,100,100,100,100],"sizemode":"area","line":{"color":"rgba(166,216,84,1)"}},"textfont":{"color":"rgba(166,216,84,1)","size":100},"error_y":{"color":"rgba(166,216,84,1)","width":100},"error_x":{"color":"rgba(166,216,84,1)","width":100},"line":{"color":"rgba(166,216,84,1)","width":100},"frame":null},{"x":[55.8244969563353,33.0235245796322,51.8126309287714,65.7845200590682,57.9620503706003],"y":[8.81413452819401,-4.34030131221448,6.35527791803778,8.0292432661731,14.5387046699526],"z":[-35.1806576707663,-35.7363567336954,-32.7214788091909,-35.5584221167959,-38.3169530028157],"type":"scatter3d","mode":"markers","name":"pen6","marker":{"color":"rgba(255,217,47,1)","size":[100,100,100,100,100],"sizemode":"area","line":{"color":"rgba(255,217,47,1)"}},"textfont":{"color":"rgba(255,217,47,1)","size":100},"error_y":{"color":"rgba(255,217,47,1)","width":100},"error_x":{"color":"rgba(255,217,47,1)","width":100},"line":{"color":"rgba(255,217,47,1)","width":100},"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="model-from-pca-training-data" class="section level1">
 <h1>Model from PCA training Data:</h1>
@@ -1875,13 +1913,286 @@ training_y &lt;- training_set$labels
 
 car_ranger &lt;- train(x = training_x, 
              y = training_y, 
-        method = &quot;ranger&quot;,
+        method = &quot;glmnet&quot;,
      trControl = trControl
     )</code></pre>
+<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
+<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground
+
+Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
 <pre><code>Warning in nominalTrainWorkflow(x = x, y = y, wts = weights, info = trainInfo, :
 There were missing values in resampled performance measures.</code></pre>
+<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
 <pre class="r"><code>print(car_ranger)</code></pre>
-<pre><code>Random Forest 
+<pre><code>glmnet 
 
 35 samples
 35 predictors
@@ -1892,22 +2203,282 @@ Resampling: Cross-Validated (10 fold, repeated 3 times)
 Summary of sample sizes: 32, 34, 32, 32, 31, 31, ... 
 Resampling results across tuning parameters:
 
-  mtry  splitrule   Accuracy   Kappa    
-   2    gini        0.7038889  0.6038706
-   2    extratrees  0.7422222  0.6392510
-  18    gini        0.8555556  0.7957939
-  18    extratrees  0.8600000  0.8019515
-  35    gini        0.8444444  0.7884047
-  35    extratrees  0.8600000  0.8019515
+  alpha  lambda        Accuracy   Kappa    
+  0.10   0.0004928533  0.3627778  0.1996062
+  0.10   0.0049285332  0.3627778  0.1996062
+  0.10   0.0492853324  0.3850000  0.2257967
+  0.55   0.0004928533  0.6883333  0.5959391
+  0.55   0.0049285332  0.6950000  0.6045598
+  0.55   0.0492853324  0.7144444  0.6341165
+  1.00   0.0004928533  0.6988889  0.6126437
+  1.00   0.0049285332  0.6988889  0.6144120
+  1.00   0.0492853324  0.7861111  0.7108185
 
-Tuning parameter &#39;min.node.size&#39; was held constant at a value of 1
 Accuracy was used to select the optimal model using the largest value.
-The final values used for the model were mtry = 18, splitrule = extratrees
- and min.node.size = 1.</code></pre>
+The final values used for the model were alpha = 1 and lambda = 0.04928533.</code></pre>
 <pre class="r"><code>predicted&lt;- predict(car_ranger, newdata = test_set[,-1])
 
 predicted</code></pre>
-<pre><code>[1] pen1 pen1 pen4 pen1 pen5 pen6
+<pre><code>[1] pen4 pen2 pen3 pen4 pen5 pen6
+Levels: pen1 pen2 pen3 pen4 pen5 pen6</code></pre>
+<pre class="r"><code>#Cleanup
+rm(car_ranger,dat_3d,data,fig,lowd_map,pca,pca_res,pr.out, t_training_data1, t_training_data2, t_training_data3, test, test_pca, test_set, training_data1, training_data2, training_data3,training_set, training_x,trControl,tsne, avector, labels, names, predicted, training_y,var_explained)</code></pre>
+</div>
+<div id="caret-model-not-using-pcas" class="section level1">
+<h1>Caret model not using PCAs</h1>
+<div id="preparing-the-test_data" class="section level2">
+<h2>Preparing the test_data</h2>
+<pre class="r"><code>#For the test data we should use the test_data
+#For the training data we should use the training_DF
+
+#(work in progress, I have to remember how this was done :/ )
+
+#Get a dataframe with the values that will be used to predict
+#First step, transpose the data: 
+t_test_data&lt;-as.data.frame(t(test_data[-1]))
+names(t_test_data)&lt;-test_data$spectrum
+t_test_data$labels=row.names(t_test_data)
+#removing the row headers
+rownames(t_test_data)&lt;-c()
+#moving labels to the beginning
+t_test_data&lt;-t_test_data %&gt;% 
+  select(labels, everything())
+t_test_data&lt;-t_test_data %&gt;% replace(1,c(&quot;strike1&quot;,&quot;strike2&quot;,&quot;strike3&quot;,&quot;strike4&quot;,&quot;strike5&quot;,&quot;strike6&quot;))
+head(select(t_test_data,1:5))</code></pre>
+<pre><code>   labels      100    100.2    100.4    100.6
+1 strike1 1.220990 1.243090 1.176800 0.955801
+2 strike2 1.804470 2.251400 1.810060 1.703910
+3 strike3 0.572254 0.953757 0.849711 0.699422
+4 strike4 0.722826 0.956522 0.880435 0.728261
+5 strike5 0.500000 0.540816 0.607143 0.612245
+6 strike6 0.294737 0.652632 0.436842 0.368421</code></pre>
+<pre class="r"><code>test_data&lt;-t_test_data
+
+rm(t_test_data)</code></pre>
+<p>##Caret model</p>
+<pre class="r"><code>training_x &lt;- training_DF %&gt;% select(-labels) %&gt;% as.data.frame()
+training_y &lt;- training_DF$labels
+
+trControl &lt;- trainControl(method = &quot;repeatedcv&quot;, number = 5, repeats = 3, verboseIter = T)
+
+fit &lt;- train(x = training_x, 
+             y = training_y, 
+        method = &quot;ranger&quot;,
+     trControl = trControl
+    )</code></pre>
+<pre><code>+ Fold1.Rep1: mtry=   2, min.node.size=1, splitrule=gini 
+- Fold1.Rep1: mtry=   2, min.node.size=1, splitrule=gini 
++ Fold1.Rep1: mtry=  94, min.node.size=1, splitrule=gini 
+- Fold1.Rep1: mtry=  94, min.node.size=1, splitrule=gini 
++ Fold1.Rep1: mtry=4500, min.node.size=1, splitrule=gini 
+- Fold1.Rep1: mtry=4500, min.node.size=1, splitrule=gini 
++ Fold1.Rep1: mtry=   2, min.node.size=1, splitrule=extratrees 
+- Fold1.Rep1: mtry=   2, min.node.size=1, splitrule=extratrees 
++ Fold1.Rep1: mtry=  94, min.node.size=1, splitrule=extratrees 
+- Fold1.Rep1: mtry=  94, min.node.size=1, splitrule=extratrees 
++ Fold1.Rep1: mtry=4500, min.node.size=1, splitrule=extratrees 
+- Fold1.Rep1: mtry=4500, min.node.size=1, splitrule=extratrees 
++ Fold2.Rep1: mtry=   2, min.node.size=1, splitrule=gini 
+- Fold2.Rep1: mtry=   2, min.node.size=1, splitrule=gini 
++ Fold2.Rep1: mtry=  94, min.node.size=1, splitrule=gini 
+- Fold2.Rep1: mtry=  94, min.node.size=1, splitrule=gini 
++ Fold2.Rep1: mtry=4500, min.node.size=1, splitrule=gini 
+- Fold2.Rep1: mtry=4500, min.node.size=1, splitrule=gini 
++ Fold2.Rep1: mtry=   2, min.node.size=1, splitrule=extratrees 
+- Fold2.Rep1: mtry=   2, min.node.size=1, splitrule=extratrees 
++ Fold2.Rep1: mtry=  94, min.node.size=1, splitrule=extratrees 
+- Fold2.Rep1: mtry=  94, min.node.size=1, splitrule=extratrees 
++ Fold2.Rep1: mtry=4500, min.node.size=1, splitrule=extratrees 
+- Fold2.Rep1: mtry=4500, min.node.size=1, splitrule=extratrees 
++ Fold3.Rep1: mtry=   2, min.node.size=1, splitrule=gini 
+- Fold3.Rep1: mtry=   2, min.node.size=1, splitrule=gini 
++ Fold3.Rep1: mtry=  94, min.node.size=1, splitrule=gini 
+- Fold3.Rep1: mtry=  94, min.node.size=1, splitrule=gini 
++ Fold3.Rep1: mtry=4500, min.node.size=1, splitrule=gini 
+- Fold3.Rep1: mtry=4500, min.node.size=1, splitrule=gini 
++ Fold3.Rep1: mtry=   2, min.node.size=1, splitrule=extratrees 
+- Fold3.Rep1: mtry=   2, min.node.size=1, splitrule=extratrees 
++ Fold3.Rep1: mtry=  94, min.node.size=1, splitrule=extratrees 
+- Fold3.Rep1: mtry=  94, min.node.size=1, splitrule=extratrees 
++ Fold3.Rep1: mtry=4500, min.node.size=1, splitrule=extratrees 
+- Fold3.Rep1: mtry=4500, min.node.size=1, splitrule=extratrees 
++ Fold4.Rep1: mtry=   2, min.node.size=1, splitrule=gini 
+- Fold4.Rep1: mtry=   2, min.node.size=1, splitrule=gini 
++ Fold4.Rep1: mtry=  94, min.node.size=1, splitrule=gini 
+- Fold4.Rep1: mtry=  94, min.node.size=1, splitrule=gini 
++ Fold4.Rep1: mtry=4500, min.node.size=1, splitrule=gini 
+- Fold4.Rep1: mtry=4500, min.node.size=1, splitrule=gini 
++ Fold4.Rep1: mtry=   2, min.node.size=1, splitrule=extratrees 
+- Fold4.Rep1: mtry=   2, min.node.size=1, splitrule=extratrees 
++ Fold4.Rep1: mtry=  94, min.node.size=1, splitrule=extratrees 
+- Fold4.Rep1: mtry=  94, min.node.size=1, splitrule=extratrees 
++ Fold4.Rep1: mtry=4500, min.node.size=1, splitrule=extratrees 
+- Fold4.Rep1: mtry=4500, min.node.size=1, splitrule=extratrees 
++ Fold5.Rep1: mtry=   2, min.node.size=1, splitrule=gini 
+- Fold5.Rep1: mtry=   2, min.node.size=1, splitrule=gini 
++ Fold5.Rep1: mtry=  94, min.node.size=1, splitrule=gini 
+- Fold5.Rep1: mtry=  94, min.node.size=1, splitrule=gini 
++ Fold5.Rep1: mtry=4500, min.node.size=1, splitrule=gini 
+- Fold5.Rep1: mtry=4500, min.node.size=1, splitrule=gini 
++ Fold5.Rep1: mtry=   2, min.node.size=1, splitrule=extratrees 
+- Fold5.Rep1: mtry=   2, min.node.size=1, splitrule=extratrees 
++ Fold5.Rep1: mtry=  94, min.node.size=1, splitrule=extratrees 
+- Fold5.Rep1: mtry=  94, min.node.size=1, splitrule=extratrees 
++ Fold5.Rep1: mtry=4500, min.node.size=1, splitrule=extratrees 
+- Fold5.Rep1: mtry=4500, min.node.size=1, splitrule=extratrees 
++ Fold1.Rep2: mtry=   2, min.node.size=1, splitrule=gini 
+- Fold1.Rep2: mtry=   2, min.node.size=1, splitrule=gini 
++ Fold1.Rep2: mtry=  94, min.node.size=1, splitrule=gini 
+- Fold1.Rep2: mtry=  94, min.node.size=1, splitrule=gini 
++ Fold1.Rep2: mtry=4500, min.node.size=1, splitrule=gini 
+- Fold1.Rep2: mtry=4500, min.node.size=1, splitrule=gini 
++ Fold1.Rep2: mtry=   2, min.node.size=1, splitrule=extratrees 
+- Fold1.Rep2: mtry=   2, min.node.size=1, splitrule=extratrees 
++ Fold1.Rep2: mtry=  94, min.node.size=1, splitrule=extratrees 
+- Fold1.Rep2: mtry=  94, min.node.size=1, splitrule=extratrees 
++ Fold1.Rep2: mtry=4500, min.node.size=1, splitrule=extratrees 
+- Fold1.Rep2: mtry=4500, min.node.size=1, splitrule=extratrees 
++ Fold2.Rep2: mtry=   2, min.node.size=1, splitrule=gini 
+- Fold2.Rep2: mtry=   2, min.node.size=1, splitrule=gini 
++ Fold2.Rep2: mtry=  94, min.node.size=1, splitrule=gini 
+- Fold2.Rep2: mtry=  94, min.node.size=1, splitrule=gini 
++ Fold2.Rep2: mtry=4500, min.node.size=1, splitrule=gini 
+- Fold2.Rep2: mtry=4500, min.node.size=1, splitrule=gini 
++ Fold2.Rep2: mtry=   2, min.node.size=1, splitrule=extratrees 
+- Fold2.Rep2: mtry=   2, min.node.size=1, splitrule=extratrees 
++ Fold2.Rep2: mtry=  94, min.node.size=1, splitrule=extratrees 
+- Fold2.Rep2: mtry=  94, min.node.size=1, splitrule=extratrees 
++ Fold2.Rep2: mtry=4500, min.node.size=1, splitrule=extratrees 
+- Fold2.Rep2: mtry=4500, min.node.size=1, splitrule=extratrees 
++ Fold3.Rep2: mtry=   2, min.node.size=1, splitrule=gini 
+- Fold3.Rep2: mtry=   2, min.node.size=1, splitrule=gini 
++ Fold3.Rep2: mtry=  94, min.node.size=1, splitrule=gini 
+- Fold3.Rep2: mtry=  94, min.node.size=1, splitrule=gini 
++ Fold3.Rep2: mtry=4500, min.node.size=1, splitrule=gini 
+- Fold3.Rep2: mtry=4500, min.node.size=1, splitrule=gini 
++ Fold3.Rep2: mtry=   2, min.node.size=1, splitrule=extratrees 
+- Fold3.Rep2: mtry=   2, min.node.size=1, splitrule=extratrees 
++ Fold3.Rep2: mtry=  94, min.node.size=1, splitrule=extratrees 
+- Fold3.Rep2: mtry=  94, min.node.size=1, splitrule=extratrees 
++ Fold3.Rep2: mtry=4500, min.node.size=1, splitrule=extratrees 
+- Fold3.Rep2: mtry=4500, min.node.size=1, splitrule=extratrees 
++ Fold4.Rep2: mtry=   2, min.node.size=1, splitrule=gini 
+- Fold4.Rep2: mtry=   2, min.node.size=1, splitrule=gini 
++ Fold4.Rep2: mtry=  94, min.node.size=1, splitrule=gini 
+- Fold4.Rep2: mtry=  94, min.node.size=1, splitrule=gini 
++ Fold4.Rep2: mtry=4500, min.node.size=1, splitrule=gini 
+- Fold4.Rep2: mtry=4500, min.node.size=1, splitrule=gini 
++ Fold4.Rep2: mtry=   2, min.node.size=1, splitrule=extratrees 
+- Fold4.Rep2: mtry=   2, min.node.size=1, splitrule=extratrees 
++ Fold4.Rep2: mtry=  94, min.node.size=1, splitrule=extratrees 
+- Fold4.Rep2: mtry=  94, min.node.size=1, splitrule=extratrees 
++ Fold4.Rep2: mtry=4500, min.node.size=1, splitrule=extratrees 
+- Fold4.Rep2: mtry=4500, min.node.size=1, splitrule=extratrees 
++ Fold5.Rep2: mtry=   2, min.node.size=1, splitrule=gini 
+- Fold5.Rep2: mtry=   2, min.node.size=1, splitrule=gini 
++ Fold5.Rep2: mtry=  94, min.node.size=1, splitrule=gini 
+- Fold5.Rep2: mtry=  94, min.node.size=1, splitrule=gini 
++ Fold5.Rep2: mtry=4500, min.node.size=1, splitrule=gini 
+- Fold5.Rep2: mtry=4500, min.node.size=1, splitrule=gini 
++ Fold5.Rep2: mtry=   2, min.node.size=1, splitrule=extratrees 
+- Fold5.Rep2: mtry=   2, min.node.size=1, splitrule=extratrees 
++ Fold5.Rep2: mtry=  94, min.node.size=1, splitrule=extratrees 
+- Fold5.Rep2: mtry=  94, min.node.size=1, splitrule=extratrees 
++ Fold5.Rep2: mtry=4500, min.node.size=1, splitrule=extratrees 
+- Fold5.Rep2: mtry=4500, min.node.size=1, splitrule=extratrees 
++ Fold1.Rep3: mtry=   2, min.node.size=1, splitrule=gini 
+- Fold1.Rep3: mtry=   2, min.node.size=1, splitrule=gini 
++ Fold1.Rep3: mtry=  94, min.node.size=1, splitrule=gini 
+- Fold1.Rep3: mtry=  94, min.node.size=1, splitrule=gini 
++ Fold1.Rep3: mtry=4500, min.node.size=1, splitrule=gini 
+- Fold1.Rep3: mtry=4500, min.node.size=1, splitrule=gini 
++ Fold1.Rep3: mtry=   2, min.node.size=1, splitrule=extratrees 
+- Fold1.Rep3: mtry=   2, min.node.size=1, splitrule=extratrees 
++ Fold1.Rep3: mtry=  94, min.node.size=1, splitrule=extratrees 
+- Fold1.Rep3: mtry=  94, min.node.size=1, splitrule=extratrees 
++ Fold1.Rep3: mtry=4500, min.node.size=1, splitrule=extratrees 
+- Fold1.Rep3: mtry=4500, min.node.size=1, splitrule=extratrees 
++ Fold2.Rep3: mtry=   2, min.node.size=1, splitrule=gini 
+- Fold2.Rep3: mtry=   2, min.node.size=1, splitrule=gini 
++ Fold2.Rep3: mtry=  94, min.node.size=1, splitrule=gini 
+- Fold2.Rep3: mtry=  94, min.node.size=1, splitrule=gini 
++ Fold2.Rep3: mtry=4500, min.node.size=1, splitrule=gini 
+- Fold2.Rep3: mtry=4500, min.node.size=1, splitrule=gini 
++ Fold2.Rep3: mtry=   2, min.node.size=1, splitrule=extratrees 
+- Fold2.Rep3: mtry=   2, min.node.size=1, splitrule=extratrees 
++ Fold2.Rep3: mtry=  94, min.node.size=1, splitrule=extratrees 
+- Fold2.Rep3: mtry=  94, min.node.size=1, splitrule=extratrees 
++ Fold2.Rep3: mtry=4500, min.node.size=1, splitrule=extratrees 
+- Fold2.Rep3: mtry=4500, min.node.size=1, splitrule=extratrees 
++ Fold3.Rep3: mtry=   2, min.node.size=1, splitrule=gini 
+- Fold3.Rep3: mtry=   2, min.node.size=1, splitrule=gini 
++ Fold3.Rep3: mtry=  94, min.node.size=1, splitrule=gini 
+- Fold3.Rep3: mtry=  94, min.node.size=1, splitrule=gini 
++ Fold3.Rep3: mtry=4500, min.node.size=1, splitrule=gini 
+- Fold3.Rep3: mtry=4500, min.node.size=1, splitrule=gini 
++ Fold3.Rep3: mtry=   2, min.node.size=1, splitrule=extratrees 
+- Fold3.Rep3: mtry=   2, min.node.size=1, splitrule=extratrees 
++ Fold3.Rep3: mtry=  94, min.node.size=1, splitrule=extratrees 
+- Fold3.Rep3: mtry=  94, min.node.size=1, splitrule=extratrees 
++ Fold3.Rep3: mtry=4500, min.node.size=1, splitrule=extratrees 
+- Fold3.Rep3: mtry=4500, min.node.size=1, splitrule=extratrees 
++ Fold4.Rep3: mtry=   2, min.node.size=1, splitrule=gini 
+- Fold4.Rep3: mtry=   2, min.node.size=1, splitrule=gini 
++ Fold4.Rep3: mtry=  94, min.node.size=1, splitrule=gini 
+- Fold4.Rep3: mtry=  94, min.node.size=1, splitrule=gini 
++ Fold4.Rep3: mtry=4500, min.node.size=1, splitrule=gini 
+- Fold4.Rep3: mtry=4500, min.node.size=1, splitrule=gini 
++ Fold4.Rep3: mtry=   2, min.node.size=1, splitrule=extratrees 
+- Fold4.Rep3: mtry=   2, min.node.size=1, splitrule=extratrees 
++ Fold4.Rep3: mtry=  94, min.node.size=1, splitrule=extratrees 
+- Fold4.Rep3: mtry=  94, min.node.size=1, splitrule=extratrees 
++ Fold4.Rep3: mtry=4500, min.node.size=1, splitrule=extratrees 
+- Fold4.Rep3: mtry=4500, min.node.size=1, splitrule=extratrees 
++ Fold5.Rep3: mtry=   2, min.node.size=1, splitrule=gini 
+- Fold5.Rep3: mtry=   2, min.node.size=1, splitrule=gini 
++ Fold5.Rep3: mtry=  94, min.node.size=1, splitrule=gini 
+- Fold5.Rep3: mtry=  94, min.node.size=1, splitrule=gini 
++ Fold5.Rep3: mtry=4500, min.node.size=1, splitrule=gini 
+- Fold5.Rep3: mtry=4500, min.node.size=1, splitrule=gini 
++ Fold5.Rep3: mtry=   2, min.node.size=1, splitrule=extratrees 
+- Fold5.Rep3: mtry=   2, min.node.size=1, splitrule=extratrees 
++ Fold5.Rep3: mtry=  94, min.node.size=1, splitrule=extratrees 
+- Fold5.Rep3: mtry=  94, min.node.size=1, splitrule=extratrees 
++ Fold5.Rep3: mtry=4500, min.node.size=1, splitrule=extratrees 
+- Fold5.Rep3: mtry=4500, min.node.size=1, splitrule=extratrees 
+Aggregating results
+Selecting tuning parameters
+Fitting mtry = 2, splitrule = gini, min.node.size = 1 on full training set</code></pre>
+<pre class="r"><code>print(fit)</code></pre>
+<pre><code>Random Forest 
+
+  35 samples
+4501 predictors
+   6 classes: &#39;pen1&#39;, &#39;pen2&#39;, &#39;pen3&#39;, &#39;pen4&#39;, &#39;pen5&#39;, &#39;pen6&#39; 
+
+No pre-processing
+Resampling: Cross-Validated (5 fold, repeated 3 times) 
+Summary of sample sizes: 28, 29, 27, 28, 28, 29, ... 
+Resampling results across tuning parameters:
+
+  mtry  splitrule   Accuracy   Kappa    
+     2  gini        0.9123016  0.8917747
+     2  extratrees  0.9123016  0.8917747
+    94  gini        0.8849206  0.8566420
+    94  extratrees  0.8849206  0.8566420
+  4500  gini        0.8738095  0.8433087
+  4500  extratrees  0.8849206  0.8566420
+
+Tuning parameter &#39;min.node.size&#39; was held constant at a value of 1
+Accuracy was used to select the optimal model using the largest value.
+The final values used for the model were mtry = 2, splitrule = gini
+ and min.node.size = 1.</code></pre>
+<pre class="r"><code>ggplot(fit)</code></pre>
+<p><img src="figure/PiB.Rmd/unnamed-chunk-41-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>predicted&lt;- predict(fit, newdata = test_data[,-1])
+
+predicted</code></pre>
+<pre><code>[1] pen1 pen2 pen3 pen1 pen5 pen6
 Levels: pen1 pen2 pen3 pen4 pen5 pen6</code></pre>
 <br>
 <p>
@@ -1945,30 +2516,32 @@ loaded via a namespace (and not attached):
 [13] DBI_1.1.1            lazyeval_0.2.2       colorspace_1.4-1    
 [16] nnet_7.3-14          withr_2.4.2          tidyselect_1.1.0    
 [19] gridExtra_2.3        compiler_4.0.4       git2r_0.28.0        
-[22] cli_2.4.0            rvest_1.0.0          xml2_1.3.2          
-[25] labeling_0.4.2       sass_0.3.1           scales_1.1.1        
-[28] proxy_0.4-25         digest_0.6.25        rmarkdown_2.7       
-[31] pkgconfig_2.0.3      htmltools_0.5.1.1    dbplyr_2.1.1        
-[34] htmlwidgets_1.5.3    rlang_0.4.10         readxl_1.3.1        
-[37] rstudioapi_0.13      jquerylib_0.1.3      farver_2.0.3        
-[40] generics_0.1.0       jsonlite_1.7.2       crosstalk_1.1.1     
-[43] ModelMetrics_1.2.2.2 magrittr_2.0.1       Matrix_1.2-18       
-[46] Rcpp_1.0.5           munsell_0.5.0        fansi_0.4.1         
-[49] lifecycle_1.0.0      pROC_1.17.0.1        stringi_1.5.3       
-[52] whisker_0.4          yaml_2.2.1           MASS_7.3-53         
-[55] plyr_1.8.6           recipes_0.1.16       grid_4.0.4          
-[58] promises_1.2.0.1     crayon_1.4.1         splines_4.0.4       
-[61] haven_2.3.1          hms_1.0.0            knitr_1.30          
-[64] pillar_1.6.0         ranger_0.12.1        stats4_4.0.4        
-[67] codetools_0.2-18     reprex_2.0.0         glue_1.4.2          
-[70] evaluate_0.14        data.table_1.13.0    modelr_0.1.8        
-[73] vctrs_0.3.7          httpuv_1.5.5         foreach_1.5.1       
-[76] cellranger_1.1.0     gtable_0.3.0         assertthat_0.2.1    
-[79] gower_0.2.2          xfun_0.18            prodlim_2019.11.13  
-[82] broom_0.7.6          later_1.1.0.1        survival_3.2-7      
-[85] class_7.3-17         viridisLite_0.4.0    timeDate_3043.102   
-[88] iterators_1.0.13     lava_1.6.9           workflowr_1.6.2     
-[91] ellipsis_0.3.1       ipred_0.9-10        </code></pre>
+[22] glmnet_4.1-1         cli_2.4.0            rvest_1.0.0         
+[25] xml2_1.3.2           labeling_0.4.2       sass_0.3.1          
+[28] scales_1.1.1         proxy_0.4-25         digest_0.6.25       
+[31] rmarkdown_2.7        pkgconfig_2.0.3      htmltools_0.5.1.1   
+[34] dbplyr_2.1.1         htmlwidgets_1.5.3    rlang_0.4.10        
+[37] readxl_1.3.1         rstudioapi_0.13      shape_1.4.5         
+[40] jquerylib_0.1.3      farver_2.0.3         generics_0.1.0      
+[43] jsonlite_1.7.2       crosstalk_1.1.1      ModelMetrics_1.2.2.2
+[46] magrittr_2.0.1       Matrix_1.2-18        Rcpp_1.0.5          
+[49] munsell_0.5.0        fansi_0.4.1          lifecycle_1.0.0     
+[52] pROC_1.17.0.1        stringi_1.5.3        whisker_0.4         
+[55] yaml_2.2.1           MASS_7.3-53          plyr_1.8.6          
+[58] recipes_0.1.16       grid_4.0.4           promises_1.2.0.1    
+[61] crayon_1.4.1         splines_4.0.4        haven_2.3.1         
+[64] hms_1.0.0            knitr_1.30           ps_1.6.0            
+[67] pillar_1.6.0         ranger_0.12.1        stats4_4.0.4        
+[70] codetools_0.2-18     reprex_2.0.0         glue_1.4.2          
+[73] evaluate_0.14        data.table_1.13.0    modelr_0.1.8        
+[76] vctrs_0.3.7          httpuv_1.5.5         foreach_1.5.1       
+[79] cellranger_1.1.0     gtable_0.3.0         assertthat_0.2.1    
+[82] gower_0.2.2          xfun_0.18            prodlim_2019.11.13  
+[85] broom_0.7.6          later_1.1.0.1        survival_3.2-7      
+[88] class_7.3-17         viridisLite_0.4.0    timeDate_3043.102   
+[91] iterators_1.0.13     lava_1.6.9           workflowr_1.6.2     
+[94] ellipsis_0.3.1       ipred_0.9-10        </code></pre>
+</div>
 </div>
 </div>
 
