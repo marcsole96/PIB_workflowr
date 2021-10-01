@@ -5,12 +5,11 @@ editor_options:
   chunk_output_type: console
 ---
 
-
+# Setup
 ```{r}
 #setwd("../PIB_workflowr/data")
 getwd()
 ```
-
 
 ```{r}
 library(tidyverse)
@@ -20,6 +19,7 @@ library(Rtsne)
 library(reshape2)
 theme_set(theme_minimal())
 ```
+
 
 # CONTRACT REGION OF INTERESTED EXPORTS
 
@@ -70,6 +70,7 @@ colnames(p3_initials_II) <- c("spectrum", "P3 II Intensity")
 colnames(p3_initials_III) <- c("spectrum", "P3 III Intensity")
 
 ```
+
 
 # INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS
 
@@ -198,6 +199,7 @@ colnames(sq_no3_ROI3) <- c("spectrum", "SQ 3 ROI3 Intensity")
 
 ```
 
+
 # STRIKES ANALYSIS (I TEST SET)-ROI EXPORTS
 
 ```{r}
@@ -222,6 +224,7 @@ colnames(strike5) <- c("spectrum", "strike5 Intensity")
 colnames(strike6) <- c("spectrum", "strike6 Intensity")
 
 ```
+
 
 # Datasets compilation
 
@@ -264,6 +267,7 @@ Training data 2
 test<-melt(training_data3, id="spectrum")
 ggplot(test, aes(spectrum,value,colour=variable)) + geom_point()
 ```
+
 
 # PCAs
 
@@ -462,6 +466,7 @@ ggplot(lowd_map, aes(x= X1, y = X2)) + ggtitle("tSNE") +
   geom_text(aes(label = label, color = label,vjust = -0.4,hjust = -0.1),size=4,position=position_jitter(width=15,height=15)) + geom_point(aes(color = label), alpha = 0.5)
 ```
 
+
 # Merge train_data on a single DF:
 
 We have 3 DFs containging training_data
@@ -525,6 +530,7 @@ test<-training_DF
 ```
 
 
+
 # PCA of training data
 Now we could do a PCA from the whole data
 ```{r}
@@ -562,6 +568,7 @@ fig <- fig %>% layout(scene = list(xaxis = list(title = 'PC1'),
 
 fig
 ```
+
 
 # Model from PCA training Data:
 
@@ -610,12 +617,79 @@ training_y <- training_set$labels
 
 car_ranger <- train(x = training_x, 
              y = training_y, 
-        method = "ranger",
+        method = "glmnet",
      trControl = trControl
     )
 
 print(car_ranger)
 predicted<- predict(car_ranger, newdata = test_set[,-1])
+
+predicted
+```
+
+
+
+
+
+
+
+
+
+
+```{r}
+#Cleanup
+rm(car_ranger,dat_3d,data,fig,lowd_map,pca,pca_res,pr.out, t_training_data1, t_training_data2, t_training_data3, test, test_pca, test_set, training_data1, training_data2, training_data3,training_set, training_x,trControl,tsne, avector, labels, names, predicted, training_y,var_explained)
+
+```
+
+
+
+# Caret model not using PCAs 
+## Preparing the test_data
+```{r}
+#For the test data we should use the test_data
+#For the training data we should use the training_DF
+
+#(work in progress, I have to remember how this was done :/ )
+
+#Get a dataframe with the values that will be used to predict
+#First step, transpose the data: 
+t_test_data<-as.data.frame(t(test_data[-1]))
+names(t_test_data)<-test_data$spectrum
+t_test_data$labels=row.names(t_test_data)
+#removing the row headers
+rownames(t_test_data)<-c()
+#moving labels to the beginning
+t_test_data<-t_test_data %>% 
+  select(labels, everything())
+t_test_data<-t_test_data %>% replace(1,c("strike1","strike2","strike3","strike4","strike5","strike6"))
+head(select(t_test_data,1:5))
+
+test_data<-t_test_data
+
+rm(t_test_data)
+```
+
+
+
+##Caret model
+```{r}
+training_x <- training_DF %>% select(-labels) %>% as.data.frame()
+training_y <- training_DF$labels
+
+trControl <- trainControl(method = "repeatedcv", number = 5, repeats = 3, verboseIter = T)
+
+fit <- train(x = training_x, 
+             y = training_y, 
+        method = "ranger",
+     trControl = trControl
+    )
+
+print(fit)
+
+ggplot(fit)
+
+predicted<- predict(fit, newdata = test_data[,-1])
 
 predicted
 ```
