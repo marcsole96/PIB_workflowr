@@ -681,7 +681,7 @@ trControl <- trainControl(method = "repeatedcv", number = 5, repeats = 3, verbos
 
 fit <- train(x = training_x, 
              y = training_y, 
-        method = "ranger",
+        method = "glmnet",
      trControl = trControl
     )
 
