@@ -482,16 +482,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtree83574fd1116c152a3c7c0a7c9a9f17b206e3a95dtargetblank83574fda"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/marcsole96/PIB_workflowr/tree/83574fd1116c152a3c7c0a7c9a9f17b206e3a95d" target="_blank">83574fd</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtree02a1d67d6692a3968a4a4964e7a29a83c39e2ff5targetblank02a1d67a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/marcsole96/PIB_workflowr/tree/02a1d67d6692a3968a4a4964e7a29a83c39e2ff5" target="_blank">02a1d67</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtree83574fd1116c152a3c7c0a7c9a9f17b206e3a95dtargetblank83574fda" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtree02a1d67d6692a3968a4a4964e7a29a83c39e2ff5targetblank02a1d67a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/marcsole96/PIB_workflowr/tree/83574fd1116c152a3c7c0a7c9a9f17b206e3a95d" target="_blank">83574fd</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/marcsole96/PIB_workflowr/tree/02a1d67d6692a3968a4a4964e7a29a83c39e2ff5" target="_blank">02a1d67</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -544,6 +544,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/marcsole96/PIB_workflowr/blob/02a1d67d6692a3968a4a4964e7a29a83c39e2ff5/analysis/PiB.Rmd" target="_blank">02a1d67</a>
+</td>
+<td>
+marcsole96
+</td>
+<td>
+2021-10-12
+</td>
+<td>
+hidden code, made plots of probability, made lasso
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/marcsole96/PIB_workflowr/8a1e0b15e0194844831b340a8693d61cb586b594/docs/PiB.html" target="_blank">8a1e0b1</a>
+</td>
+<td>
+marcsole96
+</td>
+<td>
+2021-10-12
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -1398,16 +1432,9 @@ head(select(t_test_data,1:5))</code></pre>
 <pre class="r"><code>test&lt;-t_test_data[-1]
 
 
-library(caret)</code></pre>
-<pre><code>Loading required package: lattice</code></pre>
-<pre><code>
-Attaching package: &#39;caret&#39;</code></pre>
-<pre><code>The following object is masked from &#39;package:purrr&#39;:
-
-    lift</code></pre>
-<pre class="r"><code>library(e1071)</code></pre>
-<pre><code>Warning: package &#39;e1071&#39; was built under R version 4.0.5</code></pre>
-<pre class="r"><code>pca = preProcess(x = training_DF[,c(-1,-4502)], method = &quot;pca&quot;, pcaComp = 35)
+library(caret)
+library(e1071)
+pca = preProcess(x = training_DF[,c(-1,-4502)], method = &quot;pca&quot;, pcaComp = 35)
 training_set &lt;- predict(pca, training_DF[-4502])
 # put customer segment in to the last postion or column
 #training_set &lt;- simple_train_DF[c(2,3,1)]
@@ -1429,283 +1456,9 @@ car_ranger &lt;- train(x = training_x,
              y = training_y, 
         method = &quot;glmnet&quot;,
      trControl = trControl
-    )</code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
+    )
 
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground
-
-Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>Warning in nominalTrainWorkflow(x = x, y = y, wts = weights, info = trainInfo, :
-There were missing values in resampled performance measures.</code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre class="r"><code>print(car_ranger)</code></pre>
+print(car_ranger)</code></pre>
 <pre><code>glmnet 
 
 35 samples
@@ -1781,313 +1534,159 @@ fit &lt;- train(x = training_x,
         tuneLength = 5,
      trControl = trControl
     )</code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>+ Fold1.Rep1: alpha=0.100, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold1.Rep1: alpha=0.100, lambda=0.3244 
-+ Fold1.Rep1: alpha=0.325, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold1.Rep1: alpha=0.325, lambda=0.3244 
-+ Fold1.Rep1: alpha=0.550, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold1.Rep1: alpha=0.550, lambda=0.3244 
-+ Fold1.Rep1: alpha=0.775, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold1.Rep1: alpha=0.775, lambda=0.3244 
-+ Fold1.Rep1: alpha=1.000, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold1.Rep1: alpha=1.000, lambda=0.3244 
-+ Fold2.Rep1: alpha=0.100, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold2.Rep1: alpha=0.100, lambda=0.3244 
-+ Fold2.Rep1: alpha=0.325, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold2.Rep1: alpha=0.325, lambda=0.3244 
-+ Fold2.Rep1: alpha=0.550, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold2.Rep1: alpha=0.550, lambda=0.3244 
-+ Fold2.Rep1: alpha=0.775, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold2.Rep1: alpha=0.775, lambda=0.3244 
-+ Fold2.Rep1: alpha=1.000, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold2.Rep1: alpha=1.000, lambda=0.3244 
-+ Fold3.Rep1: alpha=0.100, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold3.Rep1: alpha=0.100, lambda=0.3244 
-+ Fold3.Rep1: alpha=0.325, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold3.Rep1: alpha=0.325, lambda=0.3244 
-+ Fold3.Rep1: alpha=0.550, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold3.Rep1: alpha=0.550, lambda=0.3244 
-+ Fold3.Rep1: alpha=0.775, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold3.Rep1: alpha=0.775, lambda=0.3244 
-+ Fold3.Rep1: alpha=1.000, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold3.Rep1: alpha=1.000, lambda=0.3244 
-+ Fold4.Rep1: alpha=0.100, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold4.Rep1: alpha=0.100, lambda=0.3244 
-+ Fold4.Rep1: alpha=0.325, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold4.Rep1: alpha=0.325, lambda=0.3244 
-+ Fold4.Rep1: alpha=0.550, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold4.Rep1: alpha=0.550, lambda=0.3244 
-+ Fold4.Rep1: alpha=0.775, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold4.Rep1: alpha=0.775, lambda=0.3244 
-+ Fold4.Rep1: alpha=1.000, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold4.Rep1: alpha=1.000, lambda=0.3244 
-+ Fold5.Rep1: alpha=0.100, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold5.Rep1: alpha=0.100, lambda=0.3244 
-+ Fold5.Rep1: alpha=0.325, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold5.Rep1: alpha=0.325, lambda=0.3244 
-+ Fold5.Rep1: alpha=0.550, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold5.Rep1: alpha=0.550, lambda=0.3244 
-+ Fold5.Rep1: alpha=0.775, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold5.Rep1: alpha=0.775, lambda=0.3244 
-+ Fold5.Rep1: alpha=1.000, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold5.Rep1: alpha=1.000, lambda=0.3244 
-+ Fold1.Rep2: alpha=0.100, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold1.Rep2: alpha=0.100, lambda=0.3244 
-+ Fold1.Rep2: alpha=0.325, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold1.Rep2: alpha=0.325, lambda=0.3244 
-+ Fold1.Rep2: alpha=0.550, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold1.Rep2: alpha=0.550, lambda=0.3244 
-+ Fold1.Rep2: alpha=0.775, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold1.Rep2: alpha=0.775, lambda=0.3244 
-+ Fold1.Rep2: alpha=1.000, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold1.Rep2: alpha=1.000, lambda=0.3244 
-+ Fold2.Rep2: alpha=0.100, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold2.Rep2: alpha=0.100, lambda=0.3244 
-+ Fold2.Rep2: alpha=0.325, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold2.Rep2: alpha=0.325, lambda=0.3244 
-+ Fold2.Rep2: alpha=0.550, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold2.Rep2: alpha=0.550, lambda=0.3244 
-+ Fold2.Rep2: alpha=0.775, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold2.Rep2: alpha=0.775, lambda=0.3244 
-+ Fold2.Rep2: alpha=1.000, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold2.Rep2: alpha=1.000, lambda=0.3244 
-+ Fold3.Rep2: alpha=0.100, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold3.Rep2: alpha=0.100, lambda=0.3244 
-+ Fold3.Rep2: alpha=0.325, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold3.Rep2: alpha=0.325, lambda=0.3244 
-+ Fold3.Rep2: alpha=0.550, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold3.Rep2: alpha=0.550, lambda=0.3244 
-+ Fold3.Rep2: alpha=0.775, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold3.Rep2: alpha=0.775, lambda=0.3244 
-+ Fold3.Rep2: alpha=1.000, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold3.Rep2: alpha=1.000, lambda=0.3244 
-+ Fold4.Rep2: alpha=0.100, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold4.Rep2: alpha=0.100, lambda=0.3244 
-+ Fold4.Rep2: alpha=0.325, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold4.Rep2: alpha=0.325, lambda=0.3244 
-+ Fold4.Rep2: alpha=0.550, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold4.Rep2: alpha=0.550, lambda=0.3244 
-+ Fold4.Rep2: alpha=0.775, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold4.Rep2: alpha=0.775, lambda=0.3244 
-+ Fold4.Rep2: alpha=1.000, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold4.Rep2: alpha=1.000, lambda=0.3244 
-+ Fold5.Rep2: alpha=0.100, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold5.Rep2: alpha=0.100, lambda=0.3244 
-+ Fold5.Rep2: alpha=0.325, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold5.Rep2: alpha=0.325, lambda=0.3244 
-+ Fold5.Rep2: alpha=0.550, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold5.Rep2: alpha=0.550, lambda=0.3244 
-+ Fold5.Rep2: alpha=0.775, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold5.Rep2: alpha=0.775, lambda=0.3244 
-+ Fold5.Rep2: alpha=1.000, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold5.Rep2: alpha=1.000, lambda=0.3244 
-+ Fold1.Rep3: alpha=0.100, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold1.Rep3: alpha=0.100, lambda=0.3244 
-+ Fold1.Rep3: alpha=0.325, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold1.Rep3: alpha=0.325, lambda=0.3244 
-+ Fold1.Rep3: alpha=0.550, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold1.Rep3: alpha=0.550, lambda=0.3244 
-+ Fold1.Rep3: alpha=0.775, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold1.Rep3: alpha=0.775, lambda=0.3244 
-+ Fold1.Rep3: alpha=1.000, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold1.Rep3: alpha=1.000, lambda=0.3244 
-+ Fold2.Rep3: alpha=0.100, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold2.Rep3: alpha=0.100, lambda=0.3244 
-+ Fold2.Rep3: alpha=0.325, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold2.Rep3: alpha=0.325, lambda=0.3244 
-+ Fold2.Rep3: alpha=0.550, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold2.Rep3: alpha=0.550, lambda=0.3244 
-+ Fold2.Rep3: alpha=0.775, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold2.Rep3: alpha=0.775, lambda=0.3244 
-+ Fold2.Rep3: alpha=1.000, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold2.Rep3: alpha=1.000, lambda=0.3244 
-+ Fold3.Rep3: alpha=0.100, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold3.Rep3: alpha=0.100, lambda=0.3244 
-+ Fold3.Rep3: alpha=0.325, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold3.Rep3: alpha=0.325, lambda=0.3244 
-+ Fold3.Rep3: alpha=0.550, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold3.Rep3: alpha=0.550, lambda=0.3244 
-+ Fold3.Rep3: alpha=0.775, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold3.Rep3: alpha=0.775, lambda=0.3244 
-+ Fold3.Rep3: alpha=1.000, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold3.Rep3: alpha=1.000, lambda=0.3244 
-+ Fold4.Rep3: alpha=0.100, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold4.Rep3: alpha=0.100, lambda=0.3244 
-+ Fold4.Rep3: alpha=0.325, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold4.Rep3: alpha=0.325, lambda=0.3244 
-+ Fold4.Rep3: alpha=0.550, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold4.Rep3: alpha=0.550, lambda=0.3244 
-+ Fold4.Rep3: alpha=0.775, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold4.Rep3: alpha=0.775, lambda=0.3244 
-+ Fold4.Rep3: alpha=1.000, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold4.Rep3: alpha=1.000, lambda=0.3244 
-+ Fold5.Rep3: alpha=0.100, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold5.Rep3: alpha=0.100, lambda=0.3244 
-+ Fold5.Rep3: alpha=0.325, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold5.Rep3: alpha=0.325, lambda=0.3244 
-+ Fold5.Rep3: alpha=0.550, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold5.Rep3: alpha=0.550, lambda=0.3244 
-+ Fold5.Rep3: alpha=0.775, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold5.Rep3: alpha=0.775, lambda=0.3244 
-+ Fold5.Rep3: alpha=1.000, lambda=0.3244 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold5.Rep3: alpha=1.000, lambda=0.3244 
+<pre><code>+ Fold1.Rep1: alpha=0.100, lambda=0.3244 
+- Fold1.Rep1: alpha=0.100, lambda=0.3244 
++ Fold1.Rep1: alpha=0.325, lambda=0.3244 
+- Fold1.Rep1: alpha=0.325, lambda=0.3244 
++ Fold1.Rep1: alpha=0.550, lambda=0.3244 
+- Fold1.Rep1: alpha=0.550, lambda=0.3244 
++ Fold1.Rep1: alpha=0.775, lambda=0.3244 
+- Fold1.Rep1: alpha=0.775, lambda=0.3244 
++ Fold1.Rep1: alpha=1.000, lambda=0.3244 
+- Fold1.Rep1: alpha=1.000, lambda=0.3244 
++ Fold2.Rep1: alpha=0.100, lambda=0.3244 
+- Fold2.Rep1: alpha=0.100, lambda=0.3244 
++ Fold2.Rep1: alpha=0.325, lambda=0.3244 
+- Fold2.Rep1: alpha=0.325, lambda=0.3244 
++ Fold2.Rep1: alpha=0.550, lambda=0.3244 
+- Fold2.Rep1: alpha=0.550, lambda=0.3244 
++ Fold2.Rep1: alpha=0.775, lambda=0.3244 
+- Fold2.Rep1: alpha=0.775, lambda=0.3244 
++ Fold2.Rep1: alpha=1.000, lambda=0.3244 
+- Fold2.Rep1: alpha=1.000, lambda=0.3244 
++ Fold3.Rep1: alpha=0.100, lambda=0.3244 
+- Fold3.Rep1: alpha=0.100, lambda=0.3244 
++ Fold3.Rep1: alpha=0.325, lambda=0.3244 
+- Fold3.Rep1: alpha=0.325, lambda=0.3244 
++ Fold3.Rep1: alpha=0.550, lambda=0.3244 
+- Fold3.Rep1: alpha=0.550, lambda=0.3244 
++ Fold3.Rep1: alpha=0.775, lambda=0.3244 
+- Fold3.Rep1: alpha=0.775, lambda=0.3244 
++ Fold3.Rep1: alpha=1.000, lambda=0.3244 
+- Fold3.Rep1: alpha=1.000, lambda=0.3244 
++ Fold4.Rep1: alpha=0.100, lambda=0.3244 
+- Fold4.Rep1: alpha=0.100, lambda=0.3244 
++ Fold4.Rep1: alpha=0.325, lambda=0.3244 
+- Fold4.Rep1: alpha=0.325, lambda=0.3244 
++ Fold4.Rep1: alpha=0.550, lambda=0.3244 
+- Fold4.Rep1: alpha=0.550, lambda=0.3244 
++ Fold4.Rep1: alpha=0.775, lambda=0.3244 
+- Fold4.Rep1: alpha=0.775, lambda=0.3244 
++ Fold4.Rep1: alpha=1.000, lambda=0.3244 
+- Fold4.Rep1: alpha=1.000, lambda=0.3244 
++ Fold5.Rep1: alpha=0.100, lambda=0.3244 
+- Fold5.Rep1: alpha=0.100, lambda=0.3244 
++ Fold5.Rep1: alpha=0.325, lambda=0.3244 
+- Fold5.Rep1: alpha=0.325, lambda=0.3244 
++ Fold5.Rep1: alpha=0.550, lambda=0.3244 
+- Fold5.Rep1: alpha=0.550, lambda=0.3244 
++ Fold5.Rep1: alpha=0.775, lambda=0.3244 
+- Fold5.Rep1: alpha=0.775, lambda=0.3244 
++ Fold5.Rep1: alpha=1.000, lambda=0.3244 
+- Fold5.Rep1: alpha=1.000, lambda=0.3244 
++ Fold1.Rep2: alpha=0.100, lambda=0.3244 
+- Fold1.Rep2: alpha=0.100, lambda=0.3244 
++ Fold1.Rep2: alpha=0.325, lambda=0.3244 
+- Fold1.Rep2: alpha=0.325, lambda=0.3244 
++ Fold1.Rep2: alpha=0.550, lambda=0.3244 
+- Fold1.Rep2: alpha=0.550, lambda=0.3244 
++ Fold1.Rep2: alpha=0.775, lambda=0.3244 
+- Fold1.Rep2: alpha=0.775, lambda=0.3244 
++ Fold1.Rep2: alpha=1.000, lambda=0.3244 
+- Fold1.Rep2: alpha=1.000, lambda=0.3244 
++ Fold2.Rep2: alpha=0.100, lambda=0.3244 
+- Fold2.Rep2: alpha=0.100, lambda=0.3244 
++ Fold2.Rep2: alpha=0.325, lambda=0.3244 
+- Fold2.Rep2: alpha=0.325, lambda=0.3244 
++ Fold2.Rep2: alpha=0.550, lambda=0.3244 
+- Fold2.Rep2: alpha=0.550, lambda=0.3244 
++ Fold2.Rep2: alpha=0.775, lambda=0.3244 
+- Fold2.Rep2: alpha=0.775, lambda=0.3244 
++ Fold2.Rep2: alpha=1.000, lambda=0.3244 
+- Fold2.Rep2: alpha=1.000, lambda=0.3244 
++ Fold3.Rep2: alpha=0.100, lambda=0.3244 
+- Fold3.Rep2: alpha=0.100, lambda=0.3244 
++ Fold3.Rep2: alpha=0.325, lambda=0.3244 
+- Fold3.Rep2: alpha=0.325, lambda=0.3244 
++ Fold3.Rep2: alpha=0.550, lambda=0.3244 
+- Fold3.Rep2: alpha=0.550, lambda=0.3244 
++ Fold3.Rep2: alpha=0.775, lambda=0.3244 
+- Fold3.Rep2: alpha=0.775, lambda=0.3244 
++ Fold3.Rep2: alpha=1.000, lambda=0.3244 
+- Fold3.Rep2: alpha=1.000, lambda=0.3244 
++ Fold4.Rep2: alpha=0.100, lambda=0.3244 
+- Fold4.Rep2: alpha=0.100, lambda=0.3244 
++ Fold4.Rep2: alpha=0.325, lambda=0.3244 
+- Fold4.Rep2: alpha=0.325, lambda=0.3244 
++ Fold4.Rep2: alpha=0.550, lambda=0.3244 
+- Fold4.Rep2: alpha=0.550, lambda=0.3244 
++ Fold4.Rep2: alpha=0.775, lambda=0.3244 
+- Fold4.Rep2: alpha=0.775, lambda=0.3244 
++ Fold4.Rep2: alpha=1.000, lambda=0.3244 
+- Fold4.Rep2: alpha=1.000, lambda=0.3244 
++ Fold5.Rep2: alpha=0.100, lambda=0.3244 
+- Fold5.Rep2: alpha=0.100, lambda=0.3244 
++ Fold5.Rep2: alpha=0.325, lambda=0.3244 
+- Fold5.Rep2: alpha=0.325, lambda=0.3244 
++ Fold5.Rep2: alpha=0.550, lambda=0.3244 
+- Fold5.Rep2: alpha=0.550, lambda=0.3244 
++ Fold5.Rep2: alpha=0.775, lambda=0.3244 
+- Fold5.Rep2: alpha=0.775, lambda=0.3244 
++ Fold5.Rep2: alpha=1.000, lambda=0.3244 
+- Fold5.Rep2: alpha=1.000, lambda=0.3244 
++ Fold1.Rep3: alpha=0.100, lambda=0.3244 
+- Fold1.Rep3: alpha=0.100, lambda=0.3244 
++ Fold1.Rep3: alpha=0.325, lambda=0.3244 
+- Fold1.Rep3: alpha=0.325, lambda=0.3244 
++ Fold1.Rep3: alpha=0.550, lambda=0.3244 
+- Fold1.Rep3: alpha=0.550, lambda=0.3244 
++ Fold1.Rep3: alpha=0.775, lambda=0.3244 
+- Fold1.Rep3: alpha=0.775, lambda=0.3244 
++ Fold1.Rep3: alpha=1.000, lambda=0.3244 
+- Fold1.Rep3: alpha=1.000, lambda=0.3244 
++ Fold2.Rep3: alpha=0.100, lambda=0.3244 
+- Fold2.Rep3: alpha=0.100, lambda=0.3244 
++ Fold2.Rep3: alpha=0.325, lambda=0.3244 
+- Fold2.Rep3: alpha=0.325, lambda=0.3244 
++ Fold2.Rep3: alpha=0.550, lambda=0.3244 
+- Fold2.Rep3: alpha=0.550, lambda=0.3244 
++ Fold2.Rep3: alpha=0.775, lambda=0.3244 
+- Fold2.Rep3: alpha=0.775, lambda=0.3244 
++ Fold2.Rep3: alpha=1.000, lambda=0.3244 
+- Fold2.Rep3: alpha=1.000, lambda=0.3244 
++ Fold3.Rep3: alpha=0.100, lambda=0.3244 
+- Fold3.Rep3: alpha=0.100, lambda=0.3244 
++ Fold3.Rep3: alpha=0.325, lambda=0.3244 
+- Fold3.Rep3: alpha=0.325, lambda=0.3244 
++ Fold3.Rep3: alpha=0.550, lambda=0.3244 
+- Fold3.Rep3: alpha=0.550, lambda=0.3244 
++ Fold3.Rep3: alpha=0.775, lambda=0.3244 
+- Fold3.Rep3: alpha=0.775, lambda=0.3244 
++ Fold3.Rep3: alpha=1.000, lambda=0.3244 
+- Fold3.Rep3: alpha=1.000, lambda=0.3244 
++ Fold4.Rep3: alpha=0.100, lambda=0.3244 
+- Fold4.Rep3: alpha=0.100, lambda=0.3244 
++ Fold4.Rep3: alpha=0.325, lambda=0.3244 
+- Fold4.Rep3: alpha=0.325, lambda=0.3244 
++ Fold4.Rep3: alpha=0.550, lambda=0.3244 
+- Fold4.Rep3: alpha=0.550, lambda=0.3244 
++ Fold4.Rep3: alpha=0.775, lambda=0.3244 
+- Fold4.Rep3: alpha=0.775, lambda=0.3244 
++ Fold4.Rep3: alpha=1.000, lambda=0.3244 
+- Fold4.Rep3: alpha=1.000, lambda=0.3244 
++ Fold5.Rep3: alpha=0.100, lambda=0.3244 
+- Fold5.Rep3: alpha=0.100, lambda=0.3244 
++ Fold5.Rep3: alpha=0.325, lambda=0.3244 
+- Fold5.Rep3: alpha=0.325, lambda=0.3244 
++ Fold5.Rep3: alpha=0.550, lambda=0.3244 
+- Fold5.Rep3: alpha=0.550, lambda=0.3244 
++ Fold5.Rep3: alpha=0.775, lambda=0.3244 
+- Fold5.Rep3: alpha=0.775, lambda=0.3244 
++ Fold5.Rep3: alpha=1.000, lambda=0.3244 
+- Fold5.Rep3: alpha=1.000, lambda=0.3244 
 Aggregating results
 Selecting tuning parameters
 Fitting alpha = 0.1, lambda = 0.151 on full training set</code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
 <pre class="r"><code>print(fit)</code></pre>
 <pre><code>glmnet 
 
@@ -2166,7 +1765,7 @@ strike6&lt;-toplot %&gt;% select(strike6,pens) %&gt;% ggplot(aes(x=pens, y=strik
 ggarrange(strike1, strike2, strike3, strike4, strike5, strike6,
                     labels = c(&quot;strike1&quot;, &quot;strike2&quot;, &quot;strike3&quot;, &quot;strike4&quot;, &quot;strike5&quot;, &quot;strike6&quot;),
                     ncol = 3, nrow = 3)</code></pre>
-<p><img src="figure/PiB.Rmd/unnamed-chunk-42-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/PiB.Rmd/unnamed-chunk-42-1.png" width="960" style="display: block; margin: auto;" /></p>
 <p>##Caret model GLMNET Lasso (Alpha = 1) Lambda ranging from 0 to 1</p>
 <pre class="r"><code>training_x &lt;- training_DF %&gt;% select(-labels) %&gt;% as.data.frame()
 training_y &lt;- training_DF$labels
@@ -2182,151 +1781,79 @@ fit &lt;- train(x = training_x,
         tuneGrid = tuneGrid,
      trControl = trControl,
     )</code></pre>
-<pre><code>+ Fold01: alpha=1, lambda=1 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold01: alpha=1, lambda=1 
-+ Fold02: alpha=1, lambda=1 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold02: alpha=1, lambda=1 
-+ Fold03: alpha=1, lambda=1 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold03: alpha=1, lambda=1 
-+ Fold04: alpha=1, lambda=1 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold04: alpha=1, lambda=1 
-+ Fold05: alpha=1, lambda=1 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold05: alpha=1, lambda=1 
-+ Fold06: alpha=1, lambda=1 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold06: alpha=1, lambda=1 
-+ Fold07: alpha=1, lambda=1 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold07: alpha=1, lambda=1 
-+ Fold08: alpha=1, lambda=1 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold08: alpha=1, lambda=1 
-+ Fold09: alpha=1, lambda=1 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold09: alpha=1, lambda=1 
-+ Fold10: alpha=1, lambda=1 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold10: alpha=1, lambda=1 
-+ Fold11: alpha=1, lambda=1 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold11: alpha=1, lambda=1 
-+ Fold12: alpha=1, lambda=1 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold12: alpha=1, lambda=1 
-+ Fold13: alpha=1, lambda=1 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold13: alpha=1, lambda=1 
-+ Fold14: alpha=1, lambda=1 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold14: alpha=1, lambda=1 
-+ Fold15: alpha=1, lambda=1 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold15: alpha=1, lambda=1 
-+ Fold16: alpha=1, lambda=1 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold16: alpha=1, lambda=1 
-+ Fold17: alpha=1, lambda=1 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold17: alpha=1, lambda=1 
-+ Fold18: alpha=1, lambda=1 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold18: alpha=1, lambda=1 
-+ Fold19: alpha=1, lambda=1 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold19: alpha=1, lambda=1 
-+ Fold20: alpha=1, lambda=1 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold20: alpha=1, lambda=1 
-+ Fold21: alpha=1, lambda=1 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold21: alpha=1, lambda=1 
-+ Fold22: alpha=1, lambda=1 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold22: alpha=1, lambda=1 
-+ Fold23: alpha=1, lambda=1 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold23: alpha=1, lambda=1 
-+ Fold24: alpha=1, lambda=1 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold24: alpha=1, lambda=1 
-+ Fold25: alpha=1, lambda=1 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold25: alpha=1, lambda=1 
-+ Fold26: alpha=1, lambda=1 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold26: alpha=1, lambda=1 
-+ Fold27: alpha=1, lambda=1 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold27: alpha=1, lambda=1 
-+ Fold28: alpha=1, lambda=1 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold28: alpha=1, lambda=1 
-+ Fold29: alpha=1, lambda=1 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold29: alpha=1, lambda=1 
-+ Fold30: alpha=1, lambda=1 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold30: alpha=1, lambda=1 
-+ Fold31: alpha=1, lambda=1 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold31: alpha=1, lambda=1 
-+ Fold32: alpha=1, lambda=1 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold32: alpha=1, lambda=1 
-+ Fold33: alpha=1, lambda=1 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold33: alpha=1, lambda=1 
-+ Fold34: alpha=1, lambda=1 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold34: alpha=1, lambda=1 
-+ Fold35: alpha=1, lambda=1 </code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
-<pre><code>- Fold35: alpha=1, lambda=1 
+<pre><code>+ Fold01: alpha=1, lambda=1 
+- Fold01: alpha=1, lambda=1 
++ Fold02: alpha=1, lambda=1 
+- Fold02: alpha=1, lambda=1 
++ Fold03: alpha=1, lambda=1 
+- Fold03: alpha=1, lambda=1 
++ Fold04: alpha=1, lambda=1 
+- Fold04: alpha=1, lambda=1 
++ Fold05: alpha=1, lambda=1 
+- Fold05: alpha=1, lambda=1 
++ Fold06: alpha=1, lambda=1 
+- Fold06: alpha=1, lambda=1 
++ Fold07: alpha=1, lambda=1 
+- Fold07: alpha=1, lambda=1 
++ Fold08: alpha=1, lambda=1 
+- Fold08: alpha=1, lambda=1 
++ Fold09: alpha=1, lambda=1 
+- Fold09: alpha=1, lambda=1 
++ Fold10: alpha=1, lambda=1 
+- Fold10: alpha=1, lambda=1 
++ Fold11: alpha=1, lambda=1 
+- Fold11: alpha=1, lambda=1 
++ Fold12: alpha=1, lambda=1 
+- Fold12: alpha=1, lambda=1 
++ Fold13: alpha=1, lambda=1 
+- Fold13: alpha=1, lambda=1 
++ Fold14: alpha=1, lambda=1 
+- Fold14: alpha=1, lambda=1 
++ Fold15: alpha=1, lambda=1 
+- Fold15: alpha=1, lambda=1 
++ Fold16: alpha=1, lambda=1 
+- Fold16: alpha=1, lambda=1 
++ Fold17: alpha=1, lambda=1 
+- Fold17: alpha=1, lambda=1 
++ Fold18: alpha=1, lambda=1 
+- Fold18: alpha=1, lambda=1 
++ Fold19: alpha=1, lambda=1 
+- Fold19: alpha=1, lambda=1 
++ Fold20: alpha=1, lambda=1 
+- Fold20: alpha=1, lambda=1 
++ Fold21: alpha=1, lambda=1 
+- Fold21: alpha=1, lambda=1 
++ Fold22: alpha=1, lambda=1 
+- Fold22: alpha=1, lambda=1 
++ Fold23: alpha=1, lambda=1 
+- Fold23: alpha=1, lambda=1 
++ Fold24: alpha=1, lambda=1 
+- Fold24: alpha=1, lambda=1 
++ Fold25: alpha=1, lambda=1 
+- Fold25: alpha=1, lambda=1 
++ Fold26: alpha=1, lambda=1 
+- Fold26: alpha=1, lambda=1 
++ Fold27: alpha=1, lambda=1 
+- Fold27: alpha=1, lambda=1 
++ Fold28: alpha=1, lambda=1 
+- Fold28: alpha=1, lambda=1 
++ Fold29: alpha=1, lambda=1 
+- Fold29: alpha=1, lambda=1 
++ Fold30: alpha=1, lambda=1 
+- Fold30: alpha=1, lambda=1 
++ Fold31: alpha=1, lambda=1 
+- Fold31: alpha=1, lambda=1 
++ Fold32: alpha=1, lambda=1 
+- Fold32: alpha=1, lambda=1 
++ Fold33: alpha=1, lambda=1 
+- Fold33: alpha=1, lambda=1 
++ Fold34: alpha=1, lambda=1 
+- Fold34: alpha=1, lambda=1 
++ Fold35: alpha=1, lambda=1 
+- Fold35: alpha=1, lambda=1 
 Aggregating results
 Selecting tuning parameters
 Fitting alpha = 1, lambda = 0.071 on full training set</code></pre>
-<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
-multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
 <pre class="r"><code>print(fit)</code></pre>
 <pre><code>glmnet 
 
