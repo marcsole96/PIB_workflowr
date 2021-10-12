@@ -687,9 +687,9 @@ fit <- train(x = training_x,
      trControl = trControl
     )
 
-print(fit)
+#print(fit)
 
-ggplot(fit)
+#ggplot(fit)
 
 predicted<- predict(fit, newdata = test_data[,-1],type = "prob")
 ```
@@ -750,12 +750,46 @@ fit <- train(x = training_x,
      trControl = trControl,
     )
 
-print(fit)
+#print(fit)
 
-ggplot(fit)
+#ggplot(fit)
 
-(predicted<- predict(fit, newdata = test_data[,-1],type = "prob"))
-(predicted<- predict(fit, newdata = test_data[,-1]))
-
+predicted<- predict(fit, newdata = test_data[,-1],type = "prob")
 ```
 
+### Plots
+```{r fig.width=10,fig.height=11,message=FALSE, warning=FALSE}
+
+toplot<-as.data.frame(t(predicted))
+names(toplot)<-c("strike1","strike2","strike3","strike4","strike5","strike6")
+toplot<-toplot %>% mutate(pens=row.names(toplot))
+
+strike1<-toplot %>% select(strike1,pens) %>% ggplot(aes(x=pens, y=strike1, fill=pens)) +
+  geom_bar(stat="identity",position=position_stack())+
+  scale_fill_brewer(palette="Accent")
+
+strike2<-toplot %>% select(strike2,pens) %>% ggplot(aes(x=pens, y=strike2, fill=pens)) +
+  geom_bar(stat="identity",position=position_stack())+
+  scale_fill_brewer(palette="Accent")
+
+strike3<-toplot %>% select(strike3,pens) %>% ggplot(aes(x=pens, y=strike3, fill=pens)) +
+  geom_bar(stat="identity",position=position_stack())+
+  scale_fill_brewer(palette="Accent")
+
+strike4<-toplot %>% select(strike4,pens) %>% ggplot(aes(x=pens, y=strike4, fill=pens)) +
+  geom_bar(stat="identity",position=position_stack())+
+  scale_fill_brewer(palette="Accent")
+
+strike5<-toplot %>% select(strike5,pens) %>% ggplot(aes(x=pens, y=strike5, fill=pens)) +
+  geom_bar(stat="identity",position=position_stack())+
+  scale_fill_brewer(palette="Accent")
+
+strike6<-toplot %>% select(strike6,pens) %>% ggplot(aes(x=pens, y=strike6, fill=pens)) +
+  geom_bar(stat="identity",position=position_stack())+
+  scale_fill_brewer(palette="Accent")
+
+
+ggarrange(strike1, strike2, strike3, strike4, strike5, strike6,
+                    labels = c("strike1", "strike2", "strike3", "strike4", "strike5", "strike6"),
+                    ncol = 3, nrow = 3)
+```
