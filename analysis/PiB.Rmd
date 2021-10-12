@@ -6,17 +6,18 @@ editor_options:
 ---
 
 # Setup
-```{r}
+```{r include=FALSE}
 #setwd("../PIB_workflowr/data")
 getwd()
 ```
 
-```{r}
+```{r include=FALSE}
 library(tidyverse)
 library(ggplot2)
 library(ggfortify)
 library(Rtsne)
 library(reshape2)
+library(ggpubr)
 theme_set(theme_minimal())
 ```
 
@@ -25,7 +26,7 @@ theme_set(theme_minimal())
 
 ## Page 1 contract exports
 
-```{r}
+```{r include=FALSE}
 
 p1_initials_II <- read.table(file = "CONTRACT REGION OF INTERESTED EXPORTS/Page 1 contract exports/190910,21h19_II initials page 1.txt", sep = "")
 
@@ -41,7 +42,7 @@ colnames(p1_initials_III) <- c("spectrum", "P1_III_Intensity")
 
 ## Page 2 contract exports
 
-```{r}
+```{r include=FALSE}
 
 p2_initials_II <- read.table(file = "CONTRACT REGION OF INTERESTED EXPORTS/Page 2 contract exports/190910,23h44_II initials page 2.txt", sep = "")
 
@@ -57,7 +58,7 @@ colnames(p2_initials_III) <- c("spectrum", "P2 III Intensity")
 
 ## Page 3 contract export
 
-```{r}
+```{r include=FALSE}
 
 p3_initials_II <- read.table(file = "CONTRACT REGION OF INTERESTED EXPORTS/Page 3 contract export/190910,01h50_II initials signature page 3.txt", sep = "")
 
@@ -76,7 +77,7 @@ colnames(p3_initials_III) <- c("spectrum", "P3 III Intensity")
 
 ## full squares
 
-```{r}
+```{r include=FALSE}
 
 sq1_under_no1 <- read.table(file = "INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/full squares/Full square 1 underneat number 1.txt", sep = "")
 
@@ -104,7 +105,7 @@ colnames(sq2_under_no3) <- c("spectrum", "SQ2 U3 Intensity")
 
 ## numbers
 
-```{r}
+```{r include=FALSE}
 
 sq_no2 <- read.table(file = "INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/numbers/squares analysis_number 2.txt", sep = "")
 
@@ -132,7 +133,7 @@ colnames(sq_no6) <- c("spectrum", "SQ 6 Intensity")
 
 ## split squares_each square 3 ROI
 
-```{r}
+```{r include=FALSE}
 
 # square II under no1
 sqII_no1_ROI1 <- read.table(file = "INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/II square ink under number 1_ROI1.txt", sep = "")
@@ -202,7 +203,7 @@ colnames(sq_no3_ROI3) <- c("spectrum", "SQ 3 ROI3 Intensity")
 
 # STRIKES ANALYSIS (I TEST SET)-ROI EXPORTS
 
-```{r}
+```{r include=FALSE}
 
 strike1 <- read.table(file = "STRIKES ANALYSIS (I TEST SET)-ROI EXPORTS/strike 1.txt", sep = "")
 
@@ -228,7 +229,7 @@ colnames(strike6) <- c("spectrum", "strike6 Intensity")
 
 # Datasets compilation
 
-```{r}
+```{r include=FALSE}
 
 test_data <- cbind(strike1, strike2[2], strike3[2], strike4[2], strike5[2], strike6[2])
 training_data1 <- cbind(sq1_under_no1, sq2_under_no1[2], sq1_under_no2[2], sq2_under_no2[2], sq1_under_no3[2], sq2_under_no3[2], sq_beside_no4[2])
@@ -242,28 +243,28 @@ rm(strike1,strike2,strike3,strike4,strike5,strike6,sq1_under_no1,sq2_under_no1,s
 
 Testdata
 
-```{r}
+```{r include=FALSE}
 test<-melt(test_data, id="spectrum")
 ggplot(test, aes(spectrum,value,colour=variable)) + geom_point()
 ```
 
 Training data 1
 
-```{r}
+```{r include=FALSE}
 test<-melt(training_data1, id="spectrum")
 ggplot(test, aes(spectrum,value,colour=variable)) + geom_point()
 ```
 
 Training data 2
 
-```{r}
+```{r include=FALSE}
 test<-melt(training_data2, id="spectrum")
 ggplot(test, aes(spectrum,value,colour=variable)) + geom_point()
 ```
 
 Training data 2
 
-```{r}
+```{r include=FALSE}
 test<-melt(training_data3, id="spectrum")
 ggplot(test, aes(spectrum,value,colour=variable)) + geom_point()
 ```
@@ -274,7 +275,7 @@ ggplot(test, aes(spectrum,value,colour=variable)) + geom_point()
 ## Test_data
 
 ## Test by transposing the data
-```{r}
+```{r include=FALSE}
 t_test_data<-as.data.frame(t(test_data[-1]))
 names(t_test_data)<-test_data$spectrum
 t_test_data$labels=row.names(t_test_data)
@@ -300,7 +301,7 @@ pr.out$x %>%
 
 ## Test by NOT transposing the data
 
-```{r}
+```{r include=FALSE}
 data <- test_data %>%
   select(-spectrum)
 names=names(test_data[-1])
@@ -310,14 +311,14 @@ names=names(test_data[-1])
 
 Changing the columns so they are rows:
 
-```{r}
+```{r include=FALSE}
 test<-as.data.frame(t(test_data[-1]))
 names(test)<-test_data$spectrum
 
 test$labels=row.names(test)
 ```
 
-```{r}
+```{r include=FALSE}
 #doing PCA with transposed
 pca_res <- prcomp(test[0:4500], scale. = TRUE)
 summary(pca_res)
@@ -332,7 +333,7 @@ qplot(c(1:6), var_explained) +
   ylim(0, 1)
 ```
 
-```{r}
+```{r include=FALSE}
 #doing PCA with unaltered data
 pca_res <- prcomp(test_data[-1], scale. = TRUE)
 summary(pca_res)
@@ -347,14 +348,14 @@ autoplot(pca_res,data=test_data, label=T)
 
 Changing the columns so they are rows:
 
-```{r}
+```{r include=FALSE}
 test<-as.data.frame(t(training_data1[-1]))
 names(test)<-training_data1$spectrum
 
 test$labels=row.names(test)
 ```
 
-```{r}
+```{r include=FALSE}
 #doing PCA
 pca_res <- prcomp(test[0:4500], scale. = TRUE)
 autoplot(pca_res,data=test,colour="labels", label=T)
@@ -364,14 +365,14 @@ autoplot(pca_res,data=test,colour="labels", label=T)
 
 Changing the columns so they are rows:
 
-```{r}
+```{r include=FALSE}
 test<-as.data.frame(t(training_data2[-1]))
 names(test)<-training_data2$spectrum
 
 test$labels=row.names(test)
 ```
 
-```{r}
+```{r include=FALSE}
 #doing PCA
 pca_res <- prcomp(test[0:4500], scale. = TRUE)
 autoplot(pca_res,data=test,colour="labels", label=T)
@@ -381,14 +382,14 @@ autoplot(pca_res,data=test,colour="labels", label=T)
 
 Changing the columns so they are rows:
 
-```{r}
+```{r include=FALSE}
 test<-as.data.frame(t(training_data3[-1]))
 names(test)<-training_data3$spectrum
 
 test$labels=row.names(test)
 ```
 
-```{r}
+```{r include=FALSE}
 #doing PCA
 pca_res <- prcomp(test[0:4500], scale. = TRUE)
 autoplot(pca_res,data=test,colour="labels", label=T)
@@ -396,7 +397,7 @@ autoplot(pca_res,data=test,colour="labels", label=T)
 
 \#tSNE \#\# Test_data
 
-```{r}
+```{r include=FALSE}
 #t-SNE is not deterministic. There is some inherent stochasticity with the generation of probability distributions
 
 set.seed(14)
@@ -412,7 +413,7 @@ ggplot(lowd_map, aes(x= X1, y = X2)) + ggtitle("tSNE") +
 #How can I colorize each dot so it represents each strike??? 
 ```
 
-```{r}
+```{r include=FALSE}
 test<-melt(test_data, id="spectrum")
 test<-spread(test,spectrum,value)
 tsne <- Rtsne(test[,-1], dims = 2, perplexity=1, 
@@ -426,7 +427,7 @@ ggplot(lowd_map, aes(x= X1, y = X2)) + ggtitle("tSNE") +
 
 ## Train data 1
 
-```{r}
+```{r include=FALSE}
 test<-melt(training_data1, id="spectrum")
 test<-spread(test,spectrum,value)
 tsne <- Rtsne(test[,-1], dims = 2, perplexity=1, 
@@ -440,7 +441,7 @@ ggplot(lowd_map, aes(x= X1, y = X2)) + ggtitle("tSNE") +
 
 ## Train data 2
 
-```{r}
+```{r include=FALSE}
 test<-melt(training_data2, id="spectrum")
 test<-spread(test,spectrum,value)
 tsne <- Rtsne(test[,-1], dims = 2, perplexity=1, 
@@ -454,7 +455,7 @@ ggplot(lowd_map, aes(x= X1, y = X2)) + ggtitle("tSNE") +
 
 ## Train data 3
 
-```{r}
+```{r include=FALSE}
 test<-melt(training_data3, id="spectrum")
 test<-spread(test,spectrum,value)
 tsne <- Rtsne(test[,-1], dims = 2, perplexity=1, 
@@ -470,7 +471,7 @@ ggplot(lowd_map, aes(x= X1, y = X2)) + ggtitle("tSNE") +
 # Merge train_data on a single DF:
 
 We have 3 DFs containging training_data
-```{r}
+```{r include=FALSE}
 head(training_data1)
 head(training_data2)
 head(training_data3)
@@ -479,7 +480,7 @@ head(training_data3)
 
 Each of them (despite having different regions analyzed) contain information on the squares which in turn can be used to identify the type of pen used. 
 
-```{r}
+```{r include=FALSE}
 #First step, transpose the data: 
 t_training_data1<-as.data.frame(t(training_data1[-1]))
 names(t_training_data1)<-training_data1$spectrum
@@ -511,13 +512,13 @@ t_training_data3<-t_training_data3 %>%
 ```
 
 Merging
-```{r}
+```{r include=FALSE}
 training_DF<- rbind(t_training_data1, t_training_data2, t_training_data3)
 (select(training_DF,1:5))
 ```
 
 We could now simplify the DF by simply stating which square is which
-```{r}
+```{r include=FALSE}
 #I did it manually because I don't know a good way of doing it automagically
 avector <- c("pen1","pen1","pen2","pen5","pen3","pen6","pen4", "pen1","pen2","pen2","pen3","pen4","pen5","pen6","pen1","pen1","pen1","pen1","pen1","pen1","pen2","pen2","pen2","pen3","pen3","pen3","pen4","pen4","pen4","pen5","pen5","pen5","pen6","pen6","pen6") #the position 10 should be pen 1 i think, but we keep the label as 2 as it was  given. But there is evidence in all the other datasets that 2 squares were painted with pen number 1 and for the remaining pen only one square was painted with each.
 
@@ -533,7 +534,7 @@ test<-training_DF
 
 # PCA of training data
 Now we could do a PCA from the whole data
-```{r}
+```{r include=FALSE}
 
 #Removing the labels and the last column which is 0 to make the PCA work
 test_pca<-test[-1]
@@ -543,7 +544,7 @@ autoplot(pca_res,data=test,colour="labels", label=F)
 ```
 
 We can see the variance explained by the PCs:
-```{r}
+```{r include=FALSE}
 var_explained = pca_res$sdev^2 / sum(pca_res$sdev^2)
 
 qplot(c(1:35), var_explained) + 
@@ -555,7 +556,7 @@ qplot(c(1:35), var_explained) +
 ```
 
 We can view the 3 PCs:
-```{r}
+```{r include=FALSE}
 library(plotly)
 dat_3d <- pca_res$x[,1:3] %>% as_tibble() %>% mutate(square = test$labels)
 
@@ -672,7 +673,7 @@ rm(t_test_data)
 
 
 
-##Caret model
+##Caret model GLMNET
 ```{r}
 training_x <- training_DF %>% select(-labels) %>% as.data.frame()
 training_y <- training_DF$labels
@@ -690,9 +691,71 @@ print(fit)
 
 ggplot(fit)
 
-predicted<- predict(fit, newdata = test_data[,-1])
-
-predicted
+predicted<- predict(fit, newdata = test_data[,-1],type = "prob")
 ```
 
+### Plots
+```{r}
+
+toplot<-as.data.frame(t(predicted))
+names(toplot)<-c("strike1","strike2","strike3","strike4","strike5","strike6")
+toplot<-toplot %>% mutate(pens=row.names(toplot))
+
+strike1<-toplot %>% select(strike1,pens) %>% ggplot(aes(x=pens, y=strike1, fill=pens)) +
+  geom_bar(stat="identity",position=position_stack())+
+  scale_fill_brewer(palette="Accent")
+
+strike2<-toplot %>% select(strike2,pens) %>% ggplot(aes(x=pens, y=strike2, fill=pens)) +
+  geom_bar(stat="identity",position=position_stack())+
+  scale_fill_brewer(palette="Accent")
+
+strike3<-toplot %>% select(strike3,pens) %>% ggplot(aes(x=pens, y=strike3, fill=pens)) +
+  geom_bar(stat="identity",position=position_stack())+
+  scale_fill_brewer(palette="Accent")
+
+strike4<-toplot %>% select(strike4,pens) %>% ggplot(aes(x=pens, y=strike4, fill=pens)) +
+  geom_bar(stat="identity",position=position_stack())+
+  scale_fill_brewer(palette="Accent")
+
+strike5<-toplot %>% select(strike5,pens) %>% ggplot(aes(x=pens, y=strike5, fill=pens)) +
+  geom_bar(stat="identity",position=position_stack())+
+  scale_fill_brewer(palette="Accent")
+
+strike6<-toplot %>% select(strike6,pens) %>% ggplot(aes(x=pens, y=strike6, fill=pens)) +
+  geom_bar(stat="identity",position=position_stack())+
+  scale_fill_brewer(palette="Accent")
+
+
+ggarrange(strike1, strike2, strike3, strike4, strike5, strike6,
+                    labels = c("strike1", "strike2", "strike3", "strike4", "strike5", "strike6"),
+                    ncol = 3, nrow = 3)
+```
+
+
+
+##Caret model GLMNET Lasso (Alpha = 1) Lambda ranging from 0 to 1
+```{r}
+training_x <- training_DF %>% select(-labels) %>% as.data.frame()
+training_y <- training_DF$labels
+
+trControl <- trainControl(method = "LOOCV", number = 5, verboseIter = T)
+
+
+tuneGrid <- expand.grid(alpha = 1, lambda = seq(0.001, 1, length = 1000))
+
+fit <- train(x = training_x, 
+             y = training_y, 
+        method = "glmnet",
+        tuneGrid = tuneGrid,
+     trControl = trControl,
+    )
+
+print(fit)
+
+ggplot(fit)
+
+(predicted<- predict(fit, newdata = test_data[,-1],type = "prob"))
+(predicted<- predict(fit, newdata = test_data[,-1]))
+
+```
 
