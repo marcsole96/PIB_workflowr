@@ -391,7 +391,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2021-10-01
+<strong>Last updated:</strong> 2021-10-12
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -482,16 +482,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtree2b6337bb15275c4467da88d53f5b56f44877b823targetblank2b6337ba"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/marcsole96/PIB_workflowr/tree/2b6337bb15275c4467da88d53f5b56f44877b823" target="_blank">2b6337b</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtree83574fd1116c152a3c7c0a7c9a9f17b206e3a95dtargetblank83574fda"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/marcsole96/PIB_workflowr/tree/83574fd1116c152a3c7c0a7c9a9f17b206e3a95d" target="_blank">83574fd</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtree2b6337bb15275c4467da88d53f5b56f44877b823targetblank2b6337ba" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtree83574fd1116c152a3c7c0a7c9a9f17b206e3a95dtargetblank83574fda" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/marcsole96/PIB_workflowr/tree/2b6337bb15275c4467da88d53f5b56f44877b823" target="_blank">2b6337b</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/marcsole96/PIB_workflowr/tree/83574fd1116c152a3c7c0a7c9a9f17b206e3a95d" target="_blank">83574fd</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -501,7 +501,6 @@ Ignored files:
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
     Ignored:    analysis/.Rhistory
-    Ignored:    analysis/figure/
 
 Untracked files:
     Untracked:  data/CONTRACT REGION OF INTERESTED EXPORTS/
@@ -545,6 +544,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/marcsole96/PIB_workflowr/blob/83574fd1116c152a3c7c0a7c9a9f17b206e3a95d/analysis/PiB.Rmd" target="_blank">83574fd</a>
+</td>
+<td>
+marcsole96
+</td>
+<td>
+2021-10-12
+</td>
+<td>
+hidden code, made plots of probability, made lasso
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/marcsole96/PIB_workflowr/9a48040a7b66666fdbd8ec3e0c9d63c8773dd562/docs/PiB.html" target="_blank">9a48040</a>
+</td>
+<td>
+marcsole96
+</td>
+<td>
+2021-10-01
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -1251,237 +1284,41 @@ wflow_publish(“../analysis/PiB.Rmd”)
 </div>
 <div id="setup" class="section level1">
 <h1>Setup</h1>
-<pre class="r"><code>#setwd(&quot;../PIB_workflowr/data&quot;)
-getwd()</code></pre>
-<pre><code>[1] &quot;C:/Users/mysit/Documents/Bioinformatica/Semestre_3/Projecte_Palle/PIB_workflowr/data&quot;</code></pre>
-<pre class="r"><code>library(tidyverse)</code></pre>
-<pre><code>Warning: package &#39;tidyverse&#39; was built under R version 4.0.5</code></pre>
-<pre><code>-- Attaching packages --------------------------------------- tidyverse 1.3.1 --</code></pre>
-<pre><code>v ggplot2 3.3.3     v purrr   0.3.4
-v tibble  3.0.3     v dplyr   1.0.5
-v tidyr   1.1.3     v stringr 1.4.0
-v readr   1.4.0     v forcats 0.5.1</code></pre>
-<pre><code>Warning: package &#39;tidyr&#39; was built under R version 4.0.5</code></pre>
-<pre><code>Warning: package &#39;dplyr&#39; was built under R version 4.0.5</code></pre>
-<pre><code>Warning: package &#39;forcats&#39; was built under R version 4.0.5</code></pre>
-<pre><code>-- Conflicts ------------------------------------------ tidyverse_conflicts() --
-x dplyr::filter() masks stats::filter()
-x dplyr::lag()    masks stats::lag()</code></pre>
-<pre class="r"><code>library(ggplot2)
-library(ggfortify)</code></pre>
-<pre><code>Warning: package &#39;ggfortify&#39; was built under R version 4.0.5</code></pre>
-<pre class="r"><code>library(Rtsne)</code></pre>
-<pre><code>Warning: package &#39;Rtsne&#39; was built under R version 4.0.5</code></pre>
-<pre class="r"><code>library(reshape2)</code></pre>
-<pre><code>
-Attaching package: &#39;reshape2&#39;</code></pre>
-<pre><code>The following object is masked from &#39;package:tidyr&#39;:
-
-    smiths</code></pre>
-<pre class="r"><code>theme_set(theme_minimal())</code></pre>
 </div>
 <div id="contract-region-of-interested-exports" class="section level1">
 <h1>CONTRACT REGION OF INTERESTED EXPORTS</h1>
 <div id="page-1-contract-exports" class="section level2">
 <h2>Page 1 contract exports</h2>
-<pre class="r"><code>p1_initials_II &lt;- read.table(file = &quot;CONTRACT REGION OF INTERESTED EXPORTS/Page 1 contract exports/190910,21h19_II initials page 1.txt&quot;, sep = &quot;&quot;)
-
-p1_initials_III &lt;- read.table(file = &quot;CONTRACT REGION OF INTERESTED EXPORTS/Page 1 contract exports/190910,21h19_III initials page 1.txt&quot;, sep = &quot;&quot;)
-
-p1_initials_SF &lt;- read.table(file = &quot;CONTRACT REGION OF INTERESTED EXPORTS/Page 1 contract exports/190910,21h19_SF initials page 1.txt&quot;, sep = &quot;&quot;)
-
-
-colnames(p1_initials_SF) &lt;- c(&quot;spectrum&quot;, &quot;P1_SF_intensity&quot;)
-colnames(p1_initials_II) &lt;- c(&quot;spectrum&quot;, &quot;P1_II_Intensity&quot;)
-colnames(p1_initials_III) &lt;- c(&quot;spectrum&quot;, &quot;P1_III_Intensity&quot;)</code></pre>
 </div>
 <div id="page-2-contract-exports" class="section level2">
 <h2>Page 2 contract exports</h2>
-<pre class="r"><code>p2_initials_II &lt;- read.table(file = &quot;CONTRACT REGION OF INTERESTED EXPORTS/Page 2 contract exports/190910,23h44_II initials page 2.txt&quot;, sep = &quot;&quot;)
-
-p2_initials_III &lt;- read.table(file = &quot;CONTRACT REGION OF INTERESTED EXPORTS/Page 2 contract exports/190910,23h44_III initials page 2.txt&quot;, sep = &quot;&quot;)
-
-p2_initials_SF &lt;- read.table(file = &quot;CONTRACT REGION OF INTERESTED EXPORTS/Page 2 contract exports/190910,23h44_SF initials page 2.txt&quot;, sep = &quot;&quot;)
-
-colnames(p2_initials_SF) &lt;- c(&quot;spectrum&quot;, &quot;P2 SF Intensity&quot;)
-colnames(p2_initials_II) &lt;- c(&quot;spectrum&quot;, &quot;P2 II Intensity&quot;)
-colnames(p2_initials_III) &lt;- c(&quot;spectrum&quot;, &quot;P2 III Intensity&quot;)</code></pre>
 </div>
 <div id="page-3-contract-export" class="section level2">
 <h2>Page 3 contract export</h2>
-<pre class="r"><code>p3_initials_II &lt;- read.table(file = &quot;CONTRACT REGION OF INTERESTED EXPORTS/Page 3 contract export/190910,01h50_II initials signature page 3.txt&quot;, sep = &quot;&quot;)
-
-p3_initials_III &lt;- read.table(file = &quot;CONTRACT REGION OF INTERESTED EXPORTS/Page 3 contract export/190910,01h50_III initials signature page 3.txt&quot;, sep = &quot;&quot;)
-
-p3_initials_SF &lt;- read.table(file = &quot;CONTRACT REGION OF INTERESTED EXPORTS/Page 3 contract export/190910,01h50_SFsignature page 3.txt&quot;, sep = &quot;&quot;)
-
-colnames(p3_initials_SF) &lt;- c(&quot;spectrum&quot;, &quot;P3 SF Intensity&quot;)
-colnames(p3_initials_II) &lt;- c(&quot;spectrum&quot;, &quot;P3 II Intensity&quot;)
-colnames(p3_initials_III) &lt;- c(&quot;spectrum&quot;, &quot;P3 III Intensity&quot;)</code></pre>
 </div>
 </div>
 <div id="ink-square-analysis-training-set-roi-exports" class="section level1">
 <h1>INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS</h1>
 <div id="full-squares" class="section level2">
 <h2>full squares</h2>
-<pre class="r"><code>sq1_under_no1 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/full squares/Full square 1 underneat number 1.txt&quot;, sep = &quot;&quot;)
-
-sq1_under_no2 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/full squares/Full square 1 underneat number 2.txt&quot;, sep = &quot;&quot;)
-
-sq2_under_no1 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/full squares/Full square 2 underneat number 1.txt&quot;, sep = &quot;&quot;)
-
-sq_beside_no4 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/full squares/Full square beside number 4.txt&quot;, sep = &quot;&quot;)
-
-sq1_under_no3 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/full squares/Full square underneat number 3.txt&quot;, sep = &quot;&quot;)
-
-sq2_under_no2 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/full squares/II full square ink under number 2.txt&quot;, sep = &quot;&quot;)
-
-sq2_under_no3 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/full squares/II full square ink under number 3.txt&quot;, sep = &quot;&quot;)
-
-colnames(sq1_under_no1) &lt;- c(&quot;spectrum&quot;, &quot;SQ1 U1 Intensity&quot;)
-colnames(sq1_under_no2) &lt;- c(&quot;spectrum&quot;, &quot;SQ1 U2 Intensity&quot;)
-colnames(sq2_under_no1) &lt;- c(&quot;spectrum&quot;, &quot;SQ2 U1 Intensity&quot;)
-colnames(sq_beside_no4) &lt;- c(&quot;spectrum&quot;, &quot;SQ B4 Intensity&quot;)
-colnames(sq1_under_no3) &lt;- c(&quot;spectrum&quot;, &quot;SQ1 U3 Intensity&quot;)
-colnames(sq2_under_no2) &lt;- c(&quot;spectrum&quot;, &quot;SQ2 U2 Intensity&quot;)
-colnames(sq2_under_no3) &lt;- c(&quot;spectrum&quot;, &quot;SQ2 U3 Intensity&quot;)</code></pre>
 </div>
 <div id="numbers" class="section level2">
 <h2>numbers</h2>
-<pre class="r"><code>sq_no2 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/numbers/squares analysis_number 2.txt&quot;, sep = &quot;&quot;)
-
-sq_no3 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/numbers/squares analysis_number 3.txt&quot;, sep = &quot;&quot;)
-
-sq_no4 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/numbers/squares analysis_number 4.txt&quot;, sep = &quot;&quot;)
-
-sq_no1 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/numbers/squares analysis_number1.txt&quot;, sep = &quot;&quot;)
-
-sq_no2_II &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/numbers/squares_analysis_number 2.txt&quot;, sep = &quot;&quot;)
-
-sq_no5 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/numbers/squares_analysis_number 5.txt&quot;, sep = &quot;&quot;)
-
-sq_no6 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/numbers/squares_analysis_number 6.txt&quot;, sep = &quot;&quot;)
-
-colnames(sq_no2) &lt;- c(&quot;spectrum&quot;, &quot;SQ 2 Intensity&quot;)
-colnames(sq_no3) &lt;- c(&quot;spectrum&quot;, &quot;SQ 3 Intensity&quot;)
-colnames(sq_no4) &lt;- c(&quot;spectrum&quot;, &quot;SQ 4 Intensity&quot;)
-colnames(sq_no1) &lt;- c(&quot;spectrum&quot;, &quot;SQ 1 Intensity&quot;)
-colnames(sq_no2_II) &lt;- c(&quot;spectrum&quot;, &quot;SQ2 2 Intensity&quot;)  # Which one is this? There are 2 data collected from number 2. -- shouldnt it be from square 1?
-colnames(sq_no5) &lt;- c(&quot;spectrum&quot;, &quot;SQ 5 Intensity&quot;)
-colnames(sq_no6) &lt;- c(&quot;spectrum&quot;, &quot;SQ 6 Intensity&quot;)</code></pre>
 </div>
 <div id="split-squares_each-square-3-roi" class="section level2">
 <h2>split squares_each square 3 ROI</h2>
-<pre class="r"><code># square II under no1
-sqII_no1_ROI1 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/II square ink under number 1_ROI1.txt&quot;, sep = &quot;&quot;)
-sqII_no1_ROI2 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/II square ink under number 1_ROI2.txt&quot;, sep = &quot;&quot;)
-sqII_no1_ROI3 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/II square ink under number 1_ROI3.txt&quot;, sep = &quot;&quot;)
-
-colnames(sqII_no1_ROI1) &lt;- c(&quot;spectrum&quot;, &quot;SQ2 1 ROI1 Intensity&quot;)
-colnames(sqII_no1_ROI2) &lt;- c(&quot;spectrum&quot;, &quot;SQ2 1 ROI2 Intensity&quot;)
-colnames(sqII_no1_ROI3) &lt;- c(&quot;spectrum&quot;, &quot;SQ2 1 ROI3 Intensity&quot;)
-
-# square above no5
-sq_no5_ROI1 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink above number 5_ROI1.txt&quot;, sep = &quot;&quot;)
-sq_no5_ROI2 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink above number 5_ROI2.txt&quot;, sep = &quot;&quot;)
-sq_no5_ROI3 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink above number 5_ROI3.txt&quot;, sep = &quot;&quot;)
-
-colnames(sq_no5_ROI1) &lt;- c(&quot;spectrum&quot;, &quot;SQ 5 ROI1 Intensity&quot;)
-colnames(sq_no5_ROI2) &lt;- c(&quot;spectrum&quot;, &quot;SQ 5 ROI2 Intensity&quot;)
-colnames(sq_no5_ROI3) &lt;- c(&quot;spectrum&quot;, &quot;SQ 5 ROI3 Intensity&quot;)
-
-# square above no6
-sq_no6_ROI1 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink above number 6_ROI1.txt&quot;, sep = &quot;&quot;)
-sq_no6_ROI2 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink above number 6_ROI2.txt&quot;, sep = &quot;&quot;)
-sq_no6_ROI3 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink above number 6_ROI3.txt&quot;, sep = &quot;&quot;)
-
-colnames(sq_no6_ROI1) &lt;- c(&quot;spectrum&quot;, &quot;SQ 6 ROI1 Intensity&quot;)
-colnames(sq_no6_ROI2) &lt;- c(&quot;spectrum&quot;, &quot;SQ 6 ROI2 Intensity&quot;)
-colnames(sq_no6_ROI3) &lt;- c(&quot;spectrum&quot;, &quot;SQ 6 ROI3 Intensity&quot;)
-
-# square beside no4
-sq_no4_ROI1 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink beside number 4_ROI1.txt&quot;, sep = &quot;&quot;)
-sq_no4_ROI2 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink beside number 4_ROI2.txt&quot;, sep = &quot;&quot;)
-sq_no4_ROI3 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink beside number 4_ROI3.txt&quot;, sep = &quot;&quot;)
-
-colnames(sq_no4_ROI1) &lt;- c(&quot;spectrum&quot;, &quot;SQ 4 ROI1 Intensity&quot;)
-colnames(sq_no4_ROI2) &lt;- c(&quot;spectrum&quot;, &quot;SQ 4 ROI2 Intensity&quot;)
-colnames(sq_no4_ROI3) &lt;- c(&quot;spectrum&quot;, &quot;SQ 4 ROI3 Intensity&quot;)
-
-# square I under no1
-sqI_no1_ROI1 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink under number 1_ROI1.txt&quot;, sep = &quot;&quot;)
-sqI_no1_ROI2 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink under number 1_ROI2.txt&quot;, sep = &quot;&quot;)
-sqI_no1_ROI3 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink under number 1_ROI3.txt&quot;, sep = &quot;&quot;)
-
-colnames(sqI_no1_ROI1) &lt;- c(&quot;spectrum&quot;, &quot;SQI 1 ROI1 Intensity&quot;)
-colnames(sqI_no1_ROI2) &lt;- c(&quot;spectrum&quot;, &quot;SQI 1 ROI2 Intensity&quot;)
-colnames(sqI_no1_ROI3) &lt;- c(&quot;spectrum&quot;, &quot;SQI 1 ROI3 Intensity&quot;)
-
-# square under no2
-sq_no2_ROI1 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink under number 2_ROI1.txt&quot;, sep = &quot;&quot;)
-sq_no2_ROI2 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink under number 2_ROI2.txt&quot;, sep = &quot;&quot;)
-sq_no2_ROI3 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink under number 2_ROI3.txt&quot;, sep = &quot;&quot;)
-
-colnames(sq_no2_ROI1) &lt;- c(&quot;spectrum&quot;, &quot;SQ 2 ROI1 Intensity&quot;)
-colnames(sq_no2_ROI2) &lt;- c(&quot;spectrum&quot;, &quot;SQ 2 ROI2 Intensity&quot;)
-colnames(sq_no2_ROI3) &lt;- c(&quot;spectrum&quot;, &quot;SQ 2 ROI3 Intensity&quot;)
-
-# square under no3
-sq_no3_ROI1 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink under number 3_ROI1.txt&quot;, sep = &quot;&quot;)
-sq_no3_ROI2 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink under number 3_ROI2.txt&quot;, sep = &quot;&quot;)
-sq_no3_ROI3 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink under number 3_ROI3.txt&quot;, sep = &quot;&quot;)
-
-colnames(sq_no3_ROI1) &lt;- c(&quot;spectrum&quot;, &quot;SQ 3 ROI1 Intensity&quot;)
-colnames(sq_no3_ROI2) &lt;- c(&quot;spectrum&quot;, &quot;SQ 3 ROI2 Intensity&quot;)
-colnames(sq_no3_ROI3) &lt;- c(&quot;spectrum&quot;, &quot;SQ 3 ROI3 Intensity&quot;)</code></pre>
 </div>
 </div>
 <div id="strikes-analysis-i-test-set-roi-exports" class="section level1">
 <h1>STRIKES ANALYSIS (I TEST SET)-ROI EXPORTS</h1>
-<pre class="r"><code>strike1 &lt;- read.table(file = &quot;STRIKES ANALYSIS (I TEST SET)-ROI EXPORTS/strike 1.txt&quot;, sep = &quot;&quot;)
-
-strike2 &lt;- read.table(file = &quot;STRIKES ANALYSIS (I TEST SET)-ROI EXPORTS/strike 2.txt&quot;, sep = &quot;&quot;)
-
-strike3 &lt;- read.table(file = &quot;STRIKES ANALYSIS (I TEST SET)-ROI EXPORTS/strike 3.txt&quot;, sep = &quot;&quot;)
-
-strike4 &lt;- read.table(file = &quot;STRIKES ANALYSIS (I TEST SET)-ROI EXPORTS/strike 4.txt&quot;, sep = &quot;&quot;)
-
-strike5 &lt;- read.table(file = &quot;STRIKES ANALYSIS (I TEST SET)-ROI EXPORTS/strike 5.txt&quot;, sep = &quot;&quot;)
-
-strike6 &lt;- read.table(file = &quot;STRIKES ANALYSIS (I TEST SET)-ROI EXPORTS/strike 6.txt&quot;, sep = &quot;&quot;)
-
-colnames(strike1) &lt;- c(&quot;spectrum&quot;, &quot;strike1 Intensity&quot;)
-colnames(strike2) &lt;- c(&quot;spectrum&quot;, &quot;strike2 Intensity&quot;)
-colnames(strike3) &lt;- c(&quot;spectrum&quot;, &quot;strike3 Intensity&quot;)
-colnames(strike4) &lt;- c(&quot;spectrum&quot;, &quot;strike4 Intensity&quot;)
-colnames(strike5) &lt;- c(&quot;spectrum&quot;, &quot;strike5 Intensity&quot;)
-colnames(strike6) &lt;- c(&quot;spectrum&quot;, &quot;strike6 Intensity&quot;)</code></pre>
 </div>
 <div id="datasets-compilation" class="section level1">
 <h1>Datasets compilation</h1>
-<pre class="r"><code>test_data &lt;- cbind(strike1, strike2[2], strike3[2], strike4[2], strike5[2], strike6[2])
-training_data1 &lt;- cbind(sq1_under_no1, sq2_under_no1[2], sq1_under_no2[2], sq2_under_no2[2], sq1_under_no3[2], sq2_under_no3[2], sq_beside_no4[2])
-training_data2 &lt;- cbind(sq_no1, sq_no2[2], sq_no2_II[2], sq_no3[2], sq_no4[2], sq_no5[2], sq_no6[2])
-training_data3 &lt;- cbind(sqI_no1_ROI1, sqI_no1_ROI2[2], sqI_no1_ROI3[2], sqII_no1_ROI1[2], sqII_no1_ROI2[2], sqII_no1_ROI3[2], sq_no2_ROI1[2], sq_no2_ROI2[2], sq_no2_ROI3[2], sq_no3_ROI1[2], sq_no3_ROI2[2], sq_no3_ROI3[2], sq_no4_ROI1[2], sq_no4_ROI2[2], sq_no4_ROI3[2], sq_no5_ROI1[2], sq_no5_ROI2[2], sq_no5_ROI3[2], sq_no6_ROI1[2], sq_no6_ROI2[2], sq_no6_ROI3[2])
-
-rm(strike1,strike2,strike3,strike4,strike5,strike6,sq1_under_no1,sq2_under_no1,sq1_under_no2,sq2_under_no2,sq1_under_no3,sq2_under_no3,sq_no1,sq_no2,sq_no2_II,sq_no3,sq_no4,sq_no5,sq_no6,sqI_no1_ROI1,sqI_no1_ROI2,sqI_no1_ROI3,sqII_no1_ROI1,sqII_no1_ROI2,sqII_no1_ROI3,sq_no2_ROI1,sq_no2_ROI2,sq_no2_ROI3,sq_no3_ROI1, sq_no3_ROI2, sq_no3_ROI3, sq_no4_ROI1, sq_no4_ROI2, sq_no4_ROI3, sq_no5_ROI1, sq_no5_ROI2, sq_no5_ROI3, sq_no6_ROI1, sq_no6_ROI2, sq_no6_ROI3,p1_initials_II,p1_initials_III,p1_initials_SF,p2_initials_II,p2_initials_III,p2_initials_SF,p3_initials_II,p3_initials_III,p3_initials_SF,sq_beside_no4)</code></pre>
 <p>#Simple intensities plots:</p>
 <p>Testdata</p>
-<pre class="r"><code>test&lt;-melt(test_data, id=&quot;spectrum&quot;)
-ggplot(test, aes(spectrum,value,colour=variable)) + geom_point()</code></pre>
-<p><img src="figure/PiB.Rmd/unnamed-chunk-11-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Training data 1</p>
-<pre class="r"><code>test&lt;-melt(training_data1, id=&quot;spectrum&quot;)
-ggplot(test, aes(spectrum,value,colour=variable)) + geom_point()</code></pre>
-<p><img src="figure/PiB.Rmd/unnamed-chunk-12-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Training data 2</p>
-<pre class="r"><code>test&lt;-melt(training_data2, id=&quot;spectrum&quot;)
-ggplot(test, aes(spectrum,value,colour=variable)) + geom_point()</code></pre>
-<p><img src="figure/PiB.Rmd/unnamed-chunk-13-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Training data 2</p>
-<pre class="r"><code>test&lt;-melt(training_data3, id=&quot;spectrum&quot;)
-ggplot(test, aes(spectrum,value,colour=variable)) + geom_point()</code></pre>
-<p><img src="figure/PiB.Rmd/unnamed-chunk-14-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="pcas" class="section level1">
 <h1>PCAs</h1>
@@ -1490,437 +1327,46 @@ ggplot(test, aes(spectrum,value,colour=variable)) + geom_point()</code></pre>
 </div>
 <div id="test-by-transposing-the-data" class="section level2">
 <h2>Test by transposing the data</h2>
-<pre class="r"><code>t_test_data&lt;-as.data.frame(t(test_data[-1]))
-names(t_test_data)&lt;-test_data$spectrum
-t_test_data$labels=row.names(t_test_data)
-t_test_data &lt;- t_test_data %&gt;% mutate(labels = factor(labels))
-
-labels&lt;-t_test_data$labels
-
-data &lt;- t_test_data %&gt;%
-  select(-labels)
-
-data&lt;-as.matrix(data)
-rownames(data) &lt;- NULL
-
-pr.out &lt;- prcomp(data,scale=FALSE)
-
-pr.out$x %&gt;% 
-  as_tibble() %&gt;% 
-  ggplot() +
-  geom_point(aes(PC1, PC2, color = labels), alpha = 0.5) +
-  theme_minimal() +
-  scale_shape_manual(values = c(4, 20))</code></pre>
-<p><img src="figure/PiB.Rmd/unnamed-chunk-15-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="test-by-not-transposing-the-data" class="section level2">
 <h2>Test by NOT transposing the data</h2>
-<pre class="r"><code>data &lt;- test_data %&gt;%
-  select(-spectrum)
-names=names(test_data[-1])</code></pre>
 <p>Changing the columns so they are rows:</p>
-<pre class="r"><code>test&lt;-as.data.frame(t(test_data[-1]))
-names(test)&lt;-test_data$spectrum
-
-test$labels=row.names(test)</code></pre>
-<pre class="r"><code>#doing PCA with transposed
-pca_res &lt;- prcomp(test[0:4500], scale. = TRUE)
-summary(pca_res)</code></pre>
-<pre><code>Importance of components:
-                           PC1     PC2     PC3     PC4      PC5       PC6
-Standard deviation     42.0322 34.8048 27.4609 24.3107 13.29690 3.618e-14
-Proportion of Variance  0.3926  0.2692  0.1676  0.1313  0.03929 0.000e+00
-Cumulative Proportion   0.3926  0.6618  0.8294  0.9607  1.00000 1.000e+00</code></pre>
-<pre class="r"><code>autoplot(pca_res,data=test,colour=&quot;labels&quot;, label=T)</code></pre>
-<pre><code>Warning: `select_()` was deprecated in dplyr 0.7.0.
-Please use `select()` instead.</code></pre>
-<p><img src="figure/PiB.Rmd/unnamed-chunk-18-1.png" width="672" style="display: block; margin: auto;" /></p>
-<pre class="r"><code>var_explained = pca_res$sdev^2 / sum(pca_res$sdev^2)
-qplot(c(1:6), var_explained) + 
-  geom_line() + 
-  xlab(&quot;Principal Component&quot;) + 
-  ylab(&quot;Variance Explained&quot;) +
-  ggtitle(&quot;Scree Plot&quot;) +
-  ylim(0, 1)</code></pre>
-<p><img src="figure/PiB.Rmd/unnamed-chunk-18-2.png" width="672" style="display: block; margin: auto;" /></p>
-<pre class="r"><code>#doing PCA with unaltered data
-pca_res &lt;- prcomp(test_data[-1], scale. = TRUE)
-summary(pca_res)</code></pre>
-<pre><code>Importance of components:
-                          PC1    PC2     PC3     PC4     PC5     PC6
-Standard deviation     1.9475 1.3914 0.45740 0.23695 0.05747 0.05038
-Proportion of Variance 0.6321 0.3227 0.03487 0.00936 0.00055 0.00042
-Cumulative Proportion  0.6321 0.9548 0.98967 0.99903 0.99958 1.00000</code></pre>
-<pre class="r"><code>print(pca_res)</code></pre>
-<pre><code>Standard deviations (1, .., p=6):
-[1] 1.94751378 1.39139843 0.45739706 0.23695448 0.05747044 0.05037980
-
-Rotation (n x k) = (6 x 6):
-                         PC1         PC2         PC3        PC4         PC5
-strike1 Intensity 0.50158388 -0.05438930 -0.41304998  0.2159102 -0.72480852
-strike2 Intensity 0.07748344  0.70159839 -0.02124203 -0.6530221 -0.19561463
-strike3 Intensity 0.49610616 -0.05832303  0.52344134  0.1610163  0.04778405
-strike4 Intensity 0.49997563 -0.03448200  0.46753097 -0.2162897  0.06895147
-strike5 Intensity 0.04553209  0.70675998  0.03361193  0.6630823  0.16943119
-strike6 Intensity 0.49420625 -0.02648115 -0.57899281 -0.1206617  0.63296365
-                          PC6
-strike1 Intensity -0.05367061
-strike2 Intensity  0.19131607
-strike3 Intensity  0.66953469
-strike4 Intensity -0.69189205
-strike5 Intensity -0.17000673
-strike6 Intensity  0.06800020</code></pre>
-<pre class="r"><code>autoplot(pca_res,data=test_data, label=T)</code></pre>
-<p><img src="figure/PiB.Rmd/unnamed-chunk-19-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="training_data1" class="section level2">
 <h2>training_data1</h2>
 <p>Changing the columns so they are rows:</p>
-<pre class="r"><code>test&lt;-as.data.frame(t(training_data1[-1]))
-names(test)&lt;-training_data1$spectrum
-
-test$labels=row.names(test)</code></pre>
-<pre class="r"><code>#doing PCA
-pca_res &lt;- prcomp(test[0:4500], scale. = TRUE)
-autoplot(pca_res,data=test,colour=&quot;labels&quot;, label=T)</code></pre>
-<p><img src="figure/PiB.Rmd/unnamed-chunk-21-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="training_data2" class="section level2">
 <h2>training_data2</h2>
 <p>Changing the columns so they are rows:</p>
-<pre class="r"><code>test&lt;-as.data.frame(t(training_data2[-1]))
-names(test)&lt;-training_data2$spectrum
-
-test$labels=row.names(test)</code></pre>
-<pre class="r"><code>#doing PCA
-pca_res &lt;- prcomp(test[0:4500], scale. = TRUE)
-autoplot(pca_res,data=test,colour=&quot;labels&quot;, label=T)</code></pre>
-<p><img src="figure/PiB.Rmd/unnamed-chunk-23-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="training_data3" class="section level2">
 <h2>training_data3</h2>
 <p>Changing the columns so they are rows:</p>
-<pre class="r"><code>test&lt;-as.data.frame(t(training_data3[-1]))
-names(test)&lt;-training_data3$spectrum
-
-test$labels=row.names(test)</code></pre>
-<pre class="r"><code>#doing PCA
-pca_res &lt;- prcomp(test[0:4500], scale. = TRUE)
-autoplot(pca_res,data=test,colour=&quot;labels&quot;, label=T)</code></pre>
-<p><img src="figure/PiB.Rmd/unnamed-chunk-25-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>#tSNE ## Test_data</p>
-<pre class="r"><code>#t-SNE is not deterministic. There is some inherent stochasticity with the generation of probability distributions
-
-set.seed(14)
-#doing t-SNE
-
-tsne &lt;- Rtsne(test_data[,-1], dims = 2, perplexity=30, 
-              verbose=FALSE, max_iter = 500)
-lowd_map&lt;- data.frame(tsne$Y)
-
-ggplot(lowd_map, aes(x= X1, y = X2)) + ggtitle(&quot;tSNE&quot;) +
-  geom_point()</code></pre>
-<p><img src="figure/PiB.Rmd/unnamed-chunk-26-1.png" width="672" style="display: block; margin: auto;" /></p>
-<pre class="r"><code>#How can I colorize each dot so it represents each strike??? </code></pre>
-<pre class="r"><code>test&lt;-melt(test_data, id=&quot;spectrum&quot;)
-test&lt;-spread(test,spectrum,value)
-tsne &lt;- Rtsne(test[,-1], dims = 2, perplexity=1, 
-              verbose=FALSE, max_iter = 500)
-lowd_map&lt;- data.frame(tsne$Y)
-lowd_map$label &lt;- factor(test$variable)
-
-ggplot(lowd_map, aes(x= X1, y = X2)) + ggtitle(&quot;tSNE&quot;) +
-  geom_text(aes(label = label, color = label)) + geom_point(aes(color = label), alpha = 0.5)</code></pre>
-<p><img src="figure/PiB.Rmd/unnamed-chunk-27-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="train-data-1" class="section level2">
 <h2>Train data 1</h2>
-<pre class="r"><code>test&lt;-melt(training_data1, id=&quot;spectrum&quot;)
-test&lt;-spread(test,spectrum,value)
-tsne &lt;- Rtsne(test[,-1], dims = 2, perplexity=1, 
-              verbose=FALSE, max_iter = 500)
-lowd_map&lt;- data.frame(tsne$Y)
-lowd_map$label &lt;- factor(test$variable)
-
-ggplot(lowd_map, aes(x= X1, y = X2)) + ggtitle(&quot;tSNE&quot;) +
-  geom_text(aes(label = label, color = label)) + geom_point(aes(color = label), alpha = 0.5)</code></pre>
-<p><img src="figure/PiB.Rmd/unnamed-chunk-28-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="train-data-2" class="section level2">
 <h2>Train data 2</h2>
-<pre class="r"><code>test&lt;-melt(training_data2, id=&quot;spectrum&quot;)
-test&lt;-spread(test,spectrum,value)
-tsne &lt;- Rtsne(test[,-1], dims = 2, perplexity=1, 
-              verbose=FALSE, max_iter = 500,check_duplicates = FALSE)
-lowd_map&lt;- data.frame(tsne$Y)
-lowd_map$label &lt;- factor(test$variable)
-
-ggplot(lowd_map, aes(x= X1, y = X2)) + ggtitle(&quot;tSNE&quot;) +
-  geom_text(aes(label = label, color = label)) + geom_point(aes(color = label), alpha = 0.5)</code></pre>
-<p><img src="figure/PiB.Rmd/unnamed-chunk-29-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="train-data-3" class="section level2">
 <h2>Train data 3</h2>
-<pre class="r"><code>test&lt;-melt(training_data3, id=&quot;spectrum&quot;)
-test&lt;-spread(test,spectrum,value)
-tsne &lt;- Rtsne(test[,-1], dims = 2, perplexity=1, 
-              verbose=FALSE, max_iter = 500)
-lowd_map&lt;- data.frame(tsne$Y)
-lowd_map$label &lt;- factor(test$variable)
-
-ggplot(lowd_map, aes(x= X1, y = X2)) + ggtitle(&quot;tSNE&quot;) +
-  geom_text(aes(label = label, color = label,vjust = -0.4,hjust = -0.1),size=4,position=position_jitter(width=15,height=15)) + geom_point(aes(color = label), alpha = 0.5)</code></pre>
-<p><img src="figure/PiB.Rmd/unnamed-chunk-30-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 <div id="merge-train_data-on-a-single-df" class="section level1">
 <h1>Merge train_data on a single DF:</h1>
 <p>We have 3 DFs containging training_data</p>
-<pre class="r"><code>head(training_data1)</code></pre>
-<pre><code>  spectrum SQ1 U1 Intensity SQ2 U1 Intensity SQ1 U2 Intensity SQ2 U2 Intensity
-1    100.0         0.651830          1.20486         0.394444         0.333333
-2    100.2         0.871414          1.44097         0.531944         0.453515
-3    100.4         0.755687          1.27778         0.475000         0.408163
-4    100.6         0.649852          1.13426         0.456944         0.336735
-5    100.8         0.597428          1.08449         0.516667         1.075960
-6    101.0         1.251240          1.20486         1.886110         0.961451
-  SQ1 U3 Intensity SQ2 U3 Intensity SQ B4 Intensity
-1        0.0625000        0.0101695        0.667227
-2        0.0312500        0.0576271        0.833613
-3        0.0359375        0.0847458        0.638655
-4        0.0250000        0.0406780        0.494118
-5        0.0593750        0.0779661        0.608403
-6        0.5812500        0.2542370        0.640336</code></pre>
-<pre class="r"><code>head(training_data2)</code></pre>
-<pre><code>  spectrum SQ 1 Intensity SQ 2 Intensity SQ2 2 Intensity SQ 3 Intensity
-1    100.0        1.39799       0.254967         1.14679       0.447950
-2    100.2        1.52843       0.274834         1.42202       0.378549
-3    100.4        1.42140       0.298013         1.14220       0.302839
-4    100.6        1.28428       0.225166         1.11009       0.321767
-5    100.8        1.24415       0.639073         1.30734       0.246057
-6    101.0        3.91639       0.655629         4.96330       2.690850
-  SQ 4 Intensity SQ 5 Intensity SQ 6 Intensity
-1        1.96786       0.254967      0.0349345
-2        2.20000       0.274834      0.0262009
-3        1.76786       0.298013      0.1222710
-4        1.44286       0.225166      0.0436681
-5        1.55357       0.639073      0.0698690
-6        1.52143       0.655629      0.1004370</code></pre>
-<pre class="r"><code>head(training_data3)</code></pre>
-<pre><code>  spectrum SQI 1 ROI1 Intensity SQI 1 ROI2 Intensity SQI 1 ROI3 Intensity
-1    100.0             0.674242             0.250000             0.926667
-2    100.2             1.109850             0.542208             0.956667
-3    100.4             0.852273             0.512987             0.750000
-4    100.6             0.791667             0.305195             0.806667
-5    100.8             0.761364             0.324675             0.643333
-6    101.0             1.723480             0.905844             1.206670
-  SQ2 1 ROI1 Intensity SQ2 1 ROI2 Intensity SQ2 1 ROI3 Intensity
-1              1.08482             0.813665             1.195450
-2              1.29911             0.981366             1.559090
-3              1.22768             0.925466             1.172730
-4              1.08929             0.621118             1.063640
-5              1.11607             0.701863             0.881818
-6              1.43304             0.832298             1.031820
-  SQ 2 ROI1 Intensity SQ 2 ROI2 Intensity SQ 2 ROI3 Intensity
-1            0.687500            0.152047           0.0964912
-2            0.920455            0.187135           0.0877193
-3            0.698864            0.198830           0.1403510
-4            0.636364            0.163743           0.1052630
-5            0.960227            0.192982           0.1491230
-6            2.903410            1.432750           0.7368420
-  SQ 3 ROI1 Intensity SQ 3 ROI2 Intensity SQ 3 ROI3 Intensity
-1           0.0944444              0.0500           0.0116959
-2           0.0666667              0.0250           0.0000000
-3           0.0944444              0.0000           0.0000000
-4           0.0444444              0.0250           0.0116959
-5           0.1111110              0.0500           0.0233918
-6           1.0222200              0.4875           0.3157890
-  SQ 4 ROI1 Intensity SQ 4 ROI2 Intensity SQ 4 ROI3 Intensity
-1            0.631944            0.490909            0.480263
-2            0.722222            0.681818            0.789474
-3            0.527778            0.463636            0.565789
-4            0.541667            0.381818            0.506579
-5            0.479167            0.472727            0.598684
-6            0.597222            0.590909            0.592105
-  SQ 5 ROI1 Intensity SQ 5 ROI2 Intensity SQ 5 ROI3 Intensity
-1             0.32500            0.276042            0.241546
-2             0.39375            0.250000            0.386473
-3             0.36250            0.270833            0.420290
-4             0.35625            0.307292            0.183575
-5             1.38750            0.880208            1.004830
-6             1.31875            0.614583            0.743961
-  SQ 6 ROI1 Intensity SQ 6 ROI2 Intensity SQ 6 ROI3 Intensity
-1           0.0222222           0.0000000           0.0222222
-2           0.1000000           0.0370370           0.0000000
-3           0.1333330           0.0370370           0.0333333
-4           0.0666667           0.0370370           0.0111111
-5           0.0888889           0.0617284           0.1000000
-6           0.2888890           0.2222220           0.2444440</code></pre>
 <p>Each of them (despite having different regions analyzed) contain information on the squares which in turn can be used to identify the type of pen used.</p>
-<pre class="r"><code>#First step, transpose the data: 
-t_training_data1&lt;-as.data.frame(t(training_data1[-1]))
-names(t_training_data1)&lt;-training_data1$spectrum
-t_training_data1$labels=row.names(t_training_data1)
-#removing the row headers
-rownames(t_training_data1)&lt;-c()
-#moving labels to the beginning
-t_training_data1&lt;-t_training_data1 %&gt;% 
-  select(labels, everything())
-head(select(t_training_data1,1:5))</code></pre>
-<pre><code>            labels       100     100.2     100.4    100.6
-1 SQ1 U1 Intensity 0.6518300 0.8714140 0.7556870 0.649852
-2 SQ2 U1 Intensity 1.2048600 1.4409700 1.2777800 1.134260
-3 SQ1 U2 Intensity 0.3944440 0.5319440 0.4750000 0.456944
-4 SQ2 U2 Intensity 0.3333330 0.4535150 0.4081630 0.336735
-5 SQ1 U3 Intensity 0.0625000 0.0312500 0.0359375 0.025000
-6 SQ2 U3 Intensity 0.0101695 0.0576271 0.0847458 0.040678</code></pre>
-<pre class="r"><code>#Same process is repeated for the next two DFs:
-
-t_training_data2&lt;-as.data.frame(t(training_data2[-1]))
-names(t_training_data2)&lt;-training_data2$spectrum
-t_training_data2$labels=row.names(t_training_data2)
-rownames(t_training_data2)&lt;-c()
-t_training_data2&lt;-t_training_data2 %&gt;% 
-  select(labels, everything())
-
-
-
-t_training_data3&lt;-as.data.frame(t(training_data3[-1]))
-names(t_training_data3)&lt;-training_data3$spectrum
-t_training_data3$labels=row.names(t_training_data3)
-rownames(t_training_data3)&lt;-c()
-t_training_data3&lt;-t_training_data3 %&gt;% 
-  select(labels, everything())</code></pre>
 <p>Merging</p>
-<pre class="r"><code>training_DF&lt;- rbind(t_training_data1, t_training_data2, t_training_data3)
-(select(training_DF,1:5))</code></pre>
-<pre><code>                 labels       100     100.2     100.4     100.6
-1      SQ1 U1 Intensity 0.6518300 0.8714140 0.7556870 0.6498520
-2      SQ2 U1 Intensity 1.2048600 1.4409700 1.2777800 1.1342600
-3      SQ1 U2 Intensity 0.3944440 0.5319440 0.4750000 0.4569440
-4      SQ2 U2 Intensity 0.3333330 0.4535150 0.4081630 0.3367350
-5      SQ1 U3 Intensity 0.0625000 0.0312500 0.0359375 0.0250000
-6      SQ2 U3 Intensity 0.0101695 0.0576271 0.0847458 0.0406780
-7       SQ B4 Intensity 0.6672270 0.8336130 0.6386550 0.4941180
-8        SQ 1 Intensity 1.3979900 1.5284300 1.4214000 1.2842800
-9        SQ 2 Intensity 0.2549670 0.2748340 0.2980130 0.2251660
-10      SQ2 2 Intensity 1.1467900 1.4220200 1.1422000 1.1100900
-11       SQ 3 Intensity 0.4479500 0.3785490 0.3028390 0.3217670
-12       SQ 4 Intensity 1.9678600 2.2000000 1.7678600 1.4428600
-13       SQ 5 Intensity 0.2549670 0.2748340 0.2980130 0.2251660
-14       SQ 6 Intensity 0.0349345 0.0262009 0.1222710 0.0436681
-15 SQI 1 ROI1 Intensity 0.6742420 1.1098500 0.8522730 0.7916670
-16 SQI 1 ROI2 Intensity 0.2500000 0.5422080 0.5129870 0.3051950
-17 SQI 1 ROI3 Intensity 0.9266670 0.9566670 0.7500000 0.8066670
-18 SQ2 1 ROI1 Intensity 1.0848200 1.2991100 1.2276800 1.0892900
-19 SQ2 1 ROI2 Intensity 0.8136650 0.9813660 0.9254660 0.6211180
-20 SQ2 1 ROI3 Intensity 1.1954500 1.5590900 1.1727300 1.0636400
-21  SQ 2 ROI1 Intensity 0.6875000 0.9204550 0.6988640 0.6363640
-22  SQ 2 ROI2 Intensity 0.1520470 0.1871350 0.1988300 0.1637430
-23  SQ 2 ROI3 Intensity 0.0964912 0.0877193 0.1403510 0.1052630
-24  SQ 3 ROI1 Intensity 0.0944444 0.0666667 0.0944444 0.0444444
-25  SQ 3 ROI2 Intensity 0.0500000 0.0250000 0.0000000 0.0250000
-26  SQ 3 ROI3 Intensity 0.0116959 0.0000000 0.0000000 0.0116959
-27  SQ 4 ROI1 Intensity 0.6319440 0.7222220 0.5277780 0.5416670
-28  SQ 4 ROI2 Intensity 0.4909090 0.6818180 0.4636360 0.3818180
-29  SQ 4 ROI3 Intensity 0.4802630 0.7894740 0.5657890 0.5065790
-30  SQ 5 ROI1 Intensity 0.3250000 0.3937500 0.3625000 0.3562500
-31  SQ 5 ROI2 Intensity 0.2760420 0.2500000 0.2708330 0.3072920
-32  SQ 5 ROI3 Intensity 0.2415460 0.3864730 0.4202900 0.1835750
-33  SQ 6 ROI1 Intensity 0.0222222 0.1000000 0.1333330 0.0666667
-34  SQ 6 ROI2 Intensity 0.0000000 0.0370370 0.0370370 0.0370370
-35  SQ 6 ROI3 Intensity 0.0222222 0.0000000 0.0333333 0.0111111</code></pre>
 <p>We could now simplify the DF by simply stating which square is which</p>
-<pre class="r"><code>#I did it manually because I don&#39;t know a good way of doing it automagically
-avector &lt;- c(&quot;pen1&quot;,&quot;pen1&quot;,&quot;pen2&quot;,&quot;pen5&quot;,&quot;pen3&quot;,&quot;pen6&quot;,&quot;pen4&quot;, &quot;pen1&quot;,&quot;pen2&quot;,&quot;pen2&quot;,&quot;pen3&quot;,&quot;pen4&quot;,&quot;pen5&quot;,&quot;pen6&quot;,&quot;pen1&quot;,&quot;pen1&quot;,&quot;pen1&quot;,&quot;pen1&quot;,&quot;pen1&quot;,&quot;pen1&quot;,&quot;pen2&quot;,&quot;pen2&quot;,&quot;pen2&quot;,&quot;pen3&quot;,&quot;pen3&quot;,&quot;pen3&quot;,&quot;pen4&quot;,&quot;pen4&quot;,&quot;pen4&quot;,&quot;pen5&quot;,&quot;pen5&quot;,&quot;pen5&quot;,&quot;pen6&quot;,&quot;pen6&quot;,&quot;pen6&quot;) #the position 10 should be pen 1 i think, but we keep the label as 2 as it was  given. But there is evidence in all the other datasets that 2 squares were painted with pen number 1 and for the remaining pen only one square was painted with each.
-
-training_DF &lt;- training_DF %&gt;% replace(1, avector)
-
-(select(training_DF,1:5))</code></pre>
-<pre><code>   labels       100     100.2     100.4     100.6
-1    pen1 0.6518300 0.8714140 0.7556870 0.6498520
-2    pen1 1.2048600 1.4409700 1.2777800 1.1342600
-3    pen2 0.3944440 0.5319440 0.4750000 0.4569440
-4    pen5 0.3333330 0.4535150 0.4081630 0.3367350
-5    pen3 0.0625000 0.0312500 0.0359375 0.0250000
-6    pen6 0.0101695 0.0576271 0.0847458 0.0406780
-7    pen4 0.6672270 0.8336130 0.6386550 0.4941180
-8    pen1 1.3979900 1.5284300 1.4214000 1.2842800
-9    pen2 0.2549670 0.2748340 0.2980130 0.2251660
-10   pen2 1.1467900 1.4220200 1.1422000 1.1100900
-11   pen3 0.4479500 0.3785490 0.3028390 0.3217670
-12   pen4 1.9678600 2.2000000 1.7678600 1.4428600
-13   pen5 0.2549670 0.2748340 0.2980130 0.2251660
-14   pen6 0.0349345 0.0262009 0.1222710 0.0436681
-15   pen1 0.6742420 1.1098500 0.8522730 0.7916670
-16   pen1 0.2500000 0.5422080 0.5129870 0.3051950
-17   pen1 0.9266670 0.9566670 0.7500000 0.8066670
-18   pen1 1.0848200 1.2991100 1.2276800 1.0892900
-19   pen1 0.8136650 0.9813660 0.9254660 0.6211180
-20   pen1 1.1954500 1.5590900 1.1727300 1.0636400
-21   pen2 0.6875000 0.9204550 0.6988640 0.6363640
-22   pen2 0.1520470 0.1871350 0.1988300 0.1637430
-23   pen2 0.0964912 0.0877193 0.1403510 0.1052630
-24   pen3 0.0944444 0.0666667 0.0944444 0.0444444
-25   pen3 0.0500000 0.0250000 0.0000000 0.0250000
-26   pen3 0.0116959 0.0000000 0.0000000 0.0116959
-27   pen4 0.6319440 0.7222220 0.5277780 0.5416670
-28   pen4 0.4909090 0.6818180 0.4636360 0.3818180
-29   pen4 0.4802630 0.7894740 0.5657890 0.5065790
-30   pen5 0.3250000 0.3937500 0.3625000 0.3562500
-31   pen5 0.2760420 0.2500000 0.2708330 0.3072920
-32   pen5 0.2415460 0.3864730 0.4202900 0.1835750
-33   pen6 0.0222222 0.1000000 0.1333330 0.0666667
-34   pen6 0.0000000 0.0370370 0.0370370 0.0370370
-35   pen6 0.0222222 0.0000000 0.0333333 0.0111111</code></pre>
-<pre class="r"><code># simple_train_DF&lt;-test
-test&lt;-training_DF</code></pre>
 </div>
 <div id="pca-of-training-data" class="section level1">
 <h1>PCA of training data</h1>
 <p>Now we could do a PCA from the whole data</p>
-<pre class="r"><code>#Removing the labels and the last column which is 0 to make the PCA work
-test_pca&lt;-test[-1]
-test_pca&lt;-test_pca[-4501]
-pca_res &lt;- prcomp(test_pca, scale. = TRUE)
-autoplot(pca_res,data=test,colour=&quot;labels&quot;, label=F)</code></pre>
-<p><img src="figure/PiB.Rmd/unnamed-chunk-35-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>We can see the variance explained by the PCs:</p>
-<pre class="r"><code>var_explained = pca_res$sdev^2 / sum(pca_res$sdev^2)
-
-qplot(c(1:35), var_explained) + 
-  geom_line() + 
-  xlab(&quot;Principal Component&quot;) + 
-  ylab(&quot;Variance Explained&quot;) +
-  ggtitle(&quot;Scree Plot&quot;) +
-  ylim(0, 1)</code></pre>
-<p><img src="figure/PiB.Rmd/unnamed-chunk-36-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>We can view the 3 PCs:</p>
-<pre class="r"><code>library(plotly)</code></pre>
-<pre><code>Warning: package &#39;plotly&#39; was built under R version 4.0.5</code></pre>
-<pre><code>
-Attaching package: &#39;plotly&#39;</code></pre>
-<pre><code>The following object is masked from &#39;package:ggplot2&#39;:
-
-    last_plot</code></pre>
-<pre><code>The following object is masked from &#39;package:stats&#39;:
-
-    filter</code></pre>
-<pre><code>The following object is masked from &#39;package:graphics&#39;:
-
-    layout</code></pre>
-<pre class="r"><code>dat_3d &lt;- pca_res$x[,1:3] %&gt;% as_tibble() %&gt;% mutate(square = test$labels)
-
-fig &lt;- plot_ly(dat_3d, x = ~PC1, y = ~PC2, z = ~PC3, 
-               color = ~square, size = I(100))
-fig &lt;- fig %&gt;% add_markers()
-fig &lt;- fig %&gt;% layout(scene = list(xaxis = list(title = &#39;PC1&#39;),
-                                   yaxis = list(title = &#39;PC2&#39;),
-                                   zaxis = list(title = &#39;PC3&#39;)))
-
-fig</code></pre>
-<div id="htmlwidget-e5cf9c52725cc6b26d5a" style="width:672px;height:480px;" class="plotly html-widget"></div>
-<script type="application/json" data-for="htmlwidget-e5cf9c52725cc6b26d5a">{"x":{"visdat":{"1b541c211ea5":["function () ","plotlyVisDat"]},"cur_data":"1b541c211ea5","attrs":{"1b541c211ea5":{"x":{},"y":{},"z":{},"color":{},"size":[100],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter3d","mode":"markers","inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"scene":{"xaxis":{"title":"PC1"},"yaxis":{"title":"PC2"},"zaxis":{"title":"PC3"}},"hovermode":"closest","showlegend":true},"source":"A","config":{"showSendToCloud":false},"data":[{"x":[-6.15601838795165,-34.1812485736255,-38.4013362385967,-17.4402885668854,8.20966144393234,-5.92416894817599,-43.2233131703944,-16.0504694858388,-18.9786051117118],"y":[20.4938581835815,34.0017415833266,52.1314565444291,27.3654105633945,14.0575228239196,18.3956271185292,35.3233785307098,28.7358830508391,27.8425233115453],"z":[-11.3462541595334,12.4999977213479,-3.32441841257674,-14.2663710265944,-11.647285817616,-9.41827366610191,15.0461911282281,19.8676167311071,11.5042382091103],"type":"scatter3d","mode":"markers","name":"pen1","marker":{"color":"rgba(102,194,165,1)","size":[100,100,100,100,100,100,100,100,100],"sizemode":"area","line":{"color":"rgba(102,194,165,1)"}},"textfont":{"color":"rgba(102,194,165,1)","size":100},"error_y":{"color":"rgba(102,194,165,1)","width":100},"error_x":{"color":"rgba(102,194,165,1)","width":100},"line":{"color":"rgba(102,194,165,1)","width":100},"frame":null},{"x":[-48.0496778462055,-12.2331837267541,-95.8418514767856,-77.3988470907677,-28.4215122575707,-17.5786530285432],"y":[-25.0737843052013,-52.3177518098883,18.8669416698851,-10.3396201866257,-38.5467126283404,-43.914820814336],"z":[-27.2358234111488,7.38139523448614,-21.0487610319824,-25.2599746642964,-31.2238178592657,-28.1195643939345],"type":"scatter3d","mode":"markers","name":"pen2","marker":{"color":"rgba(252,141,98,1)","size":[100,100,100,100,100,100],"sizemode":"area","line":{"color":"rgba(252,141,98,1)"}},"textfont":{"color":"rgba(252,141,98,1)","size":100},"error_y":{"color":"rgba(252,141,98,1)","width":100},"error_x":{"color":"rgba(252,141,98,1)","width":100},"line":{"color":"rgba(252,141,98,1)","width":100},"frame":null},{"x":[59.4027785885946,26.2012026187377,50.0111618744439,64.2743386387864,71.4398198086693],"y":[-1.08227471755788,1.44832660165765,5.42334013335048,6.35884737508371,-8.84330819615424],"z":[19.943948486536,6.9962254608075,25.7754624865023,26.0974761188231,15.8277716389815],"type":"scatter3d","mode":"markers","name":"pen3","marker":{"color":"rgba(141,160,203,1)","size":[100,100,100,100,100],"sizemode":"area","line":{"color":"rgba(141,160,203,1)"}},"textfont":{"color":"rgba(141,160,203,1)","size":100},"error_y":{"color":"rgba(141,160,203,1)","width":100},"error_x":{"color":"rgba(141,160,203,1)","width":100},"line":{"color":"rgba(141,160,203,1)","width":100},"frame":null},{"x":[6.65221469370127,-49.6232464944241,5.44728385870321,11.4504695905994,14.6503196549475],"y":[21.2137496581393,66.7232988316756,21.3118267719501,21.318222091029,12.6265120127863],"z":[23.839233043073,18.361321010512,20.6944791618546,29.1646163748986,16.6779388087246],"type":"scatter3d","mode":"markers","name":"pen4","marker":{"color":"rgba(231,138,195,1)","size":[100,100,100,100,100],"sizemode":"area","line":{"color":"rgba(231,138,195,1)"}},"textfont":{"color":"rgba(231,138,195,1)","size":100},"error_y":{"color":"rgba(231,138,195,1)","width":100},"error_x":{"color":"rgba(231,138,195,1)","width":100},"line":{"color":"rgba(231,138,195,1)","width":100},"frame":null},{"x":[-17.53152685455,-12.2331837267541,-21.4386387400424,-6.97031129002063,-14.470392649925],"y":[-56.2743494303628,-52.3177518098883,-55.6758828727727,-62.3680624668049,-60.2812066880429],"z":[20.0615494991598,7.38139523448614,22.6066700843445,19.5961925917192,21.0806937516118],"type":"scatter3d","mode":"markers","name":"pen5","marker":{"color":"rgba(166,216,84,1)","size":[100,100,100,100,100],"sizemode":"area","line":{"color":"rgba(166,216,84,1)"}},"textfont":{"color":"rgba(166,216,84,1)","size":100},"error_y":{"color":"rgba(166,216,84,1)","width":100},"error_x":{"color":"rgba(166,216,84,1)","width":100},"line":{"color":"rgba(166,216,84,1)","width":100},"frame":null},{"x":[55.8244969563353,33.0235245796322,51.8126309287714,65.7845200590682,57.9620503706003],"y":[8.81413452819401,-4.34030131221448,6.35527791803778,8.0292432661731,14.5387046699526],"z":[-35.1806576707663,-35.7363567336954,-32.7214788091909,-35.5584221167959,-38.3169530028157],"type":"scatter3d","mode":"markers","name":"pen6","marker":{"color":"rgba(255,217,47,1)","size":[100,100,100,100,100],"sizemode":"area","line":{"color":"rgba(255,217,47,1)"}},"textfont":{"color":"rgba(255,217,47,1)","size":100},"error_y":{"color":"rgba(255,217,47,1)","width":100},"error_x":{"color":"rgba(255,217,47,1)","width":100},"line":{"color":"rgba(255,217,47,1)","width":100},"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="model-from-pca-training-data" class="section level1">
 <h1>Model from PCA training Data:</h1>
@@ -2323,7 +1769,7 @@ head(select(t_test_data,1:5))</code></pre>
 <pre class="r"><code>test_data&lt;-t_test_data
 
 rm(t_test_data)</code></pre>
-<p>##Caret model</p>
+<p>##Caret model GLMNET</p>
 <pre class="r"><code>training_x &lt;- training_DF %&gt;% select(-labels) %&gt;% as.data.frame()
 training_y &lt;- training_DF$labels
 
@@ -2685,10 +2131,1231 @@ Accuracy was used to select the optimal model using the largest value.
 The final values used for the model were alpha = 0.1 and lambda = 0.1505603.</code></pre>
 <pre class="r"><code>ggplot(fit)</code></pre>
 <p><img src="figure/PiB.Rmd/unnamed-chunk-41-1.png" width="672" style="display: block; margin: auto;" /></p>
-<pre class="r"><code>predicted&lt;- predict(fit, newdata = test_data[,-1])
+<pre class="r"><code>predicted&lt;- predict(fit, newdata = test_data[,-1],type = &quot;prob&quot;)</code></pre>
+<div id="plots" class="section level3">
+<h3>Plots</h3>
+<pre class="r"><code>toplot&lt;-as.data.frame(t(predicted))
+names(toplot)&lt;-c(&quot;strike1&quot;,&quot;strike2&quot;,&quot;strike3&quot;,&quot;strike4&quot;,&quot;strike5&quot;,&quot;strike6&quot;)
+toplot&lt;-toplot %&gt;% mutate(pens=row.names(toplot))
 
-predicted</code></pre>
-<pre><code>[1] pen1 pen2 pen3 pen4 pen5 pen6
+strike1&lt;-toplot %&gt;% select(strike1,pens) %&gt;% ggplot(aes(x=pens, y=strike1, fill=pens)) +
+  geom_bar(stat=&quot;identity&quot;,position=position_stack())+
+  scale_fill_brewer(palette=&quot;Accent&quot;)
+
+strike2&lt;-toplot %&gt;% select(strike2,pens) %&gt;% ggplot(aes(x=pens, y=strike2, fill=pens)) +
+  geom_bar(stat=&quot;identity&quot;,position=position_stack())+
+  scale_fill_brewer(palette=&quot;Accent&quot;)
+
+strike3&lt;-toplot %&gt;% select(strike3,pens) %&gt;% ggplot(aes(x=pens, y=strike3, fill=pens)) +
+  geom_bar(stat=&quot;identity&quot;,position=position_stack())+
+  scale_fill_brewer(palette=&quot;Accent&quot;)
+
+strike4&lt;-toplot %&gt;% select(strike4,pens) %&gt;% ggplot(aes(x=pens, y=strike4, fill=pens)) +
+  geom_bar(stat=&quot;identity&quot;,position=position_stack())+
+  scale_fill_brewer(palette=&quot;Accent&quot;)
+
+strike5&lt;-toplot %&gt;% select(strike5,pens) %&gt;% ggplot(aes(x=pens, y=strike5, fill=pens)) +
+  geom_bar(stat=&quot;identity&quot;,position=position_stack())+
+  scale_fill_brewer(palette=&quot;Accent&quot;)
+
+strike6&lt;-toplot %&gt;% select(strike6,pens) %&gt;% ggplot(aes(x=pens, y=strike6, fill=pens)) +
+  geom_bar(stat=&quot;identity&quot;,position=position_stack())+
+  scale_fill_brewer(palette=&quot;Accent&quot;)
+
+
+ggarrange(strike1, strike2, strike3, strike4, strike5, strike6,
+                    labels = c(&quot;strike1&quot;, &quot;strike2&quot;, &quot;strike3&quot;, &quot;strike4&quot;, &quot;strike5&quot;, &quot;strike6&quot;),
+                    ncol = 3, nrow = 3)</code></pre>
+<p><img src="figure/PiB.Rmd/unnamed-chunk-42-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>##Caret model GLMNET Lasso (Alpha = 1) Lambda ranging from 0 to 1</p>
+<pre class="r"><code>training_x &lt;- training_DF %&gt;% select(-labels) %&gt;% as.data.frame()
+training_y &lt;- training_DF$labels
+
+trControl &lt;- trainControl(method = &quot;LOOCV&quot;, number = 5, verboseIter = T)
+
+
+tuneGrid &lt;- expand.grid(alpha = 1, lambda = seq(0.001, 1, length = 1000))
+
+fit &lt;- train(x = training_x, 
+             y = training_y, 
+        method = &quot;glmnet&quot;,
+        tuneGrid = tuneGrid,
+     trControl = trControl,
+    )</code></pre>
+<pre><code>+ Fold01: alpha=1, lambda=1 </code></pre>
+<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
+<pre><code>- Fold01: alpha=1, lambda=1 
++ Fold02: alpha=1, lambda=1 </code></pre>
+<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
+<pre><code>- Fold02: alpha=1, lambda=1 
++ Fold03: alpha=1, lambda=1 </code></pre>
+<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
+<pre><code>- Fold03: alpha=1, lambda=1 
++ Fold04: alpha=1, lambda=1 </code></pre>
+<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
+<pre><code>- Fold04: alpha=1, lambda=1 
++ Fold05: alpha=1, lambda=1 </code></pre>
+<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
+<pre><code>- Fold05: alpha=1, lambda=1 
++ Fold06: alpha=1, lambda=1 </code></pre>
+<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
+<pre><code>- Fold06: alpha=1, lambda=1 
++ Fold07: alpha=1, lambda=1 </code></pre>
+<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
+<pre><code>- Fold07: alpha=1, lambda=1 
++ Fold08: alpha=1, lambda=1 </code></pre>
+<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
+<pre><code>- Fold08: alpha=1, lambda=1 
++ Fold09: alpha=1, lambda=1 </code></pre>
+<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
+<pre><code>- Fold09: alpha=1, lambda=1 
++ Fold10: alpha=1, lambda=1 </code></pre>
+<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
+<pre><code>- Fold10: alpha=1, lambda=1 
++ Fold11: alpha=1, lambda=1 </code></pre>
+<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
+<pre><code>- Fold11: alpha=1, lambda=1 
++ Fold12: alpha=1, lambda=1 </code></pre>
+<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
+<pre><code>- Fold12: alpha=1, lambda=1 
++ Fold13: alpha=1, lambda=1 </code></pre>
+<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
+<pre><code>- Fold13: alpha=1, lambda=1 
++ Fold14: alpha=1, lambda=1 </code></pre>
+<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
+<pre><code>- Fold14: alpha=1, lambda=1 
++ Fold15: alpha=1, lambda=1 </code></pre>
+<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
+<pre><code>- Fold15: alpha=1, lambda=1 
++ Fold16: alpha=1, lambda=1 </code></pre>
+<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
+<pre><code>- Fold16: alpha=1, lambda=1 
++ Fold17: alpha=1, lambda=1 </code></pre>
+<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
+<pre><code>- Fold17: alpha=1, lambda=1 
++ Fold18: alpha=1, lambda=1 </code></pre>
+<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
+<pre><code>- Fold18: alpha=1, lambda=1 
++ Fold19: alpha=1, lambda=1 </code></pre>
+<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
+<pre><code>- Fold19: alpha=1, lambda=1 
++ Fold20: alpha=1, lambda=1 </code></pre>
+<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
+<pre><code>- Fold20: alpha=1, lambda=1 
++ Fold21: alpha=1, lambda=1 </code></pre>
+<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
+<pre><code>- Fold21: alpha=1, lambda=1 
++ Fold22: alpha=1, lambda=1 </code></pre>
+<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
+<pre><code>- Fold22: alpha=1, lambda=1 
++ Fold23: alpha=1, lambda=1 </code></pre>
+<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
+<pre><code>- Fold23: alpha=1, lambda=1 
++ Fold24: alpha=1, lambda=1 </code></pre>
+<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
+<pre><code>- Fold24: alpha=1, lambda=1 
++ Fold25: alpha=1, lambda=1 </code></pre>
+<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
+<pre><code>- Fold25: alpha=1, lambda=1 
++ Fold26: alpha=1, lambda=1 </code></pre>
+<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
+<pre><code>- Fold26: alpha=1, lambda=1 
++ Fold27: alpha=1, lambda=1 </code></pre>
+<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
+<pre><code>- Fold27: alpha=1, lambda=1 
++ Fold28: alpha=1, lambda=1 </code></pre>
+<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
+<pre><code>- Fold28: alpha=1, lambda=1 
++ Fold29: alpha=1, lambda=1 </code></pre>
+<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
+<pre><code>- Fold29: alpha=1, lambda=1 
++ Fold30: alpha=1, lambda=1 </code></pre>
+<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
+<pre><code>- Fold30: alpha=1, lambda=1 
++ Fold31: alpha=1, lambda=1 </code></pre>
+<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
+<pre><code>- Fold31: alpha=1, lambda=1 
++ Fold32: alpha=1, lambda=1 </code></pre>
+<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
+<pre><code>- Fold32: alpha=1, lambda=1 
++ Fold33: alpha=1, lambda=1 </code></pre>
+<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
+<pre><code>- Fold33: alpha=1, lambda=1 
++ Fold34: alpha=1, lambda=1 </code></pre>
+<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
+<pre><code>- Fold34: alpha=1, lambda=1 
++ Fold35: alpha=1, lambda=1 </code></pre>
+<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
+<pre><code>- Fold35: alpha=1, lambda=1 
+Aggregating results
+Selecting tuning parameters
+Fitting alpha = 1, lambda = 0.071 on full training set</code></pre>
+<pre><code>Warning in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs, : one
+multinomial or binomial class has fewer than 8 observations; dangerous ground</code></pre>
+<pre class="r"><code>print(fit)</code></pre>
+<pre><code>glmnet 
+
+  35 samples
+4501 predictors
+   6 classes: &#39;pen1&#39;, &#39;pen2&#39;, &#39;pen3&#39;, &#39;pen4&#39;, &#39;pen5&#39;, &#39;pen6&#39; 
+
+No pre-processing
+Resampling: Leave-One-Out Cross-Validation 
+Summary of sample sizes: 34, 34, 34, 34, 34, 34, ... 
+Resampling results across tuning parameters:
+
+  lambda  Accuracy   Kappa      
+  0.001   0.8857143  0.860418744
+  0.002   0.8857143  0.860418744
+  0.003   0.8857143  0.860418744
+  0.004   0.8857143  0.860418744
+  0.005   0.8857143  0.860418744
+  0.006   0.8857143  0.860418744
+  0.007   0.8857143  0.860418744
+  0.008   0.8857143  0.860418744
+  0.009   0.8857143  0.860418744
+  0.010   0.8857143  0.860418744
+  0.011   0.8857143  0.860418744
+  0.012   0.8857143  0.860418744
+  0.013   0.8857143  0.860418744
+  0.014   0.8857143  0.860418744
+  0.015   0.8857143  0.860418744
+  0.016   0.8857143  0.860418744
+  0.017   0.8857143  0.860418744
+  0.018   0.8857143  0.860418744
+  0.019   0.8857143  0.860418744
+  0.020   0.8857143  0.860418744
+  0.021   0.8857143  0.860418744
+  0.022   0.8857143  0.860418744
+  0.023   0.8857143  0.860418744
+  0.024   0.8857143  0.860418744
+  0.025   0.8857143  0.860418744
+  0.026   0.8857143  0.860418744
+  0.027   0.8857143  0.860418744
+  0.028   0.8857143  0.860418744
+  0.029   0.8857143  0.860418744
+  0.030   0.8857143  0.860418744
+  0.031   0.8857143  0.860418744
+  0.032   0.8857143  0.860418744
+  0.033   0.8857143  0.860418744
+  0.034   0.8857143  0.860418744
+  0.035   0.8857143  0.860418744
+  0.036   0.8857143  0.860418744
+  0.037   0.8857143  0.860418744
+  0.038   0.8857143  0.860418744
+  0.039   0.8857143  0.860418744
+  0.040   0.8857143  0.860418744
+  0.041   0.8857143  0.860418744
+  0.042   0.8857143  0.860418744
+  0.043   0.8857143  0.860418744
+  0.044   0.8857143  0.860418744
+  0.045   0.8857143  0.860418744
+  0.046   0.8857143  0.860418744
+  0.047   0.8857143  0.860418744
+  0.048   0.8857143  0.860418744
+  0.049   0.8857143  0.860418744
+  0.050   0.8857143  0.860418744
+  0.051   0.8857143  0.860418744
+  0.052   0.8857143  0.860418744
+  0.053   0.8857143  0.860418744
+  0.054   0.8857143  0.860418744
+  0.055   0.8857143  0.860418744
+  0.056   0.8857143  0.860418744
+  0.057   0.8857143  0.860418744
+  0.058   0.8857143  0.860418744
+  0.059   0.8857143  0.860418744
+  0.060   0.8857143  0.860418744
+  0.061   0.8857143  0.860418744
+  0.062   0.8857143  0.860418744
+  0.063   0.8857143  0.860418744
+  0.064   0.8857143  0.860418744
+  0.065   0.8857143  0.860418744
+  0.066   0.8857143  0.860418744
+  0.067   0.8857143  0.860418744
+  0.068   0.8857143  0.860418744
+  0.069   0.8857143  0.860418744
+  0.070   0.8857143  0.860418744
+  0.071   0.8857143  0.860418744
+  0.072   0.8571429  0.824824825
+  0.073   0.8571429  0.824824825
+  0.074   0.8571429  0.824824825
+  0.075   0.8571429  0.824824825
+  0.076   0.8285714  0.789156627
+  0.077   0.8285714  0.789156627
+  0.078   0.8285714  0.789156627
+  0.079   0.8285714  0.789156627
+  0.080   0.8285714  0.789156627
+  0.081   0.8285714  0.789156627
+  0.082   0.8285714  0.789156627
+  0.083   0.8285714  0.789156627
+  0.084   0.8285714  0.789156627
+  0.085   0.8285714  0.789156627
+  0.086   0.8285714  0.789156627
+  0.087   0.8285714  0.789156627
+  0.088   0.8285714  0.789156627
+  0.089   0.8285714  0.789156627
+  0.090   0.8285714  0.789156627
+  0.091   0.8285714  0.789156627
+  0.092   0.8285714  0.789156627
+  0.093   0.8285714  0.789156627
+  0.094   0.8285714  0.789156627
+  0.095   0.8285714  0.789156627
+  0.096   0.8285714  0.789156627
+  0.097   0.8285714  0.789156627
+  0.098   0.8285714  0.789156627
+  0.099   0.8285714  0.789156627
+  0.100   0.8285714  0.789156627
+  0.101   0.8285714  0.789156627
+  0.102   0.8285714  0.789156627
+  0.103   0.8285714  0.789156627
+  0.104   0.8285714  0.789156627
+  0.105   0.8285714  0.789156627
+  0.106   0.8285714  0.789156627
+  0.107   0.8285714  0.789156627
+  0.108   0.8285714  0.789156627
+  0.109   0.8285714  0.789156627
+  0.110   0.8285714  0.789156627
+  0.111   0.8285714  0.789156627
+  0.112   0.8285714  0.789156627
+  0.113   0.8285714  0.789156627
+  0.114   0.8285714  0.789156627
+  0.115   0.8285714  0.789156627
+  0.116   0.8285714  0.789156627
+  0.117   0.8285714  0.789156627
+  0.118   0.8285714  0.789156627
+  0.119   0.8285714  0.789156627
+  0.120   0.8285714  0.789156627
+  0.121   0.8285714  0.789156627
+  0.122   0.8285714  0.789156627
+  0.123   0.8285714  0.789156627
+  0.124   0.8285714  0.789156627
+  0.125   0.8285714  0.789156627
+  0.126   0.8285714  0.789156627
+  0.127   0.8285714  0.788519637
+  0.128   0.8285714  0.788519637
+  0.129   0.8285714  0.788519637
+  0.130   0.8285714  0.788519637
+  0.131   0.8285714  0.788519637
+  0.132   0.8285714  0.788519637
+  0.133   0.8285714  0.788519637
+  0.134   0.8000000  0.754262788
+  0.135   0.8000000  0.754262788
+  0.136   0.8000000  0.754262788
+  0.137   0.8000000  0.754262788
+  0.138   0.8000000  0.754262788
+  0.139   0.8000000  0.754262788
+  0.140   0.8000000  0.754262788
+  0.141   0.8000000  0.754262788
+  0.142   0.8000000  0.754262788
+  0.143   0.8000000  0.754262788
+  0.144   0.8000000  0.754262788
+  0.145   0.8000000  0.754262788
+  0.146   0.8000000  0.754262788
+  0.147   0.8000000  0.754262788
+  0.148   0.8000000  0.754262788
+  0.149   0.7714286  0.718026183
+  0.150   0.7714286  0.718026183
+  0.151   0.7714286  0.718026183
+  0.152   0.7714286  0.718026183
+  0.153   0.7714286  0.718026183
+  0.154   0.7714286  0.718026183
+  0.155   0.7714286  0.718026183
+  0.156   0.7714286  0.718026183
+  0.157   0.7714286  0.718026183
+  0.158   0.7714286  0.718026183
+  0.159   0.7714286  0.718026183
+  0.160   0.7714286  0.718026183
+  0.161   0.7714286  0.718026183
+  0.162   0.7714286  0.718026183
+  0.163   0.7714286  0.718026183
+  0.164   0.7714286  0.718026183
+  0.165   0.7714286  0.718026183
+  0.166   0.7714286  0.718026183
+  0.167   0.7714286  0.718026183
+  0.168   0.7714286  0.718026183
+  0.169   0.7714286  0.718026183
+  0.170   0.7714286  0.718026183
+  0.171   0.7714286  0.718026183
+  0.172   0.8000000  0.754262788
+  0.173   0.8000000  0.754262788
+  0.174   0.8000000  0.754262788
+  0.175   0.8000000  0.754262788
+  0.176   0.8000000  0.754262788
+  0.177   0.8000000  0.754262788
+  0.178   0.8000000  0.754262788
+  0.179   0.7714286  0.718026183
+  0.180   0.7714286  0.718026183
+  0.181   0.7714286  0.718026183
+  0.182   0.7714286  0.718026183
+  0.183   0.8000000  0.753521127
+  0.184   0.8000000  0.753521127
+  0.185   0.8000000  0.753521127
+  0.186   0.8000000  0.753521127
+  0.187   0.8000000  0.753521127
+  0.188   0.8000000  0.753521127
+  0.189   0.7714286  0.717171717
+  0.190   0.7714286  0.717171717
+  0.191   0.7714286  0.717171717
+  0.192   0.7714286  0.717171717
+  0.193   0.7714286  0.717171717
+  0.194   0.7428571  0.680527383
+  0.195   0.7428571  0.680527383
+  0.196   0.7428571  0.680527383
+  0.197   0.7142857  0.643584521
+  0.198   0.7142857  0.643584521
+  0.199   0.7142857  0.643584521
+  0.200   0.7142857  0.643584521
+  0.201   0.7142857  0.643584521
+  0.202   0.7142857  0.643584521
+  0.203   0.7142857  0.643584521
+  0.204   0.7142857  0.643584521
+  0.205   0.7142857  0.643584521
+  0.206   0.7142857  0.643584521
+  0.207   0.7142857  0.643584521
+  0.208   0.7142857  0.643584521
+  0.209   0.7142857  0.643584521
+  0.210   0.7142857  0.643584521
+  0.211   0.7142857  0.643584521
+  0.212   0.7142857  0.643584521
+  0.213   0.7142857  0.643584521
+  0.214   0.7142857  0.643584521
+  0.215   0.7142857  0.643584521
+  0.216   0.7142857  0.643584521
+  0.217   0.7142857  0.643584521
+  0.218   0.7142857  0.643584521
+  0.219   0.7142857  0.643584521
+  0.220   0.7142857  0.643584521
+  0.221   0.7142857  0.643584521
+  0.222   0.7142857  0.643584521
+  0.223   0.7142857  0.643584521
+  0.224   0.7142857  0.643584521
+  0.225   0.7142857  0.643584521
+  0.226   0.7142857  0.643584521
+  0.227   0.7142857  0.643584521
+  0.228   0.7142857  0.643584521
+  0.229   0.7142857  0.643584521
+  0.230   0.7428571  0.677914110
+  0.231   0.7428571  0.677914110
+  0.232   0.7428571  0.677914110
+  0.233   0.7428571  0.677914110
+  0.234   0.7428571  0.677914110
+  0.235   0.7428571  0.677914110
+  0.236   0.7428571  0.677914110
+  0.237   0.7428571  0.677914110
+  0.238   0.7428571  0.677914110
+  0.239   0.7428571  0.677914110
+  0.240   0.7142857  0.640657084
+  0.241   0.7142857  0.640657084
+  0.242   0.7142857  0.640657084
+  0.243   0.7142857  0.640657084
+  0.244   0.7142857  0.640657084
+  0.245   0.7142857  0.640657084
+  0.246   0.7142857  0.640657084
+  0.247   0.7142857  0.640657084
+  0.248   0.7142857  0.640657084
+  0.249   0.7142857  0.640657084
+  0.250   0.7142857  0.640657084
+  0.251   0.7142857  0.640657084
+  0.252   0.7142857  0.640657084
+  0.253   0.6857143  0.603092784
+  0.254   0.6857143  0.603092784
+  0.255   0.6571429  0.565217391
+  0.256   0.6285714  0.527027027
+  0.257   0.6285714  0.527027027
+  0.258   0.6285714  0.527027027
+  0.259   0.6285714  0.527027027
+  0.260   0.6000000  0.488517745
+  0.261   0.6000000  0.488517745
+  0.262   0.6000000  0.488517745
+  0.263   0.6000000  0.488517745
+  0.264   0.6000000  0.488517745
+  0.265   0.5714286  0.449685535
+  0.266   0.5714286  0.449685535
+  0.267   0.5428571  0.410526316
+  0.268   0.5428571  0.410526316
+  0.269   0.5428571  0.410526316
+  0.270   0.5428571  0.410526316
+  0.271   0.5428571  0.410526316
+  0.272   0.5142857  0.371700106
+  0.273   0.4857143  0.332627119
+  0.274   0.4571429  0.292553191
+  0.275   0.4571429  0.292553191
+  0.276   0.4571429  0.292553191
+  0.277   0.4571429  0.292553191
+  0.278   0.4000000  0.212218650
+  0.279   0.3714286  0.171151776
+  0.280   0.3428571  0.129729730
+  0.281   0.3142857  0.088937093
+  0.282   0.2571429  0.004376368
+  0.283   0.2571429  0.004376368
+  0.284   0.2571429  0.004376368
+  0.285   0.2571429  0.004376368
+  0.286   0.2571429  0.004376368
+  0.287   0.2571429  0.004376368
+  0.288   0.2571429  0.004376368
+  0.289   0.2571429  0.004376368
+  0.290   0.2571429  0.004376368
+  0.291   0.2571429  0.004376368
+  0.292   0.2571429  0.004376368
+  0.293   0.2571429  0.004376368
+  0.294   0.2571429  0.004376368
+  0.295   0.2571429  0.004376368
+  0.296   0.2571429  0.004376368
+  0.297   0.2571429  0.004376368
+  0.298   0.2571429  0.004376368
+  0.299   0.2571429  0.004376368
+  0.300   0.2571429  0.004376368
+  0.301   0.2571429  0.004376368
+  0.302   0.2571429  0.004376368
+  0.303   0.2571429  0.004376368
+  0.304   0.2571429  0.004376368
+  0.305   0.2571429  0.004376368
+  0.306   0.2571429  0.004376368
+  0.307   0.2571429  0.004376368
+  0.308   0.2571429  0.004376368
+  0.309   0.2571429  0.004376368
+  0.310   0.2571429  0.004376368
+  0.311   0.2571429  0.004376368
+  0.312   0.2571429  0.000000000
+  0.313   0.2571429  0.000000000
+  0.314   0.2571429  0.000000000
+  0.315   0.2571429  0.000000000
+  0.316   0.2571429  0.000000000
+  0.317   0.2571429  0.000000000
+  0.318   0.2571429  0.000000000
+  0.319   0.2571429  0.000000000
+  0.320   0.2571429  0.000000000
+  0.321   0.2571429  0.000000000
+  0.322   0.2571429  0.000000000
+  0.323   0.2571429  0.000000000
+  0.324   0.2571429  0.000000000
+  0.325   0.2571429  0.000000000
+  0.326   0.2571429  0.000000000
+  0.327   0.2571429  0.000000000
+  0.328   0.2571429  0.000000000
+  0.329   0.2571429  0.000000000
+  0.330   0.2571429  0.000000000
+  0.331   0.2571429  0.000000000
+  0.332   0.2571429  0.000000000
+  0.333   0.2571429  0.000000000
+  0.334   0.2571429  0.000000000
+  0.335   0.2571429  0.000000000
+  0.336   0.2571429  0.000000000
+  0.337   0.2571429  0.000000000
+  0.338   0.2571429  0.000000000
+  0.339   0.2571429  0.000000000
+  0.340   0.2571429  0.000000000
+  0.341   0.2571429  0.000000000
+  0.342   0.2571429  0.000000000
+  0.343   0.2571429  0.000000000
+  0.344   0.2571429  0.000000000
+  0.345   0.2571429  0.000000000
+  0.346   0.2571429  0.000000000
+  0.347   0.2571429  0.000000000
+  0.348   0.2571429  0.000000000
+  0.349   0.2571429  0.000000000
+  0.350   0.2571429  0.000000000
+  0.351   0.2571429  0.000000000
+  0.352   0.2571429  0.000000000
+  0.353   0.2571429  0.000000000
+  0.354   0.2571429  0.000000000
+  0.355   0.2571429  0.000000000
+  0.356   0.2571429  0.000000000
+  0.357   0.2571429  0.000000000
+  0.358   0.2571429  0.000000000
+  0.359   0.2571429  0.000000000
+  0.360   0.2571429  0.000000000
+  0.361   0.2571429  0.000000000
+  0.362   0.2571429  0.000000000
+  0.363   0.2571429  0.000000000
+  0.364   0.2571429  0.000000000
+  0.365   0.2571429  0.000000000
+  0.366   0.2571429  0.000000000
+  0.367   0.2571429  0.000000000
+  0.368   0.2571429  0.000000000
+  0.369   0.2571429  0.000000000
+  0.370   0.2571429  0.000000000
+  0.371   0.2571429  0.000000000
+  0.372   0.2571429  0.000000000
+  0.373   0.2571429  0.000000000
+  0.374   0.2571429  0.000000000
+  0.375   0.2571429  0.000000000
+  0.376   0.2571429  0.000000000
+  0.377   0.2571429  0.000000000
+  0.378   0.2571429  0.000000000
+  0.379   0.2571429  0.000000000
+  0.380   0.2571429  0.000000000
+  0.381   0.2571429  0.000000000
+  0.382   0.2571429  0.000000000
+  0.383   0.2571429  0.000000000
+  0.384   0.2571429  0.000000000
+  0.385   0.2571429  0.000000000
+  0.386   0.2571429  0.000000000
+  0.387   0.2571429  0.000000000
+  0.388   0.2571429  0.000000000
+  0.389   0.2571429  0.000000000
+  0.390   0.2571429  0.000000000
+  0.391   0.2571429  0.000000000
+  0.392   0.2571429  0.000000000
+  0.393   0.2571429  0.000000000
+  0.394   0.2571429  0.000000000
+  0.395   0.2571429  0.000000000
+  0.396   0.2571429  0.000000000
+  0.397   0.2571429  0.000000000
+  0.398   0.2571429  0.000000000
+  0.399   0.2571429  0.000000000
+  0.400   0.2571429  0.000000000
+  0.401   0.2571429  0.000000000
+  0.402   0.2571429  0.000000000
+  0.403   0.2571429  0.000000000
+  0.404   0.2571429  0.000000000
+  0.405   0.2571429  0.000000000
+  0.406   0.2571429  0.000000000
+  0.407   0.2571429  0.000000000
+  0.408   0.2571429  0.000000000
+  0.409   0.2571429  0.000000000
+  0.410   0.2571429  0.000000000
+  0.411   0.2571429  0.000000000
+  0.412   0.2571429  0.000000000
+  0.413   0.2571429  0.000000000
+  0.414   0.2571429  0.000000000
+  0.415   0.2571429  0.000000000
+  0.416   0.2571429  0.000000000
+  0.417   0.2571429  0.000000000
+  0.418   0.2571429  0.000000000
+  0.419   0.2571429  0.000000000
+  0.420   0.2571429  0.000000000
+  0.421   0.2571429  0.000000000
+  0.422   0.2571429  0.000000000
+  0.423   0.2571429  0.000000000
+  0.424   0.2571429  0.000000000
+  0.425   0.2571429  0.000000000
+  0.426   0.2571429  0.000000000
+  0.427   0.2571429  0.000000000
+  0.428   0.2571429  0.000000000
+  0.429   0.2571429  0.000000000
+  0.430   0.2571429  0.000000000
+  0.431   0.2571429  0.000000000
+  0.432   0.2571429  0.000000000
+  0.433   0.2571429  0.000000000
+  0.434   0.2571429  0.000000000
+  0.435   0.2571429  0.000000000
+  0.436   0.2571429  0.000000000
+  0.437   0.2571429  0.000000000
+  0.438   0.2571429  0.000000000
+  0.439   0.2571429  0.000000000
+  0.440   0.2571429  0.000000000
+  0.441   0.2571429  0.000000000
+  0.442   0.2571429  0.000000000
+  0.443   0.2571429  0.000000000
+  0.444   0.2571429  0.000000000
+  0.445   0.2571429  0.000000000
+  0.446   0.2571429  0.000000000
+  0.447   0.2571429  0.000000000
+  0.448   0.2571429  0.000000000
+  0.449   0.2571429  0.000000000
+  0.450   0.2571429  0.000000000
+  0.451   0.2571429  0.000000000
+  0.452   0.2571429  0.000000000
+  0.453   0.2571429  0.000000000
+  0.454   0.2571429  0.000000000
+  0.455   0.2571429  0.000000000
+  0.456   0.2571429  0.000000000
+  0.457   0.2571429  0.000000000
+  0.458   0.2571429  0.000000000
+  0.459   0.2571429  0.000000000
+  0.460   0.2571429  0.000000000
+  0.461   0.2571429  0.000000000
+  0.462   0.2571429  0.000000000
+  0.463   0.2571429  0.000000000
+  0.464   0.2571429  0.000000000
+  0.465   0.2571429  0.000000000
+  0.466   0.2571429  0.000000000
+  0.467   0.2571429  0.000000000
+  0.468   0.2571429  0.000000000
+  0.469   0.2571429  0.000000000
+  0.470   0.2571429  0.000000000
+  0.471   0.2571429  0.000000000
+  0.472   0.2571429  0.000000000
+  0.473   0.2571429  0.000000000
+  0.474   0.2571429  0.000000000
+  0.475   0.2571429  0.000000000
+  0.476   0.2571429  0.000000000
+  0.477   0.2571429  0.000000000
+  0.478   0.2571429  0.000000000
+  0.479   0.2571429  0.000000000
+  0.480   0.2571429  0.000000000
+  0.481   0.2571429  0.000000000
+  0.482   0.2571429  0.000000000
+  0.483   0.2571429  0.000000000
+  0.484   0.2571429  0.000000000
+  0.485   0.2571429  0.000000000
+  0.486   0.2571429  0.000000000
+  0.487   0.2571429  0.000000000
+  0.488   0.2571429  0.000000000
+  0.489   0.2571429  0.000000000
+  0.490   0.2571429  0.000000000
+  0.491   0.2571429  0.000000000
+  0.492   0.2571429  0.000000000
+  0.493   0.2571429  0.000000000
+  0.494   0.2571429  0.000000000
+  0.495   0.2571429  0.000000000
+  0.496   0.2571429  0.000000000
+  0.497   0.2571429  0.000000000
+  0.498   0.2571429  0.000000000
+  0.499   0.2571429  0.000000000
+  0.500   0.2571429  0.000000000
+  0.501   0.2571429  0.000000000
+  0.502   0.2571429  0.000000000
+  0.503   0.2571429  0.000000000
+  0.504   0.2571429  0.000000000
+  0.505   0.2571429  0.000000000
+  0.506   0.2571429  0.000000000
+  0.507   0.2571429  0.000000000
+  0.508   0.2571429  0.000000000
+  0.509   0.2571429  0.000000000
+  0.510   0.2571429  0.000000000
+  0.511   0.2571429  0.000000000
+  0.512   0.2571429  0.000000000
+  0.513   0.2571429  0.000000000
+  0.514   0.2571429  0.000000000
+  0.515   0.2571429  0.000000000
+  0.516   0.2571429  0.000000000
+  0.517   0.2571429  0.000000000
+  0.518   0.2571429  0.000000000
+  0.519   0.2571429  0.000000000
+  0.520   0.2571429  0.000000000
+  0.521   0.2571429  0.000000000
+  0.522   0.2571429  0.000000000
+  0.523   0.2571429  0.000000000
+  0.524   0.2571429  0.000000000
+  0.525   0.2571429  0.000000000
+  0.526   0.2571429  0.000000000
+  0.527   0.2571429  0.000000000
+  0.528   0.2571429  0.000000000
+  0.529   0.2571429  0.000000000
+  0.530   0.2571429  0.000000000
+  0.531   0.2571429  0.000000000
+  0.532   0.2571429  0.000000000
+  0.533   0.2571429  0.000000000
+  0.534   0.2571429  0.000000000
+  0.535   0.2571429  0.000000000
+  0.536   0.2571429  0.000000000
+  0.537   0.2571429  0.000000000
+  0.538   0.2571429  0.000000000
+  0.539   0.2571429  0.000000000
+  0.540   0.2571429  0.000000000
+  0.541   0.2571429  0.000000000
+  0.542   0.2571429  0.000000000
+  0.543   0.2571429  0.000000000
+  0.544   0.2571429  0.000000000
+  0.545   0.2571429  0.000000000
+  0.546   0.2571429  0.000000000
+  0.547   0.2571429  0.000000000
+  0.548   0.2571429  0.000000000
+  0.549   0.2571429  0.000000000
+  0.550   0.2571429  0.000000000
+  0.551   0.2571429  0.000000000
+  0.552   0.2571429  0.000000000
+  0.553   0.2571429  0.000000000
+  0.554   0.2571429  0.000000000
+  0.555   0.2571429  0.000000000
+  0.556   0.2571429  0.000000000
+  0.557   0.2571429  0.000000000
+  0.558   0.2571429  0.000000000
+  0.559   0.2571429  0.000000000
+  0.560   0.2571429  0.000000000
+  0.561   0.2571429  0.000000000
+  0.562   0.2571429  0.000000000
+  0.563   0.2571429  0.000000000
+  0.564   0.2571429  0.000000000
+  0.565   0.2571429  0.000000000
+  0.566   0.2571429  0.000000000
+  0.567   0.2571429  0.000000000
+  0.568   0.2571429  0.000000000
+  0.569   0.2571429  0.000000000
+  0.570   0.2571429  0.000000000
+  0.571   0.2571429  0.000000000
+  0.572   0.2571429  0.000000000
+  0.573   0.2571429  0.000000000
+  0.574   0.2571429  0.000000000
+  0.575   0.2571429  0.000000000
+  0.576   0.2571429  0.000000000
+  0.577   0.2571429  0.000000000
+  0.578   0.2571429  0.000000000
+  0.579   0.2571429  0.000000000
+  0.580   0.2571429  0.000000000
+  0.581   0.2571429  0.000000000
+  0.582   0.2571429  0.000000000
+  0.583   0.2571429  0.000000000
+  0.584   0.2571429  0.000000000
+  0.585   0.2571429  0.000000000
+  0.586   0.2571429  0.000000000
+  0.587   0.2571429  0.000000000
+  0.588   0.2571429  0.000000000
+  0.589   0.2571429  0.000000000
+  0.590   0.2571429  0.000000000
+  0.591   0.2571429  0.000000000
+  0.592   0.2571429  0.000000000
+  0.593   0.2571429  0.000000000
+  0.594   0.2571429  0.000000000
+  0.595   0.2571429  0.000000000
+  0.596   0.2571429  0.000000000
+  0.597   0.2571429  0.000000000
+  0.598   0.2571429  0.000000000
+  0.599   0.2571429  0.000000000
+  0.600   0.2571429  0.000000000
+  0.601   0.2571429  0.000000000
+  0.602   0.2571429  0.000000000
+  0.603   0.2571429  0.000000000
+  0.604   0.2571429  0.000000000
+  0.605   0.2571429  0.000000000
+  0.606   0.2571429  0.000000000
+  0.607   0.2571429  0.000000000
+  0.608   0.2571429  0.000000000
+  0.609   0.2571429  0.000000000
+  0.610   0.2571429  0.000000000
+  0.611   0.2571429  0.000000000
+  0.612   0.2571429  0.000000000
+  0.613   0.2571429  0.000000000
+  0.614   0.2571429  0.000000000
+  0.615   0.2571429  0.000000000
+  0.616   0.2571429  0.000000000
+  0.617   0.2571429  0.000000000
+  0.618   0.2571429  0.000000000
+  0.619   0.2571429  0.000000000
+  0.620   0.2571429  0.000000000
+  0.621   0.2571429  0.000000000
+  0.622   0.2571429  0.000000000
+  0.623   0.2571429  0.000000000
+  0.624   0.2571429  0.000000000
+  0.625   0.2571429  0.000000000
+  0.626   0.2571429  0.000000000
+  0.627   0.2571429  0.000000000
+  0.628   0.2571429  0.000000000
+  0.629   0.2571429  0.000000000
+  0.630   0.2571429  0.000000000
+  0.631   0.2571429  0.000000000
+  0.632   0.2571429  0.000000000
+  0.633   0.2571429  0.000000000
+  0.634   0.2571429  0.000000000
+  0.635   0.2571429  0.000000000
+  0.636   0.2571429  0.000000000
+  0.637   0.2571429  0.000000000
+  0.638   0.2571429  0.000000000
+  0.639   0.2571429  0.000000000
+  0.640   0.2571429  0.000000000
+  0.641   0.2571429  0.000000000
+  0.642   0.2571429  0.000000000
+  0.643   0.2571429  0.000000000
+  0.644   0.2571429  0.000000000
+  0.645   0.2571429  0.000000000
+  0.646   0.2571429  0.000000000
+  0.647   0.2571429  0.000000000
+  0.648   0.2571429  0.000000000
+  0.649   0.2571429  0.000000000
+  0.650   0.2571429  0.000000000
+  0.651   0.2571429  0.000000000
+  0.652   0.2571429  0.000000000
+  0.653   0.2571429  0.000000000
+  0.654   0.2571429  0.000000000
+  0.655   0.2571429  0.000000000
+  0.656   0.2571429  0.000000000
+  0.657   0.2571429  0.000000000
+  0.658   0.2571429  0.000000000
+  0.659   0.2571429  0.000000000
+  0.660   0.2571429  0.000000000
+  0.661   0.2571429  0.000000000
+  0.662   0.2571429  0.000000000
+  0.663   0.2571429  0.000000000
+  0.664   0.2571429  0.000000000
+  0.665   0.2571429  0.000000000
+  0.666   0.2571429  0.000000000
+  0.667   0.2571429  0.000000000
+  0.668   0.2571429  0.000000000
+  0.669   0.2571429  0.000000000
+  0.670   0.2571429  0.000000000
+  0.671   0.2571429  0.000000000
+  0.672   0.2571429  0.000000000
+  0.673   0.2571429  0.000000000
+  0.674   0.2571429  0.000000000
+  0.675   0.2571429  0.000000000
+  0.676   0.2571429  0.000000000
+  0.677   0.2571429  0.000000000
+  0.678   0.2571429  0.000000000
+  0.679   0.2571429  0.000000000
+  0.680   0.2571429  0.000000000
+  0.681   0.2571429  0.000000000
+  0.682   0.2571429  0.000000000
+  0.683   0.2571429  0.000000000
+  0.684   0.2571429  0.000000000
+  0.685   0.2571429  0.000000000
+  0.686   0.2571429  0.000000000
+  0.687   0.2571429  0.000000000
+  0.688   0.2571429  0.000000000
+  0.689   0.2571429  0.000000000
+  0.690   0.2571429  0.000000000
+  0.691   0.2571429  0.000000000
+  0.692   0.2571429  0.000000000
+  0.693   0.2571429  0.000000000
+  0.694   0.2571429  0.000000000
+  0.695   0.2571429  0.000000000
+  0.696   0.2571429  0.000000000
+  0.697   0.2571429  0.000000000
+  0.698   0.2571429  0.000000000
+  0.699   0.2571429  0.000000000
+  0.700   0.2571429  0.000000000
+  0.701   0.2571429  0.000000000
+  0.702   0.2571429  0.000000000
+  0.703   0.2571429  0.000000000
+  0.704   0.2571429  0.000000000
+  0.705   0.2571429  0.000000000
+  0.706   0.2571429  0.000000000
+  0.707   0.2571429  0.000000000
+  0.708   0.2571429  0.000000000
+  0.709   0.2571429  0.000000000
+  0.710   0.2571429  0.000000000
+  0.711   0.2571429  0.000000000
+  0.712   0.2571429  0.000000000
+  0.713   0.2571429  0.000000000
+  0.714   0.2571429  0.000000000
+  0.715   0.2571429  0.000000000
+  0.716   0.2571429  0.000000000
+  0.717   0.2571429  0.000000000
+  0.718   0.2571429  0.000000000
+  0.719   0.2571429  0.000000000
+  0.720   0.2571429  0.000000000
+  0.721   0.2571429  0.000000000
+  0.722   0.2571429  0.000000000
+  0.723   0.2571429  0.000000000
+  0.724   0.2571429  0.000000000
+  0.725   0.2571429  0.000000000
+  0.726   0.2571429  0.000000000
+  0.727   0.2571429  0.000000000
+  0.728   0.2571429  0.000000000
+  0.729   0.2571429  0.000000000
+  0.730   0.2571429  0.000000000
+  0.731   0.2571429  0.000000000
+  0.732   0.2571429  0.000000000
+  0.733   0.2571429  0.000000000
+  0.734   0.2571429  0.000000000
+  0.735   0.2571429  0.000000000
+  0.736   0.2571429  0.000000000
+  0.737   0.2571429  0.000000000
+  0.738   0.2571429  0.000000000
+  0.739   0.2571429  0.000000000
+  0.740   0.2571429  0.000000000
+  0.741   0.2571429  0.000000000
+  0.742   0.2571429  0.000000000
+  0.743   0.2571429  0.000000000
+  0.744   0.2571429  0.000000000
+  0.745   0.2571429  0.000000000
+  0.746   0.2571429  0.000000000
+  0.747   0.2571429  0.000000000
+  0.748   0.2571429  0.000000000
+  0.749   0.2571429  0.000000000
+  0.750   0.2571429  0.000000000
+  0.751   0.2571429  0.000000000
+  0.752   0.2571429  0.000000000
+  0.753   0.2571429  0.000000000
+  0.754   0.2571429  0.000000000
+  0.755   0.2571429  0.000000000
+  0.756   0.2571429  0.000000000
+  0.757   0.2571429  0.000000000
+  0.758   0.2571429  0.000000000
+  0.759   0.2571429  0.000000000
+  0.760   0.2571429  0.000000000
+  0.761   0.2571429  0.000000000
+  0.762   0.2571429  0.000000000
+  0.763   0.2571429  0.000000000
+  0.764   0.2571429  0.000000000
+  0.765   0.2571429  0.000000000
+  0.766   0.2571429  0.000000000
+  0.767   0.2571429  0.000000000
+  0.768   0.2571429  0.000000000
+  0.769   0.2571429  0.000000000
+  0.770   0.2571429  0.000000000
+  0.771   0.2571429  0.000000000
+  0.772   0.2571429  0.000000000
+  0.773   0.2571429  0.000000000
+  0.774   0.2571429  0.000000000
+  0.775   0.2571429  0.000000000
+  0.776   0.2571429  0.000000000
+  0.777   0.2571429  0.000000000
+  0.778   0.2571429  0.000000000
+  0.779   0.2571429  0.000000000
+  0.780   0.2571429  0.000000000
+  0.781   0.2571429  0.000000000
+  0.782   0.2571429  0.000000000
+  0.783   0.2571429  0.000000000
+  0.784   0.2571429  0.000000000
+  0.785   0.2571429  0.000000000
+  0.786   0.2571429  0.000000000
+  0.787   0.2571429  0.000000000
+  0.788   0.2571429  0.000000000
+  0.789   0.2571429  0.000000000
+  0.790   0.2571429  0.000000000
+  0.791   0.2571429  0.000000000
+  0.792   0.2571429  0.000000000
+  0.793   0.2571429  0.000000000
+  0.794   0.2571429  0.000000000
+  0.795   0.2571429  0.000000000
+  0.796   0.2571429  0.000000000
+  0.797   0.2571429  0.000000000
+  0.798   0.2571429  0.000000000
+  0.799   0.2571429  0.000000000
+  0.800   0.2571429  0.000000000
+  0.801   0.2571429  0.000000000
+  0.802   0.2571429  0.000000000
+  0.803   0.2571429  0.000000000
+  0.804   0.2571429  0.000000000
+  0.805   0.2571429  0.000000000
+  0.806   0.2571429  0.000000000
+  0.807   0.2571429  0.000000000
+  0.808   0.2571429  0.000000000
+  0.809   0.2571429  0.000000000
+  0.810   0.2571429  0.000000000
+  0.811   0.2571429  0.000000000
+  0.812   0.2571429  0.000000000
+  0.813   0.2571429  0.000000000
+  0.814   0.2571429  0.000000000
+  0.815   0.2571429  0.000000000
+  0.816   0.2571429  0.000000000
+  0.817   0.2571429  0.000000000
+  0.818   0.2571429  0.000000000
+  0.819   0.2571429  0.000000000
+  0.820   0.2571429  0.000000000
+  0.821   0.2571429  0.000000000
+  0.822   0.2571429  0.000000000
+  0.823   0.2571429  0.000000000
+  0.824   0.2571429  0.000000000
+  0.825   0.2571429  0.000000000
+  0.826   0.2571429  0.000000000
+  0.827   0.2571429  0.000000000
+  0.828   0.2571429  0.000000000
+  0.829   0.2571429  0.000000000
+  0.830   0.2571429  0.000000000
+  0.831   0.2571429  0.000000000
+  0.832   0.2571429  0.000000000
+  0.833   0.2571429  0.000000000
+  0.834   0.2571429  0.000000000
+  0.835   0.2571429  0.000000000
+  0.836   0.2571429  0.000000000
+  0.837   0.2571429  0.000000000
+  0.838   0.2571429  0.000000000
+  0.839   0.2571429  0.000000000
+  0.840   0.2571429  0.000000000
+  0.841   0.2571429  0.000000000
+  0.842   0.2571429  0.000000000
+  0.843   0.2571429  0.000000000
+  0.844   0.2571429  0.000000000
+  0.845   0.2571429  0.000000000
+  0.846   0.2571429  0.000000000
+  0.847   0.2571429  0.000000000
+  0.848   0.2571429  0.000000000
+  0.849   0.2571429  0.000000000
+  0.850   0.2571429  0.000000000
+  0.851   0.2571429  0.000000000
+  0.852   0.2571429  0.000000000
+  0.853   0.2571429  0.000000000
+  0.854   0.2571429  0.000000000
+  0.855   0.2571429  0.000000000
+  0.856   0.2571429  0.000000000
+  0.857   0.2571429  0.000000000
+  0.858   0.2571429  0.000000000
+  0.859   0.2571429  0.000000000
+  0.860   0.2571429  0.000000000
+  0.861   0.2571429  0.000000000
+  0.862   0.2571429  0.000000000
+  0.863   0.2571429  0.000000000
+  0.864   0.2571429  0.000000000
+  0.865   0.2571429  0.000000000
+  0.866   0.2571429  0.000000000
+  0.867   0.2571429  0.000000000
+  0.868   0.2571429  0.000000000
+  0.869   0.2571429  0.000000000
+  0.870   0.2571429  0.000000000
+  0.871   0.2571429  0.000000000
+  0.872   0.2571429  0.000000000
+  0.873   0.2571429  0.000000000
+  0.874   0.2571429  0.000000000
+  0.875   0.2571429  0.000000000
+  0.876   0.2571429  0.000000000
+  0.877   0.2571429  0.000000000
+  0.878   0.2571429  0.000000000
+  0.879   0.2571429  0.000000000
+  0.880   0.2571429  0.000000000
+  0.881   0.2571429  0.000000000
+  0.882   0.2571429  0.000000000
+  0.883   0.2571429  0.000000000
+  0.884   0.2571429  0.000000000
+  0.885   0.2571429  0.000000000
+  0.886   0.2571429  0.000000000
+  0.887   0.2571429  0.000000000
+  0.888   0.2571429  0.000000000
+  0.889   0.2571429  0.000000000
+  0.890   0.2571429  0.000000000
+  0.891   0.2571429  0.000000000
+  0.892   0.2571429  0.000000000
+  0.893   0.2571429  0.000000000
+  0.894   0.2571429  0.000000000
+  0.895   0.2571429  0.000000000
+  0.896   0.2571429  0.000000000
+  0.897   0.2571429  0.000000000
+  0.898   0.2571429  0.000000000
+  0.899   0.2571429  0.000000000
+  0.900   0.2571429  0.000000000
+  0.901   0.2571429  0.000000000
+  0.902   0.2571429  0.000000000
+  0.903   0.2571429  0.000000000
+  0.904   0.2571429  0.000000000
+  0.905   0.2571429  0.000000000
+  0.906   0.2571429  0.000000000
+  0.907   0.2571429  0.000000000
+  0.908   0.2571429  0.000000000
+  0.909   0.2571429  0.000000000
+  0.910   0.2571429  0.000000000
+  0.911   0.2571429  0.000000000
+  0.912   0.2571429  0.000000000
+  0.913   0.2571429  0.000000000
+  0.914   0.2571429  0.000000000
+  0.915   0.2571429  0.000000000
+  0.916   0.2571429  0.000000000
+  0.917   0.2571429  0.000000000
+  0.918   0.2571429  0.000000000
+  0.919   0.2571429  0.000000000
+  0.920   0.2571429  0.000000000
+  0.921   0.2571429  0.000000000
+  0.922   0.2571429  0.000000000
+  0.923   0.2571429  0.000000000
+  0.924   0.2571429  0.000000000
+  0.925   0.2571429  0.000000000
+  0.926   0.2571429  0.000000000
+  0.927   0.2571429  0.000000000
+  0.928   0.2571429  0.000000000
+  0.929   0.2571429  0.000000000
+  0.930   0.2571429  0.000000000
+  0.931   0.2571429  0.000000000
+  0.932   0.2571429  0.000000000
+  0.933   0.2571429  0.000000000
+  0.934   0.2571429  0.000000000
+  0.935   0.2571429  0.000000000
+  0.936   0.2571429  0.000000000
+  0.937   0.2571429  0.000000000
+  0.938   0.2571429  0.000000000
+  0.939   0.2571429  0.000000000
+  0.940   0.2571429  0.000000000
+  0.941   0.2571429  0.000000000
+  0.942   0.2571429  0.000000000
+  0.943   0.2571429  0.000000000
+  0.944   0.2571429  0.000000000
+  0.945   0.2571429  0.000000000
+  0.946   0.2571429  0.000000000
+  0.947   0.2571429  0.000000000
+  0.948   0.2571429  0.000000000
+  0.949   0.2571429  0.000000000
+  0.950   0.2571429  0.000000000
+  0.951   0.2571429  0.000000000
+  0.952   0.2571429  0.000000000
+  0.953   0.2571429  0.000000000
+  0.954   0.2571429  0.000000000
+  0.955   0.2571429  0.000000000
+  0.956   0.2571429  0.000000000
+  0.957   0.2571429  0.000000000
+  0.958   0.2571429  0.000000000
+  0.959   0.2571429  0.000000000
+  0.960   0.2571429  0.000000000
+  0.961   0.2571429  0.000000000
+  0.962   0.2571429  0.000000000
+  0.963   0.2571429  0.000000000
+  0.964   0.2571429  0.000000000
+  0.965   0.2571429  0.000000000
+  0.966   0.2571429  0.000000000
+  0.967   0.2571429  0.000000000
+  0.968   0.2571429  0.000000000
+  0.969   0.2571429  0.000000000
+  0.970   0.2571429  0.000000000
+  0.971   0.2571429  0.000000000
+  0.972   0.2571429  0.000000000
+  0.973   0.2571429  0.000000000
+  0.974   0.2571429  0.000000000
+  0.975   0.2571429  0.000000000
+  0.976   0.2571429  0.000000000
+  0.977   0.2571429  0.000000000
+  0.978   0.2571429  0.000000000
+  0.979   0.2571429  0.000000000
+  0.980   0.2571429  0.000000000
+  0.981   0.2571429  0.000000000
+  0.982   0.2571429  0.000000000
+  0.983   0.2571429  0.000000000
+  0.984   0.2571429  0.000000000
+  0.985   0.2571429  0.000000000
+  0.986   0.2571429  0.000000000
+  0.987   0.2571429  0.000000000
+  0.988   0.2571429  0.000000000
+  0.989   0.2571429  0.000000000
+  0.990   0.2571429  0.000000000
+  0.991   0.2571429  0.000000000
+  0.992   0.2571429  0.000000000
+  0.993   0.2571429  0.000000000
+  0.994   0.2571429  0.000000000
+  0.995   0.2571429  0.000000000
+  0.996   0.2571429  0.000000000
+  0.997   0.2571429  0.000000000
+  0.998   0.2571429  0.000000000
+  0.999   0.2571429  0.000000000
+  1.000   0.2571429  0.000000000
+
+Tuning parameter &#39;alpha&#39; was held constant at a value of 1
+Accuracy was used to select the optimal model using the largest value.
+The final values used for the model were alpha = 1 and lambda = 0.071.</code></pre>
+<pre class="r"><code>ggplot(fit)</code></pre>
+<p><img src="figure/PiB.Rmd/unnamed-chunk-43-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>(predicted&lt;- predict(fit, newdata = test_data[,-1],type = &quot;prob&quot;))</code></pre>
+<pre><code>        pen1       pen2       pen3       pen4       pen5       pen6
+1 0.35035770 0.15869050 0.21982481 0.09010285 0.09464762 0.08637652
+2 0.46825110 0.41801363 0.03268839 0.01710603 0.03015513 0.03378571
+3 0.15831550 0.06818387 0.49334502 0.18507587 0.05083365 0.04424609
+4 0.25577386 0.10427895 0.06270645 0.45914064 0.06317212 0.05492797
+5 0.07248795 0.21016591 0.08766641 0.16101608 0.40431539 0.06434827
+6 0.02196375 0.03094998 0.01804293 0.01635299 0.01747530 0.89521504</code></pre>
+<pre class="r"><code>(predicted&lt;- predict(fit, newdata = test_data[,-1]))</code></pre>
+<pre><code>[1] pen1 pen1 pen3 pen4 pen5 pen6
 Levels: pen1 pen2 pen3 pen4 pen5 pen6</code></pre>
 <br>
 <p>
@@ -2714,43 +3381,48 @@ attached base packages:
 
 other attached packages:
  [1] e1071_1.7-6      caret_6.0-86     lattice_0.20-41  plotly_4.9.3    
- [5] reshape2_1.4.4   Rtsne_0.15       ggfortify_0.4.11 forcats_0.5.1   
- [9] stringr_1.4.0    dplyr_1.0.5      purrr_0.3.4      readr_1.4.0     
-[13] tidyr_1.1.3      tibble_3.0.3     ggplot2_3.3.3    tidyverse_1.3.1 
+ [5] ggpubr_0.4.0     reshape2_1.4.4   Rtsne_0.15       ggfortify_0.4.11
+ [9] forcats_0.5.1    stringr_1.4.0    dplyr_1.0.5      purrr_0.3.4     
+[13] readr_1.4.0      tidyr_1.1.3      tibble_3.0.3     ggplot2_3.3.3   
+[17] tidyverse_1.3.1 
 
 loaded via a namespace (and not attached):
- [1] nlme_3.1-149         fs_1.5.0             lubridate_1.7.10    
- [4] RColorBrewer_1.1-2   httr_1.4.2           rprojroot_2.0.2     
- [7] tools_4.0.4          backports_1.1.10     bslib_0.2.4         
-[10] utf8_1.2.1           R6_2.5.0             rpart_4.1-15        
-[13] DBI_1.1.1            lazyeval_0.2.2       colorspace_1.4-1    
-[16] nnet_7.3-14          withr_2.4.2          tidyselect_1.1.0    
-[19] gridExtra_2.3        compiler_4.0.4       git2r_0.28.0        
-[22] glmnet_4.1-1         cli_2.4.0            rvest_1.0.0         
-[25] xml2_1.3.2           labeling_0.4.2       sass_0.3.1          
-[28] scales_1.1.1         proxy_0.4-25         digest_0.6.25       
-[31] rmarkdown_2.7        pkgconfig_2.0.3      htmltools_0.5.1.1   
-[34] dbplyr_2.1.1         htmlwidgets_1.5.3    rlang_0.4.10        
-[37] readxl_1.3.1         rstudioapi_0.13      shape_1.4.5         
-[40] jquerylib_0.1.3      farver_2.0.3         generics_0.1.0      
-[43] jsonlite_1.7.2       crosstalk_1.1.1      ModelMetrics_1.2.2.2
-[46] magrittr_2.0.1       Matrix_1.2-18        Rcpp_1.0.5          
-[49] munsell_0.5.0        fansi_0.4.1          lifecycle_1.0.0     
-[52] pROC_1.17.0.1        stringi_1.5.3        whisker_0.4         
-[55] yaml_2.2.1           MASS_7.3-53          plyr_1.8.6          
-[58] recipes_0.1.16       grid_4.0.4           promises_1.2.0.1    
-[61] crayon_1.4.1         splines_4.0.4        haven_2.3.1         
-[64] hms_1.0.0            knitr_1.30           ps_1.6.0            
-[67] pillar_1.6.0         stats4_4.0.4         codetools_0.2-18    
-[70] reprex_2.0.0         glue_1.4.2           evaluate_0.14       
-[73] data.table_1.13.0    modelr_0.1.8         vctrs_0.3.7         
-[76] httpuv_1.5.5         foreach_1.5.1        cellranger_1.1.0    
-[79] gtable_0.3.0         assertthat_0.2.1     gower_0.2.2         
-[82] xfun_0.18            prodlim_2019.11.13   broom_0.7.6         
-[85] later_1.1.0.1        survival_3.2-7       class_7.3-17        
-[88] viridisLite_0.4.0    timeDate_3043.102    iterators_1.0.13    
-[91] lava_1.6.9           workflowr_1.6.2      ellipsis_0.3.1      
-[94] ipred_0.9-10        </code></pre>
+  [1] colorspace_1.4-1     ggsignif_0.6.1       ellipsis_0.3.1      
+  [4] class_7.3-17         rio_0.5.26           rprojroot_2.0.2     
+  [7] fs_1.5.0             proxy_0.4-25         rstudioapi_0.13     
+ [10] farver_2.0.3         prodlim_2019.11.13   fansi_0.4.1         
+ [13] lubridate_1.7.10     xml2_1.3.2           codetools_0.2-18    
+ [16] splines_4.0.4        knitr_1.30           jsonlite_1.7.2      
+ [19] workflowr_1.6.2      pROC_1.17.0.1        broom_0.7.6         
+ [22] dbplyr_2.1.1         compiler_4.0.4       httr_1.4.2          
+ [25] backports_1.1.10     assertthat_0.2.1     Matrix_1.2-18       
+ [28] lazyeval_0.2.2       cli_2.4.0            later_1.1.0.1       
+ [31] htmltools_0.5.1.1    tools_4.0.4          gtable_0.3.0        
+ [34] glue_1.4.2           Rcpp_1.0.5           carData_3.0-4       
+ [37] cellranger_1.1.0     jquerylib_0.1.3      vctrs_0.3.7         
+ [40] nlme_3.1-149         iterators_1.0.13     crosstalk_1.1.1     
+ [43] timeDate_3043.102    xfun_0.18            gower_0.2.2         
+ [46] ps_1.6.0             openxlsx_4.2.3       rvest_1.0.0         
+ [49] lifecycle_1.0.0      rstatix_0.7.0        MASS_7.3-53         
+ [52] scales_1.1.1         ipred_0.9-10         hms_1.0.0           
+ [55] promises_1.2.0.1     RColorBrewer_1.1-2   yaml_2.2.1          
+ [58] curl_4.3             gridExtra_2.3        sass_0.3.1          
+ [61] rpart_4.1-15         stringi_1.5.3        foreach_1.5.1       
+ [64] zip_2.1.1            shape_1.4.5          lava_1.6.9          
+ [67] rlang_0.4.10         pkgconfig_2.0.3      evaluate_0.14       
+ [70] recipes_0.1.16       htmlwidgets_1.5.3    labeling_0.4.2      
+ [73] cowplot_1.1.0        tidyselect_1.1.0     plyr_1.8.6          
+ [76] magrittr_2.0.1       R6_2.5.0             generics_0.1.0      
+ [79] DBI_1.1.1            pillar_1.6.0         haven_2.3.1         
+ [82] whisker_0.4          foreign_0.8-80       withr_2.4.2         
+ [85] survival_3.2-7       abind_1.4-5          nnet_7.3-14         
+ [88] modelr_0.1.8         crayon_1.4.1         car_3.0-10          
+ [91] utf8_1.2.1           rmarkdown_2.7        grid_4.0.4          
+ [94] readxl_1.3.1         data.table_1.13.0    git2r_0.28.0        
+ [97] ModelMetrics_1.2.2.2 reprex_2.0.0         digest_0.6.25       
+[100] httpuv_1.5.5         glmnet_4.1-1         stats4_4.0.4        
+[103] munsell_0.5.0        viridisLite_0.4.0    bslib_0.2.4         </code></pre>
+</div>
 </div>
 </div>
 </div>
