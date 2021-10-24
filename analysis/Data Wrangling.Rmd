@@ -1,0 +1,334 @@
+---
+title: "PiB"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+# Setup
+
+```{r Working directory, echo=TRUE}
+#setwd("../PIB_workflowr/data")
+getwd()
+```
+
+```{r Library load, echo=TRUE}
+library(tidyverse)
+library(ggplot2)
+library(ggfortify)
+library(Rtsne)
+library(reshape2)
+library(ggpubr)
+theme_set(theme_minimal())
+```
+
+# CONTRACT REGION OF INTERESTED EXPORTS
+
+## Page 1 contract exports
+
+```{r Page 1 contract exports, echo=TRUE}
+
+p1_initials_II <- read.table(file = "CONTRACT REGION OF INTERESTED EXPORTS/Page 1 contract exports/190910,21h19_II initials page 1.txt", sep = "")
+
+p1_initials_III <- read.table(file = "CONTRACT REGION OF INTERESTED EXPORTS/Page 1 contract exports/190910,21h19_III initials page 1.txt", sep = "")
+
+p1_initials_SF <- read.table(file = "CONTRACT REGION OF INTERESTED EXPORTS/Page 1 contract exports/190910,21h19_SF initials page 1.txt", sep = "")
+
+
+colnames(p1_initials_SF) <- c("spectrum", "P1_SF_intensity")
+colnames(p1_initials_II) <- c("spectrum", "P1_II_Intensity")
+colnames(p1_initials_III) <- c("spectrum", "P1_III_Intensity")
+```
+
+## Page 2 contract exports
+
+```{r Page 2 contract exports, echo=TRUE}
+
+p2_initials_II <- read.table(file = "CONTRACT REGION OF INTERESTED EXPORTS/Page 2 contract exports/190910,23h44_II initials page 2.txt", sep = "")
+
+p2_initials_III <- read.table(file = "CONTRACT REGION OF INTERESTED EXPORTS/Page 2 contract exports/190910,23h44_III initials page 2.txt", sep = "")
+
+p2_initials_SF <- read.table(file = "CONTRACT REGION OF INTERESTED EXPORTS/Page 2 contract exports/190910,23h44_SF initials page 2.txt", sep = "")
+
+colnames(p2_initials_SF) <- c("spectrum", "P2 SF Intensity")
+colnames(p2_initials_II) <- c("spectrum", "P2 II Intensity")
+colnames(p2_initials_III) <- c("spectrum", "P2 III Intensity")
+
+```
+
+## Page 3 contract export
+
+```{r Page 3 contract export, echo=TRUE}
+
+p3_initials_II <- read.table(file = "CONTRACT REGION OF INTERESTED EXPORTS/Page 3 contract export/190910,01h50_II initials signature page 3.txt", sep = "")
+
+p3_initials_III <- read.table(file = "CONTRACT REGION OF INTERESTED EXPORTS/Page 3 contract export/190910,01h50_III initials signature page 3.txt", sep = "")
+
+p3_initials_SF <- read.table(file = "CONTRACT REGION OF INTERESTED EXPORTS/Page 3 contract export/190910,01h50_SFsignature page 3.txt", sep = "")
+
+colnames(p3_initials_SF) <- c("spectrum", "P3 SF Intensity")
+colnames(p3_initials_II) <- c("spectrum", "P3 II Intensity")
+colnames(p3_initials_III) <- c("spectrum", "P3 III Intensity")
+
+```
+
+# INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS
+
+## full squares
+
+```{r Full squares, echo=TRUE}
+
+sq1_under_no1 <- read.table(file = "INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/full squares/Full square 1 underneat number 1.txt", sep = "")
+
+sq1_under_no2 <- read.table(file = "INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/full squares/Full square 1 underneat number 2.txt", sep = "")
+
+sq2_under_no1 <- read.table(file = "INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/full squares/Full square 2 underneat number 1.txt", sep = "")
+
+sq_beside_no4 <- read.table(file = "INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/full squares/Full square beside number 4.txt", sep = "")
+
+sq1_under_no3 <- read.table(file = "INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/full squares/Full square underneat number 3.txt", sep = "")
+
+sq2_under_no2 <- read.table(file = "INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/full squares/II full square ink under number 2.txt", sep = "")
+
+sq2_under_no3 <- read.table(file = "INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/full squares/II full square ink under number 3.txt", sep = "")
+
+colnames(sq1_under_no1) <- c("spectrum", "SQ1 U1 Intensity")
+colnames(sq1_under_no2) <- c("spectrum", "SQ1 U2 Intensity")
+colnames(sq2_under_no1) <- c("spectrum", "SQ2 U1 Intensity")
+colnames(sq_beside_no4) <- c("spectrum", "SQ B4 Intensity")
+colnames(sq1_under_no3) <- c("spectrum", "SQ1 U3 Intensity")
+colnames(sq2_under_no2) <- c("spectrum", "SQ2 U2 Intensity")
+colnames(sq2_under_no3) <- c("spectrum", "SQ2 U3 Intensity")
+
+```
+
+## numbers
+
+```{r Numbers, echo=TRUE}
+
+sq_no2 <- read.table(file = "INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/numbers/squares analysis_number 2.txt", sep = "")
+
+sq_no3 <- read.table(file = "INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/numbers/squares analysis_number 3.txt", sep = "")
+
+sq_no4 <- read.table(file = "INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/numbers/squares analysis_number 4.txt", sep = "")
+
+sq_no1 <- read.table(file = "INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/numbers/squares analysis_number1.txt", sep = "")
+
+sq_no2_II <- read.table(file = "INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/numbers/squares_analysis_number 2.txt", sep = "")
+
+sq_no5 <- read.table(file = "INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/numbers/squares_analysis_number 5.txt", sep = "")
+
+sq_no6 <- read.table(file = "INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/numbers/squares_analysis_number 6.txt", sep = "")
+
+colnames(sq_no2) <- c("spectrum", "SQ 2 Intensity")
+colnames(sq_no3) <- c("spectrum", "SQ 3 Intensity")
+colnames(sq_no4) <- c("spectrum", "SQ 4 Intensity")
+colnames(sq_no1) <- c("spectrum", "SQ 1 Intensity")
+colnames(sq_no2_II) <- c("spectrum", "SQ2 2 Intensity")  # Which one is this? There are 2 data collected from number 2. -- shouldnt it be from square 1?
+colnames(sq_no5) <- c("spectrum", "SQ 5 Intensity")
+colnames(sq_no6) <- c("spectrum", "SQ 6 Intensity")
+
+```
+
+## split squares_each square 3 ROI
+
+```{r Split squares 3 ROI, echo=TRUE}
+
+# square II under no1
+sqII_no1_ROI1 <- read.table(file = "INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/II square ink under number 1_ROI1.txt", sep = "")
+sqII_no1_ROI2 <- read.table(file = "INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/II square ink under number 1_ROI2.txt", sep = "")
+sqII_no1_ROI3 <- read.table(file = "INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/II square ink under number 1_ROI3.txt", sep = "")
+
+colnames(sqII_no1_ROI1) <- c("spectrum", "SQ2 1 ROI1 Intensity")
+colnames(sqII_no1_ROI2) <- c("spectrum", "SQ2 1 ROI2 Intensity")
+colnames(sqII_no1_ROI3) <- c("spectrum", "SQ2 1 ROI3 Intensity")
+
+# square above no5
+sq_no5_ROI1 <- read.table(file = "INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink above number 5_ROI1.txt", sep = "")
+sq_no5_ROI2 <- read.table(file = "INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink above number 5_ROI2.txt", sep = "")
+sq_no5_ROI3 <- read.table(file = "INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink above number 5_ROI3.txt", sep = "")
+
+colnames(sq_no5_ROI1) <- c("spectrum", "SQ 5 ROI1 Intensity")
+colnames(sq_no5_ROI2) <- c("spectrum", "SQ 5 ROI2 Intensity")
+colnames(sq_no5_ROI3) <- c("spectrum", "SQ 5 ROI3 Intensity")
+
+# square above no6
+sq_no6_ROI1 <- read.table(file = "INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink above number 6_ROI1.txt", sep = "")
+sq_no6_ROI2 <- read.table(file = "INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink above number 6_ROI2.txt", sep = "")
+sq_no6_ROI3 <- read.table(file = "INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink above number 6_ROI3.txt", sep = "")
+
+colnames(sq_no6_ROI1) <- c("spectrum", "SQ 6 ROI1 Intensity")
+colnames(sq_no6_ROI2) <- c("spectrum", "SQ 6 ROI2 Intensity")
+colnames(sq_no6_ROI3) <- c("spectrum", "SQ 6 ROI3 Intensity")
+
+# square beside no4
+sq_no4_ROI1 <- read.table(file = "INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink beside number 4_ROI1.txt", sep = "")
+sq_no4_ROI2 <- read.table(file = "INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink beside number 4_ROI2.txt", sep = "")
+sq_no4_ROI3 <- read.table(file = "INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink beside number 4_ROI3.txt", sep = "")
+
+colnames(sq_no4_ROI1) <- c("spectrum", "SQ 4 ROI1 Intensity")
+colnames(sq_no4_ROI2) <- c("spectrum", "SQ 4 ROI2 Intensity")
+colnames(sq_no4_ROI3) <- c("spectrum", "SQ 4 ROI3 Intensity")
+
+# square I under no1
+sqI_no1_ROI1 <- read.table(file = "INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink under number 1_ROI1.txt", sep = "")
+sqI_no1_ROI2 <- read.table(file = "INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink under number 1_ROI2.txt", sep = "")
+sqI_no1_ROI3 <- read.table(file = "INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink under number 1_ROI3.txt", sep = "")
+
+colnames(sqI_no1_ROI1) <- c("spectrum", "SQI 1 ROI1 Intensity")
+colnames(sqI_no1_ROI2) <- c("spectrum", "SQI 1 ROI2 Intensity")
+colnames(sqI_no1_ROI3) <- c("spectrum", "SQI 1 ROI3 Intensity")
+
+# square under no2
+sq_no2_ROI1 <- read.table(file = "INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink under number 2_ROI1.txt", sep = "")
+sq_no2_ROI2 <- read.table(file = "INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink under number 2_ROI2.txt", sep = "")
+sq_no2_ROI3 <- read.table(file = "INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink under number 2_ROI3.txt", sep = "")
+
+colnames(sq_no2_ROI1) <- c("spectrum", "SQ 2 ROI1 Intensity")
+colnames(sq_no2_ROI2) <- c("spectrum", "SQ 2 ROI2 Intensity")
+colnames(sq_no2_ROI3) <- c("spectrum", "SQ 2 ROI3 Intensity")
+
+# square under no3
+sq_no3_ROI1 <- read.table(file = "INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink under number 3_ROI1.txt", sep = "")
+sq_no3_ROI2 <- read.table(file = "INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink under number 3_ROI2.txt", sep = "")
+sq_no3_ROI3 <- read.table(file = "INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink under number 3_ROI3.txt", sep = "")
+
+colnames(sq_no3_ROI1) <- c("spectrum", "SQ 3 ROI1 Intensity")
+colnames(sq_no3_ROI2) <- c("spectrum", "SQ 3 ROI2 Intensity")
+colnames(sq_no3_ROI3) <- c("spectrum", "SQ 3 ROI3 Intensity")
+
+```
+
+# STRIKES ANALYSIS (I TEST SET)-ROI EXPORTS
+
+```{r Strikes (Test), echo=TRUE}
+
+strike1 <- read.table(file = "STRIKES ANALYSIS (I TEST SET)-ROI EXPORTS/strike 1.txt", sep = "")
+
+strike2 <- read.table(file = "STRIKES ANALYSIS (I TEST SET)-ROI EXPORTS/strike 2.txt", sep = "")
+
+strike3 <- read.table(file = "STRIKES ANALYSIS (I TEST SET)-ROI EXPORTS/strike 3.txt", sep = "")
+
+strike4 <- read.table(file = "STRIKES ANALYSIS (I TEST SET)-ROI EXPORTS/strike 4.txt", sep = "")
+
+strike5 <- read.table(file = "STRIKES ANALYSIS (I TEST SET)-ROI EXPORTS/strike 5.txt", sep = "")
+
+strike6 <- read.table(file = "STRIKES ANALYSIS (I TEST SET)-ROI EXPORTS/strike 6.txt", sep = "")
+
+colnames(strike1) <- c("spectrum", "strike1 Intensity")
+colnames(strike2) <- c("spectrum", "strike2 Intensity")
+colnames(strike3) <- c("spectrum", "strike3 Intensity")
+colnames(strike4) <- c("spectrum", "strike4 Intensity")
+colnames(strike5) <- c("spectrum", "strike5 Intensity")
+colnames(strike6) <- c("spectrum", "strike6 Intensity")
+
+```
+
+# Datasets compilation
+
+```{r Dataset compilation, echo=TRUE}
+
+test_data <- cbind(strike1, strike2[2], strike3[2], strike4[2], strike5[2], strike6[2])
+training_data1 <- cbind(sq1_under_no1, sq2_under_no1[2], sq1_under_no2[2], sq2_under_no2[2], sq1_under_no3[2], sq2_under_no3[2], sq_beside_no4[2])
+training_data2 <- cbind(sq_no1, sq_no2[2], sq_no2_II[2], sq_no3[2], sq_no4[2], sq_no5[2], sq_no6[2])
+training_data3 <- cbind(sqI_no1_ROI1, sqI_no1_ROI2[2], sqI_no1_ROI3[2], sqII_no1_ROI1[2], sqII_no1_ROI2[2], sqII_no1_ROI3[2], sq_no2_ROI1[2], sq_no2_ROI2[2], sq_no2_ROI3[2], sq_no3_ROI1[2], sq_no3_ROI2[2], sq_no3_ROI3[2], sq_no4_ROI1[2], sq_no4_ROI2[2], sq_no4_ROI3[2], sq_no5_ROI1[2], sq_no5_ROI2[2], sq_no5_ROI3[2], sq_no6_ROI1[2], sq_no6_ROI2[2], sq_no6_ROI3[2])
+
+rm(strike1,strike2,strike3,strike4,strike5,strike6,sq1_under_no1,sq2_under_no1,sq1_under_no2,sq2_under_no2,sq1_under_no3,sq2_under_no3,sq_no1,sq_no2,sq_no2_II,sq_no3,sq_no4,sq_no5,sq_no6,sqI_no1_ROI1,sqI_no1_ROI2,sqI_no1_ROI3,sqII_no1_ROI1,sqII_no1_ROI2,sqII_no1_ROI3,sq_no2_ROI1,sq_no2_ROI2,sq_no2_ROI3,sq_no3_ROI1, sq_no3_ROI2, sq_no3_ROI3, sq_no4_ROI1, sq_no4_ROI2, sq_no4_ROI3, sq_no5_ROI1, sq_no5_ROI2, sq_no5_ROI3, sq_no6_ROI1, sq_no6_ROI2, sq_no6_ROI3,p1_initials_II,p1_initials_III,p1_initials_SF,p2_initials_II,p2_initials_III,p2_initials_SF,p3_initials_II,p3_initials_III,p3_initials_SF,sq_beside_no4)
+```
+
+# Merge train_data on a single DF:
+
+We have 3 DFs containging training_data
+
+```{r Show the 3 DFs, echo=TRUE}
+head(training_data1)
+head(training_data2)
+head(training_data3)
+```
+
+Each of them (despite having different regions analyzed) contain information on the squares which in turn can be used to identify the type of pen used.
+
+```{r Transposing, echo=TRUE}
+#First step, transpose the data: 
+t_training_data1<-as.data.frame(t(training_data1[-1]))
+names(t_training_data1)<-training_data1$spectrum
+t_training_data1$labels=row.names(t_training_data1)
+#removing the row headers
+rownames(t_training_data1)<-c()
+#moving labels to the beginning
+t_training_data1<-t_training_data1 %>% 
+  select(labels, everything())
+head(select(t_training_data1,1:5))
+
+#Same process is repeated for the next two DFs:
+
+t_training_data2<-as.data.frame(t(training_data2[-1]))
+names(t_training_data2)<-training_data2$spectrum
+t_training_data2$labels=row.names(t_training_data2)
+rownames(t_training_data2)<-c()
+t_training_data2<-t_training_data2 %>% 
+  select(labels, everything())
+
+
+
+t_training_data3<-as.data.frame(t(training_data3[-1]))
+names(t_training_data3)<-training_data3$spectrum
+t_training_data3$labels=row.names(t_training_data3)
+rownames(t_training_data3)<-c()
+t_training_data3<-t_training_data3 %>% 
+  select(labels, everything())
+```
+
+Merging
+
+```{r Merging the 3 training DFs, echo=TRUE}
+training_DF<- rbind(t_training_data1, t_training_data2, t_training_data3)
+```
+
+We could now simplify the DF by simply stating which square is which
+
+```{r Dataframe simplification, echo=TRUE}
+#I did it manually because I don't know a good way of doing it automagically
+avector <- c("pen1","pen1","pen2","pen5","pen3","pen6","pen4", "pen1","pen2","pen2","pen3","pen4","pen5","pen6","pen1","pen1","pen1","pen1","pen1","pen1","pen2","pen2","pen2","pen3","pen3","pen3","pen4","pen4","pen4","pen5","pen5","pen5","pen6","pen6","pen6") #the position 10 should be pen 1 i think, but we keep the label as 2 as it was  given. But there is evidence in all the other datasets that 2 squares were painted with pen number 1 and for the remaining pen only one square was painted with each.
+
+training_DF <- training_DF %>% replace(1, avector)
+```
+
+
+Test data 
+```{r}
+## Preparing the test_data
+```{r message=FALSE, warning=FALSE}
+#For the test data we should use the test_data
+#For the training data we should use the training_DF
+
+#(work in progress, I have to remember how this was done :/ )
+
+#Get a dataframe with the values that will be used to predict
+#First step, transpose the data: 
+t_test_data<-as.data.frame(t(test_data[-1]))
+names(t_test_data)<-test_data$spectrum
+t_test_data$labels=row.names(t_test_data)
+#removing the row headers
+rownames(t_test_data)<-c()
+#moving labels to the beginning
+t_test_data<-t_test_data %>% 
+  select(labels, everything())
+t_test_data<-t_test_data %>% replace(1,c("strike1","strike2","strike3","strike4","strike5","strike6"))
+head(select(t_test_data,1:5))
+
+test_data<-t_test_data
+
+rm(t_test_data)
+```
+```
+
+
+
+I end up with two DFs, a training and a test DF
+
+```{r Resulting dataframes, echo=TRUE}
+(select(training_DF,1:5))
+(select(test_data,1:5))
+```
+
