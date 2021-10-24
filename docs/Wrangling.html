@@ -478,16 +478,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtree57969f276aba887ce11ae2fbb17f769cca46faa6targetblank57969f2a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/marcsole96/PIB_workflowr/tree/57969f276aba887ce11ae2fbb17f769cca46faa6" target="_blank">57969f2</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtree286110be64cbc99d151fb508b26191fea58db424targetblank286110ba"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/marcsole96/PIB_workflowr/tree/286110be64cbc99d151fb508b26191fea58db424" target="_blank">286110b</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtree57969f276aba887ce11ae2fbb17f769cca46faa6targetblank57969f2a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtree286110be64cbc99d151fb508b26191fea58db424targetblank286110ba" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/marcsole96/PIB_workflowr/tree/57969f276aba887ce11ae2fbb17f769cca46faa6" target="_blank">57969f2</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/marcsole96/PIB_workflowr/tree/286110be64cbc99d151fb508b26191fea58db424" target="_blank">286110b</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -549,6 +549,40 @@ Message
 Rmd
 </td>
 <td>
+<a href="https://github.com/marcsole96/PIB_workflowr/blob/286110be64cbc99d151fb508b26191fea58db424/analysis/Wrangling.Rmd" target="_blank">286110b</a>
+</td>
+<td>
+marcsole96
+</td>
+<td>
+2021-10-24
+</td>
+<td>
+split things to make it easier
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/marcsole96/PIB_workflowr/6c4b80657276355e54f1968b236933dee5b470f1/docs/Wrangling.html" target="_blank">6c4b806</a>
+</td>
+<td>
+marcsole96
+</td>
+<td>
+2021-10-24
+</td>
+<td>
+Build site.
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
 <a href="https://github.com/marcsole96/PIB_workflowr/blob/57969f276aba887ce11ae2fbb17f769cca46faa6/analysis/Wrangling.Rmd" target="_blank">57969f2</a>
 </td>
 <td>
@@ -600,10 +634,12 @@ Attaching package: &#39;reshape2&#39;</code></pre>
 <pre class="r"><code>library(ggpubr)
 theme_set(theme_minimal())</code></pre>
 </div>
-<div id="contract-region-of-interested-exports" class="section level1">
-<h1>CONTRACT REGION OF INTERESTED EXPORTS</h1>
-<div id="page-1-contract-exports" class="section level2">
-<h2>Page 1 contract exports</h2>
+<div id="data-loading" class="section level1">
+<h1>Data Loading</h1>
+<div id="contract-region-of-interested-exports" class="section level2">
+<h2>CONTRACT REGION OF INTERESTED EXPORTS</h2>
+<div id="page-1-contract-exports" class="section level3">
+<h3>Page 1 contract exports</h3>
 <pre class="r"><code>p1_initials_II &lt;- read.table(file = &quot;CONTRACT REGION OF INTERESTED EXPORTS/Page 1 contract exports/190910,21h19_II initials page 1.txt&quot;, sep = &quot;&quot;)
 
 p1_initials_III &lt;- read.table(file = &quot;CONTRACT REGION OF INTERESTED EXPORTS/Page 1 contract exports/190910,21h19_III initials page 1.txt&quot;, sep = &quot;&quot;)
@@ -615,8 +651,8 @@ colnames(p1_initials_SF) &lt;- c(&quot;spectrum&quot;, &quot;P1_SF_intensity&quo
 colnames(p1_initials_II) &lt;- c(&quot;spectrum&quot;, &quot;P1_II_Intensity&quot;)
 colnames(p1_initials_III) &lt;- c(&quot;spectrum&quot;, &quot;P1_III_Intensity&quot;)</code></pre>
 </div>
-<div id="page-2-contract-exports" class="section level2">
-<h2>Page 2 contract exports</h2>
+<div id="page-2-contract-exports" class="section level3">
+<h3>Page 2 contract exports</h3>
 <pre class="r"><code>p2_initials_II &lt;- read.table(file = &quot;CONTRACT REGION OF INTERESTED EXPORTS/Page 2 contract exports/190910,23h44_II initials page 2.txt&quot;, sep = &quot;&quot;)
 
 p2_initials_III &lt;- read.table(file = &quot;CONTRACT REGION OF INTERESTED EXPORTS/Page 2 contract exports/190910,23h44_III initials page 2.txt&quot;, sep = &quot;&quot;)
@@ -627,8 +663,8 @@ colnames(p2_initials_SF) &lt;- c(&quot;spectrum&quot;, &quot;P2 SF Intensity&quo
 colnames(p2_initials_II) &lt;- c(&quot;spectrum&quot;, &quot;P2 II Intensity&quot;)
 colnames(p2_initials_III) &lt;- c(&quot;spectrum&quot;, &quot;P2 III Intensity&quot;)</code></pre>
 </div>
-<div id="page-3-contract-export" class="section level2">
-<h2>Page 3 contract export</h2>
+<div id="page-3-contract-export" class="section level3">
+<h3>Page 3 contract export</h3>
 <pre class="r"><code>p3_initials_II &lt;- read.table(file = &quot;CONTRACT REGION OF INTERESTED EXPORTS/Page 3 contract export/190910,01h50_II initials signature page 3.txt&quot;, sep = &quot;&quot;)
 
 p3_initials_III &lt;- read.table(file = &quot;CONTRACT REGION OF INTERESTED EXPORTS/Page 3 contract export/190910,01h50_III initials signature page 3.txt&quot;, sep = &quot;&quot;)
@@ -640,10 +676,10 @@ colnames(p3_initials_II) &lt;- c(&quot;spectrum&quot;, &quot;P3 II Intensity&quo
 colnames(p3_initials_III) &lt;- c(&quot;spectrum&quot;, &quot;P3 III Intensity&quot;)</code></pre>
 </div>
 </div>
-<div id="ink-square-analysis-training-set-roi-exports" class="section level1">
-<h1>INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS</h1>
-<div id="full-squares" class="section level2">
-<h2>full squares</h2>
+<div id="ink-square-analysis-training-set-roi-exports" class="section level2">
+<h2>INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS</h2>
+<div id="full-squares" class="section level3">
+<h3>full squares</h3>
 <pre class="r"><code>sq1_under_no1 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/full squares/Full square 1 underneat number 1.txt&quot;, sep = &quot;&quot;)
 
 sq1_under_no2 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/full squares/Full square 1 underneat number 2.txt&quot;, sep = &quot;&quot;)
@@ -666,8 +702,8 @@ colnames(sq1_under_no3) &lt;- c(&quot;spectrum&quot;, &quot;SQ1 U3 Intensity&quo
 colnames(sq2_under_no2) &lt;- c(&quot;spectrum&quot;, &quot;SQ2 U2 Intensity&quot;)
 colnames(sq2_under_no3) &lt;- c(&quot;spectrum&quot;, &quot;SQ2 U3 Intensity&quot;)</code></pre>
 </div>
-<div id="numbers" class="section level2">
-<h2>numbers</h2>
+<div id="numbers" class="section level3">
+<h3>numbers</h3>
 <pre class="r"><code>sq_no2 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/numbers/squares analysis_number 2.txt&quot;, sep = &quot;&quot;)
 
 sq_no3 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/numbers/squares analysis_number 3.txt&quot;, sep = &quot;&quot;)
@@ -690,8 +726,8 @@ colnames(sq_no2_II) &lt;- c(&quot;spectrum&quot;, &quot;SQ2 2 Intensity&quot;)  
 colnames(sq_no5) &lt;- c(&quot;spectrum&quot;, &quot;SQ 5 Intensity&quot;)
 colnames(sq_no6) &lt;- c(&quot;spectrum&quot;, &quot;SQ 6 Intensity&quot;)</code></pre>
 </div>
-<div id="split-squares_each-square-3-roi" class="section level2">
-<h2>split squares_each square 3 ROI</h2>
+<div id="split-squares_each-square-3-roi" class="section level3">
+<h3>split squares_each square 3 ROI</h3>
 <pre class="r"><code># square II under no1
 sqII_no1_ROI1 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/II square ink under number 1_ROI1.txt&quot;, sep = &quot;&quot;)
 sqII_no1_ROI2 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/II square ink under number 1_ROI2.txt&quot;, sep = &quot;&quot;)
@@ -756,8 +792,8 @@ colnames(sq_no3_ROI2) &lt;- c(&quot;spectrum&quot;, &quot;SQ 3 ROI2 Intensity&qu
 colnames(sq_no3_ROI3) &lt;- c(&quot;spectrum&quot;, &quot;SQ 3 ROI3 Intensity&quot;)</code></pre>
 </div>
 </div>
-<div id="strikes-analysis-i-test-set-roi-exports" class="section level1">
-<h1>STRIKES ANALYSIS (I TEST SET)-ROI EXPORTS</h1>
+<div id="strikes-analysis-i-test-set-roi-exports" class="section level2">
+<h2>STRIKES ANALYSIS (I TEST SET)-ROI EXPORTS</h2>
 <pre class="r"><code>strike1 &lt;- read.table(file = &quot;STRIKES ANALYSIS (I TEST SET)-ROI EXPORTS/strike 1.txt&quot;, sep = &quot;&quot;)
 
 strike2 &lt;- read.table(file = &quot;STRIKES ANALYSIS (I TEST SET)-ROI EXPORTS/strike 2.txt&quot;, sep = &quot;&quot;)
@@ -777,6 +813,7 @@ colnames(strike4) &lt;- c(&quot;spectrum&quot;, &quot;strike4 Intensity&quot;)
 colnames(strike5) &lt;- c(&quot;spectrum&quot;, &quot;strike5 Intensity&quot;)
 colnames(strike6) &lt;- c(&quot;spectrum&quot;, &quot;strike6 Intensity&quot;)</code></pre>
 </div>
+</div>
 <div id="datasets-compilation" class="section level1">
 <h1>Datasets compilation</h1>
 <pre class="r"><code>test_data &lt;- cbind(strike1, strike2[2], strike3[2], strike4[2], strike5[2], strike6[2])
@@ -785,9 +822,8 @@ training_data2 &lt;- cbind(sq_no1, sq_no2[2], sq_no2_II[2], sq_no3[2], sq_no4[2]
 training_data3 &lt;- cbind(sqI_no1_ROI1, sqI_no1_ROI2[2], sqI_no1_ROI3[2], sqII_no1_ROI1[2], sqII_no1_ROI2[2], sqII_no1_ROI3[2], sq_no2_ROI1[2], sq_no2_ROI2[2], sq_no2_ROI3[2], sq_no3_ROI1[2], sq_no3_ROI2[2], sq_no3_ROI3[2], sq_no4_ROI1[2], sq_no4_ROI2[2], sq_no4_ROI3[2], sq_no5_ROI1[2], sq_no5_ROI2[2], sq_no5_ROI3[2], sq_no6_ROI1[2], sq_no6_ROI2[2], sq_no6_ROI3[2])
 
 rm(strike1,strike2,strike3,strike4,strike5,strike6,sq1_under_no1,sq2_under_no1,sq1_under_no2,sq2_under_no2,sq1_under_no3,sq2_under_no3,sq_no1,sq_no2,sq_no2_II,sq_no3,sq_no4,sq_no5,sq_no6,sqI_no1_ROI1,sqI_no1_ROI2,sqI_no1_ROI3,sqII_no1_ROI1,sqII_no1_ROI2,sqII_no1_ROI3,sq_no2_ROI1,sq_no2_ROI2,sq_no2_ROI3,sq_no3_ROI1, sq_no3_ROI2, sq_no3_ROI3, sq_no4_ROI1, sq_no4_ROI2, sq_no4_ROI3, sq_no5_ROI1, sq_no5_ROI2, sq_no5_ROI3, sq_no6_ROI1, sq_no6_ROI2, sq_no6_ROI3,p1_initials_II,p1_initials_III,p1_initials_SF,p2_initials_II,p2_initials_III,p2_initials_SF,p3_initials_II,p3_initials_III,p3_initials_SF,sq_beside_no4)</code></pre>
-</div>
-<div id="merge-train_data-on-a-single-df" class="section level1">
-<h1>Merge train_data on a single DF:</h1>
+<div id="merge-train_data-on-a-single-df" class="section level2">
+<h2>Merge train_data on a single DF:</h2>
 <p>We have 3 DFs containging training_data</p>
 <pre class="r"><code>head(training_data1)</code></pre>
 <pre><code>  spectrum SQ1 U1 Intensity SQ2 U1 Intensity SQ1 U2 Intensity SQ2 U2 Intensity
@@ -911,8 +947,9 @@ t_training_data3&lt;-t_training_data3 %&gt;%
 avector &lt;- c(&quot;pen1&quot;,&quot;pen1&quot;,&quot;pen2&quot;,&quot;pen5&quot;,&quot;pen3&quot;,&quot;pen6&quot;,&quot;pen4&quot;, &quot;pen1&quot;,&quot;pen2&quot;,&quot;pen2&quot;,&quot;pen3&quot;,&quot;pen4&quot;,&quot;pen5&quot;,&quot;pen6&quot;,&quot;pen1&quot;,&quot;pen1&quot;,&quot;pen1&quot;,&quot;pen1&quot;,&quot;pen1&quot;,&quot;pen1&quot;,&quot;pen2&quot;,&quot;pen2&quot;,&quot;pen2&quot;,&quot;pen3&quot;,&quot;pen3&quot;,&quot;pen3&quot;,&quot;pen4&quot;,&quot;pen4&quot;,&quot;pen4&quot;,&quot;pen5&quot;,&quot;pen5&quot;,&quot;pen5&quot;,&quot;pen6&quot;,&quot;pen6&quot;,&quot;pen6&quot;) #the position 10 should be pen 1 i think, but we keep the label as 2 as it was  given. But there is evidence in all the other datasets that 2 squares were painted with pen number 1 and for the remaining pen only one square was painted with each.
 
 training_DF &lt;- training_DF %&gt;% replace(1, avector)</code></pre>
-<p>Test data</p>
-<pre class="r"><code>## Preparing the test_data</code></pre>
+</div>
+<div id="preparing-the-test_data" class="section level2">
+<h2>Preparing the test_data</h2>
 <pre class="r"><code>#For the test data we should use the test_data
 #For the training data we should use the training_DF
 
@@ -940,14 +977,12 @@ head(select(t_test_data,1:5))</code></pre>
 <pre class="r"><code>test_data&lt;-t_test_data
 
 rm(t_test_data)</code></pre>
-<pre><code>
-
-
-I end up with two DFs, a training and a test DF
-
-
-```r
-(select(training_DF,1:5))</code></pre>
+</div>
+</div>
+<div id="resulting-dataframes" class="section level1">
+<h1>Resulting dataframes</h1>
+<p>I end up with two DFs, a training and a test DF</p>
+<pre class="r"><code>(select(training_DF,1:5))</code></pre>
 <pre><code>   labels       100     100.2     100.4     100.6
 1    pen1 0.6518300 0.8714140 0.7556870 0.6498520
 2    pen1 1.2048600 1.4409700 1.2777800 1.1342600
