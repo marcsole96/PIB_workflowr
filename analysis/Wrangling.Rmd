@@ -6,7 +6,6 @@ editor_options:
 ---
 
 # Setup
-
 ```{r Working directory, echo=TRUE}
 #setwd("../PIB_workflowr/data")
 getwd()
@@ -22,9 +21,9 @@ library(ggpubr)
 theme_set(theme_minimal())
 ```
 
-# CONTRACT REGION OF INTERESTED EXPORTS
-
-## Page 1 contract exports
+# Data Loading
+## CONTRACT REGION OF INTERESTED EXPORTS
+### Page 1 contract exports
 
 ```{r Page 1 contract exports, echo=TRUE}
 
@@ -40,7 +39,7 @@ colnames(p1_initials_II) <- c("spectrum", "P1_II_Intensity")
 colnames(p1_initials_III) <- c("spectrum", "P1_III_Intensity")
 ```
 
-## Page 2 contract exports
+### Page 2 contract exports
 
 ```{r Page 2 contract exports, echo=TRUE}
 
@@ -56,7 +55,7 @@ colnames(p2_initials_III) <- c("spectrum", "P2 III Intensity")
 
 ```
 
-## Page 3 contract export
+### Page 3 contract export
 
 ```{r Page 3 contract export, echo=TRUE}
 
@@ -72,9 +71,9 @@ colnames(p3_initials_III) <- c("spectrum", "P3 III Intensity")
 
 ```
 
-# INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS
+## INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS
 
-## full squares
+### full squares
 
 ```{r Full squares, echo=TRUE}
 
@@ -102,7 +101,7 @@ colnames(sq2_under_no3) <- c("spectrum", "SQ2 U3 Intensity")
 
 ```
 
-## numbers
+### numbers
 
 ```{r Numbers, echo=TRUE}
 
@@ -130,7 +129,7 @@ colnames(sq_no6) <- c("spectrum", "SQ 6 Intensity")
 
 ```
 
-## split squares_each square 3 ROI
+### split squares_each square 3 ROI
 
 ```{r Split squares 3 ROI, echo=TRUE}
 
@@ -199,7 +198,7 @@ colnames(sq_no3_ROI3) <- c("spectrum", "SQ 3 ROI3 Intensity")
 
 ```
 
-# STRIKES ANALYSIS (I TEST SET)-ROI EXPORTS
+## STRIKES ANALYSIS (I TEST SET)-ROI EXPORTS
 
 ```{r Strikes (Test), echo=TRUE}
 
@@ -236,7 +235,7 @@ training_data3 <- cbind(sqI_no1_ROI1, sqI_no1_ROI2[2], sqI_no1_ROI3[2], sqII_no1
 rm(strike1,strike2,strike3,strike4,strike5,strike6,sq1_under_no1,sq2_under_no1,sq1_under_no2,sq2_under_no2,sq1_under_no3,sq2_under_no3,sq_no1,sq_no2,sq_no2_II,sq_no3,sq_no4,sq_no5,sq_no6,sqI_no1_ROI1,sqI_no1_ROI2,sqI_no1_ROI3,sqII_no1_ROI1,sqII_no1_ROI2,sqII_no1_ROI3,sq_no2_ROI1,sq_no2_ROI2,sq_no2_ROI3,sq_no3_ROI1, sq_no3_ROI2, sq_no3_ROI3, sq_no4_ROI1, sq_no4_ROI2, sq_no4_ROI3, sq_no5_ROI1, sq_no5_ROI2, sq_no5_ROI3, sq_no6_ROI1, sq_no6_ROI2, sq_no6_ROI3,p1_initials_II,p1_initials_III,p1_initials_SF,p2_initials_II,p2_initials_III,p2_initials_SF,p3_initials_II,p3_initials_III,p3_initials_SF,sq_beside_no4)
 ```
 
-# Merge train_data on a single DF:
+## Merge train_data on a single DF:
 
 We have 3 DFs containging training_data
 
@@ -295,10 +294,9 @@ training_DF <- training_DF %>% replace(1, avector)
 ```
 
 
-Test data 
-```{r}
 ## Preparing the test_data
-```{r message=FALSE, warning=FALSE}
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
 #For the test data we should use the test_data
 #For the training data we should use the training_DF
 
@@ -321,13 +319,10 @@ test_data<-t_test_data
 
 rm(t_test_data)
 ```
-```
 
-
-
+# Resulting dataframes
 I end up with two DFs, a training and a test DF
-
-```{r Resulting dataframes, echo=TRUE}
+```{r}
 (select(training_DF,1:5))
 (select(test_data,1:5))
 ```
