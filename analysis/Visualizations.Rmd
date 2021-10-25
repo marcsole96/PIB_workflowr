@@ -11,7 +11,7 @@ editor_options:
 getwd()
 ```
 
-```{r echo=TRUE}
+```{r include=FALSE}
 library(tidyverse)
 library(ggplot2)
 library(ggfortify)
@@ -111,7 +111,7 @@ ggplot(lowd_map, aes(x= X1, y = X2)) + ggtitle("tSNE") +
   geom_point(aes(color=label))
 ```
 
-## Test data
+## Train data
 ```{r echo=TRUE}
 #t-SNE is not deterministic. There is some inherent stochasticity with the generation of probability distributions
 
