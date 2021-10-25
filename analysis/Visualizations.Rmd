@@ -1,0 +1,129 @@
+---
+title: "PiB"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+# Setup
+```{r include=FALSE}
+#setwd("../PIB_workflowr/data")
+getwd()
+```
+
+```{r include=FALSE}
+library(tidyverse)
+library(ggplot2)
+library(ggfortify)
+library(Rtsne)
+library(reshape2)
+library(ggpubr)
+theme_set(theme_minimal())
+```
+
+# Opening the data workspace
+```{r}
+load("wrangling.RData")
+```
+
+
+# PCAs
+## Test_data
+```{r include=FALSE}
+labels<-test_data$labels
+
+data <- test_data %>%
+  select(-labels)
+
+data<-as.matrix(data)
+rownames(data) <- NULL
+
+pr.out <- prcomp(data,scale=FALSE)
+
+pr.out$x %>% 
+  as_tibble() %>% 
+  ggplot() +
+  geom_point(aes(PC1, PC2, color = labels), alpha = 0.5) +
+  theme_minimal() +
+  scale_shape_manual(values = c(4, 20))
+```
+
+## training data
+```{r include=FALSE}
+labels<-training_DF$labels
+
+data <- training_DF %>%
+  select(-labels)
+
+data<-as.matrix(data)
+rownames(data) <- NULL
+
+pr.out <- prcomp(data,scale=FALSE)
+
+pr.out$x %>% 
+  as_tibble() %>% 
+  ggplot() +
+  geom_point(aes(PC1, PC2, color = labels), alpha = 0.5) +
+  theme_minimal() +
+  scale_shape_manual(values = c(4, 20))
+```
+
+We can see the variance explained by the PCs:
+```{r include=FALSE}
+var_explained = pr.out$sdev^2 / sum(pr.out$sdev^2)
+
+qplot(c(1:35), var_explained) + 
+  geom_line() + 
+  xlab("Principal Component") + 
+  ylab("Variance Explained") +
+  ggtitle("Scree Plot") +
+  ylim(0, 1)
+```
+
+We can view the 3 PCs:
+```{r include=FALSE}
+library(plotly)
+dat_3d <- pr.out$x[,1:3] %>% as_tibble() %>% mutate(square = training_DF$labels)
+
+fig <- plot_ly(dat_3d, x = ~PC1, y = ~PC2, z = ~PC3, 
+               color = ~square, size = I(100))
+fig <- fig %>% add_markers()
+fig <- fig %>% layout(scene = list(xaxis = list(title = 'PC1'),
+                                   yaxis = list(title = 'PC2'),
+                                   zaxis = list(title = 'PC3')))
+
+fig
+```
+
+# tSNE 
+## Test_data
+```{r include=FALSE}
+#t-SNE is not deterministic. There is some inherent stochasticity with the generation of probability distributions
+
+set.seed(14)
+#doing t-SNE
+
+tsne <- Rtsne(test_data[,-1], dims = 2, perplexity=1, 
+              verbose=FALSE, max_iter = 500)
+lowd_map<- data.frame(tsne$Y)
+lowd_map$label <- factor(test_data$labels)
+ggplot(lowd_map, aes(x= X1, y = X2)) + ggtitle("tSNE") +
+  geom_point(aes(color=label))
+```
+
+## Test data
+```{r}
+#t-SNE is not deterministic. There is some inherent stochasticity with the generation of probability distributions
+
+set.seed(14)
+#doing t-SNE
+
+tsne <- Rtsne(training_DF[,-1], dims = 2, perplexity=5, 
+              verbose=FALSE, max_iter = 500,check_duplicates = FALSE)
+
+
+lowd_map<- data.frame(tsne$Y)
+lowd_map$label <- factor(training_DF$labels)
+ggplot(lowd_map, aes(x= X1, y = X2)) + ggtitle("tSNE") +
+  geom_point(aes(color=label))
+```

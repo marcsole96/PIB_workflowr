@@ -7,6 +7,8 @@ navbar:
     href: index.html
   - text: Data Wrangling
     href: Wrangling.html
+  - text: Data Visualizations
+    href: Visualizations.html
   - text: PiB
     href: PiB.html
   - text: About

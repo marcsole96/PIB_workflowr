@@ -317,7 +317,7 @@ head(select(t_test_data,1:5))
 
 test_data<-t_test_data
 
-rm(t_test_data)
+rm(t_test_data,t_training_data1,t_training_data2,t_training_data3,training_data1,training_data2,training_data3)
 ```
 
 # Resulting dataframes
@@ -326,4 +326,10 @@ I end up with two DFs, a training and a test DF
 (select(training_DF,1:5))
 (select(test_data,1:5))
 ```
+
+## Saving the workspace to be used later
+```{r}
+save.image(file = "wrangling.RData")
+```
+
 
