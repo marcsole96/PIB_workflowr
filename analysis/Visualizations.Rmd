@@ -6,12 +6,12 @@ editor_options:
 ---
 
 # Setup
-```{r include=FALSE}
+```{r echo=TRUE}
 #setwd("../PIB_workflowr/data")
 getwd()
 ```
 
-```{r include=FALSE}
+```{r echo=TRUE}
 library(tidyverse)
 library(ggplot2)
 library(ggfortify)
@@ -22,14 +22,14 @@ theme_set(theme_minimal())
 ```
 
 # Opening the data workspace
-```{r}
+```{r echo=TRUE}
 load("wrangling.RData")
 ```
 
 
 # PCAs
 ## Test_data
-```{r include=FALSE}
+```{r echo=TRUE}
 labels<-test_data$labels
 
 data <- test_data %>%
@@ -49,7 +49,7 @@ pr.out$x %>%
 ```
 
 ## training data
-```{r include=FALSE}
+```{r echo=TRUE}
 labels<-training_DF$labels
 
 data <- training_DF %>%
@@ -69,7 +69,7 @@ pr.out$x %>%
 ```
 
 We can see the variance explained by the PCs:
-```{r include=FALSE}
+```{r echo=TRUE}
 var_explained = pr.out$sdev^2 / sum(pr.out$sdev^2)
 
 qplot(c(1:35), var_explained) + 
@@ -81,7 +81,7 @@ qplot(c(1:35), var_explained) +
 ```
 
 We can view the 3 PCs:
-```{r include=FALSE}
+```{r echo=TRUE}
 library(plotly)
 dat_3d <- pr.out$x[,1:3] %>% as_tibble() %>% mutate(square = training_DF$labels)
 
@@ -97,7 +97,7 @@ fig
 
 # tSNE 
 ## Test_data
-```{r include=FALSE}
+```{r echo=TRUE}
 #t-SNE is not deterministic. There is some inherent stochasticity with the generation of probability distributions
 
 set.seed(14)
@@ -112,7 +112,7 @@ ggplot(lowd_map, aes(x= X1, y = X2)) + ggtitle("tSNE") +
 ```
 
 ## Test data
-```{r}
+```{r echo=TRUE}
 #t-SNE is not deterministic. There is some inherent stochasticity with the generation of probability distributions
 
 set.seed(14)
