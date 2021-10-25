@@ -48,7 +48,7 @@ pr.out$x %>%
   scale_shape_manual(values = c(4, 20))
 ```
 
-## training data
+## Training data
 ```{r echo=TRUE}
 labels<-training_DF$labels
 
@@ -111,7 +111,7 @@ ggplot(lowd_map, aes(x= X1, y = X2)) + ggtitle("tSNE") +
   geom_point(aes(color=label))
 ```
 
-## Train data
+## Training data
 ```{r echo=TRUE}
 #t-SNE is not deterministic. There is some inherent stochasticity with the generation of probability distributions
 
