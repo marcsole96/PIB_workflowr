@@ -1,0 +1,193 @@
+---
+title: "Models"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+# Setup
+```{r include=FALSE}
+#setwd("../PIB_workflowr/data")
+getwd()
+```
+
+```{r include=FALSE}
+library(tidyverse)
+library(ggplot2)
+library(ggfortify)
+library(Rtsne)
+library(reshape2)
+library(ggpubr)
+theme_set(theme_minimal())
+```
+
+# Opening the data workspace
+```{r echo=TRUE}
+load("wrangling.RData")
+```
+
+# PCA based models
+## Model from PCA training Data:
+I used this as a guide: https://rstudio-pubs-static.s3.amazonaws.com/285614_7921f4f9f340428f8f5ed8dc3c7f7943.html
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+library(caret)
+library(e1071)
+pca = preProcess(x = training_DF[,c(-1,-4502)], method = "pca", pcaComp = 35)
+training_set <- predict(pca, training_DF[-4502])
+# put customer segment in to the last postion or column
+#training_set <- simple_train_DF[c(2,3,1)]
+
+
+test_set <- predict(pca, test_data[-1])
+#test_set <- test[c(2,3,1)]
+
+trControl <- trainControl(method = "repeatedcv", 
+                          number = 10, 
+                         repeats = 3, 
+                     verboseIter = ifelse(is.null(getOption('knitr.in.progress')), FALSE, FALSE) # This crazy line is to show progress when you run the code but hide it when knitting.
+    )
+
+training_x <- training_set %>% select(-labels) %>% as.data.frame()
+training_y <- training_set$labels
+
+car_ranger <- train(x = training_x, 
+             y = training_y, 
+        method = "glmnet",
+     trControl = trControl
+    )
+
+print(car_ranger)
+predicted<- predict(car_ranger, newdata = test_set[,-1])
+
+predicted
+```
+
+
+```{r}
+#Cleanup
+rm(car_ranger,dat_3d,data,fig,lowd_map,pca,pca_res,pr.out, t_training_data1, t_training_data2, t_training_data3, test, test_pca, test_set, training_data1, training_data2, training_data3,training_set, training_x,trControl,tsne, avector, labels, names, predicted, training_y,var_explained)
+```
+
+
+
+# CARET models
+##Caret model GLMNET
+```{r message=FALSE, warning=FALSE}
+training_x <- training_DF %>% select(-labels) %>% as.data.frame()
+training_y <- training_DF$labels
+
+trControl <- trainControl(method = "LOOCV", number = 5, verboseIter = F)
+
+fit <- train(x = training_x, 
+             y = training_y, 
+        method = "glmnet",
+        tuneLength = 5,
+     trControl = trControl
+    )
+
+print(fit)
+
+ggplot(fit)
+
+(predicted<- predict(fit, newdata = test_data[,-1],type = "prob"))
+```
+
+### Plots
+```{r fig.width=10,fig.height=11,message=FALSE, warning=FALSE}
+
+toplot<-as.data.frame(t(predicted))
+names(toplot)<-c("strike1","strike2","strike3","strike4","strike5","strike6")
+toplot<-toplot %>% mutate(pens=row.names(toplot))
+
+strike1<-toplot %>% select(strike1,pens) %>% ggplot(aes(x=pens, y=strike1, fill=pens)) +
+  geom_bar(stat="identity",position=position_stack())+
+  scale_fill_brewer(palette="Accent")
+
+strike2<-toplot %>% select(strike2,pens) %>% ggplot(aes(x=pens, y=strike2, fill=pens)) +
+  geom_bar(stat="identity",position=position_stack())+
+  scale_fill_brewer(palette="Accent")
+
+strike3<-toplot %>% select(strike3,pens) %>% ggplot(aes(x=pens, y=strike3, fill=pens)) +
+  geom_bar(stat="identity",position=position_stack())+
+  scale_fill_brewer(palette="Accent")
+
+strike4<-toplot %>% select(strike4,pens) %>% ggplot(aes(x=pens, y=strike4, fill=pens)) +
+  geom_bar(stat="identity",position=position_stack())+
+  scale_fill_brewer(palette="Accent")
+
+strike5<-toplot %>% select(strike5,pens) %>% ggplot(aes(x=pens, y=strike5, fill=pens)) +
+  geom_bar(stat="identity",position=position_stack())+
+  scale_fill_brewer(palette="Accent")
+
+strike6<-toplot %>% select(strike6,pens) %>% ggplot(aes(x=pens, y=strike6, fill=pens)) +
+  geom_bar(stat="identity",position=position_stack())+
+  scale_fill_brewer(palette="Accent")
+
+
+ggarrange(strike1, strike2, strike3, strike4, strike5, strike6,
+                    labels = c("strike1", "strike2", "strike3", "strike4", "strike5", "strike6"),
+                    ncol = 3, nrow = 3)
+```
+
+
+
+## Caret model GLMNET Lasso (Alpha = 1) Lambda ranging from 0 to 1
+```{r message=FALSE, warning=FALSE}
+training_x <- training_DF %>% select(-labels) %>% as.data.frame()
+training_y <- training_DF$labels
+
+trControl <- trainControl(method = "LOOCV", number = 5, verboseIter = F)
+
+
+tuneGrid <- expand.grid(alpha = 1, lambda = seq(0.001, 1, length = 1000))
+
+fit <- train(x = training_x, 
+             y = training_y, 
+        method = "glmnet",
+        tuneGrid = tuneGrid,
+     trControl = trControl,
+    )
+
+print(fit)
+
+ggplot(fit)
+
+(predicted<- predict(fit, newdata = test_data[,-1],type = "prob"))
+```
+
+### Plots
+```{r fig.width=10,fig.height=11,message=FALSE, warning=FALSE}
+
+toplot<-as.data.frame(t(predicted))
+names(toplot)<-c("strike1","strike2","strike3","strike4","strike5","strike6")
+toplot<-toplot %>% mutate(pens=row.names(toplot))
+
+strike1<-toplot %>% select(strike1,pens) %>% ggplot(aes(x=pens, y=strike1, fill=pens)) +
+  geom_bar(stat="identity",position=position_stack())+
+  scale_fill_brewer(palette="Accent")
+
+strike2<-toplot %>% select(strike2,pens) %>% ggplot(aes(x=pens, y=strike2, fill=pens)) +
+  geom_bar(stat="identity",position=position_stack())+
+  scale_fill_brewer(palette="Accent")
+
+strike3<-toplot %>% select(strike3,pens) %>% ggplot(aes(x=pens, y=strike3, fill=pens)) +
+  geom_bar(stat="identity",position=position_stack())+
+  scale_fill_brewer(palette="Accent")
+
+strike4<-toplot %>% select(strike4,pens) %>% ggplot(aes(x=pens, y=strike4, fill=pens)) +
+  geom_bar(stat="identity",position=position_stack())+
+  scale_fill_brewer(palette="Accent")
+
+strike5<-toplot %>% select(strike5,pens) %>% ggplot(aes(x=pens, y=strike5, fill=pens)) +
+  geom_bar(stat="identity",position=position_stack())+
+  scale_fill_brewer(palette="Accent")
+
+strike6<-toplot %>% select(strike6,pens) %>% ggplot(aes(x=pens, y=strike6, fill=pens)) +
+  geom_bar(stat="identity",position=position_stack())+
+  scale_fill_brewer(palette="Accent")
+
+
+ggarrange(strike1, strike2, strike3, strike4, strike5, strike6,
+                    labels = c("strike1", "strike2", "strike3", "strike4", "strike5", "strike6"),
+                    ncol = 3, nrow = 3)
+```
