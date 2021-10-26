@@ -85,7 +85,7 @@ fit <- train(x = training_x,
      trControl = trControl
     )
 
-print(fit)
+#print(fit)
 
 ggplot(fit)
 
@@ -93,7 +93,7 @@ ggplot(fit)
 ```
 
 ### Plots
-```{r fig.width=10,fig.height=11,message=FALSE, warning=FALSE}
+```{r fig.height=11, fig.width=10, message=FALSE, warning=FALSE}
 
 toplot<-as.data.frame(t(predicted))
 names(toplot)<-c("strike1","strike2","strike3","strike4","strike5","strike6")
@@ -148,7 +148,7 @@ fit <- train(x = training_x,
      trControl = trControl,
     )
 
-print(fit)
+#print(fit)
 
 ggplot(fit)
 
@@ -156,7 +156,7 @@ ggplot(fit)
 ```
 
 ### Plots
-```{r fig.width=10,fig.height=11,message=FALSE, warning=FALSE}
+```{r fig.height=11, fig.width=10, message=FALSE, warning=FALSE}
 
 toplot<-as.data.frame(t(predicted))
 names(toplot)<-c("strike1","strike2","strike3","strike4","strike5","strike6")
