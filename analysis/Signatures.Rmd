@@ -1,0 +1,27 @@
+---
+title: "PiB"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+# Setup
+```{r include=FALSE}
+#setwd("../PIB_workflowr/data")
+getwd()
+```
+
+```{r include=FALSE}
+library(tidyverse)
+library(ggplot2)
+library(ggfortify)
+library(Rtsne)
+library(reshape2)
+library(ggpubr)
+theme_set(theme_minimal())
+```
+
+# Opening the data workspace
+```{r echo=TRUE}
+load("wrangling.RData")
+```
