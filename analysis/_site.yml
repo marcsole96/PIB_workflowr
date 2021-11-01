@@ -1,7 +1,7 @@
 name: PIB_workflowr
 output_dir: ../docs
 navbar:
-  title: PIB_workflowr
+  title: PIB Marc
   left:
   - text: Home
     href: index.html
@@ -20,12 +20,12 @@ navbar:
   - text: License
     href: license.html
   right:
-  - icon: fa-github
+  - icon: fab fa-github
     text: Source code
     href: https://github.com/marcsole96/PIB_workflowr
 output:
   workflowr::wflow_html:
     toc: yes
     toc_float: yes
-    theme: cosmo
-    highlight: textmate
+    theme: paper
+    highlight: tango
