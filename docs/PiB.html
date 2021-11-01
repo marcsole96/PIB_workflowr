@@ -16,7 +16,7 @@
 <script src="site_libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="site_libs/jquery-3.5.1/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<link href="site_libs/bootstrap-3.3.5/css/paper.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
@@ -33,8 +33,6 @@
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
-<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 <script src="site_libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
 <script src="site_libs/plotly-binding-4.9.3/plotly.js"></script>
 <script src="site_libs/typedarray-0.1/typedarray.min.js"></script>
@@ -64,17 +62,101 @@ div.section {
   ul.task-list{list-style: none;}
     </style>
 
-<style type="text/css">code{white-space: pre;}</style>
-<script type="text/javascript">
-if (window.hljs) {
-  hljs.configure({languages: []});
-  hljs.initHighlightingOnLoad();
-  if (document.readyState && document.readyState === "complete") {
-    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
-  }
-}
-</script>
 
+<style type="text/css">
+  code {
+    white-space: pre;
+  }
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
 
 
 
@@ -332,7 +414,7 @@ div.tocify {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">PIB_workflowr</a>
+      <a class="navbar-brand" href="index.html">PIB Marc</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -364,7 +446,7 @@ div.tocify {
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/marcsole96/PIB_workflowr">
-    <span class="fas fa-github"></span>
+    <span class="fab fa-github"></span>
      
     Source code
   </a>
@@ -494,16 +576,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtreedacfd2fb87982d910d4568bfbcf0253d3e33c1e8targetblankdacfd2fa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/marcsole96/PIB_workflowr/tree/dacfd2fb87982d910d4568bfbcf0253d3e33c1e8" target="_blank">dacfd2f</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtreec2696ef291dce79eda9ab6047fc2ff0cf99c43datargetblankc2696efa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/marcsole96/PIB_workflowr/tree/c2696ef291dce79eda9ab6047fc2ff0cf99c43da" target="_blank">c2696ef</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtreedacfd2fb87982d910d4568bfbcf0253d3e33c1e8targetblankdacfd2fa" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtreec2696ef291dce79eda9ab6047fc2ff0cf99c43datargetblankc2696efa" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/marcsole96/PIB_workflowr/tree/dacfd2fb87982d910d4568bfbcf0253d3e33c1e8" target="_blank">dacfd2f</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/marcsole96/PIB_workflowr/tree/c2696ef291dce79eda9ab6047fc2ff0cf99c43da" target="_blank">c2696ef</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -515,6 +597,7 @@ Ignored files:
     Ignored:    analysis/.Rhistory
 
 Untracked files:
+    Untracked:  analysis/images/
     Untracked:  data/CONTRACT REGION OF INTERESTED EXPORTS/
     Untracked:  data/INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/
     Untracked:  data/STRIKES ANALYSIS (I TEST SET)-ROI EXPORTS/
@@ -522,6 +605,7 @@ Untracked files:
 
 Unstaged changes:
     Deleted:    analysis/Data Wrangling.Rmd
+    Modified:   analysis/index.Rmd
     Modified:   data/wrangling.RData
 
 </code></pre>
@@ -561,6 +645,23 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/marcsole96/PIB_workflowr/ea8fe22b2da339e946947a767a6b8168eac41a9f/docs/PiB.html" target="_blank">ea8fe22</a>
+</td>
+<td>
+marcsole96
+</td>
+<td>
+2021-11-01
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -1575,23 +1676,23 @@ wflow_publish(“../analysis/PiB.Rmd”)
 <div id="model-from-pca-training-data" class="section level1">
 <h1>Model from PCA training Data:</h1>
 <p>I used this as a guide: <a href="https://rstudio-pubs-static.s3.amazonaws.com/285614_7921f4f9f340428f8f5ed8dc3c7f7943.html" class="uri">https://rstudio-pubs-static.s3.amazonaws.com/285614_7921f4f9f340428f8f5ed8dc3c7f7943.html</a></p>
-<pre class="r"><code>#For the test data we should use the test_data
-#For the training data we should use the training_DF
-
-#(work in progress, I have to remember how this was done :/ )
-
-#Get a dataframe with the values that will be used to predict
-#First step, transpose the data: 
-t_test_data&lt;-as.data.frame(t(test_data[-1]))
-names(t_test_data)&lt;-test_data$spectrum
-t_test_data$labels=row.names(t_test_data)
-#removing the row headers
-rownames(t_test_data)&lt;-c()
-#moving labels to the beginning
-t_test_data&lt;-t_test_data %&gt;% 
-  select(labels, everything())
-t_test_data&lt;-t_test_data %&gt;% replace(1,c(&quot;strike1&quot;,&quot;strike2&quot;,&quot;strike3&quot;,&quot;strike4&quot;,&quot;strike5&quot;,&quot;strike6&quot;))
-head(select(t_test_data,1:5))</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#For the test data we should use the test_data</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#For the training data we should use the training_DF</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">#(work in progress, I have to remember how this was done :/ )</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">#Get a dataframe with the values that will be used to predict</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">#First step, transpose the data: </span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>t_test_data<span class="ot">&lt;-</span><span class="fu">as.data.frame</span>(<span class="fu">t</span>(test_data[<span class="sc">-</span><span class="dv">1</span>]))</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(t_test_data)<span class="ot">&lt;-</span>test_data<span class="sc">$</span>spectrum</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>t_test_data<span class="sc">$</span>labels<span class="ot">=</span><span class="fu">row.names</span>(t_test_data)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">#removing the row headers</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(t_test_data)<span class="ot">&lt;-</span><span class="fu">c</span>()</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co">#moving labels to the beginning</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>t_test_data<span class="ot">&lt;-</span>t_test_data <span class="sc">%&gt;%</span> </span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(labels, <span class="fu">everything</span>())</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>t_test_data<span class="ot">&lt;-</span>t_test_data <span class="sc">%&gt;%</span> <span class="fu">replace</span>(<span class="dv">1</span>,<span class="fu">c</span>(<span class="st">&quot;strike1&quot;</span>,<span class="st">&quot;strike2&quot;</span>,<span class="st">&quot;strike3&quot;</span>,<span class="st">&quot;strike4&quot;</span>,<span class="st">&quot;strike5&quot;</span>,<span class="st">&quot;strike6&quot;</span>))</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">select</span>(t_test_data,<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>))</span></code></pre></div>
 <pre><code>   labels      100    100.2    100.4    100.6
 1 strike1 1.220990 1.243090 1.176800 0.955801
 2 strike2 1.804470 2.251400 1.810060 1.703910
@@ -1599,36 +1700,36 @@ head(select(t_test_data,1:5))</code></pre>
 4 strike4 0.722826 0.956522 0.880435 0.728261
 5 strike5 0.500000 0.540816 0.607143 0.612245
 6 strike6 0.294737 0.652632 0.436842 0.368421</code></pre>
-<pre class="r"><code>test&lt;-t_test_data[-1]
-
-
-library(caret)
-library(e1071)
-pca = preProcess(x = training_DF[,c(-1,-4502)], method = &quot;pca&quot;, pcaComp = 35)
-training_set &lt;- predict(pca, training_DF[-4502])
-# put customer segment in to the last postion or column
-#training_set &lt;- simple_train_DF[c(2,3,1)]
-
-
-test_set &lt;- predict(pca, test)
-#test_set &lt;- test[c(2,3,1)]
-
-trControl &lt;- trainControl(method = &quot;repeatedcv&quot;, 
-                          number = 10, 
-                         repeats = 3, 
-                     verboseIter = ifelse(is.null(getOption(&#39;knitr.in.progress&#39;)), TRUE, FALSE) # This crazy line is to show progress when you run the code but hide it when knitting.
-    )
-
-training_x &lt;- training_set %&gt;% select(-labels) %&gt;% as.data.frame()
-training_y &lt;- training_set$labels
-
-car_ranger &lt;- train(x = training_x, 
-             y = training_y, 
-        method = &quot;glmnet&quot;,
-     trControl = trControl
-    )
-
-print(car_ranger)</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>test<span class="ot">&lt;-</span>t_test_data[<span class="sc">-</span><span class="dv">1</span>]</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(caret)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(e1071)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>pca <span class="ot">=</span> <span class="fu">preProcess</span>(<span class="at">x =</span> training_DF[,<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>,<span class="sc">-</span><span class="dv">4502</span>)], <span class="at">method =</span> <span class="st">&quot;pca&quot;</span>, <span class="at">pcaComp =</span> <span class="dv">35</span>)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>training_set <span class="ot">&lt;-</span> <span class="fu">predict</span>(pca, training_DF[<span class="sc">-</span><span class="dv">4502</span>])</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># put customer segment in to the last postion or column</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">#training_set &lt;- simple_train_DF[c(2,3,1)]</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>test_set <span class="ot">&lt;-</span> <span class="fu">predict</span>(pca, test)</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co">#test_set &lt;- test[c(2,3,1)]</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>trControl <span class="ot">&lt;-</span> <span class="fu">trainControl</span>(<span class="at">method =</span> <span class="st">&quot;repeatedcv&quot;</span>, </span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>                          <span class="at">number =</span> <span class="dv">10</span>, </span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>                         <span class="at">repeats =</span> <span class="dv">3</span>, </span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>                     <span class="at">verboseIter =</span> <span class="fu">ifelse</span>(<span class="fu">is.null</span>(<span class="fu">getOption</span>(<span class="st">&#39;knitr.in.progress&#39;</span>)), <span class="cn">TRUE</span>, <span class="cn">FALSE</span>) <span class="co"># This crazy line is to show progress when you run the code but hide it when knitting.</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>training_x <span class="ot">&lt;-</span> training_set <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>labels) <span class="sc">%&gt;%</span> <span class="fu">as.data.frame</span>()</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>training_y <span class="ot">&lt;-</span> training_set<span class="sc">$</span>labels</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>car_ranger <span class="ot">&lt;-</span> <span class="fu">train</span>(<span class="at">x =</span> training_x, </span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>             <span class="at">y =</span> training_y, </span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>        <span class="at">method =</span> <span class="st">&quot;glmnet&quot;</span>,</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>     <span class="at">trControl =</span> trControl</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(car_ranger)</span></code></pre></div>
 <pre><code>glmnet 
 
 35 samples
@@ -1653,35 +1754,35 @@ Resampling results across tuning parameters:
 
 Accuracy was used to select the optimal model using the largest value.
 The final values used for the model were alpha = 1 and lambda = 0.04928533.</code></pre>
-<pre class="r"><code>predicted&lt;- predict(car_ranger, newdata = test_set[,-1])
-
-predicted</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>predicted<span class="ot">&lt;-</span> <span class="fu">predict</span>(car_ranger, <span class="at">newdata =</span> test_set[,<span class="sc">-</span><span class="dv">1</span>])</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>predicted</span></code></pre></div>
 <pre><code>[1] pen4 pen2 pen3 pen4 pen5 pen6
 Levels: pen1 pen2 pen3 pen4 pen5 pen6</code></pre>
-<pre class="r"><code>#Cleanup
-rm(car_ranger,dat_3d,data,fig,lowd_map,pca,pca_res,pr.out, t_training_data1, t_training_data2, t_training_data3, test, test_pca, test_set, training_data1, training_data2, training_data3,training_set, training_x,trControl,tsne, avector, labels, names, predicted, training_y,var_explained)</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Cleanup</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(car_ranger,dat_3d,data,fig,lowd_map,pca,pca_res,pr.out, t_training_data1, t_training_data2, t_training_data3, test, test_pca, test_set, training_data1, training_data2, training_data3,training_set, training_x,trControl,tsne, avector, labels, names, predicted, training_y,var_explained)</span></code></pre></div>
 </div>
 <div id="caret-model-not-using-pcas" class="section level1">
 <h1>Caret model not using PCAs</h1>
 <div id="preparing-the-test_data" class="section level2">
 <h2>Preparing the test_data</h2>
-<pre class="r"><code>#For the test data we should use the test_data
-#For the training data we should use the training_DF
-
-#(work in progress, I have to remember how this was done :/ )
-
-#Get a dataframe with the values that will be used to predict
-#First step, transpose the data: 
-t_test_data&lt;-as.data.frame(t(test_data[-1]))
-names(t_test_data)&lt;-test_data$spectrum
-t_test_data$labels=row.names(t_test_data)
-#removing the row headers
-rownames(t_test_data)&lt;-c()
-#moving labels to the beginning
-t_test_data&lt;-t_test_data %&gt;% 
-  select(labels, everything())
-t_test_data&lt;-t_test_data %&gt;% replace(1,c(&quot;strike1&quot;,&quot;strike2&quot;,&quot;strike3&quot;,&quot;strike4&quot;,&quot;strike5&quot;,&quot;strike6&quot;))
-head(select(t_test_data,1:5))</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#For the test data we should use the test_data</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">#For the training data we should use the training_DF</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co">#(work in progress, I have to remember how this was done :/ )</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co">#Get a dataframe with the values that will be used to predict</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co">#First step, transpose the data: </span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>t_test_data<span class="ot">&lt;-</span><span class="fu">as.data.frame</span>(<span class="fu">t</span>(test_data[<span class="sc">-</span><span class="dv">1</span>]))</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(t_test_data)<span class="ot">&lt;-</span>test_data<span class="sc">$</span>spectrum</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>t_test_data<span class="sc">$</span>labels<span class="ot">=</span><span class="fu">row.names</span>(t_test_data)</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="co">#removing the row headers</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(t_test_data)<span class="ot">&lt;-</span><span class="fu">c</span>()</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="co">#moving labels to the beginning</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>t_test_data<span class="ot">&lt;-</span>t_test_data <span class="sc">%&gt;%</span> </span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(labels, <span class="fu">everything</span>())</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>t_test_data<span class="ot">&lt;-</span>t_test_data <span class="sc">%&gt;%</span> <span class="fu">replace</span>(<span class="dv">1</span>,<span class="fu">c</span>(<span class="st">&quot;strike1&quot;</span>,<span class="st">&quot;strike2&quot;</span>,<span class="st">&quot;strike3&quot;</span>,<span class="st">&quot;strike4&quot;</span>,<span class="st">&quot;strike5&quot;</span>,<span class="st">&quot;strike6&quot;</span>))</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">select</span>(t_test_data,<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>))</span></code></pre></div>
 <pre><code>   labels      100    100.2    100.4    100.6
 1 strike1 1.220990 1.243090 1.176800 0.955801
 2 strike2 1.804470 2.251400 1.810060 1.703910
@@ -1689,21 +1790,21 @@ head(select(t_test_data,1:5))</code></pre>
 4 strike4 0.722826 0.956522 0.880435 0.728261
 5 strike5 0.500000 0.540816 0.607143 0.612245
 6 strike6 0.294737 0.652632 0.436842 0.368421</code></pre>
-<pre class="r"><code>test_data&lt;-t_test_data
-
-rm(t_test_data)</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>test_data<span class="ot">&lt;-</span>t_test_data</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(t_test_data)</span></code></pre></div>
 <p>##Caret model GLMNET</p>
-<pre class="r"><code>training_x &lt;- training_DF %&gt;% select(-labels) %&gt;% as.data.frame()
-training_y &lt;- training_DF$labels
-
-trControl &lt;- trainControl(method = &quot;repeatedcv&quot;, number = 5, repeats = 3, verboseIter = T)
-
-fit &lt;- train(x = training_x, 
-             y = training_y, 
-        method = &quot;glmnet&quot;,
-        tuneLength = 5,
-     trControl = trControl
-    )</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>training_x <span class="ot">&lt;-</span> training_DF <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>labels) <span class="sc">%&gt;%</span> <span class="fu">as.data.frame</span>()</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>training_y <span class="ot">&lt;-</span> training_DF<span class="sc">$</span>labels</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>trControl <span class="ot">&lt;-</span> <span class="fu">trainControl</span>(<span class="at">method =</span> <span class="st">&quot;repeatedcv&quot;</span>, <span class="at">number =</span> <span class="dv">5</span>, <span class="at">repeats =</span> <span class="dv">3</span>, <span class="at">verboseIter =</span> T)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">train</span>(<span class="at">x =</span> training_x, </span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">y =</span> training_y, </span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">method =</span> <span class="st">&quot;glmnet&quot;</span>,</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">tuneLength =</span> <span class="dv">5</span>,</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>     <span class="at">trControl =</span> trControl</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div>
 <pre><code>+ Fold1.Rep1: alpha=0.100, lambda=0.3244 
 - Fold1.Rep1: alpha=0.100, lambda=0.3244 
 + Fold1.Rep1: alpha=0.325, lambda=0.3244 
@@ -1857,61 +1958,61 @@ fit &lt;- train(x = training_x,
 Aggregating results
 Selecting tuning parameters
 Fitting alpha = 0.1, lambda = 0.151 on full training set</code></pre>
-<pre class="r"><code>#print(fit)
-
-#ggplot(fit)
-
-predicted&lt;- predict(fit, newdata = test_data[,-1],type = &quot;prob&quot;)</code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">#print(fit)</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co">#ggplot(fit)</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>predicted<span class="ot">&lt;-</span> <span class="fu">predict</span>(fit, <span class="at">newdata =</span> test_data[,<span class="sc">-</span><span class="dv">1</span>],<span class="at">type =</span> <span class="st">&quot;prob&quot;</span>)</span></code></pre></div>
 <div id="plots" class="section level3">
 <h3>Plots</h3>
-<pre class="r"><code>toplot&lt;-as.data.frame(t(predicted))
-names(toplot)&lt;-c(&quot;strike1&quot;,&quot;strike2&quot;,&quot;strike3&quot;,&quot;strike4&quot;,&quot;strike5&quot;,&quot;strike6&quot;)
-toplot&lt;-toplot %&gt;% mutate(pens=row.names(toplot))
-
-strike1&lt;-toplot %&gt;% select(strike1,pens) %&gt;% ggplot(aes(x=pens, y=strike1, fill=pens)) +
-  geom_bar(stat=&quot;identity&quot;,position=position_stack())+
-  scale_fill_brewer(palette=&quot;Accent&quot;)
-
-strike2&lt;-toplot %&gt;% select(strike2,pens) %&gt;% ggplot(aes(x=pens, y=strike2, fill=pens)) +
-  geom_bar(stat=&quot;identity&quot;,position=position_stack())+
-  scale_fill_brewer(palette=&quot;Accent&quot;)
-
-strike3&lt;-toplot %&gt;% select(strike3,pens) %&gt;% ggplot(aes(x=pens, y=strike3, fill=pens)) +
-  geom_bar(stat=&quot;identity&quot;,position=position_stack())+
-  scale_fill_brewer(palette=&quot;Accent&quot;)
-
-strike4&lt;-toplot %&gt;% select(strike4,pens) %&gt;% ggplot(aes(x=pens, y=strike4, fill=pens)) +
-  geom_bar(stat=&quot;identity&quot;,position=position_stack())+
-  scale_fill_brewer(palette=&quot;Accent&quot;)
-
-strike5&lt;-toplot %&gt;% select(strike5,pens) %&gt;% ggplot(aes(x=pens, y=strike5, fill=pens)) +
-  geom_bar(stat=&quot;identity&quot;,position=position_stack())+
-  scale_fill_brewer(palette=&quot;Accent&quot;)
-
-strike6&lt;-toplot %&gt;% select(strike6,pens) %&gt;% ggplot(aes(x=pens, y=strike6, fill=pens)) +
-  geom_bar(stat=&quot;identity&quot;,position=position_stack())+
-  scale_fill_brewer(palette=&quot;Accent&quot;)
-
-
-ggarrange(strike1, strike2, strike3, strike4, strike5, strike6,
-                    labels = c(&quot;strike1&quot;, &quot;strike2&quot;, &quot;strike3&quot;, &quot;strike4&quot;, &quot;strike5&quot;, &quot;strike6&quot;),
-                    ncol = 3, nrow = 3)</code></pre>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>toplot<span class="ot">&lt;-</span><span class="fu">as.data.frame</span>(<span class="fu">t</span>(predicted))</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(toplot)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;strike1&quot;</span>,<span class="st">&quot;strike2&quot;</span>,<span class="st">&quot;strike3&quot;</span>,<span class="st">&quot;strike4&quot;</span>,<span class="st">&quot;strike5&quot;</span>,<span class="st">&quot;strike6&quot;</span>)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>toplot<span class="ot">&lt;-</span>toplot <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">pens=</span><span class="fu">row.names</span>(toplot))</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>strike1<span class="ot">&lt;-</span>toplot <span class="sc">%&gt;%</span> <span class="fu">select</span>(strike1,pens) <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>pens, <span class="at">y=</span>strike1, <span class="at">fill=</span>pens)) <span class="sc">+</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>,<span class="at">position=</span><span class="fu">position_stack</span>())<span class="sc">+</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette=</span><span class="st">&quot;Accent&quot;</span>)</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>strike2<span class="ot">&lt;-</span>toplot <span class="sc">%&gt;%</span> <span class="fu">select</span>(strike2,pens) <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>pens, <span class="at">y=</span>strike2, <span class="at">fill=</span>pens)) <span class="sc">+</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>,<span class="at">position=</span><span class="fu">position_stack</span>())<span class="sc">+</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette=</span><span class="st">&quot;Accent&quot;</span>)</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>strike3<span class="ot">&lt;-</span>toplot <span class="sc">%&gt;%</span> <span class="fu">select</span>(strike3,pens) <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>pens, <span class="at">y=</span>strike3, <span class="at">fill=</span>pens)) <span class="sc">+</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>,<span class="at">position=</span><span class="fu">position_stack</span>())<span class="sc">+</span></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette=</span><span class="st">&quot;Accent&quot;</span>)</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>strike4<span class="ot">&lt;-</span>toplot <span class="sc">%&gt;%</span> <span class="fu">select</span>(strike4,pens) <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>pens, <span class="at">y=</span>strike4, <span class="at">fill=</span>pens)) <span class="sc">+</span></span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>,<span class="at">position=</span><span class="fu">position_stack</span>())<span class="sc">+</span></span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette=</span><span class="st">&quot;Accent&quot;</span>)</span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>strike5<span class="ot">&lt;-</span>toplot <span class="sc">%&gt;%</span> <span class="fu">select</span>(strike5,pens) <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>pens, <span class="at">y=</span>strike5, <span class="at">fill=</span>pens)) <span class="sc">+</span></span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>,<span class="at">position=</span><span class="fu">position_stack</span>())<span class="sc">+</span></span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette=</span><span class="st">&quot;Accent&quot;</span>)</span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>strike6<span class="ot">&lt;-</span>toplot <span class="sc">%&gt;%</span> <span class="fu">select</span>(strike6,pens) <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>pens, <span class="at">y=</span>strike6, <span class="at">fill=</span>pens)) <span class="sc">+</span></span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>,<span class="at">position=</span><span class="fu">position_stack</span>())<span class="sc">+</span></span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette=</span><span class="st">&quot;Accent&quot;</span>)</span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a><span class="fu">ggarrange</span>(strike1, strike2, strike3, strike4, strike5, strike6,</span>
+<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a>                    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;strike1&quot;</span>, <span class="st">&quot;strike2&quot;</span>, <span class="st">&quot;strike3&quot;</span>, <span class="st">&quot;strike4&quot;</span>, <span class="st">&quot;strike5&quot;</span>, <span class="st">&quot;strike6&quot;</span>),</span>
+<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a>                    <span class="at">ncol =</span> <span class="dv">3</span>, <span class="at">nrow =</span> <span class="dv">3</span>)</span></code></pre></div>
 <p><img src="figure/PiB.Rmd/unnamed-chunk-42-1.png" width="960" style="display: block; margin: auto;" /></p>
 <p>##Caret model GLMNET Lasso (Alpha = 1) Lambda ranging from 0 to 1</p>
-<pre class="r"><code>training_x &lt;- training_DF %&gt;% select(-labels) %&gt;% as.data.frame()
-training_y &lt;- training_DF$labels
-
-trControl &lt;- trainControl(method = &quot;LOOCV&quot;, number = 5, verboseIter = T)
-
-
-tuneGrid &lt;- expand.grid(alpha = 1, lambda = seq(0.001, 1, length = 1000))
-
-fit &lt;- train(x = training_x, 
-             y = training_y, 
-        method = &quot;glmnet&quot;,
-        tuneGrid = tuneGrid,
-     trControl = trControl,
-    )</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>training_x <span class="ot">&lt;-</span> training_DF <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>labels) <span class="sc">%&gt;%</span> <span class="fu">as.data.frame</span>()</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>training_y <span class="ot">&lt;-</span> training_DF<span class="sc">$</span>labels</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>trControl <span class="ot">&lt;-</span> <span class="fu">trainControl</span>(<span class="at">method =</span> <span class="st">&quot;LOOCV&quot;</span>, <span class="at">number =</span> <span class="dv">5</span>, <span class="at">verboseIter =</span> T)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>tuneGrid <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="at">alpha =</span> <span class="dv">1</span>, <span class="at">lambda =</span> <span class="fu">seq</span>(<span class="fl">0.001</span>, <span class="dv">1</span>, <span class="at">length =</span> <span class="dv">1000</span>))</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">train</span>(<span class="at">x =</span> training_x, </span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>             <span class="at">y =</span> training_y, </span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">method =</span> <span class="st">&quot;glmnet&quot;</span>,</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">tuneGrid =</span> tuneGrid,</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>     <span class="at">trControl =</span> trControl,</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div>
 <pre><code>+ Fold01: alpha=1, lambda=1 
 - Fold01: alpha=1, lambda=1 
 + Fold02: alpha=1, lambda=1 
@@ -1985,46 +2086,46 @@ fit &lt;- train(x = training_x,
 Aggregating results
 Selecting tuning parameters
 Fitting alpha = 1, lambda = 0.071 on full training set</code></pre>
-<pre class="r"><code>#print(fit)
-
-#ggplot(fit)
-
-predicted&lt;- predict(fit, newdata = test_data[,-1],type = &quot;prob&quot;)</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">#print(fit)</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co">#ggplot(fit)</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>predicted<span class="ot">&lt;-</span> <span class="fu">predict</span>(fit, <span class="at">newdata =</span> test_data[,<span class="sc">-</span><span class="dv">1</span>],<span class="at">type =</span> <span class="st">&quot;prob&quot;</span>)</span></code></pre></div>
 </div>
 <div id="plots-1" class="section level3">
 <h3>Plots</h3>
-<pre class="r"><code>toplot&lt;-as.data.frame(t(predicted))
-names(toplot)&lt;-c(&quot;strike1&quot;,&quot;strike2&quot;,&quot;strike3&quot;,&quot;strike4&quot;,&quot;strike5&quot;,&quot;strike6&quot;)
-toplot&lt;-toplot %&gt;% mutate(pens=row.names(toplot))
-
-strike1&lt;-toplot %&gt;% select(strike1,pens) %&gt;% ggplot(aes(x=pens, y=strike1, fill=pens)) +
-  geom_bar(stat=&quot;identity&quot;,position=position_stack())+
-  scale_fill_brewer(palette=&quot;Accent&quot;)
-
-strike2&lt;-toplot %&gt;% select(strike2,pens) %&gt;% ggplot(aes(x=pens, y=strike2, fill=pens)) +
-  geom_bar(stat=&quot;identity&quot;,position=position_stack())+
-  scale_fill_brewer(palette=&quot;Accent&quot;)
-
-strike3&lt;-toplot %&gt;% select(strike3,pens) %&gt;% ggplot(aes(x=pens, y=strike3, fill=pens)) +
-  geom_bar(stat=&quot;identity&quot;,position=position_stack())+
-  scale_fill_brewer(palette=&quot;Accent&quot;)
-
-strike4&lt;-toplot %&gt;% select(strike4,pens) %&gt;% ggplot(aes(x=pens, y=strike4, fill=pens)) +
-  geom_bar(stat=&quot;identity&quot;,position=position_stack())+
-  scale_fill_brewer(palette=&quot;Accent&quot;)
-
-strike5&lt;-toplot %&gt;% select(strike5,pens) %&gt;% ggplot(aes(x=pens, y=strike5, fill=pens)) +
-  geom_bar(stat=&quot;identity&quot;,position=position_stack())+
-  scale_fill_brewer(palette=&quot;Accent&quot;)
-
-strike6&lt;-toplot %&gt;% select(strike6,pens) %&gt;% ggplot(aes(x=pens, y=strike6, fill=pens)) +
-  geom_bar(stat=&quot;identity&quot;,position=position_stack())+
-  scale_fill_brewer(palette=&quot;Accent&quot;)
-
-
-ggarrange(strike1, strike2, strike3, strike4, strike5, strike6,
-                    labels = c(&quot;strike1&quot;, &quot;strike2&quot;, &quot;strike3&quot;, &quot;strike4&quot;, &quot;strike5&quot;, &quot;strike6&quot;),
-                    ncol = 3, nrow = 3)</code></pre>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>toplot<span class="ot">&lt;-</span><span class="fu">as.data.frame</span>(<span class="fu">t</span>(predicted))</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(toplot)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;strike1&quot;</span>,<span class="st">&quot;strike2&quot;</span>,<span class="st">&quot;strike3&quot;</span>,<span class="st">&quot;strike4&quot;</span>,<span class="st">&quot;strike5&quot;</span>,<span class="st">&quot;strike6&quot;</span>)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>toplot<span class="ot">&lt;-</span>toplot <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">pens=</span><span class="fu">row.names</span>(toplot))</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>strike1<span class="ot">&lt;-</span>toplot <span class="sc">%&gt;%</span> <span class="fu">select</span>(strike1,pens) <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>pens, <span class="at">y=</span>strike1, <span class="at">fill=</span>pens)) <span class="sc">+</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>,<span class="at">position=</span><span class="fu">position_stack</span>())<span class="sc">+</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette=</span><span class="st">&quot;Accent&quot;</span>)</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>strike2<span class="ot">&lt;-</span>toplot <span class="sc">%&gt;%</span> <span class="fu">select</span>(strike2,pens) <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>pens, <span class="at">y=</span>strike2, <span class="at">fill=</span>pens)) <span class="sc">+</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>,<span class="at">position=</span><span class="fu">position_stack</span>())<span class="sc">+</span></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette=</span><span class="st">&quot;Accent&quot;</span>)</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>strike3<span class="ot">&lt;-</span>toplot <span class="sc">%&gt;%</span> <span class="fu">select</span>(strike3,pens) <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>pens, <span class="at">y=</span>strike3, <span class="at">fill=</span>pens)) <span class="sc">+</span></span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>,<span class="at">position=</span><span class="fu">position_stack</span>())<span class="sc">+</span></span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette=</span><span class="st">&quot;Accent&quot;</span>)</span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>strike4<span class="ot">&lt;-</span>toplot <span class="sc">%&gt;%</span> <span class="fu">select</span>(strike4,pens) <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>pens, <span class="at">y=</span>strike4, <span class="at">fill=</span>pens)) <span class="sc">+</span></span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>,<span class="at">position=</span><span class="fu">position_stack</span>())<span class="sc">+</span></span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette=</span><span class="st">&quot;Accent&quot;</span>)</span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>strike5<span class="ot">&lt;-</span>toplot <span class="sc">%&gt;%</span> <span class="fu">select</span>(strike5,pens) <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>pens, <span class="at">y=</span>strike5, <span class="at">fill=</span>pens)) <span class="sc">+</span></span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>,<span class="at">position=</span><span class="fu">position_stack</span>())<span class="sc">+</span></span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette=</span><span class="st">&quot;Accent&quot;</span>)</span>
+<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a>strike6<span class="ot">&lt;-</span>toplot <span class="sc">%&gt;%</span> <span class="fu">select</span>(strike6,pens) <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>pens, <span class="at">y=</span>strike6, <span class="at">fill=</span>pens)) <span class="sc">+</span></span>
+<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>,<span class="at">position=</span><span class="fu">position_stack</span>())<span class="sc">+</span></span>
+<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette=</span><span class="st">&quot;Accent&quot;</span>)</span>
+<span id="cb18-28"><a href="#cb18-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-29"><a href="#cb18-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-30"><a href="#cb18-30" aria-hidden="true" tabindex="-1"></a><span class="fu">ggarrange</span>(strike1, strike2, strike3, strike4, strike5, strike6,</span>
+<span id="cb18-31"><a href="#cb18-31" aria-hidden="true" tabindex="-1"></a>                    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;strike1&quot;</span>, <span class="st">&quot;strike2&quot;</span>, <span class="st">&quot;strike3&quot;</span>, <span class="st">&quot;strike4&quot;</span>, <span class="st">&quot;strike5&quot;</span>, <span class="st">&quot;strike6&quot;</span>),</span>
+<span id="cb18-32"><a href="#cb18-32" aria-hidden="true" tabindex="-1"></a>                    <span class="at">ncol =</span> <span class="dv">3</span>, <span class="at">nrow =</span> <span class="dv">3</span>)</span></code></pre></div>
 <p><img src="figure/PiB.Rmd/unnamed-chunk-44-1.png" width="960" style="display: block; margin: auto;" /></p>
 <br>
 <p>
@@ -2033,7 +2134,7 @@ ggarrange(strike1, strike2, strike3, strike4, strike5, strike6,
 </button>
 </p>
 <div id="workflowr-sessioninfo" class="collapse">
-<pre class="r"><code>sessionInfo()</code></pre>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div>
 <pre><code>R version 4.0.4 (2021-02-15)
 Platform: x86_64-w64-mingw32/x64 (64-bit)
 Running under: Windows 10 x64 (build 19043)

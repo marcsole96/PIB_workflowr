@@ -16,7 +16,7 @@
 <script src="site_libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="site_libs/jquery-3.5.1/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<link href="site_libs/bootstrap-3.3.5/css/paper.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
@@ -33,8 +33,6 @@
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
-<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 <script src="site_libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
 <script src="site_libs/plotly-binding-4.9.3/plotly.js"></script>
 <script src="site_libs/typedarray-0.1/typedarray.min.js"></script>
@@ -64,17 +62,101 @@ div.section {
   ul.task-list{list-style: none;}
     </style>
 
-<style type="text/css">code{white-space: pre;}</style>
-<script type="text/javascript">
-if (window.hljs) {
-  hljs.configure({languages: []});
-  hljs.initHighlightingOnLoad();
-  if (document.readyState && document.readyState === "complete") {
-    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
-  }
-}
-</script>
 
+<style type="text/css">
+  code {
+    white-space: pre;
+  }
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
 
 
 
@@ -332,7 +414,7 @@ div.tocify {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">PIB_workflowr</a>
+      <a class="navbar-brand" href="index.html">PIB Marc</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -364,7 +446,7 @@ div.tocify {
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/marcsole96/PIB_workflowr">
-    <span class="fas fa-github"></span>
+    <span class="fab fa-github"></span>
      
     Source code
   </a>
@@ -494,16 +576,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtreedacfd2fb87982d910d4568bfbcf0253d3e33c1e8targetblankdacfd2fa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/marcsole96/PIB_workflowr/tree/dacfd2fb87982d910d4568bfbcf0253d3e33c1e8" target="_blank">dacfd2f</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtreec2696ef291dce79eda9ab6047fc2ff0cf99c43datargetblankc2696efa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/marcsole96/PIB_workflowr/tree/c2696ef291dce79eda9ab6047fc2ff0cf99c43da" target="_blank">c2696ef</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtreedacfd2fb87982d910d4568bfbcf0253d3e33c1e8targetblankdacfd2fa" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtreec2696ef291dce79eda9ab6047fc2ff0cf99c43datargetblankc2696efa" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/marcsole96/PIB_workflowr/tree/dacfd2fb87982d910d4568bfbcf0253d3e33c1e8" target="_blank">dacfd2f</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/marcsole96/PIB_workflowr/tree/c2696ef291dce79eda9ab6047fc2ff0cf99c43da" target="_blank">c2696ef</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -515,6 +597,7 @@ Ignored files:
     Ignored:    analysis/.Rhistory
 
 Untracked files:
+    Untracked:  analysis/images/
     Untracked:  data/CONTRACT REGION OF INTERESTED EXPORTS/
     Untracked:  data/INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/
     Untracked:  data/STRIKES ANALYSIS (I TEST SET)-ROI EXPORTS/
@@ -522,6 +605,7 @@ Untracked files:
 
 Unstaged changes:
     Deleted:    analysis/Data Wrangling.Rmd
+    Modified:   analysis/index.Rmd
     Modified:   data/wrangling.RData
 
 </code></pre>
@@ -561,6 +645,23 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/marcsole96/PIB_workflowr/ea8fe22b2da339e946947a767a6b8168eac41a9f/docs/Visualizations.html" target="_blank">ea8fe22</a>
+</td>
+<td>
+marcsole96
+</td>
+<td>
+2021-11-01
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -740,67 +841,67 @@ things done
 </div>
 <div id="setup" class="section level1">
 <h1>Setup</h1>
-<pre class="r"><code>#setwd(&quot;../PIB_workflowr/data&quot;)
-getwd()</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#setwd(&quot;../PIB_workflowr/data&quot;)</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
 <pre><code>[1] &quot;C:/Users/mysit/Documents/Bioinformatica/Semestre_3/Projecte_Palle/PIB_workflowr/data&quot;</code></pre>
 </div>
 <div id="opening-the-data-workspace" class="section level1">
 <h1>Opening the data workspace</h1>
-<pre class="r"><code>load(&quot;wrangling.RData&quot;)</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&quot;wrangling.RData&quot;</span>)</span></code></pre></div>
 </div>
 <div id="pcas" class="section level1">
 <h1>PCAs</h1>
 <div id="test_data" class="section level2">
 <h2>Test_data</h2>
-<pre class="r"><code>labels&lt;-test_data$labels
-
-data &lt;- test_data %&gt;%
-  select(-labels)
-
-data&lt;-as.matrix(data)
-rownames(data) &lt;- NULL
-
-pr.out &lt;- prcomp(data,scale=FALSE)
-
-pr.out$x %&gt;% 
-  as_tibble() %&gt;% 
-  ggplot() +
-  geom_point(aes(PC1, PC2, color = labels), alpha = 0.5) +
-  theme_minimal() +
-  scale_shape_manual(values = c(4, 20))</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>labels<span class="ot">&lt;-</span>test_data<span class="sc">$</span>labels</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> test_data <span class="sc">%&gt;%</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>labels)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>data<span class="ot">&lt;-</span><span class="fu">as.matrix</span>(data)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(data) <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>pr.out <span class="ot">&lt;-</span> <span class="fu">prcomp</span>(data,<span class="at">scale=</span><span class="cn">FALSE</span>)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>pr.out<span class="sc">$</span>x <span class="sc">%&gt;%</span> </span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_tibble</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(PC1, PC2, <span class="at">color =</span> labels), <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_shape_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">20</span>))</span></code></pre></div>
 <p><img src="figure/Visualizations.Rmd/unnamed-chunk-4-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="training-data" class="section level2">
 <h2>Training data</h2>
-<pre class="r"><code>labels&lt;-training_DF$labels
-
-data &lt;- training_DF %&gt;%
-  select(-labels)
-
-data&lt;-as.matrix(data)
-rownames(data) &lt;- NULL
-
-pr.out &lt;- prcomp(data,scale=FALSE)
-
-pr.out$x %&gt;% 
-  as_tibble() %&gt;% 
-  ggplot() +
-  geom_point(aes(PC1, PC2, color = labels), alpha = 0.5) +
-  theme_minimal() +
-  scale_shape_manual(values = c(4, 20))</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>labels<span class="ot">&lt;-</span>training_DF<span class="sc">$</span>labels</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> training_DF <span class="sc">%&gt;%</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>labels)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>data<span class="ot">&lt;-</span><span class="fu">as.matrix</span>(data)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(data) <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>pr.out <span class="ot">&lt;-</span> <span class="fu">prcomp</span>(data,<span class="at">scale=</span><span class="cn">FALSE</span>)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>pr.out<span class="sc">$</span>x <span class="sc">%&gt;%</span> </span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_tibble</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(PC1, PC2, <span class="at">color =</span> labels), <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_shape_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">20</span>))</span></code></pre></div>
 <p><img src="figure/Visualizations.Rmd/unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>We can see the variance explained by the PCs:</p>
-<pre class="r"><code>var_explained = pr.out$sdev^2 / sum(pr.out$sdev^2)
-
-qplot(c(1:35), var_explained) + 
-  geom_line() + 
-  xlab(&quot;Principal Component&quot;) + 
-  ylab(&quot;Variance Explained&quot;) +
-  ggtitle(&quot;Scree Plot&quot;) +
-  ylim(0, 1)</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>var_explained <span class="ot">=</span> pr.out<span class="sc">$</span>sdev<span class="sc">^</span><span class="dv">2</span> <span class="sc">/</span> <span class="fu">sum</span>(pr.out<span class="sc">$</span>sdev<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">35</span>), var_explained) <span class="sc">+</span> </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span> </span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Principal Component&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Variance Explained&quot;</span>) <span class="sc">+</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Scree Plot&quot;</span>) <span class="sc">+</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>, <span class="dv">1</span>)</span></code></pre></div>
 <p><img src="figure/Visualizations.Rmd/unnamed-chunk-6-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>We can view the 3 PCs:</p>
-<pre class="r"><code>library(plotly)</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plotly)</span></code></pre></div>
 <pre><code>Warning: package &#39;plotly&#39; was built under R version 4.0.5</code></pre>
 <pre><code>
 Attaching package: &#39;plotly&#39;</code></pre>
@@ -813,52 +914,52 @@ Attaching package: &#39;plotly&#39;</code></pre>
 <pre><code>The following object is masked from &#39;package:graphics&#39;:
 
     layout</code></pre>
-<pre class="r"><code>dat_3d &lt;- pr.out$x[,1:3] %&gt;% as_tibble() %&gt;% mutate(square = training_DF$labels)
-
-fig &lt;- plot_ly(dat_3d, x = ~PC1, y = ~PC2, z = ~PC3, 
-               color = ~square, size = I(100))
-fig &lt;- fig %&gt;% add_markers()
-fig &lt;- fig %&gt;% layout(scene = list(xaxis = list(title = &#39;PC1&#39;),
-                                   yaxis = list(title = &#39;PC2&#39;),
-                                   zaxis = list(title = &#39;PC3&#39;)))
-
-fig</code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>dat_3d <span class="ot">&lt;-</span> pr.out<span class="sc">$</span>x[,<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>] <span class="sc">%&gt;%</span> <span class="fu">as_tibble</span>() <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">square =</span> training_DF<span class="sc">$</span>labels)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>fig <span class="ot">&lt;-</span> <span class="fu">plot_ly</span>(dat_3d, <span class="at">x =</span> <span class="sc">~</span>PC1, <span class="at">y =</span> <span class="sc">~</span>PC2, <span class="at">z =</span> <span class="sc">~</span>PC3, </span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">color =</span> <span class="sc">~</span>square, <span class="at">size =</span> <span class="fu">I</span>(<span class="dv">100</span>))</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>fig <span class="ot">&lt;-</span> fig <span class="sc">%&gt;%</span> <span class="fu">add_markers</span>()</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>fig <span class="ot">&lt;-</span> fig <span class="sc">%&gt;%</span> <span class="fu">layout</span>(<span class="at">scene =</span> <span class="fu">list</span>(<span class="at">xaxis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">&#39;PC1&#39;</span>),</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">yaxis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">&#39;PC2&#39;</span>),</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">zaxis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">&#39;PC3&#39;</span>)))</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>fig</span></code></pre></div>
 <div id="htmlwidget-42a05a8c506c71894382" style="width:672px;height:480px;" class="plotly html-widget"></div>
-<script type="application/json" data-for="htmlwidget-42a05a8c506c71894382">{"x":{"visdat":{"2630331c72d9":["function () ","plotlyVisDat"]},"cur_data":"2630331c72d9","attrs":{"2630331c72d9":{"x":{},"y":{},"z":{},"color":{},"size":[100],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter3d","mode":"markers","inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"scene":{"xaxis":{"title":"PC1"},"yaxis":{"title":"PC2"},"zaxis":{"title":"PC3"}},"hovermode":"closest","showlegend":true},"source":"A","config":{"showSendToCloud":false},"data":[{"x":[-8919.32253664635,-3126.29294441541,-3761.87493631021,-5823.56506314954,-14484.0302209313,-7785.34724229474,-4166.30364411807,-9900.92371164755,-3462.79891397719],"y":[6563.89237255255,-3338.10303279332,7066.940316156,6117.65048995813,7179.92588257088,6110.74947945743,-3455.7532667291,-4708.98364737527,-3259.82289822957],"z":[-432.822143618251,-3730.7623098674,-2147.04416051145,-1672.77716606794,1658.00446865879,-785.392579671217,-3476.71652436324,-1604.33471110726,-3514.84859224447],"type":"scatter3d","mode":"markers","name":"pen1","marker":{"color":"rgba(102,194,165,1)","size":[100,100,100,100,100,100,100,100,100],"sizemode":"area","line":{"color":"rgba(102,194,165,1)"}},"textfont":{"color":"rgba(102,194,165,1)","size":100},"error_y":{"color":"rgba(102,194,165,1)","width":100},"error_x":{"color":"rgba(102,194,165,1)","width":100},"line":{"color":"rgba(102,194,165,1)","width":100},"frame":null},{"x":[22253.2771923377,24034.8616386438,22648.66836811,22181.080325745,22781.0720484817,22304.7746049501],"y":[-217.972044991547,-809.768284041475,-335.843004698009,-187.67429174854,-402.574125100933,-235.735660804975],"z":[-2548.64121505029,2807.38467287989,-1229.24610612654,-2898.9478355331,-1099.61400946859,-2128.68450032696],"type":"scatter3d","mode":"markers","name":"pen2","marker":{"color":"rgba(252,141,98,1)","size":[100,100,100,100,100,100],"sizemode":"area","line":{"color":"rgba(252,141,98,1)"}},"textfont":{"color":"rgba(252,141,98,1)","size":100},"error_y":{"color":"rgba(252,141,98,1)","width":100},"error_x":{"color":"rgba(252,141,98,1)","width":100},"line":{"color":"rgba(252,141,98,1)","width":100},"frame":null},{"x":[-18276.6255697422,-8896.77006205208,-20928.6643859091,-22928.8396282593,-15865.3410181952],"y":[-5063.09265486776,-3998.00675167251,-5730.53127458892,-5794.43704151447,-4621.12910802707],"z":[2042.19380172502,-1025.32852385258,2750.83124750217,3596.33951527723,1404.07176219767],"type":"scatter3d","mode":"markers","name":"pen3","marker":{"color":"rgba(141,160,203,1)","size":[100,100,100,100,100],"sizemode":"area","line":{"color":"rgba(141,160,203,1)"}},"textfont":{"color":"rgba(141,160,203,1)","size":100},"error_y":{"color":"rgba(141,160,203,1)","width":100},"error_x":{"color":"rgba(141,160,203,1)","width":100},"line":{"color":"rgba(141,160,203,1)","width":100},"frame":null},{"x":[-13625.7702270634,-1254.9325098296,-14749.3104536299,-17222.6830543926,-8551.3849796578],"y":[-5143.28204990711,-2854.4764015475,-5440.02389631216,-5815.25352418022,-3859.44554875298],"z":[-270.529350092743,-4170.86796692292,-36.9903463118461,814.480908868295,-1619.14185640198],"type":"scatter3d","mode":"markers","name":"pen4","marker":{"color":"rgba(231,138,195,1)","size":[100,100,100,100,100],"sizemode":"area","line":{"color":"rgba(231,138,195,1)"}},"textfont":{"color":"rgba(231,138,195,1)","size":100},"error_y":{"color":"rgba(231,138,195,1)","width":100},"error_x":{"color":"rgba(231,138,195,1)","width":100},"line":{"color":"rgba(231,138,195,1)","width":100},"frame":null},{"x":[23998.0794251913,24034.8616386438,23760.131059987,24913.9526048741,24109.0729127879],"y":[-801.797087760998,-809.768284041475,-718.08125605678,-1115.26465241299,-840.61828954572],"z":[2783.13020984672,2807.38467287989,2188.98770384933,5325.71122524968,3016.53154989478],"type":"scatter3d","mode":"markers","name":"pen5","marker":{"color":"rgba(166,216,84,1)","size":[100,100,100,100,100],"sizemode":"area","line":{"color":"rgba(166,216,84,1)"}},"textfont":{"color":"rgba(166,216,84,1)","size":100},"error_y":{"color":"rgba(166,216,84,1)","width":100},"error_x":{"color":"rgba(166,216,84,1)","width":100},"line":{"color":"rgba(166,216,84,1)","width":100},"frame":null},{"x":[-12920.2000828625,2069.46559563601,-11384.742830605,-17140.3704352797,-13913.20296442],"y":[7449.12192771013,6677.34322858694,7472.13960924104,6905.93009491428,8013.74467655408],"z":[1454.78788002999,-4001.83014993548,863.904504423642,3008.80794775734,1871.96797643386],"type":"scatter3d","mode":"markers","name":"pen6","marker":{"color":"rgba(255,217,47,1)","size":[100,100,100,100,100],"sizemode":"area","line":{"color":"rgba(255,217,47,1)"}},"textfont":{"color":"rgba(255,217,47,1)","size":100},"error_y":{"color":"rgba(255,217,47,1)","width":100},"error_x":{"color":"rgba(255,217,47,1)","width":100},"line":{"color":"rgba(255,217,47,1)","width":100},"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-42a05a8c506c71894382">{"x":{"visdat":{"3998427a5a2a":["function () ","plotlyVisDat"]},"cur_data":"3998427a5a2a","attrs":{"3998427a5a2a":{"x":{},"y":{},"z":{},"color":{},"size":[100],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter3d","mode":"markers","inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"scene":{"xaxis":{"title":"PC1"},"yaxis":{"title":"PC2"},"zaxis":{"title":"PC3"}},"hovermode":"closest","showlegend":true},"source":"A","config":{"showSendToCloud":false},"data":[{"x":[-8919.32253664635,-3126.29294441541,-3761.87493631021,-5823.56506314954,-14484.0302209313,-7785.34724229474,-4166.30364411807,-9900.92371164755,-3462.79891397719],"y":[6563.89237255255,-3338.10303279332,7066.940316156,6117.65048995813,7179.92588257088,6110.74947945743,-3455.7532667291,-4708.98364737527,-3259.82289822957],"z":[-432.822143618251,-3730.7623098674,-2147.04416051145,-1672.77716606794,1658.00446865879,-785.392579671217,-3476.71652436324,-1604.33471110726,-3514.84859224447],"type":"scatter3d","mode":"markers","name":"pen1","marker":{"color":"rgba(102,194,165,1)","size":[100,100,100,100,100,100,100,100,100],"sizemode":"area","line":{"color":"rgba(102,194,165,1)"}},"textfont":{"color":"rgba(102,194,165,1)","size":100},"error_y":{"color":"rgba(102,194,165,1)","width":100},"error_x":{"color":"rgba(102,194,165,1)","width":100},"line":{"color":"rgba(102,194,165,1)","width":100},"frame":null},{"x":[22253.2771923377,24034.8616386438,22648.66836811,22181.080325745,22781.0720484817,22304.7746049501],"y":[-217.972044991547,-809.768284041475,-335.843004698009,-187.67429174854,-402.574125100933,-235.735660804975],"z":[-2548.64121505029,2807.38467287989,-1229.24610612654,-2898.9478355331,-1099.61400946859,-2128.68450032696],"type":"scatter3d","mode":"markers","name":"pen2","marker":{"color":"rgba(252,141,98,1)","size":[100,100,100,100,100,100],"sizemode":"area","line":{"color":"rgba(252,141,98,1)"}},"textfont":{"color":"rgba(252,141,98,1)","size":100},"error_y":{"color":"rgba(252,141,98,1)","width":100},"error_x":{"color":"rgba(252,141,98,1)","width":100},"line":{"color":"rgba(252,141,98,1)","width":100},"frame":null},{"x":[-18276.6255697422,-8896.77006205208,-20928.6643859091,-22928.8396282593,-15865.3410181952],"y":[-5063.09265486776,-3998.00675167251,-5730.53127458892,-5794.43704151447,-4621.12910802707],"z":[2042.19380172502,-1025.32852385258,2750.83124750217,3596.33951527723,1404.07176219767],"type":"scatter3d","mode":"markers","name":"pen3","marker":{"color":"rgba(141,160,203,1)","size":[100,100,100,100,100],"sizemode":"area","line":{"color":"rgba(141,160,203,1)"}},"textfont":{"color":"rgba(141,160,203,1)","size":100},"error_y":{"color":"rgba(141,160,203,1)","width":100},"error_x":{"color":"rgba(141,160,203,1)","width":100},"line":{"color":"rgba(141,160,203,1)","width":100},"frame":null},{"x":[-13625.7702270634,-1254.9325098296,-14749.3104536299,-17222.6830543926,-8551.3849796578],"y":[-5143.28204990711,-2854.4764015475,-5440.02389631216,-5815.25352418022,-3859.44554875298],"z":[-270.529350092743,-4170.86796692292,-36.9903463118461,814.480908868295,-1619.14185640198],"type":"scatter3d","mode":"markers","name":"pen4","marker":{"color":"rgba(231,138,195,1)","size":[100,100,100,100,100],"sizemode":"area","line":{"color":"rgba(231,138,195,1)"}},"textfont":{"color":"rgba(231,138,195,1)","size":100},"error_y":{"color":"rgba(231,138,195,1)","width":100},"error_x":{"color":"rgba(231,138,195,1)","width":100},"line":{"color":"rgba(231,138,195,1)","width":100},"frame":null},{"x":[23998.0794251913,24034.8616386438,23760.131059987,24913.9526048741,24109.0729127879],"y":[-801.797087760998,-809.768284041475,-718.08125605678,-1115.26465241299,-840.61828954572],"z":[2783.13020984672,2807.38467287989,2188.98770384933,5325.71122524968,3016.53154989478],"type":"scatter3d","mode":"markers","name":"pen5","marker":{"color":"rgba(166,216,84,1)","size":[100,100,100,100,100],"sizemode":"area","line":{"color":"rgba(166,216,84,1)"}},"textfont":{"color":"rgba(166,216,84,1)","size":100},"error_y":{"color":"rgba(166,216,84,1)","width":100},"error_x":{"color":"rgba(166,216,84,1)","width":100},"line":{"color":"rgba(166,216,84,1)","width":100},"frame":null},{"x":[-12920.2000828625,2069.46559563601,-11384.742830605,-17140.3704352797,-13913.20296442],"y":[7449.12192771013,6677.34322858694,7472.13960924104,6905.93009491428,8013.74467655408],"z":[1454.78788002999,-4001.83014993548,863.904504423642,3008.80794775734,1871.96797643386],"type":"scatter3d","mode":"markers","name":"pen6","marker":{"color":"rgba(255,217,47,1)","size":[100,100,100,100,100],"sizemode":"area","line":{"color":"rgba(255,217,47,1)"}},"textfont":{"color":"rgba(255,217,47,1)","size":100},"error_y":{"color":"rgba(255,217,47,1)","width":100},"error_x":{"color":"rgba(255,217,47,1)","width":100},"line":{"color":"rgba(255,217,47,1)","width":100},"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <div id="tsne" class="section level1">
 <h1>tSNE</h1>
 <div id="test_data-1" class="section level2">
 <h2>Test_data</h2>
-<pre class="r"><code>#t-SNE is not deterministic. There is some inherent stochasticity with the generation of probability distributions
-
-set.seed(14)
-#doing t-SNE
-
-tsne &lt;- Rtsne(test_data[,-1], dims = 2, perplexity=1, 
-              verbose=FALSE, max_iter = 500)
-lowd_map&lt;- data.frame(tsne$Y)
-lowd_map$label &lt;- factor(test_data$labels)
-ggplot(lowd_map, aes(x= X1, y = X2)) + ggtitle(&quot;tSNE&quot;) +
-  geom_point(aes(color=label))</code></pre>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">#t-SNE is not deterministic. There is some inherent stochasticity with the generation of probability distributions</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">14</span>)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co">#doing t-SNE</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>tsne <span class="ot">&lt;-</span> <span class="fu">Rtsne</span>(test_data[,<span class="sc">-</span><span class="dv">1</span>], <span class="at">dims =</span> <span class="dv">2</span>, <span class="at">perplexity=</span><span class="dv">1</span>, </span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>              <span class="at">verbose=</span><span class="cn">FALSE</span>, <span class="at">max_iter =</span> <span class="dv">500</span>)</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>lowd_map<span class="ot">&lt;-</span> <span class="fu">data.frame</span>(tsne<span class="sc">$</span>Y)</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>lowd_map<span class="sc">$</span>label <span class="ot">&lt;-</span> <span class="fu">factor</span>(test_data<span class="sc">$</span>labels)</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(lowd_map, <span class="fu">aes</span>(<span class="at">x=</span> X1, <span class="at">y =</span> X2)) <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">&quot;tSNE&quot;</span>) <span class="sc">+</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color=</span>label))</span></code></pre></div>
 <p><img src="figure/Visualizations.Rmd/unnamed-chunk-8-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="training-data-1" class="section level2">
 <h2>Training data</h2>
-<pre class="r"><code>#t-SNE is not deterministic. There is some inherent stochasticity with the generation of probability distributions
-
-set.seed(14)
-#doing t-SNE
-
-tsne &lt;- Rtsne(training_DF[,-1], dims = 2, perplexity=5, 
-              verbose=FALSE, max_iter = 500,check_duplicates = FALSE)
-
-
-lowd_map&lt;- data.frame(tsne$Y)
-lowd_map$label &lt;- factor(training_DF$labels)
-ggplot(lowd_map, aes(x= X1, y = X2)) + ggtitle(&quot;tSNE&quot;) +
-  geom_point(aes(color=label))</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#t-SNE is not deterministic. There is some inherent stochasticity with the generation of probability distributions</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">14</span>)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co">#doing t-SNE</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>tsne <span class="ot">&lt;-</span> <span class="fu">Rtsne</span>(training_DF[,<span class="sc">-</span><span class="dv">1</span>], <span class="at">dims =</span> <span class="dv">2</span>, <span class="at">perplexity=</span><span class="dv">5</span>, </span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>              <span class="at">verbose=</span><span class="cn">FALSE</span>, <span class="at">max_iter =</span> <span class="dv">500</span>,<span class="at">check_duplicates =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>lowd_map<span class="ot">&lt;-</span> <span class="fu">data.frame</span>(tsne<span class="sc">$</span>Y)</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>lowd_map<span class="sc">$</span>label <span class="ot">&lt;-</span> <span class="fu">factor</span>(training_DF<span class="sc">$</span>labels)</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(lowd_map, <span class="fu">aes</span>(<span class="at">x=</span> X1, <span class="at">y =</span> X2)) <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">&quot;tSNE&quot;</span>) <span class="sc">+</span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color=</span>label))</span></code></pre></div>
 <p><img src="figure/Visualizations.Rmd/unnamed-chunk-9-1.png" width="672" style="display: block; margin: auto;" /></p>
 <br>
 <p>
@@ -867,7 +968,7 @@ ggplot(lowd_map, aes(x= X1, y = X2)) + ggtitle(&quot;tSNE&quot;) +
 </button>
 </p>
 <div id="workflowr-sessioninfo" class="collapse">
-<pre class="r"><code>sessionInfo()</code></pre>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div>
 <pre><code>R version 4.0.4 (2021-02-15)
 Platform: x86_64-w64-mingw32/x64 (64-bit)
 Running under: Windows 10 x64 (build 19043)

@@ -16,7 +16,7 @@
 <script src="site_libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<link href="site_libs/bootstrap-3.3.5/css/paper.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
@@ -33,8 +33,6 @@
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
-<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
@@ -57,17 +55,101 @@ div.section {
   ul.task-list{list-style: none;}
     </style>
 
-<style type="text/css">code{white-space: pre;}</style>
-<script type="text/javascript">
-if (window.hljs) {
-  hljs.configure({languages: []});
-  hljs.initHighlightingOnLoad();
-  if (document.readyState && document.readyState === "complete") {
-    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
-  }
-}
-</script>
 
+<style type="text/css">
+  code {
+    white-space: pre;
+  }
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
 
 
 
@@ -325,7 +407,7 @@ div.tocify {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">PIB_workflowr</a>
+      <a class="navbar-brand" href="index.html">PIB Marc</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -357,7 +439,7 @@ div.tocify {
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/marcsole96/PIB_workflowr">
-    <span class="fas fa-github"></span>
+    <span class="fab fa-github"></span>
      
     Source code
   </a>
@@ -487,16 +569,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtreedacfd2fb87982d910d4568bfbcf0253d3e33c1e8targetblankdacfd2fa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/marcsole96/PIB_workflowr/tree/dacfd2fb87982d910d4568bfbcf0253d3e33c1e8" target="_blank">dacfd2f</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtreec2696ef291dce79eda9ab6047fc2ff0cf99c43datargetblankc2696efa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/marcsole96/PIB_workflowr/tree/c2696ef291dce79eda9ab6047fc2ff0cf99c43da" target="_blank">c2696ef</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtreedacfd2fb87982d910d4568bfbcf0253d3e33c1e8targetblankdacfd2fa" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtreec2696ef291dce79eda9ab6047fc2ff0cf99c43datargetblankc2696efa" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/marcsole96/PIB_workflowr/tree/dacfd2fb87982d910d4568bfbcf0253d3e33c1e8" target="_blank">dacfd2f</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/marcsole96/PIB_workflowr/tree/c2696ef291dce79eda9ab6047fc2ff0cf99c43da" target="_blank">c2696ef</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -508,6 +590,7 @@ Ignored files:
     Ignored:    analysis/.Rhistory
 
 Untracked files:
+    Untracked:  analysis/images/
     Untracked:  data/CONTRACT REGION OF INTERESTED EXPORTS/
     Untracked:  data/INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/
     Untracked:  data/STRIKES ANALYSIS (I TEST SET)-ROI EXPORTS/
@@ -515,6 +598,7 @@ Untracked files:
 
 Unstaged changes:
     Deleted:    analysis/Data Wrangling.Rmd
+    Modified:   analysis/index.Rmd
     Modified:   data/wrangling.RData
 
 </code></pre>
@@ -554,6 +638,23 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/marcsole96/PIB_workflowr/ea8fe22b2da339e946947a767a6b8168eac41a9f/docs/Wrangling.html" target="_blank">ea8fe22</a>
+</td>
+<td>
+marcsole96
+</td>
+<td>
+2021-11-01
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -716,10 +817,10 @@ split things to make it easier
 </div>
 <div id="setup" class="section level1">
 <h1>Setup</h1>
-<pre class="r"><code>#setwd(&quot;../PIB_workflowr/data&quot;)
-getwd()</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#setwd(&quot;../PIB_workflowr/data&quot;)</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
 <pre><code>[1] &quot;C:/Users/mysit/Documents/Bioinformatica/Semestre_3/Projecte_Palle/PIB_workflowr/data&quot;</code></pre>
-<pre class="r"><code>library(tidyverse)</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
 <pre><code>Warning: package &#39;tidyverse&#39; was built under R version 4.0.5</code></pre>
 <pre><code>-- Attaching packages --------------------------------------- tidyverse 1.3.1 --</code></pre>
 <pre><code>v ggplot2 3.3.3     v purrr   0.3.4
@@ -732,19 +833,19 @@ v readr   1.4.0     v forcats 0.5.1</code></pre>
 <pre><code>-- Conflicts ------------------------------------------ tidyverse_conflicts() --
 x dplyr::filter() masks stats::filter()
 x dplyr::lag()    masks stats::lag()</code></pre>
-<pre class="r"><code>library(ggplot2)
-library(ggfortify)</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggfortify)</span></code></pre></div>
 <pre><code>Warning: package &#39;ggfortify&#39; was built under R version 4.0.5</code></pre>
-<pre class="r"><code>library(Rtsne)</code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Rtsne)</span></code></pre></div>
 <pre><code>Warning: package &#39;Rtsne&#39; was built under R version 4.0.5</code></pre>
-<pre class="r"><code>library(reshape2)</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reshape2)</span></code></pre></div>
 <pre><code>
 Attaching package: &#39;reshape2&#39;</code></pre>
 <pre><code>The following object is masked from &#39;package:tidyr&#39;:
 
     smiths</code></pre>
-<pre class="r"><code>library(ggpubr)
-theme_set(theme_minimal())</code></pre>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggpubr)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_set</span>(<span class="fu">theme_minimal</span>())</span></code></pre></div>
 </div>
 <div id="data-loading" class="section level1">
 <h1>Data Loading</h1>
@@ -752,192 +853,192 @@ theme_set(theme_minimal())</code></pre>
 <h2>CONTRACT REGION OF INTERESTED EXPORTS</h2>
 <div id="page-1-contract-exports" class="section level3">
 <h3>Page 1 contract exports</h3>
-<pre class="r"><code>p1_initials_II &lt;- read.table(file = &quot;CONTRACT REGION OF INTERESTED EXPORTS/Page 1 contract exports/190910,21h19_II initials page 1.txt&quot;, sep = &quot;&quot;)
-
-p1_initials_III &lt;- read.table(file = &quot;CONTRACT REGION OF INTERESTED EXPORTS/Page 1 contract exports/190910,21h19_III initials page 1.txt&quot;, sep = &quot;&quot;)
-
-p1_initials_SF &lt;- read.table(file = &quot;CONTRACT REGION OF INTERESTED EXPORTS/Page 1 contract exports/190910,21h19_SF initials page 1.txt&quot;, sep = &quot;&quot;)
-
-
-colnames(p1_initials_SF) &lt;- c(&quot;spectrum&quot;, &quot;P1_SF_intensity&quot;)
-colnames(p1_initials_II) &lt;- c(&quot;spectrum&quot;, &quot;P1_II_Intensity&quot;)
-colnames(p1_initials_III) &lt;- c(&quot;spectrum&quot;, &quot;P1_III_Intensity&quot;)</code></pre>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>p1_initials_II <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;CONTRACT REGION OF INTERESTED EXPORTS/Page 1 contract exports/190910,21h19_II initials page 1.txt&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>p1_initials_III <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;CONTRACT REGION OF INTERESTED EXPORTS/Page 1 contract exports/190910,21h19_III initials page 1.txt&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>p1_initials_SF <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;CONTRACT REGION OF INTERESTED EXPORTS/Page 1 contract exports/190910,21h19_SF initials page 1.txt&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(p1_initials_SF) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;spectrum&quot;</span>, <span class="st">&quot;P1_SF_intensity&quot;</span>)</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(p1_initials_II) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;spectrum&quot;</span>, <span class="st">&quot;P1_II_Intensity&quot;</span>)</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(p1_initials_III) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;spectrum&quot;</span>, <span class="st">&quot;P1_III_Intensity&quot;</span>)</span></code></pre></div>
 </div>
 <div id="page-2-contract-exports" class="section level3">
 <h3>Page 2 contract exports</h3>
-<pre class="r"><code>p2_initials_II &lt;- read.table(file = &quot;CONTRACT REGION OF INTERESTED EXPORTS/Page 2 contract exports/190910,23h44_II initials page 2.txt&quot;, sep = &quot;&quot;)
-
-p2_initials_III &lt;- read.table(file = &quot;CONTRACT REGION OF INTERESTED EXPORTS/Page 2 contract exports/190910,23h44_III initials page 2.txt&quot;, sep = &quot;&quot;)
-
-p2_initials_SF &lt;- read.table(file = &quot;CONTRACT REGION OF INTERESTED EXPORTS/Page 2 contract exports/190910,23h44_SF initials page 2.txt&quot;, sep = &quot;&quot;)
-
-colnames(p2_initials_SF) &lt;- c(&quot;spectrum&quot;, &quot;P2 SF Intensity&quot;)
-colnames(p2_initials_II) &lt;- c(&quot;spectrum&quot;, &quot;P2 II Intensity&quot;)
-colnames(p2_initials_III) &lt;- c(&quot;spectrum&quot;, &quot;P2 III Intensity&quot;)</code></pre>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>p2_initials_II <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;CONTRACT REGION OF INTERESTED EXPORTS/Page 2 contract exports/190910,23h44_II initials page 2.txt&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>p2_initials_III <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;CONTRACT REGION OF INTERESTED EXPORTS/Page 2 contract exports/190910,23h44_III initials page 2.txt&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>p2_initials_SF <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;CONTRACT REGION OF INTERESTED EXPORTS/Page 2 contract exports/190910,23h44_SF initials page 2.txt&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(p2_initials_SF) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;spectrum&quot;</span>, <span class="st">&quot;P2 SF Intensity&quot;</span>)</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(p2_initials_II) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;spectrum&quot;</span>, <span class="st">&quot;P2 II Intensity&quot;</span>)</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(p2_initials_III) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;spectrum&quot;</span>, <span class="st">&quot;P2 III Intensity&quot;</span>)</span></code></pre></div>
 </div>
 <div id="page-3-contract-export" class="section level3">
 <h3>Page 3 contract export</h3>
-<pre class="r"><code>p3_initials_II &lt;- read.table(file = &quot;CONTRACT REGION OF INTERESTED EXPORTS/Page 3 contract export/190910,01h50_II initials signature page 3.txt&quot;, sep = &quot;&quot;)
-
-p3_initials_III &lt;- read.table(file = &quot;CONTRACT REGION OF INTERESTED EXPORTS/Page 3 contract export/190910,01h50_III initials signature page 3.txt&quot;, sep = &quot;&quot;)
-
-p3_initials_SF &lt;- read.table(file = &quot;CONTRACT REGION OF INTERESTED EXPORTS/Page 3 contract export/190910,01h50_SFsignature page 3.txt&quot;, sep = &quot;&quot;)
-
-colnames(p3_initials_SF) &lt;- c(&quot;spectrum&quot;, &quot;P3 SF Intensity&quot;)
-colnames(p3_initials_II) &lt;- c(&quot;spectrum&quot;, &quot;P3 II Intensity&quot;)
-colnames(p3_initials_III) &lt;- c(&quot;spectrum&quot;, &quot;P3 III Intensity&quot;)</code></pre>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>p3_initials_II <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;CONTRACT REGION OF INTERESTED EXPORTS/Page 3 contract export/190910,01h50_II initials signature page 3.txt&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>p3_initials_III <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;CONTRACT REGION OF INTERESTED EXPORTS/Page 3 contract export/190910,01h50_III initials signature page 3.txt&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>p3_initials_SF <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;CONTRACT REGION OF INTERESTED EXPORTS/Page 3 contract export/190910,01h50_SFsignature page 3.txt&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(p3_initials_SF) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;spectrum&quot;</span>, <span class="st">&quot;P3 SF Intensity&quot;</span>)</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(p3_initials_II) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;spectrum&quot;</span>, <span class="st">&quot;P3 II Intensity&quot;</span>)</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(p3_initials_III) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;spectrum&quot;</span>, <span class="st">&quot;P3 III Intensity&quot;</span>)</span></code></pre></div>
 </div>
 </div>
 <div id="ink-square-analysis-training-set-roi-exports" class="section level2">
 <h2>INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS</h2>
 <div id="full-squares" class="section level3">
 <h3>full squares</h3>
-<pre class="r"><code>sq1_under_no1 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/full squares/Full square 1 underneat number 1.txt&quot;, sep = &quot;&quot;)
-
-sq1_under_no2 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/full squares/Full square 1 underneat number 2.txt&quot;, sep = &quot;&quot;)
-
-sq2_under_no1 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/full squares/Full square 2 underneat number 1.txt&quot;, sep = &quot;&quot;)
-
-sq_beside_no4 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/full squares/Full square beside number 4.txt&quot;, sep = &quot;&quot;)
-
-sq1_under_no3 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/full squares/Full square underneat number 3.txt&quot;, sep = &quot;&quot;)
-
-sq2_under_no2 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/full squares/II full square ink under number 2.txt&quot;, sep = &quot;&quot;)
-
-sq2_under_no3 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/full squares/II full square ink under number 3.txt&quot;, sep = &quot;&quot;)
-
-colnames(sq1_under_no1) &lt;- c(&quot;spectrum&quot;, &quot;SQ1 U1 Intensity&quot;)
-colnames(sq1_under_no2) &lt;- c(&quot;spectrum&quot;, &quot;SQ1 U2 Intensity&quot;)
-colnames(sq2_under_no1) &lt;- c(&quot;spectrum&quot;, &quot;SQ2 U1 Intensity&quot;)
-colnames(sq_beside_no4) &lt;- c(&quot;spectrum&quot;, &quot;SQ B4 Intensity&quot;)
-colnames(sq1_under_no3) &lt;- c(&quot;spectrum&quot;, &quot;SQ1 U3 Intensity&quot;)
-colnames(sq2_under_no2) &lt;- c(&quot;spectrum&quot;, &quot;SQ2 U2 Intensity&quot;)
-colnames(sq2_under_no3) &lt;- c(&quot;spectrum&quot;, &quot;SQ2 U3 Intensity&quot;)</code></pre>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>sq1_under_no1 <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/full squares/Full square 1 underneat number 1.txt&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>sq1_under_no2 <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/full squares/Full square 1 underneat number 2.txt&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>sq2_under_no1 <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/full squares/Full square 2 underneat number 1.txt&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>sq_beside_no4 <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/full squares/Full square beside number 4.txt&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>sq1_under_no3 <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/full squares/Full square underneat number 3.txt&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>sq2_under_no2 <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/full squares/II full square ink under number 2.txt&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>sq2_under_no3 <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/full squares/II full square ink under number 3.txt&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(sq1_under_no1) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;spectrum&quot;</span>, <span class="st">&quot;SQ1 U1 Intensity&quot;</span>)</span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(sq1_under_no2) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;spectrum&quot;</span>, <span class="st">&quot;SQ1 U2 Intensity&quot;</span>)</span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(sq2_under_no1) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;spectrum&quot;</span>, <span class="st">&quot;SQ2 U1 Intensity&quot;</span>)</span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(sq_beside_no4) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;spectrum&quot;</span>, <span class="st">&quot;SQ B4 Intensity&quot;</span>)</span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(sq1_under_no3) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;spectrum&quot;</span>, <span class="st">&quot;SQ1 U3 Intensity&quot;</span>)</span>
+<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(sq2_under_no2) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;spectrum&quot;</span>, <span class="st">&quot;SQ2 U2 Intensity&quot;</span>)</span>
+<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(sq2_under_no3) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;spectrum&quot;</span>, <span class="st">&quot;SQ2 U3 Intensity&quot;</span>)</span></code></pre></div>
 </div>
 <div id="numbers" class="section level3">
 <h3>numbers</h3>
-<pre class="r"><code>sq_no2 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/numbers/squares analysis_number 2.txt&quot;, sep = &quot;&quot;)
-
-sq_no3 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/numbers/squares analysis_number 3.txt&quot;, sep = &quot;&quot;)
-
-sq_no4 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/numbers/squares analysis_number 4.txt&quot;, sep = &quot;&quot;)
-
-sq_no1 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/numbers/squares analysis_number1.txt&quot;, sep = &quot;&quot;)
-
-sq_no2_II &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/numbers/squares_analysis_number 2.txt&quot;, sep = &quot;&quot;)
-
-sq_no5 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/numbers/squares_analysis_number 5.txt&quot;, sep = &quot;&quot;)
-
-sq_no6 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/numbers/squares_analysis_number 6.txt&quot;, sep = &quot;&quot;)
-
-colnames(sq_no2) &lt;- c(&quot;spectrum&quot;, &quot;SQ 2 Intensity&quot;)
-colnames(sq_no3) &lt;- c(&quot;spectrum&quot;, &quot;SQ 3 Intensity&quot;)
-colnames(sq_no4) &lt;- c(&quot;spectrum&quot;, &quot;SQ 4 Intensity&quot;)
-colnames(sq_no1) &lt;- c(&quot;spectrum&quot;, &quot;SQ 1 Intensity&quot;)
-colnames(sq_no2_II) &lt;- c(&quot;spectrum&quot;, &quot;SQ2 2 Intensity&quot;)  # Which one is this? There are 2 data collected from number 2. -- shouldnt it be from square 1?
-colnames(sq_no5) &lt;- c(&quot;spectrum&quot;, &quot;SQ 5 Intensity&quot;)
-colnames(sq_no6) &lt;- c(&quot;spectrum&quot;, &quot;SQ 6 Intensity&quot;)</code></pre>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>sq_no2 <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/numbers/squares analysis_number 2.txt&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>sq_no3 <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/numbers/squares analysis_number 3.txt&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>sq_no4 <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/numbers/squares analysis_number 4.txt&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>sq_no1 <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/numbers/squares analysis_number1.txt&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>sq_no2_II <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/numbers/squares_analysis_number 2.txt&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>sq_no5 <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/numbers/squares_analysis_number 5.txt&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>sq_no6 <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/numbers/squares_analysis_number 6.txt&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(sq_no2) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;spectrum&quot;</span>, <span class="st">&quot;SQ 2 Intensity&quot;</span>)</span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(sq_no3) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;spectrum&quot;</span>, <span class="st">&quot;SQ 3 Intensity&quot;</span>)</span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(sq_no4) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;spectrum&quot;</span>, <span class="st">&quot;SQ 4 Intensity&quot;</span>)</span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(sq_no1) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;spectrum&quot;</span>, <span class="st">&quot;SQ 1 Intensity&quot;</span>)</span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(sq_no2_II) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;spectrum&quot;</span>, <span class="st">&quot;SQ2 2 Intensity&quot;</span>)  <span class="co"># Which one is this? There are 2 data collected from number 2. -- shouldnt it be from square 1?</span></span>
+<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(sq_no5) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;spectrum&quot;</span>, <span class="st">&quot;SQ 5 Intensity&quot;</span>)</span>
+<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(sq_no6) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;spectrum&quot;</span>, <span class="st">&quot;SQ 6 Intensity&quot;</span>)</span></code></pre></div>
 </div>
 <div id="split-squares_each-square-3-roi" class="section level3">
 <h3>split squares_each square 3 ROI</h3>
-<pre class="r"><code># square II under no1
-sqII_no1_ROI1 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/II square ink under number 1_ROI1.txt&quot;, sep = &quot;&quot;)
-sqII_no1_ROI2 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/II square ink under number 1_ROI2.txt&quot;, sep = &quot;&quot;)
-sqII_no1_ROI3 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/II square ink under number 1_ROI3.txt&quot;, sep = &quot;&quot;)
-
-colnames(sqII_no1_ROI1) &lt;- c(&quot;spectrum&quot;, &quot;SQ2 1 ROI1 Intensity&quot;)
-colnames(sqII_no1_ROI2) &lt;- c(&quot;spectrum&quot;, &quot;SQ2 1 ROI2 Intensity&quot;)
-colnames(sqII_no1_ROI3) &lt;- c(&quot;spectrum&quot;, &quot;SQ2 1 ROI3 Intensity&quot;)
-
-# square above no5
-sq_no5_ROI1 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink above number 5_ROI1.txt&quot;, sep = &quot;&quot;)
-sq_no5_ROI2 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink above number 5_ROI2.txt&quot;, sep = &quot;&quot;)
-sq_no5_ROI3 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink above number 5_ROI3.txt&quot;, sep = &quot;&quot;)
-
-colnames(sq_no5_ROI1) &lt;- c(&quot;spectrum&quot;, &quot;SQ 5 ROI1 Intensity&quot;)
-colnames(sq_no5_ROI2) &lt;- c(&quot;spectrum&quot;, &quot;SQ 5 ROI2 Intensity&quot;)
-colnames(sq_no5_ROI3) &lt;- c(&quot;spectrum&quot;, &quot;SQ 5 ROI3 Intensity&quot;)
-
-# square above no6
-sq_no6_ROI1 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink above number 6_ROI1.txt&quot;, sep = &quot;&quot;)
-sq_no6_ROI2 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink above number 6_ROI2.txt&quot;, sep = &quot;&quot;)
-sq_no6_ROI3 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink above number 6_ROI3.txt&quot;, sep = &quot;&quot;)
-
-colnames(sq_no6_ROI1) &lt;- c(&quot;spectrum&quot;, &quot;SQ 6 ROI1 Intensity&quot;)
-colnames(sq_no6_ROI2) &lt;- c(&quot;spectrum&quot;, &quot;SQ 6 ROI2 Intensity&quot;)
-colnames(sq_no6_ROI3) &lt;- c(&quot;spectrum&quot;, &quot;SQ 6 ROI3 Intensity&quot;)
-
-# square beside no4
-sq_no4_ROI1 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink beside number 4_ROI1.txt&quot;, sep = &quot;&quot;)
-sq_no4_ROI2 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink beside number 4_ROI2.txt&quot;, sep = &quot;&quot;)
-sq_no4_ROI3 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink beside number 4_ROI3.txt&quot;, sep = &quot;&quot;)
-
-colnames(sq_no4_ROI1) &lt;- c(&quot;spectrum&quot;, &quot;SQ 4 ROI1 Intensity&quot;)
-colnames(sq_no4_ROI2) &lt;- c(&quot;spectrum&quot;, &quot;SQ 4 ROI2 Intensity&quot;)
-colnames(sq_no4_ROI3) &lt;- c(&quot;spectrum&quot;, &quot;SQ 4 ROI3 Intensity&quot;)
-
-# square I under no1
-sqI_no1_ROI1 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink under number 1_ROI1.txt&quot;, sep = &quot;&quot;)
-sqI_no1_ROI2 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink under number 1_ROI2.txt&quot;, sep = &quot;&quot;)
-sqI_no1_ROI3 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink under number 1_ROI3.txt&quot;, sep = &quot;&quot;)
-
-colnames(sqI_no1_ROI1) &lt;- c(&quot;spectrum&quot;, &quot;SQI 1 ROI1 Intensity&quot;)
-colnames(sqI_no1_ROI2) &lt;- c(&quot;spectrum&quot;, &quot;SQI 1 ROI2 Intensity&quot;)
-colnames(sqI_no1_ROI3) &lt;- c(&quot;spectrum&quot;, &quot;SQI 1 ROI3 Intensity&quot;)
-
-# square under no2
-sq_no2_ROI1 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink under number 2_ROI1.txt&quot;, sep = &quot;&quot;)
-sq_no2_ROI2 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink under number 2_ROI2.txt&quot;, sep = &quot;&quot;)
-sq_no2_ROI3 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink under number 2_ROI3.txt&quot;, sep = &quot;&quot;)
-
-colnames(sq_no2_ROI1) &lt;- c(&quot;spectrum&quot;, &quot;SQ 2 ROI1 Intensity&quot;)
-colnames(sq_no2_ROI2) &lt;- c(&quot;spectrum&quot;, &quot;SQ 2 ROI2 Intensity&quot;)
-colnames(sq_no2_ROI3) &lt;- c(&quot;spectrum&quot;, &quot;SQ 2 ROI3 Intensity&quot;)
-
-# square under no3
-sq_no3_ROI1 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink under number 3_ROI1.txt&quot;, sep = &quot;&quot;)
-sq_no3_ROI2 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink under number 3_ROI2.txt&quot;, sep = &quot;&quot;)
-sq_no3_ROI3 &lt;- read.table(file = &quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink under number 3_ROI3.txt&quot;, sep = &quot;&quot;)
-
-colnames(sq_no3_ROI1) &lt;- c(&quot;spectrum&quot;, &quot;SQ 3 ROI1 Intensity&quot;)
-colnames(sq_no3_ROI2) &lt;- c(&quot;spectrum&quot;, &quot;SQ 3 ROI2 Intensity&quot;)
-colnames(sq_no3_ROI3) &lt;- c(&quot;spectrum&quot;, &quot;SQ 3 ROI3 Intensity&quot;)</code></pre>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># square II under no1</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>sqII_no1_ROI1 <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/II square ink under number 1_ROI1.txt&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>sqII_no1_ROI2 <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/II square ink under number 1_ROI2.txt&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>sqII_no1_ROI3 <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/II square ink under number 1_ROI3.txt&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(sqII_no1_ROI1) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;spectrum&quot;</span>, <span class="st">&quot;SQ2 1 ROI1 Intensity&quot;</span>)</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(sqII_no1_ROI2) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;spectrum&quot;</span>, <span class="st">&quot;SQ2 1 ROI2 Intensity&quot;</span>)</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(sqII_no1_ROI3) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;spectrum&quot;</span>, <span class="st">&quot;SQ2 1 ROI3 Intensity&quot;</span>)</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a><span class="co"># square above no5</span></span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>sq_no5_ROI1 <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink above number 5_ROI1.txt&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>sq_no5_ROI2 <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink above number 5_ROI2.txt&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>sq_no5_ROI3 <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink above number 5_ROI3.txt&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(sq_no5_ROI1) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;spectrum&quot;</span>, <span class="st">&quot;SQ 5 ROI1 Intensity&quot;</span>)</span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(sq_no5_ROI2) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;spectrum&quot;</span>, <span class="st">&quot;SQ 5 ROI2 Intensity&quot;</span>)</span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(sq_no5_ROI3) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;spectrum&quot;</span>, <span class="st">&quot;SQ 5 ROI3 Intensity&quot;</span>)</span>
+<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a><span class="co"># square above no6</span></span>
+<span id="cb24-20"><a href="#cb24-20" aria-hidden="true" tabindex="-1"></a>sq_no6_ROI1 <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink above number 6_ROI1.txt&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb24-21"><a href="#cb24-21" aria-hidden="true" tabindex="-1"></a>sq_no6_ROI2 <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink above number 6_ROI2.txt&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb24-22"><a href="#cb24-22" aria-hidden="true" tabindex="-1"></a>sq_no6_ROI3 <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink above number 6_ROI3.txt&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb24-23"><a href="#cb24-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-24"><a href="#cb24-24" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(sq_no6_ROI1) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;spectrum&quot;</span>, <span class="st">&quot;SQ 6 ROI1 Intensity&quot;</span>)</span>
+<span id="cb24-25"><a href="#cb24-25" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(sq_no6_ROI2) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;spectrum&quot;</span>, <span class="st">&quot;SQ 6 ROI2 Intensity&quot;</span>)</span>
+<span id="cb24-26"><a href="#cb24-26" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(sq_no6_ROI3) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;spectrum&quot;</span>, <span class="st">&quot;SQ 6 ROI3 Intensity&quot;</span>)</span>
+<span id="cb24-27"><a href="#cb24-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-28"><a href="#cb24-28" aria-hidden="true" tabindex="-1"></a><span class="co"># square beside no4</span></span>
+<span id="cb24-29"><a href="#cb24-29" aria-hidden="true" tabindex="-1"></a>sq_no4_ROI1 <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink beside number 4_ROI1.txt&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb24-30"><a href="#cb24-30" aria-hidden="true" tabindex="-1"></a>sq_no4_ROI2 <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink beside number 4_ROI2.txt&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb24-31"><a href="#cb24-31" aria-hidden="true" tabindex="-1"></a>sq_no4_ROI3 <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink beside number 4_ROI3.txt&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb24-32"><a href="#cb24-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-33"><a href="#cb24-33" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(sq_no4_ROI1) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;spectrum&quot;</span>, <span class="st">&quot;SQ 4 ROI1 Intensity&quot;</span>)</span>
+<span id="cb24-34"><a href="#cb24-34" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(sq_no4_ROI2) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;spectrum&quot;</span>, <span class="st">&quot;SQ 4 ROI2 Intensity&quot;</span>)</span>
+<span id="cb24-35"><a href="#cb24-35" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(sq_no4_ROI3) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;spectrum&quot;</span>, <span class="st">&quot;SQ 4 ROI3 Intensity&quot;</span>)</span>
+<span id="cb24-36"><a href="#cb24-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-37"><a href="#cb24-37" aria-hidden="true" tabindex="-1"></a><span class="co"># square I under no1</span></span>
+<span id="cb24-38"><a href="#cb24-38" aria-hidden="true" tabindex="-1"></a>sqI_no1_ROI1 <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink under number 1_ROI1.txt&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb24-39"><a href="#cb24-39" aria-hidden="true" tabindex="-1"></a>sqI_no1_ROI2 <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink under number 1_ROI2.txt&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb24-40"><a href="#cb24-40" aria-hidden="true" tabindex="-1"></a>sqI_no1_ROI3 <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink under number 1_ROI3.txt&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb24-41"><a href="#cb24-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-42"><a href="#cb24-42" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(sqI_no1_ROI1) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;spectrum&quot;</span>, <span class="st">&quot;SQI 1 ROI1 Intensity&quot;</span>)</span>
+<span id="cb24-43"><a href="#cb24-43" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(sqI_no1_ROI2) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;spectrum&quot;</span>, <span class="st">&quot;SQI 1 ROI2 Intensity&quot;</span>)</span>
+<span id="cb24-44"><a href="#cb24-44" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(sqI_no1_ROI3) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;spectrum&quot;</span>, <span class="st">&quot;SQI 1 ROI3 Intensity&quot;</span>)</span>
+<span id="cb24-45"><a href="#cb24-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-46"><a href="#cb24-46" aria-hidden="true" tabindex="-1"></a><span class="co"># square under no2</span></span>
+<span id="cb24-47"><a href="#cb24-47" aria-hidden="true" tabindex="-1"></a>sq_no2_ROI1 <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink under number 2_ROI1.txt&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb24-48"><a href="#cb24-48" aria-hidden="true" tabindex="-1"></a>sq_no2_ROI2 <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink under number 2_ROI2.txt&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb24-49"><a href="#cb24-49" aria-hidden="true" tabindex="-1"></a>sq_no2_ROI3 <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink under number 2_ROI3.txt&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb24-50"><a href="#cb24-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-51"><a href="#cb24-51" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(sq_no2_ROI1) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;spectrum&quot;</span>, <span class="st">&quot;SQ 2 ROI1 Intensity&quot;</span>)</span>
+<span id="cb24-52"><a href="#cb24-52" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(sq_no2_ROI2) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;spectrum&quot;</span>, <span class="st">&quot;SQ 2 ROI2 Intensity&quot;</span>)</span>
+<span id="cb24-53"><a href="#cb24-53" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(sq_no2_ROI3) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;spectrum&quot;</span>, <span class="st">&quot;SQ 2 ROI3 Intensity&quot;</span>)</span>
+<span id="cb24-54"><a href="#cb24-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-55"><a href="#cb24-55" aria-hidden="true" tabindex="-1"></a><span class="co"># square under no3</span></span>
+<span id="cb24-56"><a href="#cb24-56" aria-hidden="true" tabindex="-1"></a>sq_no3_ROI1 <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink under number 3_ROI1.txt&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb24-57"><a href="#cb24-57" aria-hidden="true" tabindex="-1"></a>sq_no3_ROI2 <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink under number 3_ROI2.txt&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb24-58"><a href="#cb24-58" aria-hidden="true" tabindex="-1"></a>sq_no3_ROI3 <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;INK SQUARE ANALYSIS (TRAINING SET)-roi EXPORTS/split squares_each square 3 ROI/square ink under number 3_ROI3.txt&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb24-59"><a href="#cb24-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-60"><a href="#cb24-60" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(sq_no3_ROI1) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;spectrum&quot;</span>, <span class="st">&quot;SQ 3 ROI1 Intensity&quot;</span>)</span>
+<span id="cb24-61"><a href="#cb24-61" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(sq_no3_ROI2) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;spectrum&quot;</span>, <span class="st">&quot;SQ 3 ROI2 Intensity&quot;</span>)</span>
+<span id="cb24-62"><a href="#cb24-62" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(sq_no3_ROI3) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;spectrum&quot;</span>, <span class="st">&quot;SQ 3 ROI3 Intensity&quot;</span>)</span></code></pre></div>
 </div>
 </div>
 <div id="strikes-analysis-i-test-set-roi-exports" class="section level2">
 <h2>STRIKES ANALYSIS (I TEST SET)-ROI EXPORTS</h2>
-<pre class="r"><code>strike1 &lt;- read.table(file = &quot;STRIKES ANALYSIS (I TEST SET)-ROI EXPORTS/strike 1.txt&quot;, sep = &quot;&quot;)
-
-strike2 &lt;- read.table(file = &quot;STRIKES ANALYSIS (I TEST SET)-ROI EXPORTS/strike 2.txt&quot;, sep = &quot;&quot;)
-
-strike3 &lt;- read.table(file = &quot;STRIKES ANALYSIS (I TEST SET)-ROI EXPORTS/strike 3.txt&quot;, sep = &quot;&quot;)
-
-strike4 &lt;- read.table(file = &quot;STRIKES ANALYSIS (I TEST SET)-ROI EXPORTS/strike 4.txt&quot;, sep = &quot;&quot;)
-
-strike5 &lt;- read.table(file = &quot;STRIKES ANALYSIS (I TEST SET)-ROI EXPORTS/strike 5.txt&quot;, sep = &quot;&quot;)
-
-strike6 &lt;- read.table(file = &quot;STRIKES ANALYSIS (I TEST SET)-ROI EXPORTS/strike 6.txt&quot;, sep = &quot;&quot;)
-
-colnames(strike1) &lt;- c(&quot;spectrum&quot;, &quot;strike1 Intensity&quot;)
-colnames(strike2) &lt;- c(&quot;spectrum&quot;, &quot;strike2 Intensity&quot;)
-colnames(strike3) &lt;- c(&quot;spectrum&quot;, &quot;strike3 Intensity&quot;)
-colnames(strike4) &lt;- c(&quot;spectrum&quot;, &quot;strike4 Intensity&quot;)
-colnames(strike5) &lt;- c(&quot;spectrum&quot;, &quot;strike5 Intensity&quot;)
-colnames(strike6) &lt;- c(&quot;spectrum&quot;, &quot;strike6 Intensity&quot;)</code></pre>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>strike1 <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;STRIKES ANALYSIS (I TEST SET)-ROI EXPORTS/strike 1.txt&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>strike2 <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;STRIKES ANALYSIS (I TEST SET)-ROI EXPORTS/strike 2.txt&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>strike3 <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;STRIKES ANALYSIS (I TEST SET)-ROI EXPORTS/strike 3.txt&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>strike4 <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;STRIKES ANALYSIS (I TEST SET)-ROI EXPORTS/strike 4.txt&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>strike5 <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;STRIKES ANALYSIS (I TEST SET)-ROI EXPORTS/strike 5.txt&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>strike6 <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;STRIKES ANALYSIS (I TEST SET)-ROI EXPORTS/strike 6.txt&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(strike1) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;spectrum&quot;</span>, <span class="st">&quot;strike1 Intensity&quot;</span>)</span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(strike2) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;spectrum&quot;</span>, <span class="st">&quot;strike2 Intensity&quot;</span>)</span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(strike3) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;spectrum&quot;</span>, <span class="st">&quot;strike3 Intensity&quot;</span>)</span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(strike4) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;spectrum&quot;</span>, <span class="st">&quot;strike4 Intensity&quot;</span>)</span>
+<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(strike5) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;spectrum&quot;</span>, <span class="st">&quot;strike5 Intensity&quot;</span>)</span>
+<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(strike6) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;spectrum&quot;</span>, <span class="st">&quot;strike6 Intensity&quot;</span>)</span></code></pre></div>
 </div>
 </div>
 <div id="datasets-compilation" class="section level1">
 <h1>Datasets compilation</h1>
-<pre class="r"><code>test_data &lt;- cbind(strike1, strike2[2], strike3[2], strike4[2], strike5[2], strike6[2])
-training_data1 &lt;- cbind(sq1_under_no1, sq2_under_no1[2], sq1_under_no2[2], sq2_under_no2[2], sq1_under_no3[2], sq2_under_no3[2], sq_beside_no4[2])
-training_data2 &lt;- cbind(sq_no1, sq_no2[2], sq_no2_II[2], sq_no3[2], sq_no4[2], sq_no5[2], sq_no6[2])
-training_data3 &lt;- cbind(sqI_no1_ROI1, sqI_no1_ROI2[2], sqI_no1_ROI3[2], sqII_no1_ROI1[2], sqII_no1_ROI2[2], sqII_no1_ROI3[2], sq_no2_ROI1[2], sq_no2_ROI2[2], sq_no2_ROI3[2], sq_no3_ROI1[2], sq_no3_ROI2[2], sq_no3_ROI3[2], sq_no4_ROI1[2], sq_no4_ROI2[2], sq_no4_ROI3[2], sq_no5_ROI1[2], sq_no5_ROI2[2], sq_no5_ROI3[2], sq_no6_ROI1[2], sq_no6_ROI2[2], sq_no6_ROI3[2])
-
-rm(strike1,strike2,strike3,strike4,strike5,strike6,sq1_under_no1,sq2_under_no1,sq1_under_no2,sq2_under_no2,sq1_under_no3,sq2_under_no3,sq_no1,sq_no2,sq_no2_II,sq_no3,sq_no4,sq_no5,sq_no6,sqI_no1_ROI1,sqI_no1_ROI2,sqI_no1_ROI3,sqII_no1_ROI1,sqII_no1_ROI2,sqII_no1_ROI3,sq_no2_ROI1,sq_no2_ROI2,sq_no2_ROI3,sq_no3_ROI1, sq_no3_ROI2, sq_no3_ROI3, sq_no4_ROI1, sq_no4_ROI2, sq_no4_ROI3, sq_no5_ROI1, sq_no5_ROI2, sq_no5_ROI3, sq_no6_ROI1, sq_no6_ROI2, sq_no6_ROI3,p1_initials_II,p1_initials_III,p1_initials_SF,p2_initials_II,p2_initials_III,p2_initials_SF,p3_initials_II,p3_initials_III,p3_initials_SF,sq_beside_no4)</code></pre>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>test_data <span class="ot">&lt;-</span> <span class="fu">cbind</span>(strike1, strike2[<span class="dv">2</span>], strike3[<span class="dv">2</span>], strike4[<span class="dv">2</span>], strike5[<span class="dv">2</span>], strike6[<span class="dv">2</span>])</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>training_data1 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(sq1_under_no1, sq2_under_no1[<span class="dv">2</span>], sq1_under_no2[<span class="dv">2</span>], sq2_under_no2[<span class="dv">2</span>], sq1_under_no3[<span class="dv">2</span>], sq2_under_no3[<span class="dv">2</span>], sq_beside_no4[<span class="dv">2</span>])</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>training_data2 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(sq_no1, sq_no2[<span class="dv">2</span>], sq_no2_II[<span class="dv">2</span>], sq_no3[<span class="dv">2</span>], sq_no4[<span class="dv">2</span>], sq_no5[<span class="dv">2</span>], sq_no6[<span class="dv">2</span>])</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>training_data3 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(sqI_no1_ROI1, sqI_no1_ROI2[<span class="dv">2</span>], sqI_no1_ROI3[<span class="dv">2</span>], sqII_no1_ROI1[<span class="dv">2</span>], sqII_no1_ROI2[<span class="dv">2</span>], sqII_no1_ROI3[<span class="dv">2</span>], sq_no2_ROI1[<span class="dv">2</span>], sq_no2_ROI2[<span class="dv">2</span>], sq_no2_ROI3[<span class="dv">2</span>], sq_no3_ROI1[<span class="dv">2</span>], sq_no3_ROI2[<span class="dv">2</span>], sq_no3_ROI3[<span class="dv">2</span>], sq_no4_ROI1[<span class="dv">2</span>], sq_no4_ROI2[<span class="dv">2</span>], sq_no4_ROI3[<span class="dv">2</span>], sq_no5_ROI1[<span class="dv">2</span>], sq_no5_ROI2[<span class="dv">2</span>], sq_no5_ROI3[<span class="dv">2</span>], sq_no6_ROI1[<span class="dv">2</span>], sq_no6_ROI2[<span class="dv">2</span>], sq_no6_ROI3[<span class="dv">2</span>])</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(strike1,strike2,strike3,strike4,strike5,strike6,sq1_under_no1,sq2_under_no1,sq1_under_no2,sq2_under_no2,sq1_under_no3,sq2_under_no3,sq_no1,sq_no2,sq_no2_II,sq_no3,sq_no4,sq_no5,sq_no6,sqI_no1_ROI1,sqI_no1_ROI2,sqI_no1_ROI3,sqII_no1_ROI1,sqII_no1_ROI2,sqII_no1_ROI3,sq_no2_ROI1,sq_no2_ROI2,sq_no2_ROI3,sq_no3_ROI1, sq_no3_ROI2, sq_no3_ROI3, sq_no4_ROI1, sq_no4_ROI2, sq_no4_ROI3, sq_no5_ROI1, sq_no5_ROI2, sq_no5_ROI3, sq_no6_ROI1, sq_no6_ROI2, sq_no6_ROI3,p1_initials_II,p1_initials_III,p1_initials_SF,p2_initials_II,p2_initials_III,p2_initials_SF,p3_initials_II,p3_initials_III,p3_initials_SF,sq_beside_no4)</span></code></pre></div>
 <div id="merge-train_data-on-a-single-df" class="section level2">
 <h2>Merge train_data on a single DF:</h2>
 <p>We have 3 DFs containging training_data</p>
-<pre class="r"><code>head(training_data1)</code></pre>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(training_data1)</span></code></pre></div>
 <pre><code>  spectrum SQ1 U1 Intensity SQ2 U1 Intensity SQ1 U2 Intensity SQ2 U2 Intensity
 1    100.0         0.651830          1.20486         0.394444         0.333333
 2    100.2         0.871414          1.44097         0.531944         0.453515
@@ -952,7 +1053,7 @@ rm(strike1,strike2,strike3,strike4,strike5,strike6,sq1_under_no1,sq2_under_no1,s
 4        0.0250000        0.0406780        0.494118
 5        0.0593750        0.0779661        0.608403
 6        0.5812500        0.2542370        0.640336</code></pre>
-<pre class="r"><code>head(training_data2)</code></pre>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(training_data2)</span></code></pre></div>
 <pre><code>  spectrum SQ 1 Intensity SQ 2 Intensity SQ2 2 Intensity SQ 3 Intensity
 1    100.0        1.39799       0.254967         1.14679       0.447950
 2    100.2        1.52843       0.274834         1.42202       0.378549
@@ -967,7 +1068,7 @@ rm(strike1,strike2,strike3,strike4,strike5,strike6,sq1_under_no1,sq2_under_no1,s
 4        1.44286       0.225166      0.0436681
 5        1.55357       0.639073      0.0698690
 6        1.52143       0.655629      0.1004370</code></pre>
-<pre class="r"><code>head(training_data3)</code></pre>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(training_data3)</span></code></pre></div>
 <pre><code>  spectrum SQI 1 ROI1 Intensity SQI 1 ROI2 Intensity SQI 1 ROI3 Intensity
 1    100.0             0.674242             0.250000             0.926667
 2    100.2             1.109850             0.542208             0.956667
@@ -1018,16 +1119,16 @@ rm(strike1,strike2,strike3,strike4,strike5,strike6,sq1_under_no1,sq2_under_no1,s
 5           0.0888889           0.0617284           0.1000000
 6           0.2888890           0.2222220           0.2444440</code></pre>
 <p>Each of them (despite having different regions analyzed) contain information on the squares which in turn can be used to identify the type of pen used.</p>
-<pre class="r"><code>#First step, transpose the data: 
-t_training_data1&lt;-as.data.frame(t(training_data1[-1]))
-names(t_training_data1)&lt;-training_data1$spectrum
-t_training_data1$labels=row.names(t_training_data1)
-#removing the row headers
-rownames(t_training_data1)&lt;-c()
-#moving labels to the beginning
-t_training_data1&lt;-t_training_data1 %&gt;% 
-  select(labels, everything())
-head(select(t_training_data1,1:5))</code></pre>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co">#First step, transpose the data: </span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>t_training_data1<span class="ot">&lt;-</span><span class="fu">as.data.frame</span>(<span class="fu">t</span>(training_data1[<span class="sc">-</span><span class="dv">1</span>]))</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(t_training_data1)<span class="ot">&lt;-</span>training_data1<span class="sc">$</span>spectrum</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>t_training_data1<span class="sc">$</span>labels<span class="ot">=</span><span class="fu">row.names</span>(t_training_data1)</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="co">#removing the row headers</span></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(t_training_data1)<span class="ot">&lt;-</span><span class="fu">c</span>()</span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a><span class="co">#moving labels to the beginning</span></span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>t_training_data1<span class="ot">&lt;-</span>t_training_data1 <span class="sc">%&gt;%</span> </span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(labels, <span class="fu">everything</span>())</span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">select</span>(t_training_data1,<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>))</span></code></pre></div>
 <pre><code>            labels       100     100.2     100.4    100.6
 1 SQ1 U1 Intensity 0.6518300 0.8714140 0.7556870 0.649852
 2 SQ2 U1 Intensity 1.2048600 1.4409700 1.2777800 1.134260
@@ -1035,50 +1136,50 @@ head(select(t_training_data1,1:5))</code></pre>
 4 SQ2 U2 Intensity 0.3333330 0.4535150 0.4081630 0.336735
 5 SQ1 U3 Intensity 0.0625000 0.0312500 0.0359375 0.025000
 6 SQ2 U3 Intensity 0.0101695 0.0576271 0.0847458 0.040678</code></pre>
-<pre class="r"><code>#Same process is repeated for the next two DFs:
-
-t_training_data2&lt;-as.data.frame(t(training_data2[-1]))
-names(t_training_data2)&lt;-training_data2$spectrum
-t_training_data2$labels=row.names(t_training_data2)
-rownames(t_training_data2)&lt;-c()
-t_training_data2&lt;-t_training_data2 %&gt;% 
-  select(labels, everything())
-
-
-
-t_training_data3&lt;-as.data.frame(t(training_data3[-1]))
-names(t_training_data3)&lt;-training_data3$spectrum
-t_training_data3$labels=row.names(t_training_data3)
-rownames(t_training_data3)&lt;-c()
-t_training_data3&lt;-t_training_data3 %&gt;% 
-  select(labels, everything())</code></pre>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Same process is repeated for the next two DFs:</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>t_training_data2<span class="ot">&lt;-</span><span class="fu">as.data.frame</span>(<span class="fu">t</span>(training_data2[<span class="sc">-</span><span class="dv">1</span>]))</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(t_training_data2)<span class="ot">&lt;-</span>training_data2<span class="sc">$</span>spectrum</span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>t_training_data2<span class="sc">$</span>labels<span class="ot">=</span><span class="fu">row.names</span>(t_training_data2)</span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(t_training_data2)<span class="ot">&lt;-</span><span class="fu">c</span>()</span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>t_training_data2<span class="ot">&lt;-</span>t_training_data2 <span class="sc">%&gt;%</span> </span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(labels, <span class="fu">everything</span>())</span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a>t_training_data3<span class="ot">&lt;-</span><span class="fu">as.data.frame</span>(<span class="fu">t</span>(training_data3[<span class="sc">-</span><span class="dv">1</span>]))</span>
+<span id="cb35-13"><a href="#cb35-13" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(t_training_data3)<span class="ot">&lt;-</span>training_data3<span class="sc">$</span>spectrum</span>
+<span id="cb35-14"><a href="#cb35-14" aria-hidden="true" tabindex="-1"></a>t_training_data3<span class="sc">$</span>labels<span class="ot">=</span><span class="fu">row.names</span>(t_training_data3)</span>
+<span id="cb35-15"><a href="#cb35-15" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(t_training_data3)<span class="ot">&lt;-</span><span class="fu">c</span>()</span>
+<span id="cb35-16"><a href="#cb35-16" aria-hidden="true" tabindex="-1"></a>t_training_data3<span class="ot">&lt;-</span>t_training_data3 <span class="sc">%&gt;%</span> </span>
+<span id="cb35-17"><a href="#cb35-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(labels, <span class="fu">everything</span>())</span></code></pre></div>
 <p>Merging</p>
-<pre class="r"><code>training_DF&lt;- rbind(t_training_data1, t_training_data2, t_training_data3)</code></pre>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>training_DF<span class="ot">&lt;-</span> <span class="fu">rbind</span>(t_training_data1, t_training_data2, t_training_data3)</span></code></pre></div>
 <p>We could now simplify the DF by simply stating which square is which</p>
-<pre class="r"><code>#I did it manually because I don&#39;t know a good way of doing it automagically
-avector &lt;- c(&quot;pen1&quot;,&quot;pen1&quot;,&quot;pen2&quot;,&quot;pen5&quot;,&quot;pen3&quot;,&quot;pen6&quot;,&quot;pen4&quot;, &quot;pen1&quot;,&quot;pen2&quot;,&quot;pen2&quot;,&quot;pen3&quot;,&quot;pen4&quot;,&quot;pen5&quot;,&quot;pen6&quot;,&quot;pen1&quot;,&quot;pen1&quot;,&quot;pen1&quot;,&quot;pen1&quot;,&quot;pen1&quot;,&quot;pen1&quot;,&quot;pen2&quot;,&quot;pen2&quot;,&quot;pen2&quot;,&quot;pen3&quot;,&quot;pen3&quot;,&quot;pen3&quot;,&quot;pen4&quot;,&quot;pen4&quot;,&quot;pen4&quot;,&quot;pen5&quot;,&quot;pen5&quot;,&quot;pen5&quot;,&quot;pen6&quot;,&quot;pen6&quot;,&quot;pen6&quot;) #the position 10 should be pen 1 i think, but we keep the label as 2 as it was  given. But there is evidence in all the other datasets that 2 squares were painted with pen number 1 and for the remaining pen only one square was painted with each.
-
-training_DF &lt;- training_DF %&gt;% replace(1, avector)</code></pre>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co">#I did it manually because I don&#39;t know a good way of doing it automagically</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>avector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;pen1&quot;</span>,<span class="st">&quot;pen1&quot;</span>,<span class="st">&quot;pen2&quot;</span>,<span class="st">&quot;pen5&quot;</span>,<span class="st">&quot;pen3&quot;</span>,<span class="st">&quot;pen6&quot;</span>,<span class="st">&quot;pen4&quot;</span>, <span class="st">&quot;pen1&quot;</span>,<span class="st">&quot;pen2&quot;</span>,<span class="st">&quot;pen2&quot;</span>,<span class="st">&quot;pen3&quot;</span>,<span class="st">&quot;pen4&quot;</span>,<span class="st">&quot;pen5&quot;</span>,<span class="st">&quot;pen6&quot;</span>,<span class="st">&quot;pen1&quot;</span>,<span class="st">&quot;pen1&quot;</span>,<span class="st">&quot;pen1&quot;</span>,<span class="st">&quot;pen1&quot;</span>,<span class="st">&quot;pen1&quot;</span>,<span class="st">&quot;pen1&quot;</span>,<span class="st">&quot;pen2&quot;</span>,<span class="st">&quot;pen2&quot;</span>,<span class="st">&quot;pen2&quot;</span>,<span class="st">&quot;pen3&quot;</span>,<span class="st">&quot;pen3&quot;</span>,<span class="st">&quot;pen3&quot;</span>,<span class="st">&quot;pen4&quot;</span>,<span class="st">&quot;pen4&quot;</span>,<span class="st">&quot;pen4&quot;</span>,<span class="st">&quot;pen5&quot;</span>,<span class="st">&quot;pen5&quot;</span>,<span class="st">&quot;pen5&quot;</span>,<span class="st">&quot;pen6&quot;</span>,<span class="st">&quot;pen6&quot;</span>,<span class="st">&quot;pen6&quot;</span>) <span class="co">#the position 10 should be pen 1 i think, but we keep the label as 2 as it was  given. But there is evidence in all the other datasets that 2 squares were painted with pen number 1 and for the remaining pen only one square was painted with each.</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>training_DF <span class="ot">&lt;-</span> training_DF <span class="sc">%&gt;%</span> <span class="fu">replace</span>(<span class="dv">1</span>, avector)</span></code></pre></div>
 </div>
 <div id="preparing-the-test_data" class="section level2">
 <h2>Preparing the test_data</h2>
-<pre class="r"><code>#For the test data we should use the test_data
-#For the training data we should use the training_DF
-
-#(work in progress, I have to remember how this was done :/ )
-
-#Get a dataframe with the values that will be used to predict
-#First step, transpose the data: 
-t_test_data&lt;-as.data.frame(t(test_data[-1]))
-names(t_test_data)&lt;-test_data$spectrum
-t_test_data$labels=row.names(t_test_data)
-#removing the row headers
-rownames(t_test_data)&lt;-c()
-#moving labels to the beginning
-t_test_data&lt;-t_test_data %&gt;% 
-  select(labels, everything())
-t_test_data&lt;-t_test_data %&gt;% replace(1,c(&quot;strike1&quot;,&quot;strike2&quot;,&quot;strike3&quot;,&quot;strike4&quot;,&quot;strike5&quot;,&quot;strike6&quot;))
-head(select(t_test_data,1:5))</code></pre>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co">#For the test data we should use the test_data</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="co">#For the training data we should use the training_DF</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="co">#(work in progress, I have to remember how this was done :/ )</span></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a><span class="co">#Get a dataframe with the values that will be used to predict</span></span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a><span class="co">#First step, transpose the data: </span></span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>t_test_data<span class="ot">&lt;-</span><span class="fu">as.data.frame</span>(<span class="fu">t</span>(test_data[<span class="sc">-</span><span class="dv">1</span>]))</span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(t_test_data)<span class="ot">&lt;-</span>test_data<span class="sc">$</span>spectrum</span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a>t_test_data<span class="sc">$</span>labels<span class="ot">=</span><span class="fu">row.names</span>(t_test_data)</span>
+<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a><span class="co">#removing the row headers</span></span>
+<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(t_test_data)<span class="ot">&lt;-</span><span class="fu">c</span>()</span>
+<span id="cb38-13"><a href="#cb38-13" aria-hidden="true" tabindex="-1"></a><span class="co">#moving labels to the beginning</span></span>
+<span id="cb38-14"><a href="#cb38-14" aria-hidden="true" tabindex="-1"></a>t_test_data<span class="ot">&lt;-</span>t_test_data <span class="sc">%&gt;%</span> </span>
+<span id="cb38-15"><a href="#cb38-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(labels, <span class="fu">everything</span>())</span>
+<span id="cb38-16"><a href="#cb38-16" aria-hidden="true" tabindex="-1"></a>t_test_data<span class="ot">&lt;-</span>t_test_data <span class="sc">%&gt;%</span> <span class="fu">replace</span>(<span class="dv">1</span>,<span class="fu">c</span>(<span class="st">&quot;strike1&quot;</span>,<span class="st">&quot;strike2&quot;</span>,<span class="st">&quot;strike3&quot;</span>,<span class="st">&quot;strike4&quot;</span>,<span class="st">&quot;strike5&quot;</span>,<span class="st">&quot;strike6&quot;</span>))</span>
+<span id="cb38-17"><a href="#cb38-17" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">select</span>(t_test_data,<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>))</span></code></pre></div>
 <pre><code>   labels      100    100.2    100.4    100.6
 1 strike1 1.220990 1.243090 1.176800 0.955801
 2 strike2 1.804470 2.251400 1.810060 1.703910
@@ -1086,15 +1187,15 @@ head(select(t_test_data,1:5))</code></pre>
 4 strike4 0.722826 0.956522 0.880435 0.728261
 5 strike5 0.500000 0.540816 0.607143 0.612245
 6 strike6 0.294737 0.652632 0.436842 0.368421</code></pre>
-<pre class="r"><code>test_data&lt;-t_test_data
-
-rm(t_test_data,t_training_data1,t_training_data2,t_training_data3,training_data1,training_data2,training_data3)</code></pre>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>test_data<span class="ot">&lt;-</span>t_test_data</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(t_test_data,t_training_data1,t_training_data2,t_training_data3,training_data1,training_data2,training_data3)</span></code></pre></div>
 </div>
 </div>
 <div id="resulting-dataframes" class="section level1">
 <h1>Resulting dataframes</h1>
 <p>I end up with two DFs, a training and a test DF</p>
-<pre class="r"><code>(select(training_DF,1:5))</code></pre>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>(<span class="fu">select</span>(training_DF,<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>))</span></code></pre></div>
 <pre><code>   labels       100     100.2     100.4     100.6
 1    pen1 0.6518300 0.8714140 0.7556870 0.6498520
 2    pen1 1.2048600 1.4409700 1.2777800 1.1342600
@@ -1131,7 +1232,7 @@ rm(t_test_data,t_training_data1,t_training_data2,t_training_data3,training_data1
 33   pen6 0.0222222 0.1000000 0.1333330 0.0666667
 34   pen6 0.0000000 0.0370370 0.0370370 0.0370370
 35   pen6 0.0222222 0.0000000 0.0333333 0.0111111</code></pre>
-<pre class="r"><code>(select(test_data,1:5))</code></pre>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>(<span class="fu">select</span>(test_data,<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>))</span></code></pre></div>
 <pre><code>   labels      100    100.2    100.4    100.6
 1 strike1 1.220990 1.243090 1.176800 0.955801
 2 strike2 1.804470 2.251400 1.810060 1.703910
@@ -1141,7 +1242,7 @@ rm(t_test_data,t_training_data1,t_training_data2,t_training_data3,training_data1
 6 strike6 0.294737 0.652632 0.436842 0.368421</code></pre>
 <div id="saving-the-workspace-to-be-used-later" class="section level2">
 <h2>Saving the workspace to be used later</h2>
-<pre class="r"><code>save.image(file = &quot;wrangling.RData&quot;)</code></pre>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">save.image</span>(<span class="at">file =</span> <span class="st">&quot;wrangling.RData&quot;</span>)</span></code></pre></div>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -1149,7 +1250,7 @@ rm(t_test_data,t_training_data1,t_training_data2,t_training_data3,training_data1
 </button>
 </p>
 <div id="workflowr-sessioninfo" class="collapse">
-<pre class="r"><code>sessionInfo()</code></pre>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div>
 <pre><code>R version 4.0.4 (2021-02-15)
 Platform: x86_64-w64-mingw32/x64 (64-bit)
 Running under: Windows 10 x64 (build 19043)
