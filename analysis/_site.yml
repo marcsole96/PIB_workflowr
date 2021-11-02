@@ -11,8 +11,8 @@ navbar:
     href: Visualizations.html
   - text: Models
     href: Models.html
-  - text: Signatures Analysis
-    href: Signatures.html
+  - text: Contract analysis
+    href: Contract.html
   - text: PiB
     href: PiB.html
   - text: About
