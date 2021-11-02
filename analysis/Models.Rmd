@@ -71,7 +71,8 @@ rm(car_ranger,dat_3d,data,fig,lowd_map,pca,pca_res,pr.out, t_training_data1, t_t
 
 
 # CARET models
-##Caret model GLMNET
+
+## Caret model GLMNET
 ```{r message=FALSE, warning=FALSE}
 training_x <- training_DF %>% select(-labels) %>% as.data.frame()
 training_y <- training_DF$labels
@@ -87,8 +88,17 @@ fit <- train(x = training_x,
 
 #print(fit)
 
-ggplot(fit)
+importance <- varImp(fit,scale=FALSE)
 
+importance_DF<-importance$importance
+plot(importance,top=10)
+
+importance_DF<-melt(importance_DF)
+
+
+ggplot(importance_DF)+geom_point(aes(x=value,y=variable, color=variable))
+
+ggplot(fit)
 (predicted<- predict(fit, newdata = test_data[,-1],type = "prob"))
 ```
 
