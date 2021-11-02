@@ -478,7 +478,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2021-11-01
+<strong>Last updated:</strong> 2021-11-02
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -569,16 +569,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtreeb3f469375ce7b769cc1a41cc317ebc56533bf1b4targetblankb3f4693a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/marcsole96/PIB_workflowr/tree/b3f469375ce7b769cc1a41cc317ebc56533bf1b4" target="_blank">b3f4693</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtree4ec4390fc9a642beceb10a7d4c3e5af9a8ed1e6ctargetblank4ec4390a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/marcsole96/PIB_workflowr/tree/4ec4390fc9a642beceb10a7d4c3e5af9a8ed1e6c" target="_blank">4ec4390</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtreeb3f469375ce7b769cc1a41cc317ebc56533bf1b4targetblankb3f4693a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtree4ec4390fc9a642beceb10a7d4c3e5af9a8ed1e6ctargetblank4ec4390a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/marcsole96/PIB_workflowr/tree/b3f469375ce7b769cc1a41cc317ebc56533bf1b4" target="_blank">b3f4693</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/marcsole96/PIB_workflowr/tree/4ec4390fc9a642beceb10a7d4c3e5af9a8ed1e6c" target="_blank">4ec4390</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -636,6 +636,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/marcsole96/PIB_workflowr/blob/4ec4390fc9a642beceb10a7d4c3e5af9a8ed1e6c/analysis/Models.Rmd" target="_blank">4ec4390</a>
+</td>
+<td>
+marcsole96
+</td>
+<td>
+2021-11-02
+</td>
+<td>
+started with contract
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/marcsole96/PIB_workflowr/ca793f3e1e3bd803f7886799ff3b12f2e0e945db/docs/Models.html" target="_blank">ca793f3</a>
+</td>
+<td>
+marcsole96
+</td>
+<td>
+2021-11-01
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -752,234 +786,8 @@ improved organization
 <h1>Opening the data workspace</h1>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&quot;wrangling.RData&quot;</span>)</span></code></pre></div>
 </div>
-<div id="pca-based-models" class="section level1">
-<h1>PCA based models</h1>
-<div id="model-from-pca-training-data" class="section level2">
-<h2>Model from PCA training Data:</h2>
-<p>I used this as a guide: <a href="https://rstudio-pubs-static.s3.amazonaws.com/285614_7921f4f9f340428f8f5ed8dc3c7f7943.html" class="uri">https://rstudio-pubs-static.s3.amazonaws.com/285614_7921f4f9f340428f8f5ed8dc3c7f7943.html</a></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(caret)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(e1071)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>pca <span class="ot">=</span> <span class="fu">preProcess</span>(<span class="at">x =</span> training_DF[,<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>,<span class="sc">-</span><span class="dv">4502</span>)], <span class="at">method =</span> <span class="st">&quot;pca&quot;</span>, <span class="at">pcaComp =</span> <span class="dv">35</span>)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>training_set <span class="ot">&lt;-</span> <span class="fu">predict</span>(pca, training_DF[<span class="sc">-</span><span class="dv">4502</span>])</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># put customer segment in to the last postion or column</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">#training_set &lt;- simple_train_DF[c(2,3,1)]</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>test_set <span class="ot">&lt;-</span> <span class="fu">predict</span>(pca, test_data[<span class="sc">-</span><span class="dv">1</span>])</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">#test_set &lt;- test[c(2,3,1)]</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>trControl <span class="ot">&lt;-</span> <span class="fu">trainControl</span>(<span class="at">method =</span> <span class="st">&quot;repeatedcv&quot;</span>, </span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>                          <span class="at">number =</span> <span class="dv">10</span>, </span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>                         <span class="at">repeats =</span> <span class="dv">3</span>, </span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>                     <span class="at">verboseIter =</span> <span class="fu">ifelse</span>(<span class="fu">is.null</span>(<span class="fu">getOption</span>(<span class="st">&#39;knitr.in.progress&#39;</span>)), <span class="cn">FALSE</span>, <span class="cn">FALSE</span>) <span class="co"># This crazy line is to show progress when you run the code but hide it when knitting.</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>training_x <span class="ot">&lt;-</span> training_set <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>labels) <span class="sc">%&gt;%</span> <span class="fu">as.data.frame</span>()</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>training_y <span class="ot">&lt;-</span> training_set<span class="sc">$</span>labels</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>car_ranger <span class="ot">&lt;-</span> <span class="fu">train</span>(<span class="at">x =</span> training_x, </span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>             <span class="at">y =</span> training_y, </span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>        <span class="at">method =</span> <span class="st">&quot;glmnet&quot;</span>,</span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>     <span class="at">trControl =</span> trControl</span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(car_ranger)</span></code></pre></div>
-<pre><code>glmnet 
-
-35 samples
-35 predictors
- 6 classes: &#39;pen1&#39;, &#39;pen2&#39;, &#39;pen3&#39;, &#39;pen4&#39;, &#39;pen5&#39;, &#39;pen6&#39; 
-
-No pre-processing
-Resampling: Cross-Validated (10 fold, repeated 3 times) 
-Summary of sample sizes: 33, 30, 31, 31, 33, 30, ... 
-Resampling results across tuning parameters:
-
-  alpha  lambda        Accuracy   Kappa    
-  0.10   0.0004928533  0.3000000  0.1197782
-  0.10   0.0049285332  0.3000000  0.1197782
-  0.10   0.0492853324  0.3677778  0.2043484
-  0.55   0.0004928533  0.6511111  0.5383415
-  0.55   0.0049285332  0.6511111  0.5383415
-  0.55   0.0492853324  0.6994444  0.6020336
-  1.00   0.0004928533  0.6744444  0.5690287
-  1.00   0.0049285332  0.6744444  0.5690287
-  1.00   0.0492853324  0.7572222  0.6454736
-
-Accuracy was used to select the optimal model using the largest value.
-The final values used for the model were alpha = 1 and lambda = 0.04928533.</code></pre>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>predicted<span class="ot">&lt;-</span> <span class="fu">predict</span>(car_ranger, <span class="at">newdata =</span> test_set[,<span class="sc">-</span><span class="dv">1</span>])</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>predicted</span></code></pre></div>
-<pre><code>[1] pen4 pen2 pen3 pen4 pen5 pen6
-Levels: pen1 pen2 pen3 pen4 pen5 pen6</code></pre>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Cleanup</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(car_ranger,dat_3d,data,fig,lowd_map,pca,pca_res,pr.out, t_training_data1, t_training_data2, t_training_data3, test, test_pca, test_set, training_data1, training_data2, training_data3,training_set, training_x,trControl,tsne, avector, labels, names, predicted, training_y,var_explained)</span></code></pre></div>
-<pre><code>Warning in rm(car_ranger, dat_3d, data, fig, lowd_map, pca, pca_res, pr.out, :
-object &#39;dat_3d&#39; not found</code></pre>
-<pre><code>Warning in rm(car_ranger, dat_3d, data, fig, lowd_map, pca, pca_res, pr.out, :
-object &#39;data&#39; not found</code></pre>
-<pre><code>Warning in rm(car_ranger, dat_3d, data, fig, lowd_map, pca, pca_res, pr.out, :
-object &#39;fig&#39; not found</code></pre>
-<pre><code>Warning in rm(car_ranger, dat_3d, data, fig, lowd_map, pca, pca_res, pr.out, :
-object &#39;lowd_map&#39; not found</code></pre>
-<pre><code>Warning in rm(car_ranger, dat_3d, data, fig, lowd_map, pca, pca_res, pr.out, :
-object &#39;pca_res&#39; not found</code></pre>
-<pre><code>Warning in rm(car_ranger, dat_3d, data, fig, lowd_map, pca, pca_res, pr.out, :
-object &#39;pr.out&#39; not found</code></pre>
-<pre><code>Warning in rm(car_ranger, dat_3d, data, fig, lowd_map, pca, pca_res, pr.out, :
-object &#39;t_training_data1&#39; not found</code></pre>
-<pre><code>Warning in rm(car_ranger, dat_3d, data, fig, lowd_map, pca, pca_res, pr.out, :
-object &#39;t_training_data2&#39; not found</code></pre>
-<pre><code>Warning in rm(car_ranger, dat_3d, data, fig, lowd_map, pca, pca_res, pr.out, :
-object &#39;t_training_data3&#39; not found</code></pre>
-<pre><code>Warning in rm(car_ranger, dat_3d, data, fig, lowd_map, pca, pca_res, pr.out, :
-object &#39;test&#39; not found</code></pre>
-<pre><code>Warning in rm(car_ranger, dat_3d, data, fig, lowd_map, pca, pca_res, pr.out, :
-object &#39;test_pca&#39; not found</code></pre>
-<pre><code>Warning in rm(car_ranger, dat_3d, data, fig, lowd_map, pca, pca_res, pr.out, :
-object &#39;training_data1&#39; not found</code></pre>
-<pre><code>Warning in rm(car_ranger, dat_3d, data, fig, lowd_map, pca, pca_res, pr.out, :
-object &#39;training_data2&#39; not found</code></pre>
-<pre><code>Warning in rm(car_ranger, dat_3d, data, fig, lowd_map, pca, pca_res, pr.out, :
-object &#39;training_data3&#39; not found</code></pre>
-<pre><code>Warning in rm(car_ranger, dat_3d, data, fig, lowd_map, pca, pca_res, pr.out, :
-object &#39;tsne&#39; not found</code></pre>
-<pre><code>Warning in rm(car_ranger, dat_3d, data, fig, lowd_map, pca, pca_res, pr.out, :
-object &#39;labels&#39; not found</code></pre>
-<pre><code>Warning in rm(car_ranger, dat_3d, data, fig, lowd_map, pca, pca_res, pr.out, :
-object &#39;names&#39; not found</code></pre>
-<pre><code>Warning in rm(car_ranger, dat_3d, data, fig, lowd_map, pca, pca_res, pr.out, :
-object &#39;var_explained&#39; not found</code></pre>
-</div>
-</div>
-<div id="caret-models" class="section level1">
-<h1>CARET models</h1>
-<p>##Caret model GLMNET</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>training_x <span class="ot">&lt;-</span> training_DF <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>labels) <span class="sc">%&gt;%</span> <span class="fu">as.data.frame</span>()</span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>training_y <span class="ot">&lt;-</span> training_DF<span class="sc">$</span>labels</span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>trControl <span class="ot">&lt;-</span> <span class="fu">trainControl</span>(<span class="at">method =</span> <span class="st">&quot;LOOCV&quot;</span>, <span class="at">number =</span> <span class="dv">5</span>, <span class="at">verboseIter =</span> F)</span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">train</span>(<span class="at">x =</span> training_x, </span>
-<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">y =</span> training_y, </span>
-<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">method =</span> <span class="st">&quot;glmnet&quot;</span>,</span>
-<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">tuneLength =</span> <span class="dv">5</span>,</span>
-<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>     <span class="at">trControl =</span> trControl</span>
-<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a><span class="co">#print(fit)</span></span>
-<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(fit)</span></code></pre></div>
-<p><img src="figure/Models.Rmd/unnamed-chunk-6-1.png" width="672" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>(predicted<span class="ot">&lt;-</span> <span class="fu">predict</span>(fit, <span class="at">newdata =</span> test_data[,<span class="sc">-</span><span class="dv">1</span>],<span class="at">type =</span> <span class="st">&quot;prob&quot;</span>))</span></code></pre></div>
-<pre><code>        pen1       pen2       pen3       pen4        pen5       pen6
-1 0.37001228 0.12626836 0.23116354 0.18977193 0.030541747 0.05224214
-2 0.34270173 0.48261485 0.02096538 0.13098819 0.007069982 0.01565986
-3 0.11915102 0.02782984 0.45788907 0.34588866 0.021588417 0.02765299
-4 0.28359415 0.07364983 0.06485967 0.49742045 0.035012099 0.04546379
-5 0.02955284 0.25130747 0.04991155 0.08293324 0.563779580 0.02251532
-6 0.02944159 0.01834236 0.01302564 0.02695182 0.009371512 0.90286707</code></pre>
-<div id="plots" class="section level3">
-<h3>Plots</h3>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>toplot<span class="ot">&lt;-</span><span class="fu">as.data.frame</span>(<span class="fu">t</span>(predicted))</span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(toplot)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;strike1&quot;</span>,<span class="st">&quot;strike2&quot;</span>,<span class="st">&quot;strike3&quot;</span>,<span class="st">&quot;strike4&quot;</span>,<span class="st">&quot;strike5&quot;</span>,<span class="st">&quot;strike6&quot;</span>)</span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>toplot<span class="ot">&lt;-</span>toplot <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">pens=</span><span class="fu">row.names</span>(toplot))</span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>strike1<span class="ot">&lt;-</span>toplot <span class="sc">%&gt;%</span> <span class="fu">select</span>(strike1,pens) <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>pens, <span class="at">y=</span>strike1, <span class="at">fill=</span>pens)) <span class="sc">+</span></span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>,<span class="at">position=</span><span class="fu">position_stack</span>())<span class="sc">+</span></span>
-<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette=</span><span class="st">&quot;Accent&quot;</span>)</span>
-<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>strike2<span class="ot">&lt;-</span>toplot <span class="sc">%&gt;%</span> <span class="fu">select</span>(strike2,pens) <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>pens, <span class="at">y=</span>strike2, <span class="at">fill=</span>pens)) <span class="sc">+</span></span>
-<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>,<span class="at">position=</span><span class="fu">position_stack</span>())<span class="sc">+</span></span>
-<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette=</span><span class="st">&quot;Accent&quot;</span>)</span>
-<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a>strike3<span class="ot">&lt;-</span>toplot <span class="sc">%&gt;%</span> <span class="fu">select</span>(strike3,pens) <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>pens, <span class="at">y=</span>strike3, <span class="at">fill=</span>pens)) <span class="sc">+</span></span>
-<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>,<span class="at">position=</span><span class="fu">position_stack</span>())<span class="sc">+</span></span>
-<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette=</span><span class="st">&quot;Accent&quot;</span>)</span>
-<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a>strike4<span class="ot">&lt;-</span>toplot <span class="sc">%&gt;%</span> <span class="fu">select</span>(strike4,pens) <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>pens, <span class="at">y=</span>strike4, <span class="at">fill=</span>pens)) <span class="sc">+</span></span>
-<span id="cb28-18"><a href="#cb28-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>,<span class="at">position=</span><span class="fu">position_stack</span>())<span class="sc">+</span></span>
-<span id="cb28-19"><a href="#cb28-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette=</span><span class="st">&quot;Accent&quot;</span>)</span>
-<span id="cb28-20"><a href="#cb28-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-21"><a href="#cb28-21" aria-hidden="true" tabindex="-1"></a>strike5<span class="ot">&lt;-</span>toplot <span class="sc">%&gt;%</span> <span class="fu">select</span>(strike5,pens) <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>pens, <span class="at">y=</span>strike5, <span class="at">fill=</span>pens)) <span class="sc">+</span></span>
-<span id="cb28-22"><a href="#cb28-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>,<span class="at">position=</span><span class="fu">position_stack</span>())<span class="sc">+</span></span>
-<span id="cb28-23"><a href="#cb28-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette=</span><span class="st">&quot;Accent&quot;</span>)</span>
-<span id="cb28-24"><a href="#cb28-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-25"><a href="#cb28-25" aria-hidden="true" tabindex="-1"></a>strike6<span class="ot">&lt;-</span>toplot <span class="sc">%&gt;%</span> <span class="fu">select</span>(strike6,pens) <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>pens, <span class="at">y=</span>strike6, <span class="at">fill=</span>pens)) <span class="sc">+</span></span>
-<span id="cb28-26"><a href="#cb28-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>,<span class="at">position=</span><span class="fu">position_stack</span>())<span class="sc">+</span></span>
-<span id="cb28-27"><a href="#cb28-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette=</span><span class="st">&quot;Accent&quot;</span>)</span>
-<span id="cb28-28"><a href="#cb28-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-29"><a href="#cb28-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-30"><a href="#cb28-30" aria-hidden="true" tabindex="-1"></a><span class="fu">ggarrange</span>(strike1, strike2, strike3, strike4, strike5, strike6,</span>
-<span id="cb28-31"><a href="#cb28-31" aria-hidden="true" tabindex="-1"></a>                    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;strike1&quot;</span>, <span class="st">&quot;strike2&quot;</span>, <span class="st">&quot;strike3&quot;</span>, <span class="st">&quot;strike4&quot;</span>, <span class="st">&quot;strike5&quot;</span>, <span class="st">&quot;strike6&quot;</span>),</span>
-<span id="cb28-32"><a href="#cb28-32" aria-hidden="true" tabindex="-1"></a>                    <span class="at">ncol =</span> <span class="dv">3</span>, <span class="at">nrow =</span> <span class="dv">3</span>)</span></code></pre></div>
-<p><img src="figure/Models.Rmd/unnamed-chunk-7-1.png" width="960" style="display: block; margin: auto;" /></p>
-</div>
-<div id="caret-model-glmnet-lasso-alpha-1-lambda-ranging-from-0-to-1" class="section level2">
-<h2>Caret model GLMNET Lasso (Alpha = 1) Lambda ranging from 0 to 1</h2>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>training_x <span class="ot">&lt;-</span> training_DF <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>labels) <span class="sc">%&gt;%</span> <span class="fu">as.data.frame</span>()</span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>training_y <span class="ot">&lt;-</span> training_DF<span class="sc">$</span>labels</span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>trControl <span class="ot">&lt;-</span> <span class="fu">trainControl</span>(<span class="at">method =</span> <span class="st">&quot;LOOCV&quot;</span>, <span class="at">number =</span> <span class="dv">5</span>, <span class="at">verboseIter =</span> F)</span>
-<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>tuneGrid <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="at">alpha =</span> <span class="dv">1</span>, <span class="at">lambda =</span> <span class="fu">seq</span>(<span class="fl">0.001</span>, <span class="dv">1</span>, <span class="at">length =</span> <span class="dv">1000</span>))</span>
-<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">train</span>(<span class="at">x =</span> training_x, </span>
-<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>             <span class="at">y =</span> training_y, </span>
-<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">method =</span> <span class="st">&quot;glmnet&quot;</span>,</span>
-<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">tuneGrid =</span> tuneGrid,</span>
-<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>     <span class="at">trControl =</span> trControl,</span>
-<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a><span class="co">#print(fit)</span></span>
-<span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(fit)</span></code></pre></div>
-<p><img src="figure/Models.Rmd/unnamed-chunk-8-1.png" width="672" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>(predicted<span class="ot">&lt;-</span> <span class="fu">predict</span>(fit, <span class="at">newdata =</span> test_data[,<span class="sc">-</span><span class="dv">1</span>],<span class="at">type =</span> <span class="st">&quot;prob&quot;</span>))</span></code></pre></div>
-<pre><code>        pen1       pen2       pen3       pen4       pen5       pen6
-1 0.35035770 0.15869050 0.21982481 0.09010285 0.09464762 0.08637652
-2 0.46825110 0.41801363 0.03268839 0.01710603 0.03015513 0.03378571
-3 0.15831550 0.06818387 0.49334502 0.18507587 0.05083365 0.04424609
-4 0.25577386 0.10427895 0.06270645 0.45914064 0.06317212 0.05492797
-5 0.07248795 0.21016591 0.08766641 0.16101608 0.40431539 0.06434827
-6 0.02196375 0.03094998 0.01804293 0.01635299 0.01747530 0.89521504</code></pre>
-<div id="plots-1" class="section level3">
-<h3>Plots</h3>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>toplot<span class="ot">&lt;-</span><span class="fu">as.data.frame</span>(<span class="fu">t</span>(predicted))</span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(toplot)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;strike1&quot;</span>,<span class="st">&quot;strike2&quot;</span>,<span class="st">&quot;strike3&quot;</span>,<span class="st">&quot;strike4&quot;</span>,<span class="st">&quot;strike5&quot;</span>,<span class="st">&quot;strike6&quot;</span>)</span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>toplot<span class="ot">&lt;-</span>toplot <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">pens=</span><span class="fu">row.names</span>(toplot))</span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>strike1<span class="ot">&lt;-</span>toplot <span class="sc">%&gt;%</span> <span class="fu">select</span>(strike1,pens) <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>pens, <span class="at">y=</span>strike1, <span class="at">fill=</span>pens)) <span class="sc">+</span></span>
-<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>,<span class="at">position=</span><span class="fu">position_stack</span>())<span class="sc">+</span></span>
-<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette=</span><span class="st">&quot;Accent&quot;</span>)</span>
-<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>strike2<span class="ot">&lt;-</span>toplot <span class="sc">%&gt;%</span> <span class="fu">select</span>(strike2,pens) <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>pens, <span class="at">y=</span>strike2, <span class="at">fill=</span>pens)) <span class="sc">+</span></span>
-<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>,<span class="at">position=</span><span class="fu">position_stack</span>())<span class="sc">+</span></span>
-<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette=</span><span class="st">&quot;Accent&quot;</span>)</span>
-<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>strike3<span class="ot">&lt;-</span>toplot <span class="sc">%&gt;%</span> <span class="fu">select</span>(strike3,pens) <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>pens, <span class="at">y=</span>strike3, <span class="at">fill=</span>pens)) <span class="sc">+</span></span>
-<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>,<span class="at">position=</span><span class="fu">position_stack</span>())<span class="sc">+</span></span>
-<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette=</span><span class="st">&quot;Accent&quot;</span>)</span>
-<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-17"><a href="#cb32-17" aria-hidden="true" tabindex="-1"></a>strike4<span class="ot">&lt;-</span>toplot <span class="sc">%&gt;%</span> <span class="fu">select</span>(strike4,pens) <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>pens, <span class="at">y=</span>strike4, <span class="at">fill=</span>pens)) <span class="sc">+</span></span>
-<span id="cb32-18"><a href="#cb32-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>,<span class="at">position=</span><span class="fu">position_stack</span>())<span class="sc">+</span></span>
-<span id="cb32-19"><a href="#cb32-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette=</span><span class="st">&quot;Accent&quot;</span>)</span>
-<span id="cb32-20"><a href="#cb32-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-21"><a href="#cb32-21" aria-hidden="true" tabindex="-1"></a>strike5<span class="ot">&lt;-</span>toplot <span class="sc">%&gt;%</span> <span class="fu">select</span>(strike5,pens) <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>pens, <span class="at">y=</span>strike5, <span class="at">fill=</span>pens)) <span class="sc">+</span></span>
-<span id="cb32-22"><a href="#cb32-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>,<span class="at">position=</span><span class="fu">position_stack</span>())<span class="sc">+</span></span>
-<span id="cb32-23"><a href="#cb32-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette=</span><span class="st">&quot;Accent&quot;</span>)</span>
-<span id="cb32-24"><a href="#cb32-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-25"><a href="#cb32-25" aria-hidden="true" tabindex="-1"></a>strike6<span class="ot">&lt;-</span>toplot <span class="sc">%&gt;%</span> <span class="fu">select</span>(strike6,pens) <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>pens, <span class="at">y=</span>strike6, <span class="at">fill=</span>pens)) <span class="sc">+</span></span>
-<span id="cb32-26"><a href="#cb32-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>,<span class="at">position=</span><span class="fu">position_stack</span>())<span class="sc">+</span></span>
-<span id="cb32-27"><a href="#cb32-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette=</span><span class="st">&quot;Accent&quot;</span>)</span>
-<span id="cb32-28"><a href="#cb32-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-29"><a href="#cb32-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-30"><a href="#cb32-30" aria-hidden="true" tabindex="-1"></a><span class="fu">ggarrange</span>(strike1, strike2, strike3, strike4, strike5, strike6,</span>
-<span id="cb32-31"><a href="#cb32-31" aria-hidden="true" tabindex="-1"></a>                    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;strike1&quot;</span>, <span class="st">&quot;strike2&quot;</span>, <span class="st">&quot;strike3&quot;</span>, <span class="st">&quot;strike4&quot;</span>, <span class="st">&quot;strike5&quot;</span>, <span class="st">&quot;strike6&quot;</span>),</span>
-<span id="cb32-32"><a href="#cb32-32" aria-hidden="true" tabindex="-1"></a>                    <span class="at">ncol =</span> <span class="dv">3</span>, <span class="at">nrow =</span> <span class="dv">3</span>)</span></code></pre></div>
-<p><img src="figure/Models.Rmd/unnamed-chunk-9-1.png" width="960" style="display: block; margin: auto;" /></p>
+<div id="loading-the-signatures-data" class="section level1">
+<h1>Loading the signatures data</h1>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -987,7 +795,7 @@ object &#39;var_explained&#39; not found</code></pre>
 </button>
 </p>
 <div id="workflowr-sessioninfo" class="collapse">
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div>
 <pre><code>R version 4.0.4 (2021-02-15)
 Platform: x86_64-w64-mingw32/x64 (64-bit)
 Running under: Windows 10 x64 (build 19043)
@@ -1003,48 +811,31 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] e1071_1.7-6      caret_6.0-86     lattice_0.20-41  ggpubr_0.4.0    
- [5] reshape2_1.4.4   Rtsne_0.15       ggfortify_0.4.11 forcats_0.5.1   
- [9] stringr_1.4.0    dplyr_1.0.5      purrr_0.3.4      readr_1.4.0     
-[13] tidyr_1.1.3      tibble_3.0.3     ggplot2_3.3.3    tidyverse_1.3.1 
+ [1] ggpubr_0.4.0     reshape2_1.4.4   Rtsne_0.15       ggfortify_0.4.11
+ [5] forcats_0.5.1    stringr_1.4.0    dplyr_1.0.5      purrr_0.3.4     
+ [9] readr_1.4.0      tidyr_1.1.3      tibble_3.0.3     ggplot2_3.3.3   
+[13] tidyverse_1.3.1 
 
 loaded via a namespace (and not attached):
-  [1] colorspace_1.4-1     ggsignif_0.6.1       ellipsis_0.3.1      
-  [4] class_7.3-17         rio_0.5.26           rprojroot_2.0.2     
-  [7] fs_1.5.0             rstudioapi_0.13      proxy_0.4-25        
- [10] farver_2.0.3         prodlim_2019.11.13   fansi_0.4.1         
- [13] lubridate_1.7.10     xml2_1.3.2           codetools_0.2-18    
- [16] splines_4.0.4        knitr_1.30           jsonlite_1.7.2      
- [19] workflowr_1.6.2      pROC_1.17.0.1        broom_0.7.6         
- [22] dbplyr_2.1.1         compiler_4.0.4       httr_1.4.2          
- [25] backports_1.1.10     assertthat_0.2.1     Matrix_1.2-18       
- [28] cli_2.4.0            later_1.1.0.1        htmltools_0.5.1.1   
- [31] tools_4.0.4          gtable_0.3.0         glue_1.4.2          
- [34] Rcpp_1.0.5           carData_3.0-4        cellranger_1.1.0    
- [37] jquerylib_0.1.3      vctrs_0.3.7          nlme_3.1-149        
- [40] iterators_1.0.13     timeDate_3043.102    xfun_0.18           
- [43] gower_0.2.2          ps_1.6.0             openxlsx_4.2.3      
- [46] rvest_1.0.0          lifecycle_1.0.0      rstatix_0.7.0       
- [49] MASS_7.3-53          scales_1.1.1         ipred_0.9-10        
- [52] hms_1.0.0            promises_1.2.0.1     RColorBrewer_1.1-2  
- [55] yaml_2.2.1           curl_4.3             gridExtra_2.3       
- [58] sass_0.3.1           rpart_4.1-15         stringi_1.5.3       
- [61] foreach_1.5.1        zip_2.1.1            lava_1.6.9          
- [64] shape_1.4.5          rlang_0.4.10         pkgconfig_2.0.3     
- [67] evaluate_0.14        labeling_0.4.2       recipes_0.1.16      
- [70] cowplot_1.1.0        tidyselect_1.1.0     plyr_1.8.6          
- [73] magrittr_2.0.1       R6_2.5.0             generics_0.1.0      
- [76] DBI_1.1.1            pillar_1.6.0         haven_2.3.1         
- [79] whisker_0.4          foreign_0.8-80       withr_2.4.2         
- [82] survival_3.2-7       abind_1.4-5          nnet_7.3-14         
- [85] modelr_0.1.8         crayon_1.4.1         car_3.0-10          
- [88] utf8_1.2.1           rmarkdown_2.7        grid_4.0.4          
- [91] readxl_1.3.1         data.table_1.13.0    git2r_0.28.0        
- [94] ModelMetrics_1.2.2.2 reprex_2.0.0         digest_0.6.25       
- [97] httpuv_1.5.5         stats4_4.0.4         munsell_0.5.0       
-[100] glmnet_4.1-1         bslib_0.2.4         </code></pre>
-</div>
-</div>
+ [1] httr_1.4.2        sass_0.3.1        jsonlite_1.7.2    carData_3.0-4    
+ [5] modelr_0.1.8      bslib_0.2.4       assertthat_0.2.1  cellranger_1.1.0 
+ [9] yaml_2.2.1        pillar_1.6.0      backports_1.1.10  glue_1.4.2       
+[13] digest_0.6.25     promises_1.2.0.1  ggsignif_0.6.1    rvest_1.0.0      
+[17] colorspace_1.4-1  htmltools_0.5.1.1 httpuv_1.5.5      plyr_1.8.6       
+[21] pkgconfig_2.0.3   broom_0.7.6       haven_2.3.1       scales_1.1.1     
+[25] whisker_0.4       openxlsx_4.2.3    later_1.1.0.1     rio_0.5.26       
+[29] git2r_0.28.0      generics_0.1.0    car_3.0-10        ellipsis_0.3.1   
+[33] withr_2.4.2       cli_2.4.0         magrittr_2.0.1    crayon_1.4.1     
+[37] readxl_1.3.1      evaluate_0.14     ps_1.6.0          fs_1.5.0         
+[41] fansi_0.4.1       rstatix_0.7.0     xml2_1.3.2        foreign_0.8-80   
+[45] tools_4.0.4       data.table_1.13.0 hms_1.0.0         lifecycle_1.0.0  
+[49] munsell_0.5.0     reprex_2.0.0      zip_2.1.1         compiler_4.0.4   
+[53] jquerylib_0.1.3   rlang_0.4.10      grid_4.0.4        rstudioapi_0.13  
+[57] rmarkdown_2.7     gtable_0.3.0      abind_1.4-5       DBI_1.1.1        
+[61] curl_4.3          R6_2.5.0          gridExtra_2.3     lubridate_1.7.10 
+[65] knitr_1.30        utf8_1.2.1        workflowr_1.6.2   rprojroot_2.0.2  
+[69] stringi_1.5.3     Rcpp_1.0.5        vctrs_0.3.7       dbplyr_2.1.1     
+[73] tidyselect_1.1.0  xfun_0.18        </code></pre>
 </div>
 </div>
 

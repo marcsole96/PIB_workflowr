@@ -9,12 +9,14 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
+<meta name="author" content="marcsole96" />
 
+<meta name="date" content="2021-11-02" />
 
-<title>PiB</title>
+<title>Contract</title>
 
 <script src="site_libs/header-attrs-2.7/header-attrs.js"></script>
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/jquery-3.5.1/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/paper.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -33,6 +35,13 @@
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
+<script src="site_libs/plotly-binding-4.9.3/plotly.js"></script>
+<script src="site_libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="site_libs/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet" />
+<script src="site_libs/crosstalk-1.1.1/js/crosstalk.min.js"></script>
+<link href="site_libs/plotly-htmlwidgets-css-1.57.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="site_libs/plotly-main-1.57.1/plotly-latest.min.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
@@ -453,7 +462,9 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">PiB</h1>
+<h1 class="title toc-ignore">Contract</h1>
+<h4 class="author">marcsole96</h4>
+<h4 class="date">2021-11-02</h4>
 
 </div>
 
@@ -612,7 +623,7 @@ Note that any generated files, e.g. HTML, png, CSS, etc., are not included in t
 <div id="versions" class="tab-pane fade">
 
 <p>
-These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/Signatures.Rmd</code>) and HTML (<code>docs/Signatures.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
+These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/Contract.rmd</code>) and HTML (<code>docs/Contract.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
 </p>
 <div class="table-responsive">
 <table class="table table-condensed table-hover">
@@ -638,70 +649,19 @@ Message
 <tbody>
 <tr>
 <td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/marcsole96/PIB_workflowr/ca793f3e1e3bd803f7886799ff3b12f2e0e945db/docs/Signatures.html" target="_blank">ca793f3</a>
-</td>
-<td>
-marcsole96
-</td>
-<td>
-2021-11-01
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/marcsole96/PIB_workflowr/49191f63e236621b590d6512638179cd739ad444/docs/Signatures.html" target="_blank">49191f6</a>
-</td>
-<td>
-marcsole96
-</td>
-<td>
-2021-11-01
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/marcsole96/PIB_workflowr/ea8fe22b2da339e946947a767a6b8168eac41a9f/docs/Signatures.html" target="_blank">ea8fe22</a>
-</td>
-<td>
-marcsole96
-</td>
-<td>
-2021-11-01
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
 Rmd
 </td>
 <td>
-<a href="https://github.com/marcsole96/PIB_workflowr/blob/dacfd2fb87982d910d4568bfbcf0253d3e33c1e8/analysis/Signatures.Rmd" target="_blank">dacfd2f</a>
+<a href="https://github.com/marcsole96/PIB_workflowr/blob/4ec4390fc9a642beceb10a7d4c3e5af9a8ed1e6c/analysis/Contract.rmd" target="_blank">4ec4390</a>
 </td>
 <td>
 marcsole96
 </td>
 <td>
-2021-11-01
+2021-11-02
 </td>
 <td>
-starting signatures
+started with contract
 </td>
 </tr>
 </tbody>
@@ -713,10 +673,46 @@ starting signatures
 </div>
 <div id="setup" class="section level1">
 <h1>Setup</h1>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#setwd(&quot;../PIB_workflowr/data&quot;)</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
+<pre><code>[1] &quot;C:/Users/mysit/Documents/Bioinformatica/Semestre_3/Projecte_Palle/PIB_workflowr/data&quot;</code></pre>
 </div>
 <div id="opening-the-data-workspace" class="section level1">
 <h1>Opening the data workspace</h1>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&quot;wrangling.RData&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&quot;wrangling.RData&quot;</span>)</span></code></pre></div>
+</div>
+<div id="data-analysis" class="section level1">
+<h1>Data analysis</h1>
+<div id="visualizations" class="section level2">
+<h2>Visualizations</h2>
+<div id="pca" class="section level3">
+<h3>PCA</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>labels<span class="ot">&lt;-</span>contract<span class="sc">$</span>labels</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> contract <span class="sc">%&gt;%</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>labels)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>data<span class="ot">&lt;-</span><span class="fu">as.matrix</span>(data)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(data) <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>pr.out <span class="ot">&lt;-</span> <span class="fu">prcomp</span>(data,<span class="at">scale=</span><span class="cn">FALSE</span>)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>dat_3d <span class="ot">&lt;-</span> pr.out<span class="sc">$</span>x[,<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>] <span class="sc">%&gt;%</span> <span class="fu">as_tibble</span>() <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">square =</span> contract<span class="sc">$</span>labels)</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>fig <span class="ot">&lt;-</span> <span class="fu">plot_ly</span>(dat_3d, <span class="at">x =</span> <span class="sc">~</span>PC1, <span class="at">y =</span> <span class="sc">~</span>PC2, <span class="at">z =</span> <span class="sc">~</span>PC3, </span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>               <span class="at">color =</span> <span class="sc">~</span>square,<span class="at">colors=</span><span class="fu">c</span>(<span class="st">&#39;#8dc5f0&#39;</span>,<span class="st">&#39;#43abf9&#39;</span>,<span class="st">&#39;#0092ff&#39;</span>,<span class="st">&#39;#cef37b&#39;</span>,<span class="st">&#39;#a6d045&#39;</span>,<span class="st">&#39;#7caa16&#39;</span>,<span class="st">&#39;#f8bc7d&#39;</span>,<span class="st">&#39;#e0892e&#39;</span>,<span class="st">&#39;#ff8200&#39;</span>), <span class="at">size =</span> <span class="fu">I</span>(<span class="dv">100</span>))</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>fig <span class="ot">&lt;-</span> fig <span class="sc">%&gt;%</span> <span class="fu">add_markers</span>()</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>fig <span class="ot">&lt;-</span> fig <span class="sc">%&gt;%</span> <span class="fu">layout</span>(<span class="at">scene =</span> <span class="fu">list</span>(<span class="at">xaxis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">&#39;PC1&#39;</span>),</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">yaxis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">&#39;PC2&#39;</span>),</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">zaxis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">&#39;PC3&#39;</span>)))</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>fig</span></code></pre></div>
+<div id="htmlwidget-42a05a8c506c71894382" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-42a05a8c506c71894382">{"x":{"visdat":{"14b4437d1872":["function () ","plotlyVisDat"]},"cur_data":"14b4437d1872","attrs":{"14b4437d1872":{"x":{},"y":{},"z":{},"color":{},"size":[100],"colors":["#8dc5f0","#43abf9","#0092ff","#cef37b","#a6d045","#7caa16","#f8bc7d","#e0892e","#ff8200"],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter3d","mode":"markers","inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"scene":{"xaxis":{"title":"PC1"},"yaxis":{"title":"PC2"},"zaxis":{"title":"PC3"}},"hovermode":"closest","showlegend":true},"source":"A","config":{"showSendToCloud":false},"data":[{"x":[-783.874743372419],"y":[888.301619180147],"z":[-1486.65491693296],"type":"scatter3d","mode":"markers","name":"Page1_initials_II","marker":{"color":"rgba(141,197,240,1)","size":[100],"sizemode":"area","line":{"color":"rgba(141,197,240,1)"}},"textfont":{"color":"rgba(141,197,240,1)","size":100},"error_y":{"color":"rgba(141,197,240,1)","width":100},"error_x":{"color":"rgba(141,197,240,1)","width":100},"line":{"color":"rgba(141,197,240,1)","width":100},"frame":null},{"x":[-8027.75011170551],"y":[-93.7208813025082],"z":[-320.527462027475],"type":"scatter3d","mode":"markers","name":"Page1_initials_III","marker":{"color":"rgba(67,171,249,1)","size":[100],"sizemode":"area","line":{"color":"rgba(67,171,249,1)"}},"textfont":{"color":"rgba(67,171,249,1)","size":100},"error_y":{"color":"rgba(67,171,249,1)","width":100},"error_x":{"color":"rgba(67,171,249,1)","width":100},"line":{"color":"rgba(67,171,249,1)","width":100},"frame":null},{"x":[2162.10419832276],"y":[-3028.38822248958],"z":[-541.274835000596],"type":"scatter3d","mode":"markers","name":"Page1_initials_SF","marker":{"color":"rgba(0,146,255,1)","size":[100],"sizemode":"area","line":{"color":"rgba(0,146,255,1)"}},"textfont":{"color":"rgba(0,146,255,1)","size":100},"error_y":{"color":"rgba(0,146,255,1)","width":100},"error_x":{"color":"rgba(0,146,255,1)","width":100},"line":{"color":"rgba(0,146,255,1)","width":100},"frame":null},{"x":[4386.52562986262],"y":[2454.26046015764],"z":[-127.096631113135],"type":"scatter3d","mode":"markers","name":"Page2_initials_II","marker":{"color":"rgba(206,243,123,1)","size":[100],"sizemode":"area","line":{"color":"rgba(206,243,123,1)"}},"textfont":{"color":"rgba(206,243,123,1)","size":100},"error_y":{"color":"rgba(206,243,123,1)","width":100},"error_x":{"color":"rgba(206,243,123,1)","width":100},"line":{"color":"rgba(206,243,123,1)","width":100},"frame":null},{"x":[-8193.554310669],"y":[296.824354733538],"z":[953.934362532226],"type":"scatter3d","mode":"markers","name":"Page2_initials_III","marker":{"color":"rgba(166,208,69,1)","size":[100],"sizemode":"area","line":{"color":"rgba(166,208,69,1)"}},"textfont":{"color":"rgba(166,208,69,1)","size":100},"error_y":{"color":"rgba(166,208,69,1)","width":100},"error_x":{"color":"rgba(166,208,69,1)","width":100},"line":{"color":"rgba(166,208,69,1)","width":100},"frame":null},{"x":[1799.78552456058],"y":[-1983.3659607186],"z":[119.80679888888],"type":"scatter3d","mode":"markers","name":"Page2_initials_SF","marker":{"color":"rgba(124,170,22,1)","size":[100],"sizemode":"area","line":{"color":"rgba(124,170,22,1)"}},"textfont":{"color":"rgba(124,170,22,1)","size":100},"error_y":{"color":"rgba(124,170,22,1)","width":100},"error_x":{"color":"rgba(124,170,22,1)","width":100},"line":{"color":"rgba(124,170,22,1)","width":100},"frame":null},{"x":[3761.94701340271],"y":[2464.75586152916],"z":[890.905887406462],"type":"scatter3d","mode":"markers","name":"Page3_signatures_II","marker":{"color":"rgba(248,188,125,1)","size":[100],"sizemode":"area","line":{"color":"rgba(248,188,125,1)"}},"textfont":{"color":"rgba(248,188,125,1)","size":100},"error_y":{"color":"rgba(248,188,125,1)","width":100},"error_x":{"color":"rgba(248,188,125,1)","width":100},"line":{"color":"rgba(248,188,125,1)","width":100},"frame":null},{"x":[1331.44941766932],"y":[1785.916460363],"z":[-187.164909141961],"type":"scatter3d","mode":"markers","name":"Page3_signatures_III","marker":{"color":"rgba(224,137,46,1)","size":[100],"sizemode":"area","line":{"color":"rgba(224,137,46,1)"}},"textfont":{"color":"rgba(224,137,46,1)","size":100},"error_y":{"color":"rgba(224,137,46,1)","width":100},"error_x":{"color":"rgba(224,137,46,1)","width":100},"line":{"color":"rgba(224,137,46,1)","width":100},"frame":null},{"x":[3563.36738192887],"y":[-2784.5836914528],"z":[698.071705388565],"type":"scatter3d","mode":"markers","name":"Page3_signatures_SF","marker":{"color":"rgba(255,130,0,1)","size":[100],"sizemode":"area","line":{"color":"rgba(255,130,0,1)"}},"textfont":{"color":"rgba(255,130,0,1)","size":100},"error_y":{"color":"rgba(255,130,0,1)","width":100},"error_x":{"color":"rgba(255,130,0,1)","width":100},"line":{"color":"rgba(255,130,0,1)","width":100},"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div id="models" class="section level2">
+<h2>Models</h2>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -724,7 +720,7 @@ starting signatures
 </button>
 </p>
 <div id="workflowr-sessioninfo" class="collapse">
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div>
 <pre><code>R version 4.0.4 (2021-02-15)
 Platform: x86_64-w64-mingw32/x64 (64-bit)
 Running under: Windows 10 x64 (build 19043)
@@ -740,31 +736,33 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] ggpubr_0.4.0     reshape2_1.4.4   Rtsne_0.15       ggfortify_0.4.11
- [5] forcats_0.5.1    stringr_1.4.0    dplyr_1.0.5      purrr_0.3.4     
- [9] readr_1.4.0      tidyr_1.1.3      tibble_3.0.3     ggplot2_3.3.3   
-[13] tidyverse_1.3.1 
+ [1] plotly_4.9.3     ggpubr_0.4.0     reshape2_1.4.4   Rtsne_0.15      
+ [5] ggfortify_0.4.11 forcats_0.5.1    stringr_1.4.0    dplyr_1.0.5     
+ [9] purrr_0.3.4      readr_1.4.0      tidyr_1.1.3      tibble_3.0.3    
+[13] ggplot2_3.3.3    tidyverse_1.3.1 
 
 loaded via a namespace (and not attached):
- [1] httr_1.4.2        sass_0.3.1        jsonlite_1.7.2    carData_3.0-4    
- [5] modelr_0.1.8      bslib_0.2.4       assertthat_0.2.1  cellranger_1.1.0 
- [9] yaml_2.2.1        pillar_1.6.0      backports_1.1.10  glue_1.4.2       
-[13] digest_0.6.25     promises_1.2.0.1  ggsignif_0.6.1    rvest_1.0.0      
-[17] colorspace_1.4-1  htmltools_0.5.1.1 httpuv_1.5.5      plyr_1.8.6       
-[21] pkgconfig_2.0.3   broom_0.7.6       haven_2.3.1       scales_1.1.1     
-[25] whisker_0.4       openxlsx_4.2.3    later_1.1.0.1     rio_0.5.26       
-[29] git2r_0.28.0      generics_0.1.0    car_3.0-10        ellipsis_0.3.1   
-[33] withr_2.4.2       cli_2.4.0         magrittr_2.0.1    crayon_1.4.1     
-[37] readxl_1.3.1      evaluate_0.14     ps_1.6.0          fs_1.5.0         
-[41] fansi_0.4.1       rstatix_0.7.0     xml2_1.3.2        foreign_0.8-80   
-[45] tools_4.0.4       data.table_1.13.0 hms_1.0.0         lifecycle_1.0.0  
-[49] munsell_0.5.0     reprex_2.0.0      zip_2.1.1         compiler_4.0.4   
-[53] jquerylib_0.1.3   rlang_0.4.10      grid_4.0.4        rstudioapi_0.13  
-[57] rmarkdown_2.7     gtable_0.3.0      abind_1.4-5       DBI_1.1.1        
-[61] curl_4.3          R6_2.5.0          gridExtra_2.3     lubridate_1.7.10 
-[65] knitr_1.30        utf8_1.2.1        workflowr_1.6.2   rprojroot_2.0.2  
-[69] stringi_1.5.3     Rcpp_1.0.5        vctrs_0.3.7       dbplyr_2.1.1     
-[73] tidyselect_1.1.0  xfun_0.18        </code></pre>
+ [1] fs_1.5.0          lubridate_1.7.10  httr_1.4.2        rprojroot_2.0.2  
+ [5] tools_4.0.4       backports_1.1.10  bslib_0.2.4       utf8_1.2.1       
+ [9] R6_2.5.0          DBI_1.1.1         lazyeval_0.2.2    colorspace_1.4-1 
+[13] withr_2.4.2       tidyselect_1.1.0  gridExtra_2.3     curl_4.3         
+[17] compiler_4.0.4    git2r_0.28.0      cli_2.4.0         rvest_1.0.0      
+[21] xml2_1.3.2        sass_0.3.1        scales_1.1.1      digest_0.6.25    
+[25] foreign_0.8-80    rmarkdown_2.7     rio_0.5.26        pkgconfig_2.0.3  
+[29] htmltools_0.5.1.1 dbplyr_2.1.1      htmlwidgets_1.5.3 rlang_0.4.10     
+[33] readxl_1.3.1      rstudioapi_0.13   jquerylib_0.1.3   generics_0.1.0   
+[37] farver_2.0.3      jsonlite_1.7.2    crosstalk_1.1.1   zip_2.1.1        
+[41] car_3.0-10        magrittr_2.0.1    Rcpp_1.0.5        munsell_0.5.0    
+[45] fansi_0.4.1       abind_1.4-5       lifecycle_1.0.0   stringi_1.5.3    
+[49] whisker_0.4       yaml_2.2.1        carData_3.0-4     plyr_1.8.6       
+[53] grid_4.0.4        promises_1.2.0.1  crayon_1.4.1      haven_2.3.1      
+[57] hms_1.0.0         knitr_1.30        ps_1.6.0          pillar_1.6.0     
+[61] ggsignif_0.6.1    reprex_2.0.0      glue_1.4.2        evaluate_0.14    
+[65] data.table_1.13.0 modelr_0.1.8      vctrs_0.3.7       httpuv_1.5.5     
+[69] cellranger_1.1.0  gtable_0.3.0      assertthat_0.2.1  xfun_0.18        
+[73] openxlsx_4.2.3    broom_0.7.6       rstatix_0.7.0     later_1.1.0.1    
+[77] viridisLite_0.4.0 workflowr_1.6.2   ellipsis_0.3.1   </code></pre>
+</div>
 </div>
 </div>
 
