@@ -6,6 +6,7 @@ editor_options:
 ---
 
 # Setup
+
 ```{r Working directory, echo=TRUE}
 #setwd("../PIB_workflowr/data")
 getwd()
@@ -22,7 +23,9 @@ theme_set(theme_minimal())
 ```
 
 # Data Loading
+
 ## CONTRACT REGION OF INTERESTED EXPORTS
+
 ### Page 1 contract exports
 
 ```{r Page 1 contract exports, echo=TRUE}
@@ -34,9 +37,9 @@ p1_initials_III <- read.table(file = "CONTRACT REGION OF INTERESTED EXPORTS/Page
 p1_initials_SF <- read.table(file = "CONTRACT REGION OF INTERESTED EXPORTS/Page 1 contract exports/190910,21h19_SF initials page 1.txt", sep = "")
 
 
-colnames(p1_initials_SF) <- c("spectrum", "P1_SF_intensity")
-colnames(p1_initials_II) <- c("spectrum", "P1_II_Intensity")
-colnames(p1_initials_III) <- c("spectrum", "P1_III_Intensity")
+colnames(p1_initials_SF) <- c("spectrum", "Page1_initials_SF")
+colnames(p1_initials_II) <- c("spectrum", "Page1_initials_II")
+colnames(p1_initials_III) <- c("spectrum", "Page1_initials_III")
 ```
 
 ### Page 2 contract exports
@@ -49,9 +52,9 @@ p2_initials_III <- read.table(file = "CONTRACT REGION OF INTERESTED EXPORTS/Page
 
 p2_initials_SF <- read.table(file = "CONTRACT REGION OF INTERESTED EXPORTS/Page 2 contract exports/190910,23h44_SF initials page 2.txt", sep = "")
 
-colnames(p2_initials_SF) <- c("spectrum", "P2 SF Intensity")
-colnames(p2_initials_II) <- c("spectrum", "P2 II Intensity")
-colnames(p2_initials_III) <- c("spectrum", "P2 III Intensity")
+colnames(p2_initials_SF) <- c("spectrum", "Page2_initials_SF")
+colnames(p2_initials_II) <- c("spectrum", "Page2_initials_II")
+colnames(p2_initials_III) <- c("spectrum", "Page2_initials_III")
 
 ```
 
@@ -65,9 +68,9 @@ p3_initials_III <- read.table(file = "CONTRACT REGION OF INTERESTED EXPORTS/Page
 
 p3_initials_SF <- read.table(file = "CONTRACT REGION OF INTERESTED EXPORTS/Page 3 contract export/190910,01h50_SFsignature page 3.txt", sep = "")
 
-colnames(p3_initials_SF) <- c("spectrum", "P3 SF Intensity")
-colnames(p3_initials_II) <- c("spectrum", "P3 II Intensity")
-colnames(p3_initials_III) <- c("spectrum", "P3 III Intensity")
+colnames(p3_initials_SF) <- c("spectrum", "Page3_signatures_SF")
+colnames(p3_initials_II) <- c("spectrum", "Page3_signatures_II")
+colnames(p3_initials_III) <- c("spectrum", "Page3_signatures_III")
 
 ```
 
@@ -231,6 +234,8 @@ test_data <- cbind(strike1, strike2[2], strike3[2], strike4[2], strike5[2], stri
 training_data1 <- cbind(sq1_under_no1, sq2_under_no1[2], sq1_under_no2[2], sq2_under_no2[2], sq1_under_no3[2], sq2_under_no3[2], sq_beside_no4[2])
 training_data2 <- cbind(sq_no1, sq_no2[2], sq_no2_II[2], sq_no3[2], sq_no4[2], sq_no5[2], sq_no6[2])
 training_data3 <- cbind(sqI_no1_ROI1, sqI_no1_ROI2[2], sqI_no1_ROI3[2], sqII_no1_ROI1[2], sqII_no1_ROI2[2], sqII_no1_ROI3[2], sq_no2_ROI1[2], sq_no2_ROI2[2], sq_no2_ROI3[2], sq_no3_ROI1[2], sq_no3_ROI2[2], sq_no3_ROI3[2], sq_no4_ROI1[2], sq_no4_ROI2[2], sq_no4_ROI3[2], sq_no5_ROI1[2], sq_no5_ROI2[2], sq_no5_ROI3[2], sq_no6_ROI1[2], sq_no6_ROI2[2], sq_no6_ROI3[2])
+contract <-cbind(p1_initials_II,p1_initials_III[2],p1_initials_SF[2],p2_initials_II[2],p2_initials_III[2],p2_initials_SF[2],p3_initials_II[2],p3_initials_III[2],p3_initials_SF[2])
+
 
 rm(strike1,strike2,strike3,strike4,strike5,strike6,sq1_under_no1,sq2_under_no1,sq1_under_no2,sq2_under_no2,sq1_under_no3,sq2_under_no3,sq_no1,sq_no2,sq_no2_II,sq_no3,sq_no4,sq_no5,sq_no6,sqI_no1_ROI1,sqI_no1_ROI2,sqI_no1_ROI3,sqII_no1_ROI1,sqII_no1_ROI2,sqII_no1_ROI3,sq_no2_ROI1,sq_no2_ROI2,sq_no2_ROI3,sq_no3_ROI1, sq_no3_ROI2, sq_no3_ROI3, sq_no4_ROI1, sq_no4_ROI2, sq_no4_ROI3, sq_no5_ROI1, sq_no5_ROI2, sq_no5_ROI3, sq_no6_ROI1, sq_no6_ROI2, sq_no6_ROI3,p1_initials_II,p1_initials_III,p1_initials_SF,p2_initials_II,p2_initials_III,p2_initials_SF,p3_initials_II,p3_initials_III,p3_initials_SF,sq_beside_no4)
 ```
@@ -293,6 +298,18 @@ avector <- c("pen1","pen1","pen2","pen5","pen3","pen6","pen4", "pen1","pen2","pe
 training_DF <- training_DF %>% replace(1, avector)
 ```
 
+## Contract transposing
+
+```{r}
+tcontract<-as.data.frame(t(contract[-1]))
+names(tcontract)<-contract$spectrum
+tcontract$labels=row.names(tcontract)
+rownames(tcontract)<-c()
+tcontract<-tcontract %>% 
+  select(labels, everything())
+contract<-tcontract
+rm(tcontract)
+```
 
 ## Preparing the test_data
 
@@ -321,15 +338,16 @@ rm(t_test_data,t_training_data1,t_training_data2,t_training_data3,training_data1
 ```
 
 # Resulting dataframes
+
 I end up with two DFs, a training and a test DF
+
 ```{r}
 (select(training_DF,1:5))
 (select(test_data,1:5))
 ```
 
 ## Saving the workspace to be used later
+
 ```{r}
 save.image(file = "wrangling.RData")
 ```
-
-
