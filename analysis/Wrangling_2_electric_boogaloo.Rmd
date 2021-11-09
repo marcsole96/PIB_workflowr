@@ -1,0 +1,95 @@
+---
+title: "Data Wrangling"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+# Setup
+
+```{r Working directory, echo=TRUE}
+#setwd("../PIB_workflowr/data")
+getwd()
+```
+
+```{r Library load, echo=TRUE}
+library(tidyverse)
+library(ggplot2)
+library(ggfortify)
+library(Rtsne)
+library(reshape2)
+library(ggpubr)
+theme_set(theme_minimal())
+```
+
+# Data Loading
+
+```{r}
+x <- read_tsv("filenames.tsv")
+
+x$fullpath <- paste("", x$filename, sep="")
+r <- list()
+
+for (i in 1:nrow(x)) {
+
+  tmp <- read_tsv(x$fullpath[i], col_names = F, col_types = "dd")
+
+  names(tmp) <- c("mz", "intensity")
+
+  tmp <- tmp %>% bind_cols(x[i,])
+
+  r[[length(r)+1]] <- tmp
+
+}
+
+df <- bind_rows(r)
+df$pen<-as.factor(df$pen)
+
+write_rds(df, file = "full_data.rds")
+
+rm(r,tmp,x)
+```
+
+
+```{r}
+training_DF<-df%>%filter(group=="training") %>% select(mz,intensity,pen,filename) 
+training_DF<-spread(training_DF,key=mz,value=intensity)
+training_DF<-rename(training_DF,labels=pen)
+training_DF<-training_DF[-2]
+```
+
+```{r}
+test_data<-df%>%filter(group=="test") %>% select(mz,intensity,pen,filename) 
+test_data<-spread(test_data,key=mz,value=intensity)
+test_data<-rename(test_data,labels=pen)
+test_data<-test_data[-2]
+```
+
+```{r}
+contract<-df%>%filter(group=="contract") %>% select(mz,intensity,filename) 
+contract<-spread(contract,key=mz,value=intensity)
+contract<-rename(contract,labels=filename)
+contract<-contract[-2]
+```
+
+```{r}
+rm(df)
+```
+
+
+# Resulting dataframes
+
+I end up with two DFs, a training and a test DF
+
+```{r}
+(select(training_DF,1:5))
+(select(test_data,1:5))
+(select(contract,1:5))
+```
+
+## Saving the workspace to be used later
+
+```{r}
+save.image(file = "wrangling.RData")
+```
+
