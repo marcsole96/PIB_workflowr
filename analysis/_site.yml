@@ -5,8 +5,8 @@ navbar:
   left:
   - text: Home
     href: index.html
-  - text: Data Wrangling
-    href: Wrangling.html
+  - text: Data Wrangling2
+    href: Wrangling_2_electric_boogaloo.html
   - text: Data Visualizations
     href: Visualizations.html
   - text: Models
