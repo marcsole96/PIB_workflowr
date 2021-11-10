@@ -24,6 +24,10 @@ theme_set(theme_minimal())
 
 # Data Loading
 
+## CONTRACT REGION OF INTERESTED EXPORTS
+
+### Page 1 contract exports
+
 ```{r}
 x <- read_tsv("filenames.tsv")
 
@@ -43,7 +47,8 @@ for (i in 1:nrow(x)) {
 }
 
 df <- bind_rows(r)
-df$pen<-as.factor(df$pen)
+df$pen<-as.character(df$pen)
+str(df)
 
 write_rds(df, file = "full_data.rds")
 
@@ -74,6 +79,71 @@ contract<-contract[-2]
 
 ```{r}
 rm(df)
+```
+
+## Contract
+### Page 1 contract exports
+
+```{r Page 1 contract exports, echo=TRUE}
+
+p1_initials_II <- read.table(file = "CONTRACT REGION OF INTERESTED EXPORTS/Page 1 contract exports/190910,21h19_II initials page 1.txt", sep = "")
+
+p1_initials_III <- read.table(file = "CONTRACT REGION OF INTERESTED EXPORTS/Page 1 contract exports/190910,21h19_III initials page 1.txt", sep = "")
+
+p1_initials_SF <- read.table(file = "CONTRACT REGION OF INTERESTED EXPORTS/Page 1 contract exports/190910,21h19_SF initials page 1.txt", sep = "")
+
+
+colnames(p1_initials_SF) <- c("spectrum", "Page1_initials_SF")
+colnames(p1_initials_II) <- c("spectrum", "Page1_initials_II")
+colnames(p1_initials_III) <- c("spectrum", "Page1_initials_III")
+```
+
+### Page 2 contract exports
+
+```{r Page 2 contract exports, echo=TRUE}
+
+p2_initials_II <- read.table(file = "CONTRACT REGION OF INTERESTED EXPORTS/Page 2 contract exports/190910,23h44_II initials page 2.txt", sep = "")
+
+p2_initials_III <- read.table(file = "CONTRACT REGION OF INTERESTED EXPORTS/Page 2 contract exports/190910,23h44_III initials page 2.txt", sep = "")
+
+p2_initials_SF <- read.table(file = "CONTRACT REGION OF INTERESTED EXPORTS/Page 2 contract exports/190910,23h44_SF initials page 2.txt", sep = "")
+
+colnames(p2_initials_SF) <- c("spectrum", "Page2_initials_SF")
+colnames(p2_initials_II) <- c("spectrum", "Page2_initials_II")
+colnames(p2_initials_III) <- c("spectrum", "Page2_initials_III")
+
+```
+
+### Page 3 contract export
+
+```{r Page 3 contract export, echo=TRUE}
+
+p3_initials_II <- read.table(file = "CONTRACT REGION OF INTERESTED EXPORTS/Page 3 contract export/190910,01h50_II initials signature page 3.txt", sep = "")
+
+p3_initials_III <- read.table(file = "CONTRACT REGION OF INTERESTED EXPORTS/Page 3 contract export/190910,01h50_III initials signature page 3.txt", sep = "")
+
+p3_initials_SF <- read.table(file = "CONTRACT REGION OF INTERESTED EXPORTS/Page 3 contract export/190910,01h50_SFsignature page 3.txt", sep = "")
+
+colnames(p3_initials_SF) <- c("spectrum", "Page3_signatures_SF")
+colnames(p3_initials_II) <- c("spectrum", "Page3_signatures_II")
+colnames(p3_initials_III) <- c("spectrum", "Page3_signatures_III")
+
+```
+
+### DF contract
+```{r}
+contract <-cbind(p1_initials_II,p1_initials_III[2],p1_initials_SF[2],p2_initials_II[2],p2_initials_III[2],p2_initials_SF[2],p3_initials_II[2],p3_initials_III[2],p3_initials_SF[2])
+
+rm(p1_initials_II,p1_initials_III,p1_initials_SF,p2_initials_II,p2_initials_III,p2_initials_SF,p3_initials_II,p3_initials_III,p3_initials_SF,sq_beside_no4)
+
+tcontract<-as.data.frame(t(contract[-1]))
+names(tcontract)<-contract$spectrum
+tcontract$labels=row.names(tcontract)
+rownames(tcontract)<-c()
+tcontract<-tcontract %>% 
+  select(labels, everything())
+contract<-tcontract
+rm(tcontract)
 ```
 
 
