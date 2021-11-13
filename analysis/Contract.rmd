@@ -66,7 +66,7 @@ fig
 training_x <- training_DF %>% select(-labels) %>% as.data.frame()
 training_y <- training_DF$labels
 
-trControl <- trainControl(method = "loocv", number = 5, verboseIter = T)
+trControl <- trainControl(method = "loocv", number = 5, verboseIter = F)
 
 fit <- train(x = training_x, 
              y = training_y, 
