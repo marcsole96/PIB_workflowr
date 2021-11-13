@@ -66,7 +66,7 @@ fig
 training_x <- training_DF %>% select(-labels) %>% as.data.frame()
 training_y <- training_DF$labels
 
-trControl <- trainControl(method = "LOOCV", number = 5, verboseIter = F)
+trControl <- trainControl(method = "loocv", number = 5, verboseIter = T)
 
 fit <- train(x = training_x, 
              y = training_y, 
@@ -74,6 +74,8 @@ fit <- train(x = training_x,
         tuneLength = 5,
      trControl = trControl
     )
+
+newdata = contract[,-1]
 (predicted<- predict(fit, newdata = contract[,-1]))
 (predicted<- predict(fit, newdata = contract[,-1],type = "prob"))
 ```
@@ -88,17 +90,17 @@ toplot<-toplot %>% mutate(Pens=c("Pen 1", "Pen 2", "Pen 3", "Pen 4", "Pen 5", "P
 
 X_Labels <- c("1","2","3","4","5","6")
 
-PG1_II<-toplot %>% select(Page1_initials_II,Pens) %>% ggplot(aes(x=Pens, y=Page1_initials_II, fill=Pens)) +
+PG1_II<-toplot %>% select(II_initials_page_1,Pens) %>% ggplot(aes(x=Pens, y=II_initials_page_1, fill=Pens)) +
   geom_bar(stat="identity",position=position_stack())+
   scale_fill_brewer(palette="Accent")+theme(axis.title.x = element_blank())+labs(y = "Prediction")+ scale_x_discrete(labels= X_Labels)+
   guides(fill = guide_legend(title="Pens: "))
 
-PG1_III<-toplot %>% select(Page1_initials_III,Pens) %>% ggplot(aes(x=Pens, y=Page1_initials_III, fill=Pens)) +
+PG1_III<-toplot %>% select(III_initials_page_1,Pens) %>% ggplot(aes(x=Pens, y=III_initials_page_1, fill=Pens)) +
   geom_bar(stat="identity",position=position_stack())+
   scale_fill_brewer(palette="Accent")+theme(axis.title.x = element_blank(),
           axis.title.y = element_blank())+ scale_x_discrete(labels= X_Labels)
 
-PG1_SF<-toplot %>% select(Page1_initials_SF,Pens) %>% ggplot(aes(x=Pens, y=Page1_initials_SF, fill=Pens)) +
+PG1_SF<-toplot %>% select(SF_initials_page_1,Pens) %>% ggplot(aes(x=Pens, y=SF_initials_page_1, fill=Pens)) +
   geom_bar(stat="identity",position=position_stack())+
   scale_fill_brewer(palette="Accent")+theme(axis.title.x = element_blank(),
           axis.title.y = element_blank())+ scale_x_discrete(labels= X_Labels)
@@ -112,17 +114,17 @@ annotate_figure(figure,top = text_grob("Contract Pg.1", color = "Black", face = 
 
 #### Page 2
 ```{r fig.height=4, fig.width=10}
-PG2_II<-toplot %>% select(Page2_initials_II,Pens) %>% ggplot(aes(x=Pens, y=Page2_initials_II, fill=Pens)) +
+PG2_II<-toplot %>% select(II_initials_page_2,Pens) %>% ggplot(aes(x=Pens, y=II_initials_page_2, fill=Pens)) +
   geom_bar(stat="identity",position=position_stack())+
   scale_fill_brewer(palette="Accent")+theme(axis.title.x = element_blank())+labs(y = "Prediction")+ scale_x_discrete(labels= X_Labels)+
   guides(fill = guide_legend(title="Pens: "))
 
-PG2_III<-toplot %>% select(Page2_initials_III,Pens) %>% ggplot(aes(x=Pens, y=Page2_initials_III, fill=Pens)) +
+PG2_III<-toplot %>% select(III_initials_page_2,Pens) %>% ggplot(aes(x=Pens, y=III_initials_page_2, fill=Pens)) +
   geom_bar(stat="identity",position=position_stack())+
   scale_fill_brewer(palette="Accent")+theme(axis.title.x = element_blank(),
           axis.title.y = element_blank())+ scale_x_discrete(labels= X_Labels)
 
-PG2_SF<-toplot %>% select(Page2_initials_SF,Pens) %>% ggplot(aes(x=Pens, y=Page2_initials_SF, fill=Pens)) +
+PG2_SF<-toplot %>% select(SF_initials_page_2,Pens) %>% ggplot(aes(x=Pens, y=SF_initials_page_2, fill=Pens)) +
   geom_bar(stat="identity",position=position_stack())+
   scale_fill_brewer(palette="Accent")+theme(axis.title.x = element_blank(),
           axis.title.y = element_blank())+ scale_x_discrete(labels= X_Labels)
@@ -136,17 +138,17 @@ annotate_figure(figure,top = text_grob("Contract Pg.2", color = "Black", face = 
 
 #### Page 3
 ```{r fig.height=4, fig.width=10}
-PG3_II<-toplot %>% select(Page3_signatures_II,Pens) %>% ggplot(aes(x=Pens, y=Page3_signatures_II, fill=Pens)) +
+PG3_II<-toplot %>% select(II_initials_signature_page_3,Pens) %>% ggplot(aes(x=Pens, y=II_initials_signature_page_3, fill=Pens)) +
   geom_bar(stat="identity",position=position_stack())+
   scale_fill_brewer(palette="Accent")+theme(axis.title.x = element_blank())+labs(y = "Prediction")+ scale_x_discrete(labels= X_Labels)+
   guides(fill = guide_legend(title="Pens: "))
 
-PG3_III<-toplot %>% select(Page3_signatures_III,Pens) %>% ggplot(aes(x=Pens, y=Page3_signatures_III, fill=Pens)) +
+PG3_III<-toplot %>% select(III_initials_signature_page_3,Pens) %>% ggplot(aes(x=Pens, y=III_initials_signature_page_3, fill=Pens)) +
   geom_bar(stat="identity",position=position_stack())+
   scale_fill_brewer(palette="Accent")+theme(axis.title.x = element_blank(),
           axis.title.y = element_blank())+ scale_x_discrete(labels= X_Labels)
 
-PG3_SF<-toplot %>% select(Page3_signatures_SF,Pens) %>% ggplot(aes(x=Pens, y=Page3_signatures_SF, fill=Pens)) +
+PG3_SF<-toplot %>% select(SFsignature_page_3,Pens) %>% ggplot(aes(x=Pens, y=SFsignature_page_3, fill=Pens)) +
   geom_bar(stat="identity",position=position_stack())+
   scale_fill_brewer(palette="Accent")+theme(axis.title.x = element_blank(),
           axis.title.y = element_blank())+ scale_x_discrete(labels= X_Labels)
