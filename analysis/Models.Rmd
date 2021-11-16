@@ -104,7 +104,7 @@ ggplot(fit)
 ```
 
 ### Plots
-```{r fig.height=11, fig.width=10, message=FALSE, warning=FALSE}
+```{r fig.height=5, fig.width=10, message=FALSE, warning=FALSE}
 
 toplot<-as.data.frame(t(predicted))
 names(toplot)<-c("strike1","strike2","strike3","strike4","strike5","strike6")
@@ -167,7 +167,63 @@ ggplot(fit)
 ```
 
 ### Plots
-```{r fig.height=11, fig.width=10, message=FALSE, warning=FALSE}
+```{r fig.height=5, fig.width=10, message=FALSE, warning=FALSE}
+
+toplot<-as.data.frame(t(predicted))
+names(toplot)<-c("strike1","strike2","strike3","strike4","strike5","strike6")
+toplot<-toplot %>% mutate(pens=row.names(toplot))
+
+strike1<-toplot %>% select(strike1,pens) %>% ggplot(aes(x=pens, y=strike1, fill=pens)) +
+  geom_bar(stat="identity",position=position_stack())+
+  scale_fill_brewer(palette="Accent")
+
+strike2<-toplot %>% select(strike2,pens) %>% ggplot(aes(x=pens, y=strike2, fill=pens)) +
+  geom_bar(stat="identity",position=position_stack())+
+  scale_fill_brewer(palette="Accent")
+
+strike3<-toplot %>% select(strike3,pens) %>% ggplot(aes(x=pens, y=strike3, fill=pens)) +
+  geom_bar(stat="identity",position=position_stack())+
+  scale_fill_brewer(palette="Accent")
+
+strike4<-toplot %>% select(strike4,pens) %>% ggplot(aes(x=pens, y=strike4, fill=pens)) +
+  geom_bar(stat="identity",position=position_stack())+
+  scale_fill_brewer(palette="Accent")
+
+strike5<-toplot %>% select(strike5,pens) %>% ggplot(aes(x=pens, y=strike5, fill=pens)) +
+  geom_bar(stat="identity",position=position_stack())+
+  scale_fill_brewer(palette="Accent")
+
+strike6<-toplot %>% select(strike6,pens) %>% ggplot(aes(x=pens, y=strike6, fill=pens)) +
+  geom_bar(stat="identity",position=position_stack())+
+  scale_fill_brewer(palette="Accent")
+
+
+ggarrange(strike1, strike2, strike3, strike4, strike5, strike6,
+                    labels = c("strike1", "strike2", "strike3", "strike4", "strike5", "strike6"),
+                    ncol = 3, nrow = 3)
+```
+
+
+## Let's try RFs again...
+```{r}
+training_x <- training_DF %>% select(-labels) %>% as.data.frame()
+training_y <- training_DF$labels
+
+trControl <- trainControl(method = "LOOCV", number = 5, verboseIter = F)
+
+
+fit <- train(x = training_x, 
+             y = training_y, 
+        method = "rf",
+        tuneLength = 10,
+     trControl = trControl,
+    )
+(predicted<- predict(fit, newdata = test_data[,-1]))
+(predicted<- predict(fit, newdata = test_data[,-1],type = "prob"))
+```
+
+### Plots
+```{r fig.height=5, fig.width=10, message=FALSE, warning=FALSE}
 
 toplot<-as.data.frame(t(predicted))
 names(toplot)<-c("strike1","strike2","strike3","strike4","strike5","strike6")

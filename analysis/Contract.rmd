@@ -71,7 +71,7 @@ trControl <- trainControl(method = "loocv", number = 5, verboseIter = F)
 fit <- train(x = training_x, 
              y = training_y, 
         method = "glmnet",
-        tuneLength = 5,
+        tuneLength = 7,
      trControl = trControl
     )
 
@@ -80,9 +80,9 @@ newdata = contract[,-1]
 (predicted<- predict(fit, newdata = contract[,-1],type = "prob"))
 ```
 
-### Plots
+#### Plots
 
-#### Page 1
+##### Page 1
 ```{r fig.height=4, fig.width=10, message=FALSE, warning=FALSE}
 toplot<-as.data.frame(t(predicted))
 names(toplot)<-c(contract$labels)
@@ -109,10 +109,10 @@ figure<-ggarrange(PG1_II, PG1_III, PG1_SF,
                     labels = c("II", "III", "SF"),font.label=list(color="black",size=9),
                     ncol = 3, nrow = 1,common.legend=T,legend="bottom")
 
-annotate_figure(figure,top = text_grob("Contract Pg.1", color = "Black", face = "bold", size = 14,family = "serif"))
+annotate_figure(figure,top = text_grob("Contract Pg.1 GLMNET", color = "Black", face = "bold", size = 14,family = "serif"))
 ```
 
-#### Page 2
+##### Page 2
 ```{r fig.height=4, fig.width=10}
 PG2_II<-toplot %>% select(II_initials_page_2,Pens) %>% ggplot(aes(x=Pens, y=II_initials_page_2, fill=Pens)) +
   geom_bar(stat="identity",position=position_stack())+
@@ -133,10 +133,10 @@ figure<-ggarrange(PG2_II, PG2_III, PG2_SF,
                     labels = c("II", "III", "SF"),font.label=list(color="black",size=9),
                     ncol = 3, nrow = 1,common.legend=T,legend="bottom")
 
-annotate_figure(figure,top = text_grob("Contract Pg.2", color = "Black", face = "bold", size = 14,family = "serif"))
+annotate_figure(figure,top = text_grob("Contract Pg.2 GLMNET", color = "Black", face = "bold", size = 14,family = "serif"))
 ```
 
-#### Page 3
+##### Page 3
 ```{r fig.height=4, fig.width=10}
 PG3_II<-toplot %>% select(II_initials_signature_page_3,Pens) %>% ggplot(aes(x=Pens, y=II_initials_signature_page_3, fill=Pens)) +
   geom_bar(stat="identity",position=position_stack())+
@@ -157,5 +157,207 @@ figure<-ggarrange(PG3_II, PG3_III, PG3_SF,
                     labels = c("II", "III", "SF"),font.label=list(color="black",size=9),
                     ncol = 3, nrow = 1,common.legend=T,legend="bottom")
 
-annotate_figure(figure,top = text_grob("Contract Pg.3", color = "Black", face = "bold", size = 14,family = "serif"))
+annotate_figure(figure,top = text_grob("Contract Pg.3 GLMNET", color = "Black", face = "bold", size = 14,family = "serif"))
+```
+
+
+### Caret model GLMNET Lasso (Alpha = 1) Lambda ranging from 0 to 1
+```{r warning=FALSE}
+training_x <- training_DF %>% select(-labels) %>% as.data.frame()
+training_y <- training_DF$labels
+
+trControl <- trainControl(method = "loocv", number = 5, verboseIter = F)
+tuneGrid <- expand.grid(alpha = 1, lambda = seq(0.001, 1, length = 1000))
+
+fit <- train(x = training_x, 
+             y = training_y, 
+        method = "glmnet",
+        tuneLength = 7,
+     trControl = trControl,
+     tuneGrid = tuneGrid
+    )
+
+newdata = contract[,-1]
+(predicted<- predict(fit, newdata = contract[,-1]))
+(predicted<- predict(fit, newdata = contract[,-1],type = "prob"))
+```
+
+#### Plots
+
+##### Page 1
+```{r fig.height=4, fig.width=10, message=FALSE, warning=FALSE}
+toplot<-as.data.frame(t(predicted))
+names(toplot)<-c(contract$labels)
+toplot<-toplot %>% mutate(Pens=c("Pen 1", "Pen 2", "Pen 3", "Pen 4", "Pen 5", "Pen 6"))
+
+X_Labels <- c("1","2","3","4","5","6")
+
+PG1_II<-toplot %>% select(II_initials_page_1,Pens) %>% ggplot(aes(x=Pens, y=II_initials_page_1, fill=Pens)) +
+  geom_bar(stat="identity",position=position_stack())+
+  scale_fill_brewer(palette="Accent")+theme(axis.title.x = element_blank())+labs(y = "Prediction")+ scale_x_discrete(labels= X_Labels)+
+  guides(fill = guide_legend(title="Pens: "))
+
+PG1_III<-toplot %>% select(III_initials_page_1,Pens) %>% ggplot(aes(x=Pens, y=III_initials_page_1, fill=Pens)) +
+  geom_bar(stat="identity",position=position_stack())+
+  scale_fill_brewer(palette="Accent")+theme(axis.title.x = element_blank(),
+          axis.title.y = element_blank())+ scale_x_discrete(labels= X_Labels)
+
+PG1_SF<-toplot %>% select(SF_initials_page_1,Pens) %>% ggplot(aes(x=Pens, y=SF_initials_page_1, fill=Pens)) +
+  geom_bar(stat="identity",position=position_stack())+
+  scale_fill_brewer(palette="Accent")+theme(axis.title.x = element_blank(),
+          axis.title.y = element_blank())+ scale_x_discrete(labels= X_Labels)
+
+figure<-ggarrange(PG1_II, PG1_III, PG1_SF,
+                    labels = c("II", "III", "SF"),font.label=list(color="black",size=9),
+                    ncol = 3, nrow = 1,common.legend=T,legend="bottom")
+
+annotate_figure(figure,top = text_grob("Contract Pg.1 GLMNET CUSTOM", color = "Black", face = "bold", size = 14,family = "serif"))
+```
+
+##### Page 2
+```{r fig.height=4, fig.width=10}
+PG2_II<-toplot %>% select(II_initials_page_2,Pens) %>% ggplot(aes(x=Pens, y=II_initials_page_2, fill=Pens)) +
+  geom_bar(stat="identity",position=position_stack())+
+  scale_fill_brewer(palette="Accent")+theme(axis.title.x = element_blank())+labs(y = "Prediction")+ scale_x_discrete(labels= X_Labels)+
+  guides(fill = guide_legend(title="Pens: "))
+
+PG2_III<-toplot %>% select(III_initials_page_2,Pens) %>% ggplot(aes(x=Pens, y=III_initials_page_2, fill=Pens)) +
+  geom_bar(stat="identity",position=position_stack())+
+  scale_fill_brewer(palette="Accent")+theme(axis.title.x = element_blank(),
+          axis.title.y = element_blank())+ scale_x_discrete(labels= X_Labels)
+
+PG2_SF<-toplot %>% select(SF_initials_page_2,Pens) %>% ggplot(aes(x=Pens, y=SF_initials_page_2, fill=Pens)) +
+  geom_bar(stat="identity",position=position_stack())+
+  scale_fill_brewer(palette="Accent")+theme(axis.title.x = element_blank(),
+          axis.title.y = element_blank())+ scale_x_discrete(labels= X_Labels)
+
+figure<-ggarrange(PG2_II, PG2_III, PG2_SF,
+                    labels = c("II", "III", "SF"),font.label=list(color="black",size=9),
+                    ncol = 3, nrow = 1,common.legend=T,legend="bottom")
+
+annotate_figure(figure,top = text_grob("Contract Pg.2 GLMNET CUSTOM", color = "Black", face = "bold", size = 14,family = "serif"))
+```
+
+##### Page 3
+```{r fig.height=4, fig.width=10}
+PG3_II<-toplot %>% select(II_initials_signature_page_3,Pens) %>% ggplot(aes(x=Pens, y=II_initials_signature_page_3, fill=Pens)) +
+  geom_bar(stat="identity",position=position_stack())+
+  scale_fill_brewer(palette="Accent")+theme(axis.title.x = element_blank())+labs(y = "Prediction")+ scale_x_discrete(labels= X_Labels)+
+  guides(fill = guide_legend(title="Pens: "))
+
+PG3_III<-toplot %>% select(III_initials_signature_page_3,Pens) %>% ggplot(aes(x=Pens, y=III_initials_signature_page_3, fill=Pens)) +
+  geom_bar(stat="identity",position=position_stack())+
+  scale_fill_brewer(palette="Accent")+theme(axis.title.x = element_blank(),
+          axis.title.y = element_blank())+ scale_x_discrete(labels= X_Labels)
+
+PG3_SF<-toplot %>% select(SFsignature_page_3,Pens) %>% ggplot(aes(x=Pens, y=SFsignature_page_3, fill=Pens)) +
+  geom_bar(stat="identity",position=position_stack())+
+  scale_fill_brewer(palette="Accent")+theme(axis.title.x = element_blank(),
+          axis.title.y = element_blank())+ scale_x_discrete(labels= X_Labels)
+
+figure<-ggarrange(PG3_II, PG3_III, PG3_SF,
+                    labels = c("II", "III", "SF"),font.label=list(color="black",size=9),
+                    ncol = 3, nrow = 1,common.legend=T,legend="bottom")
+
+annotate_figure(figure,top = text_grob("Contract Pg.3 GLMNET CUSTOM", color = "Black", face = "bold", size = 14,family = "serif"))
+```
+
+
+### RF with Caret
+```{r warning=FALSE}
+training_x <- training_DF %>% select(-labels) %>% as.data.frame()
+training_y <- training_DF$labels
+
+trControl <- trainControl(method = "loocv", number = 5, verboseIter = F)
+
+fit <- train(x = training_x, 
+             y = training_y, 
+        method = "rf",
+        tuneLength = 7,
+     trControl = trControl
+    )
+
+newdata = contract[,-1]
+(predicted<- predict(fit, newdata = contract[,-1]))
+(predicted<- predict(fit, newdata = contract[,-1],type = "prob"))
+```
+
+#### Plots
+
+##### Page 1
+```{r fig.height=4, fig.width=10, message=FALSE, warning=FALSE}
+toplot<-as.data.frame(t(predicted))
+names(toplot)<-c(contract$labels)
+toplot<-toplot %>% mutate(Pens=c("Pen 1", "Pen 2", "Pen 3", "Pen 4", "Pen 5", "Pen 6"))
+
+X_Labels <- c("1","2","3","4","5","6")
+
+PG1_II<-toplot %>% select(II_initials_page_1,Pens) %>% ggplot(aes(x=Pens, y=II_initials_page_1, fill=Pens)) +
+  geom_bar(stat="identity",position=position_stack())+
+  scale_fill_brewer(palette="Accent")+theme(axis.title.x = element_blank())+labs(y = "Prediction")+ scale_x_discrete(labels= X_Labels)+
+  guides(fill = guide_legend(title="Pens: "))
+
+PG1_III<-toplot %>% select(III_initials_page_1,Pens) %>% ggplot(aes(x=Pens, y=III_initials_page_1, fill=Pens)) +
+  geom_bar(stat="identity",position=position_stack())+
+  scale_fill_brewer(palette="Accent")+theme(axis.title.x = element_blank(),
+          axis.title.y = element_blank())+ scale_x_discrete(labels= X_Labels)
+
+PG1_SF<-toplot %>% select(SF_initials_page_1,Pens) %>% ggplot(aes(x=Pens, y=SF_initials_page_1, fill=Pens)) +
+  geom_bar(stat="identity",position=position_stack())+
+  scale_fill_brewer(palette="Accent")+theme(axis.title.x = element_blank(),
+          axis.title.y = element_blank())+ scale_x_discrete(labels= X_Labels)
+
+figure<-ggarrange(PG1_II, PG1_III, PG1_SF,
+                    labels = c("II", "III", "SF"),font.label=list(color="black",size=9),
+                    ncol = 3, nrow = 1,common.legend=T,legend="bottom")
+
+annotate_figure(figure,top = text_grob("Contract Pg.1 RF", color = "Black", face = "bold", size = 14,family = "serif"))
+```
+
+##### Page 2
+```{r fig.height=4, fig.width=10}
+PG2_II<-toplot %>% select(II_initials_page_2,Pens) %>% ggplot(aes(x=Pens, y=II_initials_page_2, fill=Pens)) +
+  geom_bar(stat="identity",position=position_stack())+
+  scale_fill_brewer(palette="Accent")+theme(axis.title.x = element_blank())+labs(y = "Prediction")+ scale_x_discrete(labels= X_Labels)+
+  guides(fill = guide_legend(title="Pens: "))
+
+PG2_III<-toplot %>% select(III_initials_page_2,Pens) %>% ggplot(aes(x=Pens, y=III_initials_page_2, fill=Pens)) +
+  geom_bar(stat="identity",position=position_stack())+
+  scale_fill_brewer(palette="Accent")+theme(axis.title.x = element_blank(),
+          axis.title.y = element_blank())+ scale_x_discrete(labels= X_Labels)
+
+PG2_SF<-toplot %>% select(SF_initials_page_2,Pens) %>% ggplot(aes(x=Pens, y=SF_initials_page_2, fill=Pens)) +
+  geom_bar(stat="identity",position=position_stack())+
+  scale_fill_brewer(palette="Accent")+theme(axis.title.x = element_blank(),
+          axis.title.y = element_blank())+ scale_x_discrete(labels= X_Labels)
+
+figure<-ggarrange(PG2_II, PG2_III, PG2_SF,
+                    labels = c("II", "III", "SF"),font.label=list(color="black",size=9),
+                    ncol = 3, nrow = 1,common.legend=T,legend="bottom")
+
+annotate_figure(figure,top = text_grob("Contract Pg.2 RF", color = "Black", face = "bold", size = 14,family = "serif"))
+```
+
+##### Page 3
+```{r fig.height=4, fig.width=10}
+PG3_II<-toplot %>% select(II_initials_signature_page_3,Pens) %>% ggplot(aes(x=Pens, y=II_initials_signature_page_3, fill=Pens)) +
+  geom_bar(stat="identity",position=position_stack())+
+  scale_fill_brewer(palette="Accent")+theme(axis.title.x = element_blank())+labs(y = "Prediction")+ scale_x_discrete(labels= X_Labels)+
+  guides(fill = guide_legend(title="Pens: "))
+
+PG3_III<-toplot %>% select(III_initials_signature_page_3,Pens) %>% ggplot(aes(x=Pens, y=III_initials_signature_page_3, fill=Pens)) +
+  geom_bar(stat="identity",position=position_stack())+
+  scale_fill_brewer(palette="Accent")+theme(axis.title.x = element_blank(),
+          axis.title.y = element_blank())+ scale_x_discrete(labels= X_Labels)
+
+PG3_SF<-toplot %>% select(SFsignature_page_3,Pens) %>% ggplot(aes(x=Pens, y=SFsignature_page_3, fill=Pens)) +
+  geom_bar(stat="identity",position=position_stack())+
+  scale_fill_brewer(palette="Accent")+theme(axis.title.x = element_blank(),
+          axis.title.y = element_blank())+ scale_x_discrete(labels= X_Labels)
+
+figure<-ggarrange(PG3_II, PG3_III, PG3_SF,
+                    labels = c("II", "III", "SF"),font.label=list(color="black",size=9),
+                    ncol = 3, nrow = 1,common.legend=T,legend="bottom")
+
+annotate_figure(figure,top = text_grob("Contract Pg.3 RF", color = "Black", face = "bold", size = 14,family = "serif"))
 ```
