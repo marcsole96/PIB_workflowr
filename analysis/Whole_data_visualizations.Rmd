@@ -1,0 +1,80 @@
+---
+title: "Data Wrangling"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+# Setup
+
+```{r Working directory, echo=TRUE, message=FALSE, warning=FALSE}
+#setwd("../PIB_workflowr/data")
+getwd()
+```
+
+```{r Library load, echo=TRUE, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(ggplot2)
+library(ggfortify)
+library(Rtsne)
+library(reshape2)
+library(ggpubr)
+library(gghighlight)
+theme_set(theme_minimal())
+```
+
+# Data Loading
+```{r}
+x <- read_tsv("filenames.tsv")
+
+x$fullpath <- paste("", x$filename, sep="")
+r <- list()
+
+for (i in 1:nrow(x)) {
+
+  tmp <- read_tsv(x$fullpath[i], col_names = F, col_types = "dd")
+
+  names(tmp) <- c("mz", "intensity")
+
+  tmp <- tmp %>% bind_cols(x[i,])
+
+  r[[length(r)+1]] <- tmp
+
+}
+
+df <- bind_rows(r)
+df$pen<-as.character(df$pen)
+str(df)
+
+write_rds(df, file = "full_data.rds")
+
+rm(r,tmp,x)
+```
+
+# How does the data look like? 
+
+## Looking at the dataframe
+```{r}
+head(df,7)
+```
+
+## Plotting
+Basic plot of the three sets of data we have:
+```{r}
+df %>% ggplot(aes(x=mz,y=intensity))+geom_point(aes(color=pen),alpha=.4) + facet_wrap(~group)
+```
+
+Let's check only test and train and facet_wrapping:
+```{r}
+df %>% filter(group==c("training","test")) %>% ggplot(aes(x=mz,y=intensity))+ geom_point(aes(color=group), size=2, alpha=.4) + facet_wrap(~pen)
+
+df %>% filter(group==c("training","test")) %>% ggplot(aes(x=mz,y=intensity))+ geom_point(aes(color=pen, shape = group), size=2, alpha=.4) + facet_wrap(~group+pen)
+```
+
+PCA analysis
+```{r}
+pca <- df[1:2]
+pca_res <- prcomp(pca, scale. = TRUE)
+autoplot(pca_res, data = df, colour = "pen", shape="group")
+```
+

@@ -101,4 +101,3 @@ I end up with two DFs, a training and a test DF
 ```{r}
 save.image(file = "wrangling.RData")
 ```
-

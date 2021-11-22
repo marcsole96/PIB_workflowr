@@ -7,6 +7,8 @@ navbar:
     href: index.html
   - text: Data Wrangling2
     href: Wrangling_2_electric_boogaloo.html
+  - text: Full data visualization
+    href: Whole_data_visualizations.html
   - text: Data Visualizations
     href: Visualizations.html
   - text: Models
