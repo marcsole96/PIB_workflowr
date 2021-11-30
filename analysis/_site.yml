@@ -15,8 +15,8 @@ navbar:
     href: Models.html
   - text: Contract analysis
     href: Contract.html
-  - text: PiB
-    href: PiB.html
+  - text: Report
+    href: Report.html
   - text: About
     href: about.html
   - text: License

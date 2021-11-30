@@ -1,0 +1,10 @@
+---
+title: "Report"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+# Introduction
+
+This file is intended to serve as the final report for the project. In here the most important aspects will be written down, with references to the other .rmd files when needed. In other words, this is a summarized version of what has been done. 
