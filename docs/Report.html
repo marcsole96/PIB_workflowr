@@ -11,7 +11,7 @@
 
 
 
-<title>About</title>
+<title>Report</title>
 
 <script src="site_libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
@@ -29,6 +29,9 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
@@ -218,6 +221,69 @@ $(document).ready(function () {
 
 
 
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
 
 </head>
 
@@ -225,6 +291,16 @@ $(document).ready(function () {
 
 
 <div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-sm-12 col-md-4 col-lg-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-sm-12 col-md-8 col-lg-9">
 
 
 
@@ -286,7 +362,7 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">About</h1>
+<h1 class="title toc-ignore">Report</h1>
 
 </div>
 
@@ -437,7 +513,7 @@ Note that any generated files, e.g. HTML, png, CSS, etc., are not included in t
 <div id="versions" class="tab-pane fade">
 
 <p>
-These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/about.Rmd</code>) and HTML (<code>docs/about.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
+These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/Report.Rmd</code>) and HTML (<code>docs/Report.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
 </p>
 <div class="table-responsive">
 <table class="table table-condensed table-hover">
@@ -463,512 +539,19 @@ Message
 <tbody>
 <tr>
 <td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/marcsole96/PIB_workflowr/730a372d8e5470f197dc21c20a115cb8b6b9ee0c/docs/about.html" target="_blank">730a372</a>
-</td>
-<td>
-marcsole96
-</td>
-<td>
-2021-11-22
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/marcsole96/PIB_workflowr/8bcfbf2113f74b36d436b56cf0c8cea424a14509/docs/about.html" target="_blank">8bcfbf2</a>
-</td>
-<td>
-marcsole96
-</td>
-<td>
-2021-11-16
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/marcsole96/PIB_workflowr/eafafd91bad270c73f646cab330864d83f157db1/docs/about.html" target="_blank">eafafd9</a>
-</td>
-<td>
-marcsole96
-</td>
-<td>
-2021-11-13
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/marcsole96/PIB_workflowr/8aee1ff93c0349601e3325c8d4ca5000e575d704/docs/about.html" target="_blank">8aee1ff</a>
-</td>
-<td>
-marcsole96
-</td>
-<td>
-2021-11-02
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/marcsole96/PIB_workflowr/a3b18a013e0b3054344e2aed200f3330541a0ad0/docs/about.html" target="_blank">a3b18a0</a>
-</td>
-<td>
-marcsole96
-</td>
-<td>
-2021-11-02
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/marcsole96/PIB_workflowr/ca793f3e1e3bd803f7886799ff3b12f2e0e945db/docs/about.html" target="_blank">ca793f3</a>
-</td>
-<td>
-marcsole96
-</td>
-<td>
-2021-11-01
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/marcsole96/PIB_workflowr/49191f63e236621b590d6512638179cd739ad444/docs/about.html" target="_blank">49191f6</a>
-</td>
-<td>
-marcsole96
-</td>
-<td>
-2021-11-01
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/marcsole96/PIB_workflowr/ea8fe22b2da339e946947a767a6b8168eac41a9f/docs/about.html" target="_blank">ea8fe22</a>
-</td>
-<td>
-marcsole96
-</td>
-<td>
-2021-11-01
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/marcsole96/PIB_workflowr/1402f3d22cba8de0fc9e915398316db4de0306e3/docs/about.html" target="_blank">1402f3d</a>
-</td>
-<td>
-marcsole96
-</td>
-<td>
-2021-10-26
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/marcsole96/PIB_workflowr/26f9da94a096f5ea35ccffad9ca396a5cf980d7b/docs/about.html" target="_blank">26f9da9</a>
-</td>
-<td>
-marcsole96
-</td>
-<td>
-2021-10-25
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/marcsole96/PIB_workflowr/bab912abfbf9d4872d936fe5f14cf9a9a767522a/docs/about.html" target="_blank">bab912a</a>
-</td>
-<td>
-marcsole96
-</td>
-<td>
-2021-10-25
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/marcsole96/PIB_workflowr/6107821df22a0cbeeb661f2f20f005d2d5f22658/docs/about.html" target="_blank">6107821</a>
-</td>
-<td>
-marcsole96
-</td>
-<td>
-2021-10-24
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/marcsole96/PIB_workflowr/6c4b80657276355e54f1968b236933dee5b470f1/docs/about.html" target="_blank">6c4b806</a>
-</td>
-<td>
-marcsole96
-</td>
-<td>
-2021-10-24
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/marcsole96/PIB_workflowr/63b7605f5134dc08274a7a15a141a68361940da5/docs/about.html" target="_blank">63b7605</a>
-</td>
-<td>
-marcsole96
-</td>
-<td>
-2021-10-24
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/marcsole96/PIB_workflowr/c59babc890b12cafd750d2b8ca2894abaaa8700c/docs/about.html" target="_blank">c59babc</a>
-</td>
-<td>
-marcsole96
-</td>
-<td>
-2021-10-12
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/marcsole96/PIB_workflowr/9a48040a7b66666fdbd8ec3e0c9d63c8773dd562/docs/about.html" target="_blank">9a48040</a>
-</td>
-<td>
-marcsole96
-</td>
-<td>
-2021-10-01
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/marcsole96/PIB_workflowr/d84cd5e786b3da077158c37f40af18e7ff7996df/docs/about.html" target="_blank">d84cd5e</a>
-</td>
-<td>
-marcsole96
-</td>
-<td>
-2021-10-01
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/marcsole96/PIB_workflowr/1f9abe4a88bc8c88beea20c8cbc7617f17596dd4/docs/about.html" target="_blank">1f9abe4</a>
-</td>
-<td>
-marcsole96
-</td>
-<td>
-2021-10-01
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/marcsole96/PIB_workflowr/2197b1412502ee893aef9390447becff144fae7e/docs/about.html" target="_blank">2197b14</a>
-</td>
-<td>
-marcsole96
-</td>
-<td>
-2021-09-29
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/marcsole96/PIB_workflowr/0e0b1bee0b2ca136686b6479c5fa6c994c4dcd0d/docs/about.html" target="_blank">0e0b1be</a>
-</td>
-<td>
-marcsole96
-</td>
-<td>
-2021-09-28
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/marcsole96/PIB_workflowr/35602fa41a9c7d01bb8fe297cc6bc8483e3b0418/docs/about.html" target="_blank">35602fa</a>
-</td>
-<td>
-marcsole96
-</td>
-<td>
-2021-09-27
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/marcsole96/PIB_workflowr/e38b246103c9af9766457f93e107b655e6fa0d69/docs/about.html" target="_blank">e38b246</a>
-</td>
-<td>
-marcsole96
-</td>
-<td>
-2021-09-24
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/marcsole96/PIB_workflowr/ff358022fe4d91155b8bb273cecc766ffd0197c1/docs/about.html" target="_blank">ff35802</a>
-</td>
-<td>
-marcsole96
-</td>
-<td>
-2021-09-23
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/marcsole96/PIB_workflowr/91d3e038ee657ca6c1a13375b382f2177aaef0da/docs/about.html" target="_blank">91d3e03</a>
-</td>
-<td>
-marcsole96
-</td>
-<td>
-2021-09-16
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/marcsole96/PIB_workflowr/91742f40916d69242e461e8e8273bbfb1f9db316/docs/about.html" target="_blank">91742f4</a>
-</td>
-<td>
-marcsole96
-</td>
-<td>
-2021-09-14
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/marcsole96/PIB_workflowr/691fdc359e4943d088c37a036ba77c04c97490a2/docs/about.html" target="_blank">691fdc3</a>
-</td>
-<td>
-marcsole96
-</td>
-<td>
-2021-09-14
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/marcsole96/PIB_workflowr/bdb8f53b9c8024790c4abbd47c91335955483142/docs/about.html" target="_blank">bdb8f53</a>
-</td>
-<td>
-marcsole96
-</td>
-<td>
-2021-09-14
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/marcsole96/PIB_workflowr/74d75599ff020650bca86525309f97093fa63fb8/docs/about.html" target="_blank">74d7559</a>
-</td>
-<td>
-marcsole96
-</td>
-<td>
-2021-09-14
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/marcsole96/PIB_workflowr/f8bec207bb454de005946ba8abd0b4a48f99b508/docs/about.html" target="_blank">f8bec20</a>
-</td>
-<td>
-marcsole96
-</td>
-<td>
-2021-09-09
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
 Rmd
 </td>
 <td>
-<a href="https://github.com/marcsole96/PIB_workflowr/blob/f134194c82b09c719f5a7388fb413eaf9259ef1d/analysis/about.Rmd" target="_blank">f134194</a>
+<a href="https://github.com/marcsole96/PIB_workflowr/blob/fb9c9b777390d2f844c84dfd23539028edf6d24d/analysis/Report.Rmd" target="_blank">fb9c9b7</a>
 </td>
 <td>
 marcsole96
 </td>
 <td>
-2021-09-09
+2021-11-30
 </td>
 <td>
-Start workflowr project.
+added report file
 </td>
 </tr>
 </tbody>
@@ -978,7 +561,10 @@ Start workflowr project.
 </div>
 </div>
 </div>
-<p>Describe your project.</p>
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>This file is intended to serve as the final report for the project. In here the most important aspects will be written down, with references to the other .rmd files when needed. In other words, this is a summarized version of what has been done.</p>
+</div>
 
 
 <!-- Adjust MathJax settings so that all math formulae are shown using
@@ -996,6 +582,8 @@ footer is added to webpages before the MathJax javascript. -->
 
 
 
+</div>
+</div>
 
 </div>
 
@@ -1028,6 +616,32 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
