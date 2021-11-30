@@ -1,5 +1,5 @@
 ---
-title: "Data Wrangling"
+title: "Whole data visualization"
 output: html_document
 editor_options: 
   chunk_output_type: console
@@ -52,11 +52,19 @@ write_rds(df, file = "full_data.rds")
 
 rm(r,tmp,x)
 ```
+## Forth Square root transform
+
+
 
 # How does the data look like? 
 
 ## Looking at the dataframe
 ```{r}
+head(df,7)
+
+# 4th root transformation of the data
+df$intensity<-df$intensity^(1/4)
+
 head(df,7)
 ```
 
@@ -121,7 +129,7 @@ fig <- fig %>% layout(scene = list(xaxis = list(title = 'PC1'),
 fig
 ```
 
-## Correlation matrix
+# Correlation matrix
 ```{r}
 source("http://www.sthda.com/upload/rquery_cormat.r")
 
@@ -132,5 +140,42 @@ contract$filename<-gsub("\\.txt$","",contract$filename)
 contract$filename<-gsub(" ", "_", contract$filename)
 
 contract%>%filter(group=="contract") %>% select("filename","mz","intensity") %>% spread(filename,intensity) %>% rquery.cormat()
+```
+
+CLEANING...
+```{r}
+rm(dat_3d,fig,pca_df,pca_res,pr.out)
+```
+
+# PHEATMAP
+https://towardsdatascience.com/pheatmap-draws-pretty-heatmaps-483dab9a3cc
+
+```{r}
+if("pheatmap" %in% rownames(installed.packages()) == FALSE) {install.packages("pheatmap")}
+library(pheatmap)
+```
+
+```{r}
+contract_hm<-contract%>%filter(group=="contract") %>% select("filename","mz","intensity") %>% spread(filename,intensity)
+
+
+#The scale function in R performs standard scaling to the columns of the input data, which first subtracts the column means from the columns (center step) and then divides the centered columns by the column standard deviations (scale step)
+contract_hm<-scale(contract_hm[,-1])
+
+pheatmap(contract_hm,scale = "row",main = "Pheatmap contract, row scaling")
+```
+
+# Coefficient of variation
+
+Calculating the coefficient of variation on every column (mz)
+```{r}
+contract_CV<-contract%>%filter(group=="contract") %>% select("filename","mz","intensity") %>% spread(mz,intensity)
+
+head(contract_CV,5)
+CVs<-sapply(contract_CV, function(x) sd(x) / mean(x) * 100)
+CVs[1]<-"Coefficients of Variation"
+contract_CV <- rbind(contract_CV, CVs)
+
+(select(contract_CV, 1:5))
 ```
 
