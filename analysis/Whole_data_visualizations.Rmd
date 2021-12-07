@@ -214,10 +214,6 @@ library(pheatmap)
 
 ## Top 100
 ```{r}
-df_hm %>% select("filename","mz","intensity") %>% spread(filename,intensity)
-
-data.frame(table(df_hm$filename))
-
 test<-df_hm %>% 
   top_n(5000,CV) %>% 
   select("filename","mz","intensity")%>% 
@@ -231,10 +227,6 @@ pheatmap(test,main = "pheatmap default", clustering_distance_cols = "correlation
 
 ## Top 50
 ```{r}
-df_hm %>% select("filename","mz","intensity") %>% spread(filename,intensity)
-
-data.frame(table(df_hm$filename))
-
 test<-df_hm %>% 
   top_n(2500,CV) %>% 
   select("filename","mz","intensity")%>% 
@@ -248,10 +240,6 @@ pheatmap(test,main = "pheatmap default", clustering_distance_cols = "correlation
 
 ## Top 25
 ```{r}
-df_hm %>% select("filename","mz","intensity") %>% spread(filename,intensity)
-
-data.frame(table(df_hm$filename))
-
 test<-df_hm %>% 
   top_n(1250,CV) %>% 
   select("filename","mz","intensity")%>% 
