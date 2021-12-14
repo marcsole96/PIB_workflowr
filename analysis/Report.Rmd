@@ -7,4 +7,18 @@ editor_options:
 
 # Introduction
 
-This file is intended to serve as the final report for the project. In here the most important aspects will be written down, with references to the other .rmd files when needed. In other words, this is a summarized version of what has been done. 
+This file is intended to serve as the final report for the project. In here the most important aspects will be written down, with references to the other .rmd files when needed. In other words, this is a summarized version of what has been done.
+
+The objective of this project is to build several machine learning models capable of distinguishing between different types of pens given an input mass spectrometry score of inks. With the idea of using them to identify signature forgering on a series of documents from a real crime scene.
+
+![](../docs/assets/training_sample.png)
+
+```{r}
+knitr::include_graphics("../docs/assets/training_sample.png", error = FALSE)
+```
+
+![](../docs/assets/contract.png)
+
+```{r}
+knitr::include_graphics("../docs/assets/contract.png", error = FALSE)
+```

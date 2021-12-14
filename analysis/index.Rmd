@@ -10,4 +10,16 @@ editor_options:
 
 Hi, Marc here. Welcome to my research website! On this website you will see the results and data analysis for the *Project in Bioinformatics: Spot the fake signature*
 
-Click on this [link](PiB.html) to see my results.
+If you want to read the report click on this [link](Report.html)
+
+Several other markdown pages are available which show the code of different steps of the analysis:
+
+The procedure used for data loading and wrangling can be found [here](Wrangling_2_electric_boogaloo.html)
+
+Data visualizations can be found [here](Whole_data_visualizations.html)
+
+The different models built can be found [here](Models.html)
+
+And the analysis of the contract using the previous models can be found [here](Contract.html)
+
+Furthermore the code for the source code for this page can be found by clicking [here](https://github.com/marcsole96/PIB_workflowr) or by clicking on the GitHub icon on the top right corner. 

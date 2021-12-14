@@ -170,7 +170,6 @@ First ahistogram is made to see the distribution of our data
 ```{r}
 
 df$filename<-gsub("\\.txt$","",df$filename)
-
 df %>% 
   select("filename","mz","intensity") %>% 
   group_by(intensity) %>%  
@@ -216,6 +215,7 @@ library(pheatmap)
 ```{r}
 test<-df_hm %>% 
   top_n(5000,CV) %>% 
+  unite("filename", pen:filename, remove=F) %>% 
   select("filename","mz","intensity")%>% 
   spread(filename,intensity)
 
@@ -229,6 +229,7 @@ pheatmap(test,main = "pheatmap default", clustering_distance_cols = "correlation
 ```{r}
 test<-df_hm %>% 
   top_n(2500,CV) %>% 
+  unite("filename", pen:filename, remove=F) %>% 
   select("filename","mz","intensity")%>% 
   spread(filename,intensity)
 
@@ -242,11 +243,12 @@ pheatmap(test,main = "pheatmap default", clustering_distance_cols = "correlation
 ```{r}
 test<-df_hm %>% 
   top_n(1250,CV) %>% 
+  unite("filename", pen:filename, remove=F) %>% 
   select("filename","mz","intensity")%>% 
   spread(filename,intensity)
 
 
-test<-as.matrix(test[-1])
+test<-as.matrix(test[-1]) %>% t()
 
 pheatmap(test,main = "pheatmap default", clustering_distance_cols = "correlation",clustering_distance_rows = "correlation")
 ```

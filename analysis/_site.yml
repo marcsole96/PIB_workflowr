@@ -5,12 +5,10 @@ navbar:
   left:
   - text: Home
     href: index.html
-  - text: Data Wrangling2
+  - text: Data loading and preparation
     href: Wrangling_2_electric_boogaloo.html
-  - text: Full data visualization
-    href: Whole_data_visualizations.html
   - text: Data Visualizations
-    href: Visualizations.html
+    href: Whole_data_visualizations.html
   - text: Models
     href: Models.html
   - text: Contract analysis
