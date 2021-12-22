@@ -5,20 +5,110 @@ editor_options:
   chunk_output_type: console
 ---
 
-# Introduction
+```{r Working directory, message=FALSE, warning=FALSE, include=FALSE}
+#setwd("../PIB_workflowr/data")
+getwd()
+```
 
 This file is intended to serve as the final report for the project. In here the most important aspects will be written down, with references to the other .rmd files when needed. In other words, this is a summarized version of what has been done.
 
-The objective of this project is to build several machine learning models capable of distinguishing between different types of pens given an input mass spectrometry score of inks. With the idea of using them to identify signature forgering on a series of documents from a real crime scene.
+**The student should be able to explain the methods used for the analysis of the data.**
 
-![](../docs/assets/training_sample.png)
+**The student should be able to explain the theoretical background of the project**
 
-```{r}
+**The student should be able to discuss the results of the analysis.**
+
+**More specifically the student should be able to analyse the data provided in order to:**
+
+**On the squares dataset: determine the pens used for each strike and the "1-6" writing.**
+
+**On the contract dataset: identify if there is contract manipulation, on which page and which pen was used, identify the ions that indicate manipulation, and identify which of the 5 pens used in the squares were used for the initials and signatures of the documents.**
+
+# Introduction
+
+The fusion of criminology and machine learning is a fascinating field. Using machine learning models that can identify and discriminate between samples can be really useful in criminal cases where the "by hand" approach is tedious and prone to failure. The principal objective of this project is to use several machine learning techniques in order to identify possible forgery on a contract from a real crime scene.
+
+To do so a machine learning model capable of distinguishing between different types of pens given an input mass spectrometry score of ink features was developed. Other analysis were done as well on the data and it was concluded that our model is efficient when identifying pens similar to the given test/train data and that the contract of interest was written in other pens. Because of that, unsupervised approaches were used to identify the possible forgery.
+
+# Methodology
+
+## Basic Idea
+
+The structure of the data I worked on looks as follows:
+
+```{r echo=FALSE}
+knitr::include_graphics("../docs/assets/files_structure.png", error = FALSE)
+```
+
+The first column gives the values of the frequency in the spectrometry (mz) and the second one gives the intensity the mass spectrometer read at that frequency.
+
+**[Show MZ/intensity plot]**
+
+The above plot shows what each sample looks like coming from the mass spectrometer. The idea is that different inks will have different compounds and thus will display different peaks. A machine learning model could be thus built in order to identify which pattern of peaks would correspond to which type of ink and given a sample predict the most likely pen it would have come from. And if this model is trained well it could be used to identify possible forgery in documents by identifying if an ink used is different from the rest.
+
+## Data
+
+The training data for the models consisted on the mass spectrometry information obtained from the following samples:
+
+```{r echo=FALSE}
 knitr::include_graphics("../docs/assets/training_sample.png", error = FALSE)
 ```
 
-![](../docs/assets/contract.png)
+Six different pens were used:
 
-```{r}
+1.  Black ballpoint pen ink/ brand: BIC
+
+2.  Blue gel pen/ brand: Mitsubishi Pencil Uni-ball Signo 0.5
+
+3.  Blue ballpoint pen ink/ brand: white label (pen from Poland)
+
+4.  Blue ballpoint pen ink/ brand: OfficeCover Astro 1.0
+
+5.  Blue gel pen/ brand: Mitsubishi Pencil Uni-ball Signo 0.7
+
+6.  Black ballpoint pen ink/ brand: Pentel BK77 Superb
+
+In order to simplify the analysis pens were labeled as simply "Pen 1, Pen 2, etc".
+
+We have however 7 squares: The square on top of the square of number 4 was made with the same pen.
+
+From this, many training samples were obtained. From the numbers themselves, to the full squares, to three regions inside each of the squares:
+
+```{r echo=FALSE}
+knitr::include_graphics("../docs/assets/training_sample_files1.png", error = FALSE)
+```
+
+```{r echo=FALSE}
+knitr::include_graphics("../docs/assets/training_sample_files2.png", error = FALSE)
+```
+
+The test data was the mass spectrometry information obtained from the following strikes made witch each of the six pens:
+
+```{r echo=FALSE}
+knitr::include_graphics("../docs/assets/test_samples.png", error = FALSE)
+```
+
+Using this data a machine learning model could be built to, given a document wirten in one or more of the six pens, identify which one was used and on which region. Thus we could use this model to identify possible forgery on the following given signatures and initials from a contract:
+
+```{r echo=FALSE}
 knitr::include_graphics("../docs/assets/contract.png", error = FALSE)
 ```
+
+This document is from a real crime scene, and again the ink was divided into different regions and analysed by mass spectrometry, obtaining a total of nine different files
+
+```{r echo=FALSE}
+knitr::include_graphics("../docs/assets/contract_regions.jpg", error = FALSE)
+```
+
+The data was loaded into RStudio and into a Data Frame structure which contains vital information on the files. This step is very important because of the amount of files I am working on, and it is easy to get confused by them. Thus the most organized I can be the easier it is to work with the data.
+
+You can see the data loading process [here](Wrangling_2_electric_boogaloo.html)
+The resulting Data Frame looking as follows:
+```{r echo=FALSE}
+head(readRDS("full_data.rds"))
+```
+
+From this data I started working on a ML model that given the training data could determine correctly which pen was used on the training data. Once this was done I used the model to predict which pens were used in the contract, and then used unsupervised approaches to look at the contract in detail.
+# Results
+
+# Discussion

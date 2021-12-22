@@ -25,7 +25,7 @@ library(corrplot)
 library(tibble)
 library(tidyr)
 library(dplyr)
-theme_set(theme_minimal())
+theme_set(theme_minimal(base_family = "Calibri"))
 ```
 
 # Data Loading
@@ -56,6 +56,14 @@ write_rds(df, file = "full_data.rds")
 
 rm(r,tmp,x)
 ```
+
+```{r}
+df %>% filter(filename=="strike 1.txt") %>% 
+  select("mz", "intensity") %>%
+  ggplot(aes(x=mz, y=intensity)) + geom_bar(stat="identity") + ggtitle("Strike 1 Spectrometry View") + theme(plot.title = element_text(hjust = 0.5)) + labs(y="Intensity", x = "m/z")
+```
+
+
 
 ## Forth Square root transform
 
