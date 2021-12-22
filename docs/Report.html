@@ -569,16 +569,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtree4427018404e966b0044df20de7d0b5bc17d03ea2targetblank4427018a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/marcsole96/PIB_workflowr/tree/4427018404e966b0044df20de7d0b5bc17d03ea2" target="_blank">4427018</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtree9907c95f5642f05581bae3870fdc92e7e54b500btargetblank9907c95a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/marcsole96/PIB_workflowr/tree/9907c95f5642f05581bae3870fdc92e7e54b500b" target="_blank">9907c95</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtree4427018404e966b0044df20de7d0b5bc17d03ea2targetblank4427018a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtree9907c95f5642f05581bae3870fdc92e7e54b500btargetblank9907c95a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/marcsole96/PIB_workflowr/tree/4427018404e966b0044df20de7d0b5bc17d03ea2" target="_blank">4427018</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/marcsole96/PIB_workflowr/tree/9907c95f5642f05581bae3870fdc92e7e54b500b" target="_blank">9907c95</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -688,6 +688,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/marcsole96/PIB_workflowr/blob/9907c95f5642f05581bae3870fdc92e7e54b500b/analysis/Report.Rmd" target="_blank">9907c95</a>
+</td>
+<td>
+marcsole96
+</td>
+<td>
+2021-12-22
+</td>
+<td>
+trying again
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/marcsole96/PIB_workflowr/be7169acfdddfaa15de5108093f9cdbb32c0f180/docs/Report.html" target="_blank">be7169a</a>
+</td>
+<td>
+marcsole96
+</td>
+<td>
+2021-12-22
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -865,7 +899,7 @@ added report file
 <div id="basic-idea" class="section level2">
 <h2>Basic Idea</h2>
 <p>The structure of the data I worked on looks as follows:</p>
-<p><img src="../docs/assets/files_structure.PNG" width="323" style="display: block; margin: auto;" /></p>
+<p><img src="./assets/files_structure.PNG" style="display: block; margin: auto;" /></p>
 <p>The first column gives the values of the frequency in the spectrometry (mz) and the second one gives the intensity the mass spectrometer read at that frequency.</p>
 <p><strong>[Show MZ/intensity plot]</strong></p>
 <p>The above plot shows what each sample looks like coming from the mass spectrometer. The idea is that different inks will have different compounds and thus will display different peaks. A machine learning model could be thus built in order to identify which pattern of peaks would correspond to which type of ink and given a sample predict the most likely pen it would have come from. And if this model is trained well it could be used to identify possible forgery in documents by identifying if an ink used is different from the rest.</p>
@@ -873,7 +907,7 @@ added report file
 <div id="data" class="section level2">
 <h2>Data</h2>
 <p>The training data for the models consisted on the mass spectrometry information obtained from the following samples:</p>
-<p><img src="../docs/assets/training_sample.PNG" width="164" style="display: block; margin: auto;" /></p>
+<p><img src="./assets/training_sample.PNG" style="display: block; margin: auto;" /></p>
 <p>Six different pens were used:</p>
 <ol style="list-style-type: decimal">
 <li><p>Black ballpoint pen ink/ brand: BIC</p></li>
@@ -886,14 +920,14 @@ added report file
 <p>In order to simplify the analysis pens were labeled as simply “Pen 1, Pen 2, etc”.</p>
 <p>We have however 7 squares: The square on top of the square of number 4 was made with the same pen.</p>
 <p>From this, many training samples were obtained. From the numbers themselves, to the full squares, to three regions inside each of the squares:</p>
-<p><img src="../docs/assets/training_sample_files1.PNG" width="337" style="display: block; margin: auto;" /></p>
-<p><img src="../docs/assets/training_sample_files2.PNG" width="331" style="display: block; margin: auto;" /></p>
+<p><img src="./assets/training_sample_files1.PNG" style="display: block; margin: auto;" /></p>
+<p><img src="./assets/training_sample_files2.PNG" style="display: block; margin: auto;" /></p>
 <p>The test data was the mass spectrometry information obtained from the following strikes made witch each of the six pens:</p>
-<p><img src="../docs/assets/test_samples.PNG" width="184" style="display: block; margin: auto;" /></p>
+<p><img src="./assets/test_samples.PNG" style="display: block; margin: auto;" /></p>
 <p>Using this data a machine learning model could be built to, given a document wirten in one or more of the six pens, identify which one was used and on which region. Thus we could use this model to identify possible forgery on the following given signatures and initials from a contract:</p>
-<p><img src="../docs/assets/contract.PNG" width="261" style="display: block; margin: auto;" /></p>
+<p><img src="./assets/contract.PNG" style="display: block; margin: auto;" /></p>
 <p>This document is from a real crime scene, and again the ink was divided into different regions and analysed by mass spectrometry, obtaining a total of nine different files</p>
-<p><img src="../docs/assets/contract_regions.jpg" width="663" style="display: block; margin: auto;" /></p>
+<p><img src="./assets/contract_regions.jpg" style="display: block; margin: auto;" /></p>
 <p>The data was loaded into RStudio and into a Data Frame structure which contains vital information on the files. This step is very important because of the amount of files I am working on, and it is easy to get confused by them. Thus the most organized I can be the easier it is to work with the data.</p>
 <p>You can see the data loading process <a href="Wrangling_2_electric_boogaloo.html">here</a> The resulting Data Frame looking as follows:</p>
 <pre><code># A tibble: 6 x 7
@@ -932,18 +966,20 @@ locale:
 attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
+other attached packages:
+[1] workflowr_1.6.2
+
 loaded via a namespace (and not attached):
  [1] Rcpp_1.0.7        rstudioapi_0.13   whisker_0.4       knitr_1.30       
- [5] magrittr_2.0.1    workflowr_1.6.2   R6_2.5.0          jpeg_0.1-8.1     
- [9] rlang_0.4.10      fansi_0.4.1       stringr_1.4.0     tools_4.0.4      
-[13] xfun_0.18         png_0.1-7         utf8_1.2.1        cli_2.4.0        
-[17] git2r_0.28.0      jquerylib_0.1.3   htmltools_0.5.1.1 ellipsis_0.3.1   
-[21] rprojroot_2.0.2   yaml_2.2.1        digest_0.6.25     tibble_3.0.3     
-[25] lifecycle_1.0.0   crayon_1.4.1      later_1.1.0.1     sass_0.3.1       
-[29] vctrs_0.3.7       fs_1.5.0          promises_1.2.0.1  glue_1.4.2       
-[33] evaluate_0.14     rmarkdown_2.7     stringi_1.5.3     compiler_4.0.4   
-[37] bslib_0.2.4       pillar_1.6.0      jsonlite_1.7.2    httpuv_1.5.5     
-[41] pkgconfig_2.0.3  </code></pre>
+ [5] magrittr_2.0.1    R6_2.5.0          rlang_0.4.10      fansi_0.4.1      
+ [9] stringr_1.4.0     tools_4.0.4       xfun_0.18         utf8_1.2.1       
+[13] cli_2.4.0         git2r_0.28.0      jquerylib_0.1.3   htmltools_0.5.1.1
+[17] ellipsis_0.3.1    rprojroot_2.0.2   yaml_2.2.1        digest_0.6.25    
+[21] tibble_3.0.3      lifecycle_1.0.0   crayon_1.4.1      later_1.1.0.1    
+[25] sass_0.3.1        vctrs_0.3.7       promises_1.2.0.1  fs_1.5.0         
+[29] glue_1.4.2        evaluate_0.14     rmarkdown_2.7     stringi_1.5.3    
+[33] bslib_0.2.4       compiler_4.0.4    pillar_1.6.0      jsonlite_1.7.2   
+[37] httpuv_1.5.5      pkgconfig_2.0.3  </code></pre>
 </div>
 </div>
 
