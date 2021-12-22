@@ -424,13 +424,10 @@ div.tocify {
   <a href="index.html">Home</a>
 </li>
 <li>
-  <a href="Wrangling_2_electric_boogaloo.html">Data Wrangling2</a>
+  <a href="Wrangling_2_electric_boogaloo.html">Data loading and preparation</a>
 </li>
 <li>
-  <a href="Whole_data_visualizations.html">Full data visualization</a>
-</li>
-<li>
-  <a href="Visualizations.html">Data Visualizations</a>
+  <a href="Whole_data_visualizations.html">Data Visualizations</a>
 </li>
 <li>
   <a href="Models.html">Models</a>
@@ -492,7 +489,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2021-11-30
+<strong>Last updated:</strong> 2021-12-22
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -583,16 +580,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtreefb9c9b777390d2f844c84dfd23539028edf6d24dtargetblankfb9c9b7a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/marcsole96/PIB_workflowr/tree/fb9c9b777390d2f844c84dfd23539028edf6d24d" target="_blank">fb9c9b7</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtree2fe0c32e57624268a72b114ab203989fbcc54086targetblank2fe0c32a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/marcsole96/PIB_workflowr/tree/2fe0c32e57624268a72b114ab203989fbcc54086" target="_blank">2fe0c32</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtreefb9c9b777390d2f844c84dfd23539028edf6d24dtargetblankfb9c9b7a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtree2fe0c32e57624268a72b114ab203989fbcc54086targetblank2fe0c32a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/marcsole96/PIB_workflowr/tree/fb9c9b777390d2f844c84dfd23539028edf6d24d" target="_blank">fb9c9b7</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/marcsole96/PIB_workflowr/tree/2fe0c32e57624268a72b114ab203989fbcc54086" target="_blank">2fe0c32</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -664,6 +661,7 @@ Untracked files:
 
 Unstaged changes:
     Deleted:    analysis/Data Wrangling.Rmd
+    Modified:   data/wrangling.RData
 
 </code></pre>
 <p>
@@ -702,6 +700,23 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/marcsole96/PIB_workflowr/8690bd0ebe3dfaa2429d93c4731e7510382c3563/docs/Contract.html" target="_blank">8690bd0</a>
+</td>
+<td>
+marcsole96
+</td>
+<td>
+2021-11-30
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -1000,8 +1015,8 @@ started with contract
 <span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">zaxis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">&#39;PC3&#39;</span>)))</span>
 <span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>fig</span></code></pre></div>
-<div id="htmlwidget-89438207ba226c6daa0c" style="width:672px;height:480px;" class="plotly html-widget"></div>
-<script type="application/json" data-for="htmlwidget-89438207ba226c6daa0c">{"x":{"visdat":{"38e039585b97":["function () ","plotlyVisDat"]},"cur_data":"38e039585b97","attrs":{"38e039585b97":{"x":{},"y":{},"z":{},"color":{},"size":[100],"colors":["#8dc5f0","#43abf9","#0092ff","#cef37b","#a6d045","#7caa16","#f8bc7d","#e0892e","#ff8200"],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter3d","mode":"markers","inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"scene":{"xaxis":{"title":"PC1"},"yaxis":{"title":"PC2"},"zaxis":{"title":"PC3"}},"hovermode":"closest","showlegend":true},"source":"A","config":{"showSendToCloud":false},"data":[{"x":[783.874743372424],"y":[-888.30161918015],"z":[1486.65491693296],"type":"scatter3d","mode":"markers","name":"II_initials_page_1","marker":{"color":"rgba(141,197,240,1)","size":[100],"sizemode":"area","line":{"color":"rgba(141,197,240,1)"}},"textfont":{"color":"rgba(141,197,240,1)","size":100},"error_y":{"color":"rgba(141,197,240,1)","width":100},"error_x":{"color":"rgba(141,197,240,1)","width":100},"line":{"color":"rgba(141,197,240,1)","width":100},"frame":null},{"x":[-4386.52562986262],"y":[-2454.26046015765],"z":[127.096631113139],"type":"scatter3d","mode":"markers","name":"II_initials_page_2","marker":{"color":"rgba(67,171,249,1)","size":[100],"sizemode":"area","line":{"color":"rgba(67,171,249,1)"}},"textfont":{"color":"rgba(67,171,249,1)","size":100},"error_y":{"color":"rgba(67,171,249,1)","width":100},"error_x":{"color":"rgba(67,171,249,1)","width":100},"line":{"color":"rgba(67,171,249,1)","width":100},"frame":null},{"x":[-3761.94701340272],"y":[-2464.75586152917],"z":[-890.905887406463],"type":"scatter3d","mode":"markers","name":"II_initials_signature_page_3","marker":{"color":"rgba(0,146,255,1)","size":[100],"sizemode":"area","line":{"color":"rgba(0,146,255,1)"}},"textfont":{"color":"rgba(0,146,255,1)","size":100},"error_y":{"color":"rgba(0,146,255,1)","width":100},"error_x":{"color":"rgba(0,146,255,1)","width":100},"line":{"color":"rgba(0,146,255,1)","width":100},"frame":null},{"x":[8027.75011170552],"y":[93.7208813025139],"z":[320.527462027468],"type":"scatter3d","mode":"markers","name":"III_initials_page_1","marker":{"color":"rgba(206,243,123,1)","size":[100],"sizemode":"area","line":{"color":"rgba(206,243,123,1)"}},"textfont":{"color":"rgba(206,243,123,1)","size":100},"error_y":{"color":"rgba(206,243,123,1)","width":100},"error_x":{"color":"rgba(206,243,123,1)","width":100},"line":{"color":"rgba(206,243,123,1)","width":100},"frame":null},{"x":[8193.55431066901],"y":[-296.824354733532],"z":[-953.934362532239],"type":"scatter3d","mode":"markers","name":"III_initials_page_2","marker":{"color":"rgba(166,208,69,1)","size":[100],"sizemode":"area","line":{"color":"rgba(166,208,69,1)"}},"textfont":{"color":"rgba(166,208,69,1)","size":100},"error_y":{"color":"rgba(166,208,69,1)","width":100},"error_x":{"color":"rgba(166,208,69,1)","width":100},"line":{"color":"rgba(166,208,69,1)","width":100},"frame":null},{"x":[-1331.44941766932],"y":[-1785.91646036301],"z":[187.164909141961],"type":"scatter3d","mode":"markers","name":"III_initials_signature_page_3","marker":{"color":"rgba(124,170,22,1)","size":[100],"sizemode":"area","line":{"color":"rgba(124,170,22,1)"}},"textfont":{"color":"rgba(124,170,22,1)","size":100},"error_y":{"color":"rgba(124,170,22,1)","width":100},"error_x":{"color":"rgba(124,170,22,1)","width":100},"line":{"color":"rgba(124,170,22,1)","width":100},"frame":null},{"x":[-2162.10419832277],"y":[3028.38822248958],"z":[541.274835000602],"type":"scatter3d","mode":"markers","name":"SF_initials_page_1","marker":{"color":"rgba(248,188,125,1)","size":[100],"sizemode":"area","line":{"color":"rgba(248,188,125,1)"}},"textfont":{"color":"rgba(248,188,125,1)","size":100},"error_y":{"color":"rgba(248,188,125,1)","width":100},"error_x":{"color":"rgba(248,188,125,1)","width":100},"line":{"color":"rgba(248,188,125,1)","width":100},"frame":null},{"x":[-1799.78552456059],"y":[1983.3659607186],"z":[-119.806798888877],"type":"scatter3d","mode":"markers","name":"SF_initials_page_2","marker":{"color":"rgba(224,137,46,1)","size":[100],"sizemode":"area","line":{"color":"rgba(224,137,46,1)"}},"textfont":{"color":"rgba(224,137,46,1)","size":100},"error_y":{"color":"rgba(224,137,46,1)","width":100},"error_x":{"color":"rgba(224,137,46,1)","width":100},"line":{"color":"rgba(224,137,46,1)","width":100},"frame":null},{"x":[-3563.36738192888],"y":[2784.58369145281],"z":[-698.071705388563],"type":"scatter3d","mode":"markers","name":"SFsignature_page_3","marker":{"color":"rgba(255,130,0,1)","size":[100],"sizemode":"area","line":{"color":"rgba(255,130,0,1)"}},"textfont":{"color":"rgba(255,130,0,1)","size":100},"error_y":{"color":"rgba(255,130,0,1)","width":100},"error_x":{"color":"rgba(255,130,0,1)","width":100},"line":{"color":"rgba(255,130,0,1)","width":100},"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-ffe3d47f7e75c168733e" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-ffe3d47f7e75c168733e">{"x":{"visdat":{"16a07e8392":["function () ","plotlyVisDat"]},"cur_data":"16a07e8392","attrs":{"16a07e8392":{"x":{},"y":{},"z":{},"color":{},"size":[100],"colors":["#8dc5f0","#43abf9","#0092ff","#cef37b","#a6d045","#7caa16","#f8bc7d","#e0892e","#ff8200"],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter3d","mode":"markers","inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"scene":{"xaxis":{"title":"PC1"},"yaxis":{"title":"PC2"},"zaxis":{"title":"PC3"}},"hovermode":"closest","showlegend":true},"source":"A","config":{"showSendToCloud":false},"data":[{"x":[783.874743372424],"y":[-888.30161918015],"z":[1486.65491693296],"type":"scatter3d","mode":"markers","name":"II_initials_page_1","marker":{"color":"rgba(141,197,240,1)","size":[100],"sizemode":"area","line":{"color":"rgba(141,197,240,1)"}},"textfont":{"color":"rgba(141,197,240,1)","size":100},"error_y":{"color":"rgba(141,197,240,1)","width":100},"error_x":{"color":"rgba(141,197,240,1)","width":100},"line":{"color":"rgba(141,197,240,1)","width":100},"frame":null},{"x":[-4386.52562986262],"y":[-2454.26046015765],"z":[127.096631113139],"type":"scatter3d","mode":"markers","name":"II_initials_page_2","marker":{"color":"rgba(67,171,249,1)","size":[100],"sizemode":"area","line":{"color":"rgba(67,171,249,1)"}},"textfont":{"color":"rgba(67,171,249,1)","size":100},"error_y":{"color":"rgba(67,171,249,1)","width":100},"error_x":{"color":"rgba(67,171,249,1)","width":100},"line":{"color":"rgba(67,171,249,1)","width":100},"frame":null},{"x":[-3761.94701340272],"y":[-2464.75586152917],"z":[-890.905887406463],"type":"scatter3d","mode":"markers","name":"II_initials_signature_page_3","marker":{"color":"rgba(0,146,255,1)","size":[100],"sizemode":"area","line":{"color":"rgba(0,146,255,1)"}},"textfont":{"color":"rgba(0,146,255,1)","size":100},"error_y":{"color":"rgba(0,146,255,1)","width":100},"error_x":{"color":"rgba(0,146,255,1)","width":100},"line":{"color":"rgba(0,146,255,1)","width":100},"frame":null},{"x":[8027.75011170552],"y":[93.7208813025139],"z":[320.527462027468],"type":"scatter3d","mode":"markers","name":"III_initials_page_1","marker":{"color":"rgba(206,243,123,1)","size":[100],"sizemode":"area","line":{"color":"rgba(206,243,123,1)"}},"textfont":{"color":"rgba(206,243,123,1)","size":100},"error_y":{"color":"rgba(206,243,123,1)","width":100},"error_x":{"color":"rgba(206,243,123,1)","width":100},"line":{"color":"rgba(206,243,123,1)","width":100},"frame":null},{"x":[8193.55431066901],"y":[-296.824354733532],"z":[-953.934362532239],"type":"scatter3d","mode":"markers","name":"III_initials_page_2","marker":{"color":"rgba(166,208,69,1)","size":[100],"sizemode":"area","line":{"color":"rgba(166,208,69,1)"}},"textfont":{"color":"rgba(166,208,69,1)","size":100},"error_y":{"color":"rgba(166,208,69,1)","width":100},"error_x":{"color":"rgba(166,208,69,1)","width":100},"line":{"color":"rgba(166,208,69,1)","width":100},"frame":null},{"x":[-1331.44941766932],"y":[-1785.91646036301],"z":[187.164909141961],"type":"scatter3d","mode":"markers","name":"III_initials_signature_page_3","marker":{"color":"rgba(124,170,22,1)","size":[100],"sizemode":"area","line":{"color":"rgba(124,170,22,1)"}},"textfont":{"color":"rgba(124,170,22,1)","size":100},"error_y":{"color":"rgba(124,170,22,1)","width":100},"error_x":{"color":"rgba(124,170,22,1)","width":100},"line":{"color":"rgba(124,170,22,1)","width":100},"frame":null},{"x":[-2162.10419832277],"y":[3028.38822248958],"z":[541.274835000602],"type":"scatter3d","mode":"markers","name":"SF_initials_page_1","marker":{"color":"rgba(248,188,125,1)","size":[100],"sizemode":"area","line":{"color":"rgba(248,188,125,1)"}},"textfont":{"color":"rgba(248,188,125,1)","size":100},"error_y":{"color":"rgba(248,188,125,1)","width":100},"error_x":{"color":"rgba(248,188,125,1)","width":100},"line":{"color":"rgba(248,188,125,1)","width":100},"frame":null},{"x":[-1799.78552456059],"y":[1983.3659607186],"z":[-119.806798888877],"type":"scatter3d","mode":"markers","name":"SF_initials_page_2","marker":{"color":"rgba(224,137,46,1)","size":[100],"sizemode":"area","line":{"color":"rgba(224,137,46,1)"}},"textfont":{"color":"rgba(224,137,46,1)","size":100},"error_y":{"color":"rgba(224,137,46,1)","width":100},"error_x":{"color":"rgba(224,137,46,1)","width":100},"line":{"color":"rgba(224,137,46,1)","width":100},"frame":null},{"x":[-3563.36738192888],"y":[2784.58369145281],"z":[-698.071705388563],"type":"scatter3d","mode":"markers","name":"SFsignature_page_3","marker":{"color":"rgba(255,130,0,1)","size":[100],"sizemode":"area","line":{"color":"rgba(255,130,0,1)"}},"textfont":{"color":"rgba(255,130,0,1)","size":100},"error_y":{"color":"rgba(255,130,0,1)","width":100},"error_x":{"color":"rgba(255,130,0,1)","width":100},"line":{"color":"rgba(255,130,0,1)","width":100},"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <div id="models" class="section level2">
@@ -1250,15 +1265,15 @@ Levels: 1 2 3 4 5 6</code></pre>
 Levels: 1 2 3 4 5 6</code></pre>
 <div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>(predicted<span class="ot">&lt;-</span> <span class="fu">predict</span>(fit, <span class="at">newdata =</span> contract[,<span class="sc">-</span><span class="dv">1</span>],<span class="at">type =</span> <span class="st">&quot;prob&quot;</span>))</span></code></pre></div>
 <pre><code>      1     2     3     4     5     6
-1 0.058 0.348 0.276 0.026 0.106 0.186
-2 0.058 0.356 0.262 0.018 0.114 0.192
-3 0.080 0.362 0.254 0.036 0.110 0.158
-4 0.064 0.366 0.262 0.020 0.116 0.172
-5 0.052 0.394 0.258 0.014 0.114 0.168
-6 0.082 0.362 0.258 0.032 0.116 0.150
-7 0.060 0.326 0.280 0.022 0.124 0.188
-8 0.048 0.372 0.264 0.024 0.130 0.162
-9 0.090 0.362 0.248 0.034 0.114 0.152</code></pre>
+1 0.086 0.364 0.292 0.018 0.096 0.144
+2 0.078 0.362 0.290 0.022 0.096 0.152
+3 0.100 0.382 0.260 0.044 0.100 0.114
+4 0.074 0.364 0.288 0.024 0.112 0.138
+5 0.080 0.400 0.270 0.022 0.108 0.120
+6 0.110 0.374 0.266 0.046 0.094 0.110
+7 0.082 0.352 0.300 0.016 0.094 0.156
+8 0.076 0.366 0.282 0.022 0.102 0.152
+9 0.114 0.384 0.250 0.054 0.092 0.106</code></pre>
 <div id="plots-2" class="section level4">
 <h4>Plots</h4>
 <div id="page-1-2" class="section level5">
@@ -1348,7 +1363,7 @@ Levels: 1 2 3 4 5 6</code></pre>
 <div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div>
 <pre><code>R version 4.0.4 (2021-02-15)
 Platform: x86_64-w64-mingw32/x64 (64-bit)
-Running under: Windows 10 x64 (build 19043)
+Running under: Windows 10 x64 (build 19044)
 
 Matrix products: default
 
