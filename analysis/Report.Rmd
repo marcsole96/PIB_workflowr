@@ -37,7 +37,7 @@ To do so a machine learning model capable of distinguishing between different ty
 The structure of the data I worked on looks as follows:
 
 ```{r echo=FALSE}
-knitr::include_graphics("../docs/assets/files_structure.png", error = FALSE)
+knitr::include_graphics("./docs/assets/files_structure.png", error = FALSE)
 ```
 
 The first column gives the values of the frequency in the spectrometry (mz) and the second one gives the intensity the mass spectrometer read at that frequency.
@@ -51,7 +51,7 @@ The above plot shows what each sample looks like coming from the mass spectromet
 The training data for the models consisted on the mass spectrometry information obtained from the following samples:
 
 ```{r echo=FALSE}
-knitr::include_graphics("../docs/assets/training_sample.png", error = FALSE)
+knitr::include_graphics("./docs/assets/training_sample.png", error = FALSE)
 ```
 
 Six different pens were used:
@@ -75,29 +75,29 @@ We have however 7 squares: The square on top of the square of number 4 was made 
 From this, many training samples were obtained. From the numbers themselves, to the full squares, to three regions inside each of the squares:
 
 ```{r echo=FALSE}
-knitr::include_graphics("../docs/assets/training_sample_files1.png", error = FALSE)
+knitr::include_graphics("./docs/assets/training_sample_files1.png", error = FALSE)
 ```
 
 ```{r echo=FALSE}
-knitr::include_graphics("../docs/assets/training_sample_files2.png", error = FALSE)
+knitr::include_graphics("./docs/assets/training_sample_files2.png", error = FALSE)
 ```
 
 The test data was the mass spectrometry information obtained from the following strikes made witch each of the six pens:
 
 ```{r echo=FALSE}
-knitr::include_graphics("../docs/assets/test_samples.png", error = FALSE)
+knitr::include_graphics("./docs/assets/test_samples.png", error = FALSE)
 ```
 
 Using this data a machine learning model could be built to, given a document wirten in one or more of the six pens, identify which one was used and on which region. Thus we could use this model to identify possible forgery on the following given signatures and initials from a contract:
 
 ```{r echo=FALSE}
-knitr::include_graphics("../docs/assets/contract.png", error = FALSE)
+knitr::include_graphics("./docs/assets/contract.png", error = FALSE)
 ```
 
 This document is from a real crime scene, and again the ink was divided into different regions and analysed by mass spectrometry, obtaining a total of nine different files
 
 ```{r echo=FALSE}
-knitr::include_graphics("../docs/assets/contract_regions.jpg", error = FALSE)
+knitr::include_graphics("./docs/assets/contract_regions.jpg", error = FALSE)
 ```
 
 The data was loaded into RStudio and into a Data Frame structure which contains vital information on the files. This step is very important because of the amount of files I am working on, and it is easy to get confused by them. Thus the most organized I can be the easier it is to work with the data.
