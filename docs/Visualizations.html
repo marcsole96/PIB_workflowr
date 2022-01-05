@@ -161,6 +161,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 
 
 
+<link rel="stylesheet" href="style.css" type="text/css" />
 
 
 
@@ -485,7 +486,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2021-12-22
+<strong>Last updated:</strong> 2022-01-05
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -576,16 +577,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtree2fe0c32e57624268a72b114ab203989fbcc54086targetblank2fe0c32a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/marcsole96/PIB_workflowr/tree/2fe0c32e57624268a72b114ab203989fbcc54086" target="_blank">2fe0c32</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtree48ffbc4405d21d9bfed4202c4a7aec10d94768a8targetblank48ffbc4a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/marcsole96/PIB_workflowr/tree/48ffbc4405d21d9bfed4202c4a7aec10d94768a8" target="_blank">48ffbc4</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtree2fe0c32e57624268a72b114ab203989fbcc54086targetblank2fe0c32a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtree48ffbc4405d21d9bfed4202c4a7aec10d94768a8targetblank48ffbc4a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/marcsole96/PIB_workflowr/tree/2fe0c32e57624268a72b114ab203989fbcc54086" target="_blank">2fe0c32</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/marcsole96/PIB_workflowr/tree/48ffbc4405d21d9bfed4202c4a7aec10d94768a8" target="_blank">48ffbc4</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -597,6 +598,7 @@ Ignored files:
     Ignored:    analysis/.Rhistory
 
 Untracked files:
+    Untracked:  analysis/references.bib
     Untracked:  data/190910,01h50_II initials signature page 3.txt
     Untracked:  data/190910,01h50_III initials signature page 3.txt
     Untracked:  data/190910,01h50_SFsignature page 3.txt
@@ -656,7 +658,12 @@ Untracked files:
     Untracked:  full_data.rds
 
 Unstaged changes:
+    Modified:   PIB_workflowr.Rproj
     Deleted:    analysis/Data Wrangling.Rmd
+    Modified:   analysis/Models.Rmd
+    Modified:   analysis/Report.Rmd
+    Modified:   analysis/Whole_data_visualizations.Rmd
+    Modified:   analysis/Wrangling_2_electric_boogaloo.Rmd
     Modified:   data/wrangling.RData
 
 </code></pre>
@@ -696,6 +703,23 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/marcsole96/PIB_workflowr/ed3ca9cbadda43bc933d4ad286b98f9d8142f7af/docs/Visualizations.html" target="_blank">ed3ca9c</a>
+</td>
+<td>
+marcsole96
+</td>
+<td>
+2021-12-22
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -1111,8 +1135,8 @@ Attaching package: &#39;plotly&#39;</code></pre>
 <span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">zaxis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">&#39;PC3&#39;</span>)))</span>
 <span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>fig</span></code></pre></div>
-<div id="htmlwidget-ffe3d47f7e75c168733e" style="width:672px;height:480px;" class="plotly html-widget"></div>
-<script type="application/json" data-for="htmlwidget-ffe3d47f7e75c168733e">{"x":{"visdat":{"44dc47d76f67":["function () ","plotlyVisDat"]},"cur_data":"44dc47d76f67","attrs":{"44dc47d76f67":{"x":{},"y":{},"z":{},"color":{},"size":[100],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter3d","mode":"markers","inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"scene":{"xaxis":{"title":"PC1"},"yaxis":{"title":"PC2"},"zaxis":{"title":"PC3"}},"hovermode":"closest","showlegend":true},"source":"A","config":{"showSendToCloud":false},"data":[{"x":[-8919.32253664635,-5823.56506314954,-14484.0302209313,-7785.34724229473,-3761.8749363102],"y":[-6563.89237255256,-6117.65048995813,-7179.92588257089,-6110.74947945744,-7066.940316156],"z":[-432.822143618251,-1672.77716606794,1658.00446865878,-785.392579671216,-2147.04416051145],"type":"scatter3d","mode":"markers","name":"1","marker":{"color":"rgba(102,194,165,1)","size":[100,100,100,100,100],"sizemode":"area","line":{"color":"rgba(102,194,165,1)"}},"textfont":{"color":"rgba(102,194,165,1)","size":100},"error_y":{"color":"rgba(102,194,165,1)","width":100},"error_x":{"color":"rgba(102,194,165,1)","width":100},"line":{"color":"rgba(102,194,165,1)","width":100},"frame":null},{"x":[22253.2771923378,22181.080325745,22781.0720484817,22304.7746049501,24034.8616386438,22648.6683681101],"y":[217.972044991547,187.674291748539,402.574125100939,235.735660804978,809.76828404149,335.843004698015],"z":[-2548.64121505029,-2898.9478355331,-1099.61400946859,-2128.68450032695,2807.38467287989,-1229.24610612653],"type":"scatter3d","mode":"markers","name":"2","marker":{"color":"rgba(252,141,98,1)","size":[100,100,100,100,100,100],"sizemode":"area","line":{"color":"rgba(252,141,98,1)"}},"textfont":{"color":"rgba(252,141,98,1)","size":100},"error_y":{"color":"rgba(252,141,98,1)","width":100},"error_x":{"color":"rgba(252,141,98,1)","width":100},"line":{"color":"rgba(252,141,98,1)","width":100},"frame":null},{"x":[-18276.6255697422,-20928.6643859091,-22928.8396282594,-15865.3410181953,-8896.7700620521],"y":[5063.09265486776,5730.53127458892,5794.43704151448,4621.12910802707,3998.00675167251],"z":[2042.19380172501,2750.83124750216,3596.33951527722,1404.07176219767,-1025.32852385258],"type":"scatter3d","mode":"markers","name":"3","marker":{"color":"rgba(141,160,203,1)","size":[100,100,100,100,100],"sizemode":"area","line":{"color":"rgba(141,160,203,1)"}},"textfont":{"color":"rgba(141,160,203,1)","size":100},"error_y":{"color":"rgba(141,160,203,1)","width":100},"error_x":{"color":"rgba(141,160,203,1)","width":100},"line":{"color":"rgba(141,160,203,1)","width":100},"frame":null},{"x":[-3126.29294441541,-13625.7702270634,-4166.30364411808,-9900.92371164756,-3462.7989139772,-14749.3104536299,-17222.6830543926,-8551.38497965781,-1254.9325098296],"y":[3338.10303279331,5143.2820499071,3455.75326672909,4708.98364737526,3259.82289822956,5440.02389631216,5815.25352418022,3859.44554875298,2854.47640154749],"z":[-3730.76230986741,-270.529350092753,-3476.71652436325,-1604.33471110727,-3514.84859224447,-36.9903463118572,814.480908868284,-1619.14185640198,-4170.86796692292],"type":"scatter3d","mode":"markers","name":"4","marker":{"color":"rgba(231,138,195,1)","size":[100,100,100,100,100,100,100,100,100],"sizemode":"area","line":{"color":"rgba(231,138,195,1)"}},"textfont":{"color":"rgba(231,138,195,1)","size":100},"error_y":{"color":"rgba(231,138,195,1)","width":100},"error_x":{"color":"rgba(231,138,195,1)","width":100},"line":{"color":"rgba(231,138,195,1)","width":100},"frame":null},{"x":[23998.0794251913,23760.131059987,24913.9526048741,24109.0729127879,24034.8616386438],"y":[801.797087761011,718.081256056792,1115.26465241301,840.618289545735,809.76828404149],"z":[2783.13020984672,2188.98770384933,5325.71122524968,3016.53154989479,2807.38467287989],"type":"scatter3d","mode":"markers","name":"5","marker":{"color":"rgba(166,216,84,1)","size":[100,100,100,100,100],"sizemode":"area","line":{"color":"rgba(166,216,84,1)"}},"textfont":{"color":"rgba(166,216,84,1)","size":100},"error_y":{"color":"rgba(166,216,84,1)","width":100},"error_x":{"color":"rgba(166,216,84,1)","width":100},"line":{"color":"rgba(166,216,84,1)","width":100},"frame":null},{"x":[-12920.2000828625,-11384.742830605,-17140.3704352797,-13913.20296442,2069.46559563602],"y":[-7449.12192771013,-7472.13960924104,-6905.93009491428,-8013.74467655408,-6677.34322858694],"z":[1454.78788002999,863.904504423645,3008.80794775735,1871.96797643385,-4001.83014993547],"type":"scatter3d","mode":"markers","name":"6","marker":{"color":"rgba(255,217,47,1)","size":[100,100,100,100,100],"sizemode":"area","line":{"color":"rgba(255,217,47,1)"}},"textfont":{"color":"rgba(255,217,47,1)","size":100},"error_y":{"color":"rgba(255,217,47,1)","width":100},"error_x":{"color":"rgba(255,217,47,1)","width":100},"line":{"color":"rgba(255,217,47,1)","width":100},"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-bce67e8725df9c79f008" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-bce67e8725df9c79f008">{"x":{"visdat":{"25842a12758f":["function () ","plotlyVisDat"]},"cur_data":"25842a12758f","attrs":{"25842a12758f":{"x":{},"y":{},"z":{},"color":{},"size":[100],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter3d","mode":"markers","inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"scene":{"xaxis":{"title":"PC1"},"yaxis":{"title":"PC2"},"zaxis":{"title":"PC3"}},"hovermode":"closest","showlegend":true},"source":"A","config":{"showSendToCloud":false},"data":[{"x":[-11.6902986274139,-10.0162798230327,-14.3058638215421,-10.8930717796689,-9.67197174991093],"y":[-7.95165451956156,-8.23160703631262,-8.06154950558413,-7.56253815188807,-7.6979793182184],"z":[-5.1832185819016,-6.89849080778153,-2.93012315897529,-4.9968750081647,-8.35299997570841],"type":"scatter3d","mode":"markers","name":"1","marker":{"color":"rgba(102,194,165,1)","size":[100,100,100,100,100],"sizemode":"area","line":{"color":"rgba(102,194,165,1)"}},"textfont":{"color":"rgba(102,194,165,1)","size":100},"error_y":{"color":"rgba(102,194,165,1)","width":100},"error_x":{"color":"rgba(102,194,165,1)","width":100},"line":{"color":"rgba(102,194,165,1)","width":100},"frame":null},{"x":[29.6345247287412,29.4311546687702,30.1886813465315,29.9956719351479,29.7680693101036,30.3208555813102],"y":[-2.96725044169681,-2.94900591417995,-3.2396454902677,-2.70367164120223,1.9320460158276,-2.83694346206782],"z":[-6.51288487348934,-9.30495359096958,-2.48320503464968,-1.21485275702294,6.82588251921731,-11.1098656851139],"type":"scatter3d","mode":"markers","name":"2","marker":{"color":"rgba(252,141,98,1)","size":[100,100,100,100,100,100],"sizemode":"area","line":{"color":"rgba(252,141,98,1)"}},"textfont":{"color":"rgba(252,141,98,1)","size":100},"error_y":{"color":"rgba(252,141,98,1)","width":100},"error_x":{"color":"rgba(252,141,98,1)","width":100},"line":{"color":"rgba(252,141,98,1)","width":100},"frame":null},{"x":[-18.8964388823859,-19.2314679376803,-21.2011629254831,-18.8207193974307,-13.0439759216998],"y":[8.36922731421286,8.75013620211193,8.54997522137558,7.99327590127055,7.49162121201717],"z":[7.21484979695047,5.093842589254,9.75741822880347,13.3065811212312,0.295398280455468],"type":"scatter3d","mode":"markers","name":"3","marker":{"color":"rgba(141,160,203,1)","size":[100,100,100,100,100],"sizemode":"area","line":{"color":"rgba(141,160,203,1)"}},"textfont":{"color":"rgba(141,160,203,1)","size":100},"error_y":{"color":"rgba(141,160,203,1)","width":100},"error_x":{"color":"rgba(141,160,203,1)","width":100},"line":{"color":"rgba(141,160,203,1)","width":100},"frame":null},{"x":[-8.1195250263565,-14.5398451283682,-8.43114349748248,-12.090960988328,-8.68250940774451,-14.5837424363538,-16.2937425622143,-13.0058641731772,-7.61938579748053],"y":[5.69542291295348,7.10139697614091,5.92767780382151,6.7354290428893,5.76803427119943,6.94220507748493,7.4733954700366,6.5737150563513,5.40442484325755],"z":[-8.64983081929154,-3.54416923710017,-9.23410144577403,-6.30072700441356,-7.11984069524929,-3.71806981191928,-2.55290034488166,-2.27383040768877,-9.82096160016518],"type":"scatter3d","mode":"markers","name":"4","marker":{"color":"rgba(231,138,195,1)","size":[100,100,100,100,100,100,100,100,100],"sizemode":"area","line":{"color":"rgba(231,138,195,1)"}},"textfont":{"color":"rgba(231,138,195,1)","size":100},"error_y":{"color":"rgba(231,138,195,1)","width":100},"error_x":{"color":"rgba(231,138,195,1)","width":100},"line":{"color":"rgba(231,138,195,1)","width":100},"frame":null},{"x":[29.7182624490603,29.6013197777514,30.2699021036777,29.7421025746197,29.7680693101036],"y":[2.9985942877255,3.1616607816449,3.10031358825765,3.06063608378956,1.9320460158276],"z":[6.64686397798511,6.38994633197929,9.30727955799388,7.65937401679153,6.82588251921731],"type":"scatter3d","mode":"markers","name":"5","marker":{"color":"rgba(166,216,84,1)","size":[100,100,100,100,100],"sizemode":"area","line":{"color":"rgba(166,216,84,1)"}},"textfont":{"color":"rgba(166,216,84,1)","size":100},"error_y":{"color":"rgba(166,216,84,1)","width":100},"error_x":{"color":"rgba(166,216,84,1)","width":100},"line":{"color":"rgba(166,216,84,1)","width":100},"frame":null},{"x":[-16.6385986313084,-15.6722120662549,-18.2360532445143,-17.7624270864343,-8.99135287355196],"y":[-12.0856061497545,-11.9644528120175,-12.5918194875852,-12.6479206473533,-11.4695895005062],"z":[6.16575198206836,5.75070075080978,9.50507334088492,7.71020605289437,3.74684977372407],"type":"scatter3d","mode":"markers","name":"6","marker":{"color":"rgba(255,217,47,1)","size":[100,100,100,100,100],"sizemode":"area","line":{"color":"rgba(255,217,47,1)"}},"textfont":{"color":"rgba(255,217,47,1)","size":100},"error_y":{"color":"rgba(255,217,47,1)","width":100},"error_x":{"color":"rgba(255,217,47,1)","width":100},"line":{"color":"rgba(255,217,47,1)","width":100},"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <div id="tsne" class="section level1">
