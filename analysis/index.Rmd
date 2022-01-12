@@ -8,7 +8,7 @@ editor_options:
   chunk_output_type: console
 ---
 
-#Find the fake signature - forensic spectrometry
+# Find the fake signature - forensic spectrometry
 
 Hi, Marc here. Welcome to my research website! On this website you will see the results and data analysis for the *Project in Bioinformatics: Spot the fake signature*
 
