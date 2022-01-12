@@ -17,35 +17,25 @@ getwd()
 
 This file is intended to serve as the final report for the project. In here the most important aspects will be written down, with references to the other .rmd files when needed. In other words, this is a summarized version of what has been done.
 
-**The student should be able to explain the methods used for the analysis of the data.**
-
-**The student should be able to discuss the results of the analysis.**
-
-**More specifically the student should be able to analyse the data provided in order to:**
-
-**On the squares dataset: determine the pens used for each strike and the "1-6" writing.**
-
-**On the contract dataset: identify if there is contract manipulation, on which page and which pen was used, identify the ions that indicate manipulation, and identify which of the 5 pens used in the squares were used for the initials and signatures of the documents.**
-
 # Introduction
-
-**The student should be able to explain the theoretical background of the project**
 
 The fusion of criminology and machine learning is a fascinating field. Using machine learning models that can identify and discriminate between samples can be really useful in criminal cases where the "by hand" approach is tedious and prone to failure. The principal objective of this project is to use several machine learning techniques in order to identify possible forgery on a contract from a real crime scene.
 
-To do so a machine learning model capable of distinguishing between different types of pens given an input mass spectrometry score of ink features was developed. Other analysis on the data were done as well and it was concluded that our model is efficient when it comes to identifying pens similar to the given test/train data and that the contract of interest was written in other pens. Because of that, unsupervised approaches were used to identify the possible forgery.
+The contract consists of three pages with initials and signatures. It is believed that one or more of these initials and signatures may be a forgery. A manual approach analyzing and comparing the compounds from the contract inks can be a very laborious approach. A more automatic method can be developed using ML techniques.
+
+With this in mind, a machine learning model capable of distinguishing between different types of pens given an input mass spectrometry score of ink features was developed. Other analysis on the data were done as well and it was concluded that our model is efficient when it comes to identifying pens similar to the given test/train data and that the contract of interest was possibly written in other pens. Because of that, unsupervised approaches were used to identify the possible forgery.
 
 # Methodology
 
-## Basic Idea
+## Data structure
 
-Data from the ink of several pens was provided as the result of mass spectrometry analysis on the ink samples.
+Data from the ink of several pens (from the contract, from a train sample, and from a test sample) was provided as the result of mass spectrometry analysis on the ink samples.
 
 Mass spectrometry is an analytic technique by which chemical substances are identified by the sorting of gaseous ions in electric and magnetic fields according to their mass-to-charge ratios. @encyclopædiabritannica2021a
 
 The structure of the data I worked on is the output from such spectrometry and it looks as follows:
 
-```{r echo=FALSE, out.width = "50%"}
+```{r echo=FALSE, out.width = "50%", fig.cap = "Files structure"}
 knitr::include_graphics("./assets/files_structure.PNG", error = FALSE)
 ```
 
@@ -59,7 +49,7 @@ The above plot shows what each sample looks like coming from the mass spectromet
 
 ## Data description
 
-The training data for the models consisted on the mass spectrometry information obtained from the following samples:
+The training data for the models consisted of the mass spectrometry information obtained from the following samples:
 
 ```{r echo=FALSE, out.width = "20%"}
 knitr::include_graphics("./assets/training_sample.PNG", error = FALSE)
@@ -79,11 +69,11 @@ In this sample six different pens were used:
 
 6.  Black ballpoint pen ink/ brand: Pentel BK77 Superb
 
-In order to simplify the analysis pens were labeled as simply "Pen 1, Pen 2, etc".
+In order to simplify the analysis pens were labeled as simply "Pen 1, Pen 2, ..., Pen 6".
 
-We have 6 pens but we have 7 squares: The square on top of the square of number 4 was made with the same pen.
+It can be observed that we have 6 pens but we have 7 squares: The square on top of the square of number 4 was made with the same pen.
 
-From this data, many training samples were obtained, from the numbers themselves, to the full squares, to three regions inside each of the squares:
+From this data, many training samples were obtained: From the numbers themselves, to the full squares, to three regions inside each of the squares:
 
 ```{r echo=FALSE, out.width = "50%"}
 knitr::include_graphics("./assets/training_sample_files1.PNG", error = FALSE)
@@ -107,7 +97,7 @@ I could then use this model to identify possible forgery on the following signat
 knitr::include_graphics("./assets/contract.PNG", error = FALSE)
 ```
 
-This document is from a real crime scene, and again the ink was divided into different regions and analysed by mass spectrometry, obtaining a total of nine different files:
+This document is from a real crime scene, and again the ink was divided into different regions and analyzed by mass spectrometry, obtaining a total of nine different files:
 
 ```{r echo=FALSE, out.width = "40%"}
 knitr::include_graphics("./assets/contract_regions.jpg", error = FALSE)
@@ -125,7 +115,7 @@ From this data I started working on a ML model that given the training data coul
 
 ## Data analysis
 
-One of the most important steps in ML is taking a look at the data to see how it looks. Without it I would be working blind and I would get results for sure, but I would not know if the results are reliable or not. A little data visualization was done before building the models, but it wasn't until seeing that the resulting predictions of those models on the contract pens made little sense that made me take a closer look at the data.
+One of the most important steps in ML is taking a look at the data to see how it looks. Without it I would be working blind and I would get results for sure, but I would not know if the results are reliable or not. A little data visualization was done before building the models, but it was not until seeing that the resulting predictions of those models on the contract pens made little sense that made me take a closer look at the data.
 
 Taking the full dataframe with all the data I made a scatterplot to see the distribution of the intensity through the m/z and I also used a facet_wrap to separate between contract, test, and training data. I also colored by pen the last two groups. 4th root transformation (x to x(1/4)) was used to make visualizations easier, this transformation compresses the higher values so that lower values become more spread out.
 
@@ -143,7 +133,7 @@ The full markdown with the visualizations code can be found [here](Whole_data_vi
 
 ## Models
 
-For the model building I used the Caret package (**C**lassification **A**nd **RE**gression **T**raining). This is a very useful package when building predictive models because it streamlines the process for model training for complex regression and classification problems @Caret. It allowed me to test many different models and tune them easily without writting big lines of code. More information on this package can be found [here](https://topepo.github.io/caret/).
+For the model building I used the Caret package (**C**lassification **A**nd **RE**gression **T**raining). This is a very useful package when building predictive models because it streamlines the process for model training for complex regression and classification problems @Caret. It allowed me to test many different models and tune them easily without writing big lines of code. More information on this package can be found [here](https://topepo.github.io/caret/).
 
 Due to the small amount of samples in the input data I used leave-one-out cross validation (LOOCV), where a single observation is used for the validation set and the remaining are used for the training set.
 
@@ -157,7 +147,7 @@ Ridge regression searches for the coefficient that minimizes the error, and it c
 knitr::include_graphics("./assets/ridge_formula.PNG", error = FALSE)
 ```
 
-Lasso unlike ridge can remove the predictors that are least significant for the model:
+Lasso unlike Ridge can remove the predictors that are least significant for the model:
 
 ```{r echo=FALSE, out.width = "20%"}
 knitr::include_graphics("./assets/lasso_formula.PNG", error = FALSE)
@@ -167,19 +157,19 @@ knitr::include_graphics("./assets/lasso_formula.PNG", error = FALSE)
 
 The fact we have λ means it will produce a different set of coefficient estimates for each value of this λ. Caret automatically finds the best parameters for λ thanks to its automatic cross validation.
 
-GLMNET can also take a parameter alpha which can range from 0 to 1 and determines which model is used: 0 for ridge and 1 for lasso. Any number in between will give an elastic net regularization which will combine ridge and lasso.
+GLMNET can also take a parameter alpha which can range from 0 to 1 and determines which model is used: 0 for Ridge and 1 for Lasso. Any number in between will give an elastic net regularization which will combine Ridge and Lasso.
 
 So, the idea behind this is that maybe all compounds of the ink, meaning all m/z have an importance for the prediction, or maybe not and they are just adding noise. This is why it was important to try the two different approaches.
 
-I also tried Random Forests, a very common classification algorithm which makes use of decision trees. A number of these decision trees are built on boostrapped training samples and at each split of these trees only some predictors are chosen as split candidates from the full set of predictors, and the split is allowed to use only one of those predictors. Random forests have a high performance and accuracy and can determine which features are the most important automatically.
+I also tried Random Forests, a very common classification algorithm which makes use of decision trees. A number of these decision trees are built on bootstrapped training samples and at each split of these trees only some predictors are chosen as split candidates from the full set of predictors, and the split is allowed to use only one of those predictors. Random forests have a high performance and accuracy and can determine which features are the most important automatically.
 
-I built two models using GLMNET: a simple model using mostly all the default parameters from caret, and one using a strict alpha of 1 meaning caret would produce a lasso model instead of a ridge or elastic net like the first one, and with a range of λ from 0 to 1 in steps of 0.001. I also used 5 LOOCV and tunelength of 5 in the simple model. The tunelength in caret indicates the number of different values to try for each tuning parameter, in the case of GLMNET is alpha and λ.
+I built two models using GLMNET: a simple model using mostly all the default parameters from caret, and one using a strict alpha of 1 meaning caret would produce a Lasso model instead of a Ridge or elastic net like the first one, and with a range of λ from 0 to 1 in steps of 0.001. I also used 5 LOOCV and tunelength of 5 in the simple model. The tunelength in caret indicates the number of different values to try for each tuning parameter, in the case of GLMNET is alpha and λ.
 
 For the random forests I used the randomForest package in Caret and leaving all the default parameters and with a tunelength of 10. In this case the tunelength modifies the mtry parameter which decides how many predictors to choose for each new branch split.
 
 ## Parameters
 
-All models were given the 34 samples from the training data, 4501 predictors in the form of the m/z intensities, and 6 classes corresponding to the 6 different pens. For the GLMNET using the default settings, CARET chose an alpha of 0.1 and a lambda of 0.3877651 which gave an accuracy of 0.2647059. For the custom GLMNET an alpha of 1 was used as stated in order to get a full lasso model, and CARET chose a lambda of 0.193. This model gave the same accuracy of 0.2647059.
+All models were given the 34 samples from the training data, 4501 predictors in the form of the m/z intensities, and 6 classes corresponding to the 6 different pens. For the GLMNET using the default settings, CARET chose an alpha of 0.1 and a lambda of 0.3877651 which gave an accuracy of 0.2647059. For the custom GLMNET an alpha of 1 was used as stated in order to get a full Lasso model, and CARET chose a lambda of 0.193. This model gave the same accuracy of 0.2647059.
 
 For the Random Forests an mtry of 2 was selected by CARET as the optimum, with an accuracy of 1.
 
@@ -197,21 +187,49 @@ Furthermore, the coefficient of variation (CV = Standard Deviation / Mean) was u
 
 From these selected most important m/zs several heatmaps were built using pheatmap. @pheatmap
 
+## Packages
+
+The packages used for the project were:
+
+-   tidyverse @tidyverse
+
+-   tibble @tibble
+
+-   tidyr @tidyr
+
+-   dplyr @dplyr
+
+-   ggplot2 @ggplot2
+
+-   ggfortify @ggfortify1 @ggfortify2
+
+-   reshape2 @reshape2
+
+-   ggpubr @ggpubr
+
+-   gghighlight @gghighlight
+
+-   plotly @plotly
+
+-   corrplot @corrplot2021
+
 # Results
 
 ## Results of the models on the test data
 
-Using the test data coming from the strikes Both GLMNET models correctly predict which pen was used on which strike. The Lasso model however struggles with Strike 2 and Strike 3. This can indicate that all predictors are somewhat important to generate the predictions, so removing some by setting their weights to zero, which is what Lasso does, can be detrimental.
-
-It is important to note however, that not all the predictions are indisputable. Strike 4, 5 and 6 seem to be the ones best resolved by my GLMNET models. Predictions for Strikes 1, 2 and 3 show a lower probability but they are correct nonetheless. In any case, this is not a bad thing, because thanks to the probabilities I can tell if a sample is more likely to be one pen or another.
+Using the test data coming from the strikes Both GLMNET models correctly predict as a whole which pen was used on which strike. By how much though, is something that needs further analysis. The following plots show the resulting predictions from the models and they show the probabilities predicted by the model for the pens for each sample.
 
 ```{r echo=FALSE, out.width = "80%"}
 knitr::include_graphics("./assets/glmnet_default.jpg", error = FALSE)
 ```
 
+The Lasso model however struggles with Strike 2 and Strike 3. This can indicate that all predictors are somewhat important to generate the predictions, so removing some by setting their weights to zero, which is what Lasso does, can be detrimental.
+
 ```{r echo=FALSE, out.width = "80%"}
 knitr::include_graphics("./assets/glmnet_lasso.jpg", error = FALSE)
 ```
+
+It is important to note however, that not all the predictions are indisputable. Strike 4, 5 and 6 seem to be the ones best resolved by my GLMNET models. Predictions for Strikes 1, 2 and 3 show a lower probability but they are correct nonetheless. In any case, this is not a bad thing, because thanks to the probabilities I can tell if a sample is more likely to be one pen or another.
 
 When it comes to Random Forests the results are not as good. I can observe that Strike 4, 5 and 6 are again the ones which the model has been able to resolve the best. The other strikes have lower probabilities for the correct pen, and Strike 3 is incorrectly labeled as pen 4.
 
@@ -250,7 +268,9 @@ Again, the results are yet different to the other models.
 Given the predictions obtained from my models when predicting on the contract data, unsupervised approaches were used on the data, the code can be found in the [visualizations markdown](Whole_data_visualizations.html).
 
 ### PCA
+
 Firstly a PCA was perfromed on the whole data after 4th-square-root-transforming it:
+
 ```{r include=FALSE}
 #Code for the 3d PCA
 #setwd("../PIB_workflowr/data")
@@ -301,6 +321,7 @@ df$intensity<-df$intensity^(1/4)
 pca_df<-spread(df,mz,intensity)
 pr.out <- prcomp(pca_df[,6:(ncol(pca_df)-1)], scale. = TRUE)
 ```
+
 ```{r, fig.align='center',echo=FALSE}
 dat_3d <- pr.out$x[,1:3] %>% as_tibble() %>% mutate(group = pca_df$group, pen=pca_df$pen)
 
@@ -312,16 +333,20 @@ fig <- fig %>% layout(scene = list(xaxis = list(title = 'PC1'),
                                    zaxis = list(title = 'PC3')))
 fig
 ```
-Taking a look at the 3 first principal components it is easy to deduce why our models gave the predictions we saw. The training and test data cluster together as it would be expected, the contract however, sits far away from them, meaning they are quite different. In other words, our models were trained with the wrong training data for the problem at hand. 
+
+Taking a look at the 3 first principal components it is easy to deduce why our models gave the predictions we saw. The training and test data cluster together as it would be expected, the contract however, sits far away from them, meaning they are quite different. In other words, our models were trained with the wrong training data for the problem at hand.
 
 ### Coefficient of Variation Heatmap
-With the information obtained by doing a PCA, a heatmap was created to see the relation of the ink samples by taking the features with the highest coefficient of variation. 
+
+With the information obtained by doing a PCA, a heatmap was created to see the relation of the ink samples by taking the features with the highest coefficient of variation.
 
 First a histogram showing the distribution of the intensities from the whole dataset was built:
+
 ```{r echo=FALSE, out.width = "50%"}
 knitr::include_graphics("./assets/data_distribution.png", error = FALSE)
 ```
-Many features with low intensities can be observed, but this does not mean they are not important. By measuring the coefficient of variation some of those features can be identified as having high variation between pen samples and thus can be crucial in order to discriminate between different types of ink. 
+
+Many features with low intensities can be observed, but this does not mean they are not important. By measuring the coefficient of variation some of those features can be identified as having high variation between pen samples and thus can be crucial in order to discriminate between different types of ink.
 
 With the coefficient of variation measured I selected the top 100, 50 and 25 features and I made heatmaps.
 
@@ -329,8 +354,8 @@ With the coefficient of variation measured I selected the top 100, 50 and 25 fea
 knitr::include_graphics("./assets/cv_data_distribution.png", error = FALSE)
 knitr::include_graphics("./assets/cv_data_distribution_select.png", error = FALSE)
 ```
-The above figure shows on the left the distribution of the coefficient of variation across the whole data, and on the right the coefficient of variation of the top 100 features. 
 
+The above figure shows on the left the distribution of the coefficient of variation across the whole data, and on the right the coefficient of variation of the top 100 features.
 
 The pheatmaps obtained:
 
@@ -341,14 +366,33 @@ knitr::include_graphics("./assets/top25.png", error = FALSE)
 ```
 
 A deeper look into the heatmap we can see where the samples share similarities:
+
 ```{r echo=FALSE,out.width="80%"}
 knitr::include_graphics("./assets/top50_analysis.jpg", error = FALSE)
 ```
 
-Heatmap results show which possible inks are the ones that are odd in the contract sample. Relation of the inks in the test and train can also be observed.
+For a start all samples coming from the same pen match together as expected. It can also be seen which features are shared together between the samples.
+
+When it comes to the contract they all cluster together as well, the same as we saw on the PCA. There are two samples however that that seem to be a bit different from the rest. III_initials_page1 and III_initials_page2 are clustered together, presumably made with the same pen. They are clustered apart from the rest of samples from the contract, and they also show some features not present on the other samples. If we look at III_initials_page3 it classifies instead with the initials and signatures coming from the other pages. Now the question stands, is III_initials_page3 falsified using the other pens? Or are III_initials_page1 and III_initials_page2 the ones falsified with another pen? Further examination is required.
 
 # Discussion
 
-Possible explanations for the results are that the compounds from the ink in the contract were older than the samples provided to build the model. Or maybe they were completely different pens.
+With the results obtained from the whole project some facts are undeniable:
+
+-   Using machine learning for this types of problems is totally doable, but good training samples reflecting the problem samples are needed in order to build good models that will be able to resolve the problem with good predictions.
+
+-   From our data it is clear that the training and test samples provided do not match with the contract, thus building a ML model using the data obtained was a lost cause from the start.
+
+-   Unsupervised approaches can be used if problems arise with the models, and can also provide important information when it comes to decide if there has been forgery or not.
+
+-   From these unsupervised approaches some anomalies with the contract can be observed, and evidence that the ML models do work correctly, just not on the contract data.
+
+Possible explanations for why the contract samples are so different can also be discussed:
+
+-   One possibility is that older ink samples have degradation or manufacturing changes and thus the features change compared to brand new ink coming from modern pens that were used for the training and test data provided to build the model.
+
+-   Another possibility is that in reality the contract pens had nothing to do with the train and test data provided.
+
+The machine learning models built show promise so further examination of the contract data should be done, and the experiment could be repeated with more training and test samples consisting of more pens.
 
 # References

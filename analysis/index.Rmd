@@ -10,9 +10,9 @@ editor_options:
 
 Hi, Marc here. Welcome to my research website! On this website you will see the results and data analysis for the *Project in Bioinformatics: Spot the fake signature*
 
-If you want to read the report click on this [link](Report.html)
+**If you want to read the report click on [this link](Report.html)**
 
-Several other markdown pages are available which show the code of different steps of the analysis:
+Several other markdown pages are available which show the code written for the different steps of the analysis:
 
 The procedure used for data loading and wrangling can be found [here](Wrangling_2_electric_boogaloo.html)
 
