@@ -29,4 +29,3 @@ output:
     toc_float: yes
     theme: paper
     highlight: tango
-    css: style.css

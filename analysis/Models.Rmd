@@ -19,7 +19,7 @@ library(Rtsne)
 library(reshape2)
 library(ggpubr)
 library(caret)
-theme_set(theme_minimal())
+theme_set(theme_minimal(base_family = "Calibri"))
 ```
 
 # Opening the data workspace
@@ -27,52 +27,7 @@ theme_set(theme_minimal())
 load("wrangling.RData")
 ```
 
-# PCA based models
-## Model from PCA training Data:
-I used this as a guide: https://rstudio-pubs-static.s3.amazonaws.com/285614_7921f4f9f340428f8f5ed8dc3c7f7943.html
-```{r echo=TRUE, message=FALSE, warning=FALSE}
-library(caret)
-library(e1071)
-pca = preProcess(x = training_DF[,c(-1,-4502)], method = "pca", pcaComp = 35)
-training_set <- predict(pca, training_DF[-4502])
-# put customer segment in to the last postion or column
-#training_set <- simple_train_DF[c(2,3,1)]
-
-
-test_set <- predict(pca, test_data[-1])
-#test_set <- test[c(2,3,1)]
-
-trControl <- trainControl(method = "repeatedcv", 
-                          number = 10, 
-                         repeats = 3, 
-                     verboseIter = ifelse(is.null(getOption('knitr.in.progress')), FALSE, FALSE) # This crazy line is to show progress when you run the code but hide it when knitting.
-    )
-
-training_x <- training_set %>% select(-labels) %>% as.data.frame()
-training_y <- training_set$labels
-
-car_ranger <- train(x = training_x, 
-             y = training_y, 
-        method = "glmnet",
-     trControl = trControl
-    )
-
-print(car_ranger)
-predicted<- predict(car_ranger, newdata = test_set[,-1])
-
-predicted
-```
-
-
-```{r warning=FALSE}
-#Cleanup
-rm(car_ranger,dat_3d,data,fig,lowd_map,pca,pca_res,pr.out, t_training_data1, t_training_data2, t_training_data3, test, test_pca, test_set, training_data1, training_data2, training_data3,training_set, training_x,trControl,tsne, avector, labels, names, predicted, training_y,var_explained)
-```
-
-
-
 # CARET models
-
 ## Caret model GLMNET
 ```{r message=FALSE, warning=FALSE}
 training_x <- training_DF %>% select(-labels) %>% as.data.frame()
@@ -89,18 +44,18 @@ fit <- train(x = training_x,
 
 #print(fit)
 
-importance <- varImp(fit,scale=FALSE)
+# importance <- varImp(fit,scale=FALSE)
+# 
+# importance_DF<-importance$importance
+# plot(importance,top=10)
+# 
+# importance_DF<-melt(importance_DF)
+# 
+# 
+# ggplot(importance_DF)+geom_point(aes(x=value,y=variable, color=variable))
 
-importance_DF<-importance$importance
-plot(importance,top=10)
-
-importance_DF<-melt(importance_DF)
-
-
-ggplot(importance_DF)+geom_point(aes(x=value,y=variable, color=variable))
-
-ggplot(fit)
 (predicted<- predict(fit, newdata = test_data[,-1],type = "prob"))
+(predict(fit, newdata = test_data[,-1]))
 ```
 
 ### Plots
@@ -112,32 +67,54 @@ toplot<-toplot %>% mutate(pens=row.names(toplot))
 
 strike1<-toplot %>% select(strike1,pens) %>% ggplot(aes(x=pens, y=strike1, fill=pens)) +
   geom_bar(stat="identity",position=position_stack())+
-  scale_fill_brewer(palette="Accent")
+  geom_text(aes(pens,strike1, label=round(strike1,3)), position = position_stack(vjust = 0.5))+
+  scale_fill_brewer(palette="Accent")+
+  ggtitle("Strike 1 GLMNET predictions")+
+  theme(axis.title=element_text(size=12),axis.text=element_text(size=10),plot.title = element_text(hjust = 0.5, size=10, face = "bold"), strip.text.x = element_text(size = 10))+ 
+  labs(y="Probability", x = "Pens") + scale_color_discrete(name = "Pens")
 
 strike2<-toplot %>% select(strike2,pens) %>% ggplot(aes(x=pens, y=strike2, fill=pens)) +
   geom_bar(stat="identity",position=position_stack())+
-  scale_fill_brewer(palette="Accent")
+  geom_text(aes(pens,strike2, label=round(strike2,3)), position = position_stack(vjust = 0.5))+
+  scale_fill_brewer(palette="Accent")+ ggtitle("Strike 2 GLMNET predictions")+
+  theme(axis.title=element_text(size=12),axis.text=element_text(size=10),plot.title = element_text(hjust = 0.5, size=10, face = "bold"), strip.text.x = element_text(size = 10))+ 
+  labs(y="Probability", x = "Pens") + scale_color_discrete(name = "Pens")
 
 strike3<-toplot %>% select(strike3,pens) %>% ggplot(aes(x=pens, y=strike3, fill=pens)) +
   geom_bar(stat="identity",position=position_stack())+
-  scale_fill_brewer(palette="Accent")
+  geom_text(aes(pens,strike3, label=round(strike3,3)), position = position_stack(vjust = 0.5))+
+  scale_fill_brewer(palette="Accent")+ ggtitle("Strike 3 GLMNET predictions")+
+  theme(axis.title=element_text(size=12),axis.text=element_text(size=10),plot.title = element_text(hjust = 0.5, size=10, face = "bold"), strip.text.x = element_text(size = 10))+ 
+  labs(y="Probability", x = "Pens") + scale_color_discrete(name = "Pens")
 
 strike4<-toplot %>% select(strike4,pens) %>% ggplot(aes(x=pens, y=strike4, fill=pens)) +
   geom_bar(stat="identity",position=position_stack())+
-  scale_fill_brewer(palette="Accent")
+  geom_text(aes(pens,strike4, label=round(strike4,3)), position = position_stack(vjust = 0.5))+
+  scale_fill_brewer(palette="Accent")+ ggtitle("Strike 4 GLMNET predictions")+
+  theme(axis.title=element_text(size=12),axis.text=element_text(size=10),plot.title = element_text(hjust = 0.5, size=10, face = "bold"), strip.text.x = element_text(size = 10))+ 
+  labs(y="Probability", x = "Pens") + scale_color_discrete(name = "Pens")
 
 strike5<-toplot %>% select(strike5,pens) %>% ggplot(aes(x=pens, y=strike5, fill=pens)) +
   geom_bar(stat="identity",position=position_stack())+
-  scale_fill_brewer(palette="Accent")
+  geom_text(aes(pens,strike5, label=round(strike5,3)), position = position_stack(vjust = 0.5))+
+  scale_fill_brewer(palette="Accent")+ ggtitle("Strike 5 GLMNET predictions")+
+  theme(axis.title=element_text(size=12),axis.text=element_text(size=10),plot.title = element_text(hjust = 0.5, size=10, face = "bold"), strip.text.x = element_text(size = 10))+ 
+  labs(y="Probability", x = "Pens") + scale_color_discrete(name = "Pens")
 
 strike6<-toplot %>% select(strike6,pens) %>% ggplot(aes(x=pens, y=strike6, fill=pens)) +
   geom_bar(stat="identity",position=position_stack())+
-  scale_fill_brewer(palette="Accent")
+  geom_text(aes(pens,strike6, label=round(strike6,3)), position = position_stack(vjust = 0.5))+
+  scale_fill_brewer(palette="Accent")+ ggtitle("Strike 6 GLMNET predictions")+
+  theme(axis.title=element_text(size=12),axis.text=element_text(size=10),plot.title = element_text(hjust = 0.5, size=10, face = "bold"), strip.text.x = element_text(size = 10))+ 
+  labs(y="Probability", x = "Pens") + scale_color_discrete(name = "Pens")
 
 
-ggarrange(strike1, strike2, strike3, strike4, strike5, strike6,
-                    labels = c("strike1", "strike2", "strike3", "strike4", "strike5", "strike6"),
-                    ncol = 3, nrow = 3)
+plot<-ggarrange(strike1, strike2, strike3, strike4, strike5, strike6,
+                    ncol = 3, nrow = 3,common.legend = TRUE,legend="none")
+
+
+annotate_figure(plot, top = text_grob("GLMNET default parameters", 
+               color = "black", face = "bold", size = 14))
 ```
 
 
@@ -164,6 +141,7 @@ fit <- train(x = training_x,
 ggplot(fit)
 
 (predicted<- predict(fit, newdata = test_data[,-1],type = "prob"))
+(predict(fit, newdata = test_data[,-1]))
 ```
 
 ### Plots
@@ -175,32 +153,54 @@ toplot<-toplot %>% mutate(pens=row.names(toplot))
 
 strike1<-toplot %>% select(strike1,pens) %>% ggplot(aes(x=pens, y=strike1, fill=pens)) +
   geom_bar(stat="identity",position=position_stack())+
-  scale_fill_brewer(palette="Accent")
+  geom_text(aes(pens,strike1, label=round(strike1,3)), position = position_stack(vjust = 0.5))+
+  scale_fill_brewer(palette="Accent")+
+  ggtitle("Strike 1 GLMNET predictions")+
+  theme(axis.title=element_text(size=12),axis.text=element_text(size=10),plot.title = element_text(hjust = 0.5, size=10, face = "bold"), strip.text.x = element_text(size = 10))+ 
+  labs(y="Probability", x = "Pens") + scale_color_discrete(name = "Pens")
 
 strike2<-toplot %>% select(strike2,pens) %>% ggplot(aes(x=pens, y=strike2, fill=pens)) +
   geom_bar(stat="identity",position=position_stack())+
-  scale_fill_brewer(palette="Accent")
+  geom_text(aes(pens,strike2, label=round(strike2,3)), position = position_stack(vjust = 0.5))+
+  scale_fill_brewer(palette="Accent")+ ggtitle("Strike 2 GLMNET predictions")+
+  theme(axis.title=element_text(size=12),axis.text=element_text(size=10),plot.title = element_text(hjust = 0.5, size=10, face = "bold"), strip.text.x = element_text(size = 10))+ 
+  labs(y="Probability", x = "Pens") + scale_color_discrete(name = "Pens")
 
 strike3<-toplot %>% select(strike3,pens) %>% ggplot(aes(x=pens, y=strike3, fill=pens)) +
   geom_bar(stat="identity",position=position_stack())+
-  scale_fill_brewer(palette="Accent")
+  geom_text(aes(pens,strike3, label=round(strike3,3)), position = position_stack(vjust = 0.5))+
+  scale_fill_brewer(palette="Accent")+ ggtitle("Strike 3 GLMNET predictions")+
+  theme(axis.title=element_text(size=12),axis.text=element_text(size=10),plot.title = element_text(hjust = 0.5, size=10, face = "bold"), strip.text.x = element_text(size = 10))+ 
+  labs(y="Probability", x = "Pens") + scale_color_discrete(name = "Pens")
 
 strike4<-toplot %>% select(strike4,pens) %>% ggplot(aes(x=pens, y=strike4, fill=pens)) +
   geom_bar(stat="identity",position=position_stack())+
-  scale_fill_brewer(palette="Accent")
+  geom_text(aes(pens,strike4, label=round(strike4,3)), position = position_stack(vjust = 0.5))+
+  scale_fill_brewer(palette="Accent")+ ggtitle("Strike 4 GLMNET predictions")+
+  theme(axis.title=element_text(size=12),axis.text=element_text(size=10),plot.title = element_text(hjust = 0.5, size=10, face = "bold"), strip.text.x = element_text(size = 10))+ 
+  labs(y="Probability", x = "Pens") + scale_color_discrete(name = "Pens")
 
 strike5<-toplot %>% select(strike5,pens) %>% ggplot(aes(x=pens, y=strike5, fill=pens)) +
   geom_bar(stat="identity",position=position_stack())+
-  scale_fill_brewer(palette="Accent")
+  geom_text(aes(pens,strike5, label=round(strike5,3)), position = position_stack(vjust = 0.5))+
+  scale_fill_brewer(palette="Accent")+ ggtitle("Strike 5 GLMNET predictions")+
+  theme(axis.title=element_text(size=12),axis.text=element_text(size=10),plot.title = element_text(hjust = 0.5, size=10, face = "bold"), strip.text.x = element_text(size = 10))+ 
+  labs(y="Probability", x = "Pens") + scale_color_discrete(name = "Pens")
 
 strike6<-toplot %>% select(strike6,pens) %>% ggplot(aes(x=pens, y=strike6, fill=pens)) +
   geom_bar(stat="identity",position=position_stack())+
-  scale_fill_brewer(palette="Accent")
+  geom_text(aes(pens,strike6, label=round(strike6,3)), position = position_stack(vjust = 0.5))+
+  scale_fill_brewer(palette="Accent")+ ggtitle("Strike 6 GLMNET predictions")+
+  theme(axis.title=element_text(size=12),axis.text=element_text(size=10),plot.title = element_text(hjust = 0.5, size=10, face = "bold"), strip.text.x = element_text(size = 10))+ 
+  labs(y="Probability", x = "Pens") + scale_color_discrete(name = "Pens")
 
 
-ggarrange(strike1, strike2, strike3, strike4, strike5, strike6,
-                    labels = c("strike1", "strike2", "strike3", "strike4", "strike5", "strike6"),
-                    ncol = 3, nrow = 3)
+plot<-ggarrange(strike1, strike2, strike3, strike4, strike5, strike6,
+                    ncol = 3, nrow = 3,common.legend = TRUE,legend="none")
+
+
+annotate_figure(plot, top = text_grob("GLMNET Lasso", 
+               color = "black", face = "bold", size = 14))
 ```
 
 
@@ -218,8 +218,9 @@ fit <- train(x = training_x,
         tuneLength = 10,
      trControl = trControl,
     )
-(predicted<- predict(fit, newdata = test_data[,-1]))
+
 (predicted<- predict(fit, newdata = test_data[,-1],type = "prob"))
+(predict(fit, newdata = test_data[,-1]))
 ```
 
 ### Plots
@@ -231,30 +232,52 @@ toplot<-toplot %>% mutate(pens=row.names(toplot))
 
 strike1<-toplot %>% select(strike1,pens) %>% ggplot(aes(x=pens, y=strike1, fill=pens)) +
   geom_bar(stat="identity",position=position_stack())+
-  scale_fill_brewer(palette="Accent")
+  geom_text(aes(pens,strike1, label=round(strike1,3)), position = position_stack(vjust = 0.5))+
+  scale_fill_brewer(palette="Accent")+
+  ggtitle("Strike 1 GLMNET predictions")+
+  theme(axis.title=element_text(size=12),axis.text=element_text(size=10),plot.title = element_text(hjust = 0.5, size=10, face = "bold"), strip.text.x = element_text(size = 10))+ 
+  labs(y="Probability", x = "Pens") + scale_color_discrete(name = "Pens")
 
 strike2<-toplot %>% select(strike2,pens) %>% ggplot(aes(x=pens, y=strike2, fill=pens)) +
   geom_bar(stat="identity",position=position_stack())+
-  scale_fill_brewer(palette="Accent")
+  geom_text(aes(pens,strike2, label=round(strike2,3)), position = position_stack(vjust = 0.5))+
+  scale_fill_brewer(palette="Accent")+ ggtitle("Strike 2 GLMNET predictions")+
+  theme(axis.title=element_text(size=12),axis.text=element_text(size=10),plot.title = element_text(hjust = 0.5, size=10, face = "bold"), strip.text.x = element_text(size = 10))+ 
+  labs(y="Probability", x = "Pens") + scale_color_discrete(name = "Pens")
 
 strike3<-toplot %>% select(strike3,pens) %>% ggplot(aes(x=pens, y=strike3, fill=pens)) +
   geom_bar(stat="identity",position=position_stack())+
-  scale_fill_brewer(palette="Accent")
+  geom_text(aes(pens,strike3, label=round(strike3,3)), position = position_stack(vjust = 0.5))+
+  scale_fill_brewer(palette="Accent")+ ggtitle("Strike 3 GLMNET predictions")+
+  theme(axis.title=element_text(size=12),axis.text=element_text(size=10),plot.title = element_text(hjust = 0.5, size=10, face = "bold"), strip.text.x = element_text(size = 10))+ 
+  labs(y="Probability", x = "Pens") + scale_color_discrete(name = "Pens")
 
 strike4<-toplot %>% select(strike4,pens) %>% ggplot(aes(x=pens, y=strike4, fill=pens)) +
   geom_bar(stat="identity",position=position_stack())+
-  scale_fill_brewer(palette="Accent")
+  geom_text(aes(pens,strike4, label=round(strike4,3)), position = position_stack(vjust = 0.5))+
+  scale_fill_brewer(palette="Accent")+ ggtitle("Strike 4 GLMNET predictions")+
+  theme(axis.title=element_text(size=12),axis.text=element_text(size=10),plot.title = element_text(hjust = 0.5, size=10, face = "bold"), strip.text.x = element_text(size = 10))+ 
+  labs(y="Probability", x = "Pens") + scale_color_discrete(name = "Pens")
 
 strike5<-toplot %>% select(strike5,pens) %>% ggplot(aes(x=pens, y=strike5, fill=pens)) +
   geom_bar(stat="identity",position=position_stack())+
-  scale_fill_brewer(palette="Accent")
+  geom_text(aes(pens,strike5, label=round(strike5,3)), position = position_stack(vjust = 0.5))+
+  scale_fill_brewer(palette="Accent")+ ggtitle("Strike 5 GLMNET predictions")+
+  theme(axis.title=element_text(size=12),axis.text=element_text(size=10),plot.title = element_text(hjust = 0.5, size=10, face = "bold"), strip.text.x = element_text(size = 10))+ 
+  labs(y="Probability", x = "Pens") + scale_color_discrete(name = "Pens")
 
 strike6<-toplot %>% select(strike6,pens) %>% ggplot(aes(x=pens, y=strike6, fill=pens)) +
   geom_bar(stat="identity",position=position_stack())+
-  scale_fill_brewer(palette="Accent")
+  geom_text(aes(pens,strike6, label=round(strike6,3)), position = position_stack(vjust = 0.5))+
+  scale_fill_brewer(palette="Accent")+ ggtitle("Strike 6 GLMNET predictions")+
+  theme(axis.title=element_text(size=12),axis.text=element_text(size=10),plot.title = element_text(hjust = 0.5, size=10, face = "bold"), strip.text.x = element_text(size = 10))+ 
+  labs(y="Probability", x = "Pens") + scale_color_discrete(name = "Pens")
 
 
-ggarrange(strike1, strike2, strike3, strike4, strike5, strike6,
-                    labels = c("strike1", "strike2", "strike3", "strike4", "strike5", "strike6"),
-                    ncol = 3, nrow = 3)
+plot<-ggarrange(strike1, strike2, strike3, strike4, strike5, strike6,
+                    ncol = 3, nrow = 3,common.legend = TRUE,legend="none")
+
+
+annotate_figure(plot, top = text_grob("Random Forests", 
+               color = "black", face = "bold", size = 14))
 ```

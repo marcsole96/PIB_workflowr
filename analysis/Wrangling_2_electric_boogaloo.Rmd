@@ -5,8 +5,10 @@ editor_options:
   chunk_output_type: console
 ---
 
-# Setup
+In this file data loading and data preparation is performed. 
 
+Checking that this runs on the correct directory. 
+# Setup
 ```{r Working directory, echo=TRUE}
 #setwd("../PIB_workflowr/data")
 getwd()
@@ -24,10 +26,8 @@ theme_set(theme_minimal())
 
 # Data Loading
 
-## CONTRACT REGION OF INTERESTED EXPORTS
 
-### Page 1 contract exports
-
+A .tsv containing metadata on the files is loaded and is used to build a dataframe with all our files with their correct information. 
 ```{r}
 x <- read_tsv("filenames.tsv")
 
@@ -50,12 +50,15 @@ df <- bind_rows(r)
 df$pen<-as.character(df$pen)
 str(df)
 
+
 write_rds(df, file = "full_data.rds")
 
 rm(r,tmp,x)
 ```
 
 
+
+The global dataframe is then separated into three different ones: training, test and contract. The training and test will be used to create the model and the contract will be the target for our model. The data is also transposed since it worked better in order to build the models. 
 ```{r}
 training_DF<-df%>%filter(group=="training") %>% select(mz,intensity,pen,filename) 
 training_DF<-spread(training_DF,key=mz,value=intensity)
