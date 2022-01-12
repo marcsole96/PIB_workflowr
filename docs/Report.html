@@ -13,8 +13,8 @@
 
 <title>Report</title>
 
-<script src="site_libs/header-attrs-2.7/header-attrs.js"></script>
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/jquery-3.5.1/jquery-3.5.1.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/paper.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -33,6 +33,13 @@
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
+<script src="site_libs/plotly-binding-4.9.3/plotly.js"></script>
+<script src="site_libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="site_libs/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet" />
+<script src="site_libs/crosstalk-1.1.1/js/crosstalk.min.js"></script>
+<link href="site_libs/plotly-htmlwidgets-css-1.57.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="site_libs/plotly-main-1.57.1/plotly-latest.min.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
@@ -153,6 +160,28 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 
 
 
+<style type="text/css">
+/* for pandoc --citeproc since 2.11 */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 
 
@@ -389,12 +418,12 @@ div.tocify {
 
 <!-- setup 3col/9col grid for toc_float and main content  -->
 <div class="row">
-<div class="col-sm-12 col-md-4 col-lg-3">
+<div class="col-xs-12 col-sm-4 col-md-3">
 <div id="TOC" class="tocify">
 </div>
 </div>
 
-<div class="toc-content col-sm-12 col-md-8 col-lg-9">
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -478,7 +507,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2021-12-22
+<strong>Last updated:</strong> 2022-01-12
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -569,16 +598,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtree9907c95f5642f05581bae3870fdc92e7e54b500btargetblank9907c95a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/marcsole96/PIB_workflowr/tree/9907c95f5642f05581bae3870fdc92e7e54b500b" target="_blank">9907c95</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtree58281c7e4ac68717aaa434689472992c0864ed51targetblank58281c7a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/marcsole96/PIB_workflowr/tree/58281c7e4ac68717aaa434689472992c0864ed51" target="_blank">58281c7</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtree9907c95f5642f05581bae3870fdc92e7e54b500btargetblank9907c95a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcommarcsole96PIBworkflowrtree58281c7e4ac68717aaa434689472992c0864ed51targetblank58281c7a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/marcsole96/PIB_workflowr/tree/9907c95f5642f05581bae3870fdc92e7e54b500b" target="_blank">9907c95</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/marcsole96/PIB_workflowr/tree/58281c7e4ac68717aaa434689472992c0864ed51" target="_blank">58281c7</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -647,9 +676,14 @@ Untracked files:
     Untracked:  data/strike 5.txt
     Untracked:  data/strike 6.txt
     Untracked:  full_data.rds
+    Untracked:  wrangling.RData
 
 Unstaged changes:
+    Modified:   PIB_workflowr.Rproj
     Deleted:    analysis/Data Wrangling.Rmd
+    Deleted:    analysis/Visualizations.Rmd
+    Deleted:    analysis/Visualizations.Rmd.Rmd
+    Modified:   data/wrangling.RData
 
 </code></pre>
 <p>
@@ -688,6 +722,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/marcsole96/PIB_workflowr/blob/58281c7e4ac68717aaa434689472992c0864ed51/analysis/Report.Rmd" target="_blank">58281c7</a>
+</td>
+<td>
+marcsole96
+</td>
+<td>
+2022-01-12
+</td>
+<td>
+stuff
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/marcsole96/PIB_workflowr/c5d2645c5ae4223a07efb44d6e2a2d14a865c8e7/docs/Report.html" target="_blank">c5d2645</a>
+</td>
+<td>
+marcsole96
+</td>
+<td>
+2021-12-22
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -884,31 +952,33 @@ added report file
 </div>
 <p>This file is intended to serve as the final report for the project. In here the most important aspects will be written down, with references to the other .rmd files when needed. In other words, this is a summarized version of what has been done.</p>
 <p><strong>The student should be able to explain the methods used for the analysis of the data.</strong></p>
-<p><strong>The student should be able to explain the theoretical background of the project</strong></p>
 <p><strong>The student should be able to discuss the results of the analysis.</strong></p>
 <p><strong>More specifically the student should be able to analyse the data provided in order to:</strong></p>
 <p><strong>On the squares dataset: determine the pens used for each strike and the “1-6” writing.</strong></p>
 <p><strong>On the contract dataset: identify if there is contract manipulation, on which page and which pen was used, identify the ions that indicate manipulation, and identify which of the 5 pens used in the squares were used for the initials and signatures of the documents.</strong></p>
 <div id="introduction" class="section level1">
 <h1>Introduction</h1>
+<p><strong>The student should be able to explain the theoretical background of the project</strong></p>
 <p>The fusion of criminology and machine learning is a fascinating field. Using machine learning models that can identify and discriminate between samples can be really useful in criminal cases where the “by hand” approach is tedious and prone to failure. The principal objective of this project is to use several machine learning techniques in order to identify possible forgery on a contract from a real crime scene.</p>
-<p>To do so a machine learning model capable of distinguishing between different types of pens given an input mass spectrometry score of ink features was developed. Other analysis were done as well on the data and it was concluded that our model is efficient when identifying pens similar to the given test/train data and that the contract of interest was written in other pens. Because of that, unsupervised approaches were used to identify the possible forgery.</p>
+<p>To do so a machine learning model capable of distinguishing between different types of pens given an input mass spectrometry score of ink features was developed. Other analysis on the data were done as well and it was concluded that our model is efficient when it comes to identifying pens similar to the given test/train data and that the contract of interest was written in other pens. Because of that, unsupervised approaches were used to identify the possible forgery.</p>
 </div>
 <div id="methodology" class="section level1">
 <h1>Methodology</h1>
 <div id="basic-idea" class="section level2">
 <h2>Basic Idea</h2>
-<p>The structure of the data I worked on looks as follows:</p>
-<p><img src="./assets/files_structure.PNG" style="display: block; margin: auto;" /></p>
+<p>Data from the ink of several pens was provided as the result of mass spectrometry analysis on the ink samples.</p>
+<p>Mass spectrometry is an analytic technique by which chemical substances are identified by the sorting of gaseous ions in electric and magnetic fields according to their mass-to-charge ratios. <span class="citation"><a href="#ref-encyclopædiabritannica2021a" role="doc-biblioref">Encyclopædia Britannica</a> (<a href="#ref-encyclopædiabritannica2021a" role="doc-biblioref">2021</a>)</span></p>
+<p>The structure of the data I worked on is the output from such spectrometry and it looks as follows:</p>
+<p><img src="./assets/files_structure.PNG" width="50%" style="display: block; margin: auto;" /></p>
 <p>The first column gives the values of the frequency in the spectrometry (mz) and the second one gives the intensity the mass spectrometer read at that frequency.</p>
-<p><strong>[Show MZ/intensity plot]</strong></p>
+<p><img src="./assets/spectrometry_example.png" style="display: block; margin: auto;" /></p>
 <p>The above plot shows what each sample looks like coming from the mass spectrometer. The idea is that different inks will have different compounds and thus will display different peaks. A machine learning model could be thus built in order to identify which pattern of peaks would correspond to which type of ink and given a sample predict the most likely pen it would have come from. And if this model is trained well it could be used to identify possible forgery in documents by identifying if an ink used is different from the rest.</p>
 </div>
-<div id="data" class="section level2">
-<h2>Data</h2>
+<div id="data-description" class="section level2">
+<h2>Data description</h2>
 <p>The training data for the models consisted on the mass spectrometry information obtained from the following samples:</p>
-<p><img src="./assets/training_sample.PNG" style="display: block; margin: auto;" /></p>
-<p>Six different pens were used:</p>
+<p><img src="./assets/training_sample.PNG" width="20%" style="display: block; margin: auto;" /></p>
+<p>In this sample six different pens were used:</p>
 <ol style="list-style-type: decimal">
 <li><p>Black ballpoint pen ink/ brand: BIC</p></li>
 <li><p>Blue gel pen/ brand: Mitsubishi Pencil Uni-ball Signo 0.5</p></li>
@@ -917,19 +987,20 @@ added report file
 <li><p>Blue gel pen/ brand: Mitsubishi Pencil Uni-ball Signo 0.7</p></li>
 <li><p>Black ballpoint pen ink/ brand: Pentel BK77 Superb</p></li>
 </ol>
-<p>In order to simplify the analysis pens were labeled as simply “Pen 1, Pen 2, etc”.</p>
-<p>We have however 7 squares: The square on top of the square of number 4 was made with the same pen.</p>
-<p>From this, many training samples were obtained. From the numbers themselves, to the full squares, to three regions inside each of the squares:</p>
-<p><img src="./assets/training_sample_files1.PNG" style="display: block; margin: auto;" /></p>
-<p><img src="./assets/training_sample_files2.PNG" style="display: block; margin: auto;" /></p>
-<p>The test data was the mass spectrometry information obtained from the following strikes made witch each of the six pens:</p>
-<p><img src="./assets/test_samples.PNG" style="display: block; margin: auto;" /></p>
-<p>Using this data a machine learning model could be built to, given a document wirten in one or more of the six pens, identify which one was used and on which region. Thus we could use this model to identify possible forgery on the following given signatures and initials from a contract:</p>
-<p><img src="./assets/contract.PNG" style="display: block; margin: auto;" /></p>
-<p>This document is from a real crime scene, and again the ink was divided into different regions and analysed by mass spectrometry, obtaining a total of nine different files</p>
-<p><img src="./assets/contract_regions.jpg" style="display: block; margin: auto;" /></p>
+<p>In order to simplify the analysis pens were labeled as simply “Pen 1, Pen 2, etc.”</p>
+<p>We have 6 pens but we have 7 squares: The square on top of the square of number 4 was made with the same pen.</p>
+<p>From this data, many training samples were obtained, from the numbers themselves, to the full squares, to three regions inside each of the squares:</p>
+<p><img src="./assets/training_sample_files1.PNG" width="50%" style="display: block; margin: auto;" /></p>
+<p><img src="./assets/training_sample_files2.PNG" width="50%" style="display: block; margin: auto;" /></p>
+<p>The test data was the mass spectrometry information obtained from the following strikes made witch each of the six pens that were used for the training data:</p>
+<p><img src="./assets/test_samples.PNG" width="20%" style="display: block; margin: auto;" /></p>
+<p>Through this data a machine learning model can be built so that given a document written in one or more of the six pens, it identifies which one was used and on which region.</p>
+<p>I could then use this model to identify possible forgery on the following signatures and initials from the given contract:</p>
+<p><img src="./assets/contract.PNG" width="30%" style="display: block; margin: auto;" /></p>
+<p>This document is from a real crime scene, and again the ink was divided into different regions and analysed by mass spectrometry, obtaining a total of nine different files:</p>
+<p><img src="./assets/contract_regions.jpg" width="40%" style="display: block; margin: auto;" /></p>
 <p>The data was loaded into RStudio and into a Data Frame structure which contains vital information on the files. This step is very important because of the amount of files I am working on, and it is easy to get confused by them. Thus the most organized I can be the easier it is to work with the data.</p>
-<p>You can see the data loading process <a href="Wrangling_2_electric_boogaloo.html">here</a> The resulting Data Frame looking as follows:</p>
+<p>You can see the data loading process <a href="Wrangling_2_electric_boogaloo.html">here</a>. The resulting Data Frame looking as follows:</p>
 <pre><code># A tibble: 6 x 7
      mz intensity filename           pen   group  data_folder  fullpath         
   &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;              &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;        &lt;chr&gt;            
@@ -939,11 +1010,125 @@ added report file
 4  101.     0.650 Full square 1 und~ 1     train~ squares_ana~ Full square 1 un~
 5  101.     0.597 Full square 1 und~ 1     train~ squares_ana~ Full square 1 un~
 6  101      1.25  Full square 1 und~ 1     train~ squares_ana~ Full square 1 un~</code></pre>
-<p>From this data I started working on a ML model that given the training data could determine correctly which pen was used on the training data. Once this was done I used the model to predict which pens were used in the contract, and then used unsupervised approaches to look at the contract in detail. # Results</p>
+<p>From this data I started working on a ML model that given the training data could determine correctly which pen was used on the training data. Once this was done I used the model to predict which pens were used in the contract, and then used unsupervised approaches to look at the contract in detail.</p>
+</div>
+<div id="data-analysis" class="section level2">
+<h2>Data analysis</h2>
+<p>One of the most important steps in ML is taking a look at the data to see how it looks. Without it I would be working blind and I would get results for sure, but I would not know if the results are reliable or not. A little data visualization was done before building the models, but it wasn’t until seeing that the resulting predictions of those models on the contract pens made little sense that made me take a closer look at the data.</p>
+<p>Taking the full dataframe with all the data I made a scatterplot to see the distribution of the intensity through the m/z and I also used a facet_wrap to separate between contract, test, and training data. I also colored by pen the last two groups. 4th root transformation (x to x(1/4)) was used to make visualizations easier, this transformation compresses the higher values so that lower values become more spread out.</p>
+<p><img src="./assets/data_intensities_scatterplot.png" width="100%" style="display: block; margin: auto;" /></p>
+<p><img src="./assets/data_intensities_scatterplot_pen.png" width="70%" style="display: block; margin: auto;" /></p>
+<p>The pens for the Train and Test dataset seem to overlap nicely. Showing we could build a ML model to predict the test from the training data.</p>
+<p>The full markdown with the visualizations code can be found <a href="Whole_data_visualizations.html">here</a>.</p>
+</div>
+<div id="models" class="section level2">
+<h2>Models</h2>
+<p>For the model building I used the Caret package (<strong>C</strong>lassification <strong>A</strong>nd <strong>RE</strong>gression <strong>T</strong>raining). This is a very useful package when building predictive models because it streamlines the process for model training for complex regression and classification problems <span class="citation"><a href="#ref-Caret" role="doc-biblioref">Kuhn</a> (<a href="#ref-Caret" role="doc-biblioref">2020</a>)</span>. It allowed me to test many different models and tune them easily without writting big lines of code. More information on this package can be found <a href="https://topepo.github.io/caret/">here</a>.</p>
+<p>Due to the small amount of samples in the input data I used leave-one-out cross validation (LOOCV), where a single observation is used for the validation set and the remaining are used for the training set.</p>
+<p>I experimented with several models and I ended up focusing on GLMNET (Lasso and Elastic-Net Regularized Generalized Linear Models) <span class="citation"><a href="#ref-GLMNET" role="doc-biblioref">Friedman, Hastie, and Tibshirani</a> (<a href="#ref-GLMNET" role="doc-biblioref">2010</a>)</span> and Random Forests <span class="citation"><a href="#ref-Randomforest" role="doc-biblioref">Liaw and Wiener</a> (<a href="#ref-Randomforest" role="doc-biblioref">2002</a>)</span>.</p>
+<p>GLMNET allowed me to experiment between Ridge and Lasso regression. These types of models use what is known as “shrinkage methods,” they contain all predictors but their coefficients are constrained or shrank towards zero.</p>
+<p>Ridge regression searches for the coefficient that minimizes the error, and it contains λ as a tuning parameter. When this tuning parameter approaches infinity the coefficient estimates will approach zero:</p>
+<p><img src="./assets/ridge_formula.PNG" width="20%" style="display: block; margin: auto;" /></p>
+<p>Lasso unlike ridge can remove the predictors that are least significant for the model:</p>
+<p><img src="./assets/lasso_formula.PNG" width="20%" style="display: block; margin: auto;" /></p>
+<p><span class="citation"><a href="#ref-james2013" role="doc-biblioref">James et al.</a> (<a href="#ref-james2013" role="doc-biblioref">2013</a>)</span></p>
+<p>The fact we have λ means it will produce a different set of coefficient estimates for each value of this λ. Caret automatically finds the best parameters for λ thanks to its automatic cross validation.</p>
+<p>GLMNET can also take a parameter alpha which can range from 0 to 1 and determines which model is used: 0 for ridge and 1 for lasso. Any number in between will give an elastic net regularization which will combine ridge and lasso.</p>
+<p>So, the idea behind this is that maybe all compounds of the ink, meaning all m/z have an importance for the prediction, or maybe not and they are just adding noise. This is why it was important to try the two different approaches.</p>
+<p>I also tried Random Forests, a very common classification algorithm which makes use of decision trees. A number of these decision trees are built on boostrapped training samples and at each split of these trees only some predictors are chosen as split candidates from the full set of predictors, and the split is allowed to use only one of those predictors. Random forests have a high performance and accuracy and can determine which features are the most important automatically.</p>
+<p>I built two models using GLMNET: a simple model using mostly all the default parameters from caret, and one using a strict alpha of 1 meaning caret would produce a lasso model instead of a ridge or elastic net like the first one, and with a range of λ from 0 to 1 in steps of 0.001. I also used 5 LOOCV and tunelength of 5 in the simple model. The tunelength in caret indicates the number of different values to try for each tuning parameter, in the case of GLMNET is alpha and λ.</p>
+<p>For the random forests I used the randomForest package in Caret and leaving all the default parameters and with a tunelength of 10. In this case the tunelength modifies the mtry parameter which decides how many predictors to choose for each new branch split.</p>
+</div>
+<div id="parameters" class="section level2">
+<h2>Parameters</h2>
+<p>All models were given the 34 samples from the training data, 4501 predictors in the form of the m/z intensities, and 6 classes corresponding to the 6 different pens. For the GLMNET using the default settings, CARET chose an alpha of 0.1 and a lambda of 0.3877651 which gave an accuracy of 0.2647059. For the custom GLMNET an alpha of 1 was used as stated in order to get a full lasso model, and CARET chose a lambda of 0.193. This model gave the same accuracy of 0.2647059.</p>
+<p>For the Random Forests an mtry of 2 was selected by CARET as the optimum, with an accuracy of 1.</p>
+<p>Accuracy is the percentage of correctly classifies instances out of all instances.</p>
+<p>Kappa or Cohen’s Kappa is like accuracy, except that it is normalized at the baseline of random chance on the dataset. It is a more useful measure to use on problems that have an imbalance in the classes. ## Unsupervised approaches A series of unsupervised approaches were used to analyse the data.</p>
+</div>
+<div id="unsupervised-approaches" class="section level2">
+<h2>Unsupervised approaches</h2>
+<p>Unsupervised learning, also known as unsupervised machine learning, uses machine learning algorithms to analyze and cluster unlabeled datasets. These algorithms discover hidden patterns or data groupings without the need for human intervention. Its ability to discover similarities and differences in information make it the ideal solution for exploratory data analysis, cross-selling strategies, customer segmentation, and image recognition. <span class="citation"><a href="#ref-ibmcloudeducation" role="doc-biblioref">IBM Cloud Education</a> (<a href="#ref-ibmcloudeducation" role="doc-biblioref">n.d.</a>)</span></p>
+<p>Principal component analysis was performed on the whole dataset. PCA is an unsupervised learning statistical process that converts the observations of correlated features into a set of linearly uncorrelated features (Principal Components). PCA works by considering the variance of each attribute because the high attribute shows the good split between the classes, and hence it reduces the dimensionality.</p>
+<p>Furthermore, the coefficient of variation (CV = Standard Deviation / Mean) was used. The coefficient of variance is a measure of how much variation exists in relation to the mean. The higher the coefficient of variation, the greater the level of dispersion around the mean. It was used to select the most important datapoints, the m/zs with the highest CV may imply they can be used to diferentiate between samples.</p>
+<p>From these selected most important m/zs several heatmaps were built using pheatmap. <span class="citation"><a href="#ref-pheatmap" role="doc-biblioref">Kolde</a> (<a href="#ref-pheatmap" role="doc-biblioref">2019</a>)</span></p>
+</div>
+</div>
+<div id="results" class="section level1">
+<h1>Results</h1>
+<div id="results-of-the-models-on-the-test-data" class="section level2">
+<h2>Results of the models on the test data</h2>
+<p>Using the test data coming from the strikes Both GLMNET models correctly predict which pen was used on which strike. The Lasso model however struggles with Strike 2 and Strike 3. This can indicate that all predictors are somewhat important to generate the predictions, so removing some by setting their weights to zero, which is what Lasso does, can be detrimental.</p>
+<p>It is important to note however, that not all the predictions are indisputable. Strike 4, 5 and 6 seem to be the ones best resolved by my GLMNET models. Predictions for Strikes 1, 2 and 3 show a lower probability but they are correct nonetheless. In any case, this is not a bad thing, because thanks to the probabilities I can tell if a sample is more likely to be one pen or another.</p>
+<p><img src="./assets/glmnet_default.jpg" width="80%" style="display: block; margin: auto;" /></p>
+<p><img src="./assets/glmnet_lasso.jpg" width="80%" style="display: block; margin: auto;" /></p>
+<p>When it comes to Random Forests the results are not as good. I can observe that Strike 4, 5 and 6 are again the ones which the model has been able to resolve the best. The other strikes have lower probabilities for the correct pen, and Strike 3 is incorrectly labeled as pen 4.</p>
+<p><img src="./assets/random_forests.jpg" width="80%" style="display: block; margin: auto;" /></p>
+<p>The fact that GLMNET performs better than RF may be because elastic net has the ability to model smooth relationships, as well as the ability to perform high-dimensional feature selection, whereas RFs do not give weight to predictors and instead use a few predictors as their decision makers to make a split and build a decision tree. Given these results GLMNET with the default parameters was applied on the contract data in order to predict the pens used and identify possible forgery.</p>
+</div>
+<div id="results-of-the-models-on-the-contract-data" class="section level2">
+<h2>Results of the models on the contract data</h2>
+<p>Taking the best performing model (GLMNET with default parameters), I used this model to predict which pens were most likely used on the contract. The following barplot shows the results:</p>
+<p><img src="./assets/glmnet_default_contract.png" width="80%" style="display: block; margin: auto;" /></p>
+<p>As we can observe, the results are not exactly clear. It looks like all the ink samples contain compounds corresponding to Pen 1, and some samples contain a mix of Pen 1 and Pen 4. Due to this inconclusive results I did the predictions again using the GLMNET Lasso model, since it was the second best model produced and it predicted correctly the test samples, with a bit more error thant the default GLMNET though. The predictions obtained from the Lasso model were the following:</p>
+<p><img src="./assets/glmnet_lasso_contract.png" width="80%" style="display: block; margin: auto;" /></p>
+<p>We can see something strange is clearly happening, our second best model, which predicted the test samples correctly, is showing completely different predictions than our best model. Such a drastic change in predictions indicates a possible issue with the training samples used to make the models. Could it be that the ink training samples provided have little relation to the ink present in the contract?</p>
+<p>Just as a final example, here are the results obtained with the random forests model:</p>
+<p><img src="./assets/rf_contract.png" width="80%" style="display: block; margin: auto;" /></p>
+<p>Again, the results are yet different to the other models.</p>
+</div>
+<div id="unsupervised-approaches-1" class="section level2">
+<h2>Unsupervised approaches</h2>
+<p>Given the predictions obtained from my models when predicting on the contract data, unsupervised approaches were used on the data, the code can be found in the <a href="Whole_data_visualizations.html">visualizations markdown</a>.</p>
+<div id="pca" class="section level3">
+<h3>PCA</h3>
+<p>Firstly a PCA was perfromed on the whole data after 4th-square-root-transforming it:</p>
+<div id="htmlwidget-89438207ba226c6daa0c" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-89438207ba226c6daa0c">{"x":{"visdat":{"5e5040f4e1b":["function () ","plotlyVisDat"]},"cur_data":"5e5040f4e1b","attrs":{"5e5040f4e1b":{"x":{},"y":{},"z":{},"color":{},"size":[100],"colors":["black","darkorange","dodgerblue"],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter3d","mode":"markers","inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"scene":{"xaxis":{"title":"PC1"},"yaxis":{"title":"PC2"},"zaxis":{"title":"PC3"}},"hovermode":"closest","showlegend":true},"source":"A","config":{"showSendToCloud":false},"data":[{"x":[-102.724751698636,-101.042540724105,-94.3819174124362,-105.249927998244,-99.4546947774116,-99.5323709331536,-102.460259040235,-109.910946797936,-91.3929343204956],"y":[5.33770661648787,-1.79902401915678,-19.3596514175697,-2.19270944281143,-17.1443415313535,-14.3412548784956,3.22941114502867,-1.96104852739297,-20.4125991387351],"z":[-4.75970595849204,5.7619860116125,19.9090371776012,12.5425629384916,-5.74254183129546,25.2204784949338,4.19474391610301,-20.4016844749932,22.6463108348908],"type":"scatter3d","mode":"markers","name":"contract","marker":{"color":"rgba(0,0,0,1)","size":[100,100,100,100,100,100,100,100,100],"sizemode":"area","line":{"color":"rgba(0,0,0,1)"}},"textfont":{"color":"rgba(0,0,0,1)","size":100},"error_y":{"color":"rgba(0,0,0,1)","width":100},"error_x":{"color":"rgba(0,0,0,1)","width":100},"line":{"color":"rgba(0,0,0,1)","width":100},"frame":null},{"x":[15.8981483732553,25.0695759900592,29.7043726476296,33.2855274480103,21.2102292573682,27.6810182539823],"y":[-9.19667448278799,-53.5192898663955,2.75051020460932,-11.1206243234977,-11.9338288706044,14.1477705971631],"z":[32.0171012283799,10.3618183502716,22.6039999015148,12.4397576549457,-28.257444147077,13.0474512946931],"type":"scatter3d","mode":"markers","name":"test","marker":{"color":"rgba(255,140,0,1)","size":[100,100,100,100,100,100],"sizemode":"area","line":{"color":"rgba(255,140,0,1)"}},"textfont":{"color":"rgba(255,140,0,1)","size":100},"error_y":{"color":"rgba(255,140,0,1)","width":100},"error_x":{"color":"rgba(255,140,0,1)","width":100},"line":{"color":"rgba(255,140,0,1)","width":100},"frame":null},{"x":[29.2080636307699,9.80114075384887,40.6858458077999,37.8861502090902,7.76871975243614,18.6196418605913,20.1369094404111,44.9366709827947,40.9974685910751,35.4328585028136,20.0070268461267,11.1668891897191,16.6936597048819,19.7044750624735,13.3136827127277,20.2939194857521,36.2713352838847,38.4856851112831,30.0937886126021,28.9645517976553,26.4257787661953,28.7980226471879,22.0795282865394,-4.86570497616359,-8.61060065489987,16.4689252375335,8.10342810737456,-9.79875976246426,13.2648863269051,44.8678034231601,40.4035532677416,27.6194966940248,12.6350149229231,15.4416161075532],"y":[-10.2706682891171,-27.9950328905629,-24.4961070900316,-0.654137202641751,46.0975875536022,-4.79594527036145,44.7548196562805,-27.0366981922596,-13.6370737753429,-17.2005858337284,-6.23737753639955,5.13868304026203,0.48442655168986,41.934755050222,60.4180019701788,53.5193869686219,-0.216821802749998,4.77683835088994,4.42047361442238,-17.8697314406396,0.768038559668484,-10.0344672023077,-41.7392244301646,-7.60110610388618,-2.67164672759891,36.6935043536128,58.2147645289986,73.7722272605898,9.80764577735103,-35.4619509934215,-30.8610728372807,-58.549858786215,-0.16443017551893,34.2084312793492],"z":[13.1519838528392,-26.6389251419299,14.0667690779894,12.0999800878619,3.78288317365357,-40.6151948932572,8.94502211080545,11.2074281194681,11.864972739415,15.2885090621376,-41.9178820755788,-47.4415311117064,-44.9429753981709,7.47816887673485,6.70602429811651,6.50082484014322,11.6315733954598,9.24249479322778,10.4696834597308,15.0830168842661,9.89681188913868,13.0648757791864,-23.7562614218311,-39.5704106138252,-38.2445223336762,3.26471735912756,0.603614772715933,-2.41880479469493,7.85556353615965,25.5499182729037,21.0800654193729,-11.052817672528,-41.5171219416271,-2.30232579320912],"type":"scatter3d","mode":"markers","name":"training","marker":{"color":"rgba(30,144,255,1)","size":[100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100],"sizemode":"area","line":{"color":"rgba(30,144,255,1)"}},"textfont":{"color":"rgba(30,144,255,1)","size":100},"error_y":{"color":"rgba(30,144,255,1)","width":100},"error_x":{"color":"rgba(30,144,255,1)","width":100},"line":{"color":"rgba(30,144,255,1)","width":100},"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<p>Taking a look at the 3 first principal components it is easy to deduce why our models gave the predictions we saw. The training and test data cluster together as it would be expected, the contract however, sits far away from them, meaning they are quite different. In other words, our models were trained with the wrong training data for the problem at hand.</p>
+</div>
+<div id="coefficient-of-variation-heatmap" class="section level3">
+<h3>Coefficient of Variation Heatmap</h3>
+<p>With the information obtained by doing a PCA, a heatmap was created to see the relation of the ink samples by taking the features with the highest coefficient of variation.</p>
+<p>First a histogram showing the distribution of the intensities from the whole dataset was built: <img src="./assets/data_distribution.png" width="50%" style="display: block; margin: auto;" /> Many features with low intensities can be observed, but this does not mean they are not important. By measuring the coefficient of variation some of those features can be identified as having high variation between pen samples and thus can be crucial in order to discriminate between different types of ink.</p>
+<p>With the coefficient of variation measured I selected the top 100, 50 and 25 features and I made heatmaps.</p>
+<p><img src="./assets/cv_data_distribution.png" width="50%" /><img src="./assets/cv_data_distribution_select.png" width="50%" /> The above figure shows on the left the distribution of the coefficient of variation across the whole data, and on the right the coefficient of variation of the top 100 features.</p>
+<p>The pheatmaps obtained:</p>
+<p><img src="./assets/top100.png" width="50%" /><img src="./assets/top50.png" width="50%" /><img src="./assets/top25.png" width="50%" /></p>
+<p>A deeper look into the heatmap we can see where the samples share similarities: <img src="./assets/top50_analysis.jpg" width="80%" style="display: block; margin: auto;" /></p>
+<p>Heatmap results show which possible inks are the ones that are odd in the contract sample. Relation of the inks in the test and train can also be observed.</p>
+</div>
 </div>
 </div>
 <div id="discussion" class="section level1">
 <h1>Discussion</h1>
+<p>Possible explanations for the results are that the compounds from the ink in the contract were older than the samples provided to build the model. Or maybe they were completely different pens.</p>
+</div>
+<div id="references" class="section level1">
+<h1>References</h1>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-encyclopædiabritannica2021a" class="csl-entry">
+Encyclopædia Britannica. 2021. <span>“Mass Spectrometry Encyclopædia Britannica.”</span> <a href="https://www.britannica.com/science/mass-spectrometry">https://www.britannica.com/science/mass-spectrometry</a>.
+</div>
+<div id="ref-GLMNET" class="csl-entry">
+Friedman, Jerome, Trevor Hastie, and Robert Tibshirani. 2010. <span>“Regularization Paths for Generalized Linear Models via Coordinate Descent.”</span> <em>Journal of Statistical Software</em> 33 (1): 1–22. <a href="https://www.jstatsoft.org/v33/i01/">https://www.jstatsoft.org/v33/i01/</a>.
+</div>
+<div id="ref-ibmcloudeducation" class="csl-entry">
+IBM Cloud Education. n.d. <span>“What Is Unsupervised Learning?”</span> <a href="https://www.ibm.com/cloud/learn/unsupervised-learning">https://www.ibm.com/cloud/learn/unsupervised-learning</a>.
+</div>
+<div id="ref-james2013" class="csl-entry">
+James, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani. 2013. <em>An Introduction to Statistical Learning</em>. Vol. 103. Springer Texts in Statistics. New York, NY: Springer New York. <a href="https://doi.org/10.1007/978-1-4614-7138-7">https://doi.org/10.1007/978-1-4614-7138-7</a>.
+</div>
+<div id="ref-pheatmap" class="csl-entry">
+Kolde, Raivo. 2019. <em>Pheatmap: Pretty Heatmaps</em>. <a href="https://CRAN.R-project.org/package=pheatmap">https://CRAN.R-project.org/package=pheatmap</a>.
+</div>
+<div id="ref-Caret" class="csl-entry">
+Kuhn, Max. 2020. <em>Caret: Classification and Regression Training</em>. <a href="https://CRAN.R-project.org/package=caret">https://CRAN.R-project.org/package=caret</a>.
+</div>
+<div id="ref-Randomforest" class="csl-entry">
+Liaw, Andy, and Matthew Wiener. 2002. <span>“Classification and Regression by randomForest.”</span> <em>R News</em> 2 (3): 18–22. <a href="https://CRAN.R-project.org/doc/Rnews/">https://CRAN.R-project.org/doc/Rnews/</a>.
+</div>
+</div>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -967,19 +1152,32 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] workflowr_1.6.2
+ [1] corrplot_0.92     plotly_4.9.3      gghighlight_0.3.2 ggpubr_0.4.0     
+ [5] reshape2_1.4.4    Rtsne_0.15        ggfortify_0.4.11  forcats_0.5.1    
+ [9] stringr_1.4.0     dplyr_1.0.5       purrr_0.3.4       readr_1.4.0      
+[13] tidyr_1.1.3       tibble_3.0.3      ggplot2_3.3.3     tidyverse_1.3.1  
 
 loaded via a namespace (and not attached):
- [1] Rcpp_1.0.7        rstudioapi_0.13   whisker_0.4       knitr_1.30       
- [5] magrittr_2.0.1    R6_2.5.0          rlang_0.4.10      fansi_0.4.1      
- [9] stringr_1.4.0     tools_4.0.4       xfun_0.18         utf8_1.2.1       
-[13] cli_2.4.0         git2r_0.28.0      jquerylib_0.1.3   htmltools_0.5.1.1
-[17] ellipsis_0.3.1    rprojroot_2.0.2   yaml_2.2.1        digest_0.6.25    
-[21] tibble_3.0.3      lifecycle_1.0.0   crayon_1.4.1      later_1.1.0.1    
-[25] sass_0.3.1        vctrs_0.3.7       promises_1.2.0.1  fs_1.5.0         
-[29] glue_1.4.2        evaluate_0.14     rmarkdown_2.7     stringi_1.5.3    
-[33] bslib_0.2.4       compiler_4.0.4    pillar_1.6.0      jsonlite_1.7.2   
-[37] httpuv_1.5.5      pkgconfig_2.0.3  </code></pre>
+ [1] fs_1.5.0          lubridate_1.7.10  httr_1.4.2        rprojroot_2.0.2  
+ [5] tools_4.0.4       backports_1.1.10  bslib_0.2.4       utf8_1.2.1       
+ [9] R6_2.5.0          DBI_1.1.1         lazyeval_0.2.2    colorspace_1.4-1 
+[13] withr_2.4.2       tidyselect_1.1.0  gridExtra_2.3     curl_4.3         
+[17] compiler_4.0.4    git2r_0.28.0      cli_2.4.0         rvest_1.0.0      
+[21] xml2_1.3.2        sass_0.3.1        scales_1.1.1      digest_0.6.25    
+[25] foreign_0.8-80    rmarkdown_2.11    rio_0.5.26        pkgconfig_2.0.3  
+[29] htmltools_0.5.1.1 dbplyr_2.1.1      highr_0.9         htmlwidgets_1.5.3
+[33] rlang_0.4.10      readxl_1.3.1      rstudioapi_0.13   farver_2.0.3     
+[37] jquerylib_0.1.3   generics_0.1.0    jsonlite_1.7.2    crosstalk_1.1.1  
+[41] zip_2.1.1         car_3.0-10        magrittr_2.0.1    Rcpp_1.0.7       
+[45] munsell_0.5.0     fansi_0.4.1       abind_1.4-5       lifecycle_1.0.0  
+[49] stringi_1.5.3     whisker_0.4       yaml_2.2.1        carData_3.0-4    
+[53] plyr_1.8.6        grid_4.0.4        promises_1.2.0.1  crayon_1.4.1     
+[57] haven_2.3.1       hms_1.0.0         knitr_1.37        ps_1.6.0         
+[61] pillar_1.6.0      ggsignif_0.6.1    reprex_2.0.0      glue_1.4.2       
+[65] evaluate_0.14     data.table_1.13.0 modelr_0.1.8      vctrs_0.3.7      
+[69] httpuv_1.5.5      cellranger_1.1.0  gtable_0.3.0      assertthat_0.2.1 
+[73] xfun_0.29         openxlsx_4.2.3    broom_0.7.6       rstatix_0.7.0    
+[77] later_1.1.0.1     viridisLite_0.4.0 workflowr_1.6.2   ellipsis_0.3.1   </code></pre>
 </div>
 </div>
 
@@ -1035,6 +1233,9 @@ $(document).ready(function () {
 
 <script>
 $(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
 
     // move toc-ignore selectors from section div to header
     $('div.section.toc-ignore')
